@@ -8,27 +8,24 @@ class Solution:
         slots2.sort()
         s1 = s2 = 0
         n1, n2 = len(slots1), len(slots2)
-        meeting = []
         
         while s1 < n1 and s2 < n2:
             end = min(slots1[s1][1], slots2[s2][1])
             start = max(slots1[s1][0], slots2[s2][0])
-			
-			# Tie breaker for determining which pointer to increment
-            if end-start < duration:
-                if slots2[s2][1] < slots1[s1][1]:
-                    s2 += 1
-                elif slots2[s2][1] > slots1[s1][1]:
-                    s1 += 1
-                else:
-				    # fallback if both end times are equal, could also be s1
-                    s2 += 1
-                    
+
+            if end-start>=duration:
+                return [start, start+duration]
+
+            if slots2[s2][1] < slots1[s1][1]:
+                s2 += 1
+            elif slots2[s2][1] > slots1[s1][1]:
+                s1 += 1
             else:
-                meeting = [start, start+duration]
-                break
-        
-        return meeting
+                # fallback if both end times are equal, could also be s1
+                s1 += 1
+                s2 += 1
+
+        return []
 
 
 def checkList(list1: List[int], list2: List[int]) -> bool:
@@ -66,5 +63,5 @@ class TestStringMethods(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
-# Runtime: 598 ms, faster than 88.66% of Python3 online submissions for Meeting Scheduler.
-# Memory Usage: 21.7 MB, less than 38.72% of Python3 online submissions for Meeting Scheduler.
+# Runtime: 592 ms, faster than 90.15% of Python3 online submissions for Meeting Scheduler.
+# Memory Usage: 21.5 MB, less than 72.61% of Python3 online submissions for Meeting Scheduler.
