@@ -6,7 +6,7 @@ import sys, os
 current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
-from nary_tree import Node, array_to_node, node_to_array
+from utils.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:

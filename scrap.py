@@ -233,11 +233,8 @@ def test(testObj: unittest.TestCase, {test_function_parameters}, expected:int) -
 from heapq import heappop, heappush
 import unittest
 from typing import List, Optional
-import sys, os
-current = os.path.dirname(os.path.realpath(__file__))
-parent = os.path.dirname(current)
-sys.path.append(parent)
-from binary_tree import TreeNode, array_to_treenode
+from utils.binary_tree import TreeNode, array_to_treenode, treenode_to_array
+from utils.nary_tree import Node, array_to_node, node_to_array
 
 {self.code_definition}
         pass

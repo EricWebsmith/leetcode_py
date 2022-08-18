@@ -4,10 +4,7 @@ import unittest
 from typing import List
 import sys
 import os
-current = os.path.dirname(os.path.realpath(__file__))
-parent = os.path.dirname(current)
-sys.path.append(parent)
-from nary_tree import Node, array_to_node, node_to_array
+from utils.nary_tree import Node, array_to_node, node_to_array
 
 
 def test(testObj: unittest.TestCase, nums: List[int]) -> None:

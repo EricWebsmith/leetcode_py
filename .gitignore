@@ -6,4 +6,4 @@ coverage/
 config.py
 config.js
 scrap_config.py
-
+.env

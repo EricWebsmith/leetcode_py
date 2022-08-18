@@ -56,9 +56,6 @@ class TestStringMethods(unittest.TestCase):
         test(self, [[10, 50], [60, 120], [140, 210]],
              [[0, 15], [60, 70]], 12, [])
 
-    # def test_3(self):
-    #     test(self, [[3, 2], [4, 3]], 0)
-
 
 if __name__ == '__main__':
     unittest.main()

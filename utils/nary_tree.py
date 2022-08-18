@@ -7,7 +7,6 @@ class Node:
         self.val = val
         self.children: List[Node] = children if children is not None else []
 
-
 def node_to_array(root: Node) -> List[int]:
     q = Queue()
 
