@@ -1,3 +1,4 @@
+
 from heapq import heappop, heappush
 import unittest
 from typing import List
@@ -6,12 +7,12 @@ import os
 current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
-from binary_tree import TreeNode, array_to_treenode, treenode_to_array
+from nary_tree import Node, array_to_node, node_to_array
 
 
 def test(testObj: unittest.TestCase, nums: List[int]) -> None:
-    root = array_to_treenode(nums)
-    actual = treenode_to_array(root)
+    root = array_to_node(nums)
+    actual = node_to_array(root)
 
     testObj.assertEqual(actual, nums)
 
@@ -19,16 +20,17 @@ def test(testObj: unittest.TestCase, nums: List[int]) -> None:
 class TestStringMethods(unittest.TestCase):
 
     def test_1(self):
-        test(self,  [1, 2, 3, 4, 5])
+        test(self,  [1, None, 3, 2, 4, None, 5, 6])
 
     def test_2(self):
         test(self,  [1, None, 2])
 
     def test_3(self):
-        test(self,  [1, 2, 2, 3, 4, 4, 3])
+        test(self,  [1, None, 2, 3, 4, 5, None, None, 6, 7, None, 8, None,
+             9, 10, None, None, 11, None, 12, None, 13, None, None, 14])
 
     def test_4(self):
-        test(self,  [1, 2, 2, None, 3, None, 3])
+        test(self,  [1, None, 2, 2, None, 3, None, 3])
 
 
 if __name__ == '__main__':

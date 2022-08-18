@@ -163,6 +163,7 @@ class Scraper:
         code_definitions = json.loads(question.code_definition)
         self.code_definition = [
             d for d in code_definitions if d['value'] == 'python3'][0]['defaultCode']
+        self.remove_comments()
         self.extract_definition_for()
         self.parse_function_code()
         self.html = etree.HTML(question.content)
@@ -170,6 +171,22 @@ class Scraper:
         self.parse_test_function_code()
         self.generate_code()
         # return self.code
+
+    def remove_comments(self):
+        lines = self.code_definition.split('\n')
+        lines = [line.strip('\n').strip('\r') for line in lines]
+
+        code_definition = ''
+
+        is_comment = False
+        for line in lines:
+            if line.startswith('"""'):
+                is_comment = not is_comment
+
+            if not is_comment and not line.startswith('"""'):
+                code_definition += line + '\n'
+        print(code_definition)
+        self.code_definition = code_definition
 
     def extract_definition_for(self):
         lines = self.code_definition.split('\n')
@@ -179,7 +196,7 @@ class Scraper:
         definition_for = ''
         is_definition_for = False
         for line in lines:
-            if line.startswith('# Definition for'):
+            if line.startswith('#'):
                 is_definition_for = True
             if is_definition_for and not line.startswith('#'):
                 is_definition_for = False
