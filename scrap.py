@@ -119,6 +119,8 @@ class Scraper:
         input_string = input_string.strip()
         input_string = input_string.replace('\n', ', ')
         input_string = re.sub('\\bnull\\b', 'None', input_string)
+        input_string = re.sub('\\bfalse\\b', 'False', input_string)
+        input_string = re.sub('\\btrue\\b', 'True', input_string)
         while '=' in input_string:
             equalAt = input_string.find('=')
             commaAt = equalAt - 1
