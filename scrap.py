@@ -252,8 +252,10 @@ if __name__ == '__main__':
 
 
 title_slug = sys.argv[1]
-title_slug = title_slug.replace('https://leetcode.com/problems/', '')
-title_slug = title_slug.replace('/', '')
+title_slug = re.sub('https://leetcode.c[n|om]/problems/', '', title_slug)
+title_slug = re.sub('https://leetcode.c[n|om]/contest/(bi)?weekly-contest-\d+/problems/', '', title_slug)
+title_slug = title_slug.replace('solution/', '')
+title_slug = title_slug.replace('submissions/', '')
 
 question_type = ''
 if len(sys.argv) >= 3:
