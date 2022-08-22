@@ -30,8 +30,13 @@ import leetcode.auth
 import re
 from lxml import etree
 import json
+from dotenv import load_dotenv
 
-from config import leetcode_session, csrf_token
+env = load_dotenv()
+leetcode_session = env['LEETCODE_SESSION']
+csrf_token = env['CSRF_TOKEN']
+
+# from config import leetcode_session, csrf_token
 
 @dataclass
 class Parameter:
@@ -51,7 +56,7 @@ class CodeGeneratorStrategy(ABC):
         ...
 
 class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
-    def generate_test_function_code(self, scraper: ScraperProtocol):
+    def parse_function_code_common(self, scraper: ScraperProtocol):
         def_at = scraper.code_definition.index('def ')
         open_at = scraper.code_definition.index('(')
         close_at = scraper.code_definition.index(')')
@@ -66,8 +71,27 @@ class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
             scraper.untyped_param_str += paramObj.name+','
         scraper.untyped_param_str = scraper.untyped_param_str.strip(',')
         scraper.function_name = scraper.code_definition[def_at+4:open_at]
-
         scraper.functoin_code = scraper.code_definition
+
+    def generate_test_function_code(self, scraper: ScraperProtocol):
+        test_function_parameters = ''
+        type_changing_code = ''
+        for param in scraper.function_params:
+            if param.type == 'Optional[TreeNode]' or  param.type == 'TreeNode':
+                test_function_parameters += f'{param.name}_arr: List[int], '
+                type_changing_code += f'    {param.name} = array_to_treenode({param.name}_arr)'
+            else:
+                test_function_parameters += f'{param.name}: {param.type}, '
+        test_function_parameters = test_function_parameters.strip().strip(',')
+
+        scraper.test_function_code = f"""
+def test(testObj: unittest.TestCase, {test_function_parameters}, expected:int) -> None:
+    {type_changing_code}
+    so = Solution()
+    actual = so.{scraper.function_name}({scraper.untyped_param_str})
+    testObj.assertEqual(actual, expected)
+        """
+
 
 
 class Scraper:
@@ -92,6 +116,7 @@ class Scraper:
         self.test_case_code = ''
         self.html = None
         self.api_instance = self.get_api_instance(leetcode_session, csrf_token)
+        self.code_generation_strategy: CodeGeneratorStrategy = None
 
     def get_api_instance(self, leetcode_session, csrf_token):
         csrf_token = leetcode.auth.get_csrf_cookie(leetcode_session)
@@ -128,23 +153,7 @@ class Scraper:
     def parse_function_code_design(self):
         pass
 
-    def parse_function_code_common(self):
-        def_at = self.code_definition.index('def ')
-        open_at = self.code_definition.index('(')
-        close_at = self.code_definition.index(')')
-        self.typed_param_str = self.code_definition[open_at+7: close_at]
-        print(self.typed_param_str)
 
-        for param in self.typed_param_str.split(','):
-            param_name_type = param.split(':')
-            print(param_name_type)
-            paramObj = Parameter(param_name_type[0].strip(), param_name_type[1].strip())
-            self.function_params.append(paramObj)
-            self.untyped_param_str += paramObj.name+','
-        self.untyped_param_str = self.untyped_param_str.strip(',')
-        self.function_name = self.code_definition[def_at+4:open_at]
-
-        self.functoin_code = self.code_definition
 
     def parse_test_cases(self, tc):
         tc_string = tc.xpath('string()')
@@ -191,27 +200,35 @@ class Scraper:
             test_case_index += 1
         self.test_case_code = test_case_string
 
+    def select_code_generation_strategry(self):
+        if self.type == '' and 'Design' in self.title:
+            self.type = 'Design'
+            self.code_generation_strategy = CodeGeneratorCommonStrategy()
+            print("It is a design question.")
+        elif self.type == '':
+            self.type = 'Common'
+            self.code_generation_strategy = CodeGeneratorCommonStrategy()
+
     def __call__(self, title_slug, type):
         self.title_slug = title_slug
         self.type = type
         question = self.get_detail(title_slug)
         self.id = question.question_frontend_id
         self.title = question.title
-        if self.type == '' and 'Design' in self.title:
-            self.type = 'Design'
-            print("It is a design question.")
-        elif self.type == '':
-            self.type = 'Common'
+        self.select_code_generation_strategry()
 
         code_definitions = json.loads(question.code_definition)
         self.code_definition = [
             d for d in code_definitions if d['value'] == 'python3'][0]['defaultCode']
         self.remove_comments()
         self.extract_definition_for()
+        
         self.parse_function_code()
+        # self.code_generation_strategy.generate_test_function_code(self)
         self.html = etree.HTML(question.content)
         self.generate_test_case_code()
         self.parse_test_function_code()
+        self.code_generation_strategy.generate_test_function_code(self)
         self.generate_code()
 
     def remove_comments(self):
