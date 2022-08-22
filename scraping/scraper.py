@@ -1,113 +1,41 @@
 
-# install:
-#
-# pip install python-leetcode
-#
-# url: https://pypi.org/project/python-leetcode/
-#
-# use:
-# ```
-# python scrap.py title_slug
-# ```
-# you can find title_slug from url.
-# like
-# https://leetcode.com/problems/sum-of-mutated-array-closest-to-target/
-# slug is "sum-of-mutated-array-closest-to-target"
-# ```
-# python scrap.py "sum-of-mutated-array-closest-to-target"
-# ```
-# you should create config.py yourself.
-# it contains only the following two variables.
-# open the following url from chrome to check the following two variable
-# chrome://settings/cookies/detail?site=leetcode.com
 
-from abc import ABC, abstractmethod
 import sys
-from dataclasses import dataclass
-from typing import Protocol
+from typing import List
 import leetcode
 import leetcode.auth
 import re
 from lxml import etree
 import json
-from dotenv import load_dotenv
+from dotenv import dotenv_values
+from parameter import Parameter
+from code_generator_strategy import CodeGeneratorStrategy
+from code_generator_common_strategy import CodeGeneratorCommonStrategy
+from code_generator_design_strategy import CodeGeneratorDesignStrategy
 
-env = load_dotenv()
+
+env = dotenv_values()
 leetcode_session = env['LEETCODE_SESSION']
 csrf_token = env['CSRF_TOKEN']
 
-# from config import leetcode_session, csrf_token
-
-@dataclass
-class Parameter:
-    name: str
-    type: str
-
-class ScraperProtocol(Protocol):
-    code_definition: str
-    function_name: str
-    typed_param_str: str
-    untyped_param_str: str
-    functoin_code: str
-
-class CodeGeneratorStrategy(ABC):
-    @abstractmethod
-    def generate_test_function_code(self, scraper: ScraperProtocol):
-        ...
-
-class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
-    def parse_function_code_common(self, scraper: ScraperProtocol):
-        def_at = scraper.code_definition.index('def ')
-        open_at = scraper.code_definition.index('(')
-        close_at = scraper.code_definition.index(')')
-        scraper.typed_param_str = scraper.code_definition[open_at+7: close_at]
-        print(scraper.typed_param_str)
-
-        for param in scraper.typed_param_str.split(','):
-            param_name_type = param.split(':')
-            print(param_name_type)
-            paramObj = Parameter(param_name_type[0].strip(), param_name_type[1].strip())
-            scraper.function_params.append(paramObj)
-            scraper.untyped_param_str += paramObj.name+','
-        scraper.untyped_param_str = scraper.untyped_param_str.strip(',')
-        scraper.function_name = scraper.code_definition[def_at+4:open_at]
-        scraper.functoin_code = scraper.code_definition
-
-    def generate_test_function_code(self, scraper: ScraperProtocol):
-        test_function_parameters = ''
-        type_changing_code = ''
-        for param in scraper.function_params:
-            if param.type == 'Optional[TreeNode]' or  param.type == 'TreeNode':
-                test_function_parameters += f'{param.name}_arr: List[int], '
-                type_changing_code += f'    {param.name} = array_to_treenode({param.name}_arr)'
-            else:
-                test_function_parameters += f'{param.name}: {param.type}, '
-        test_function_parameters = test_function_parameters.strip().strip(',')
-
-        scraper.test_function_code = f"""
-def test(testObj: unittest.TestCase, {test_function_parameters}, expected:int) -> None:
-    {type_changing_code}
-    so = Solution()
-    actual = so.{scraper.function_name}({scraper.untyped_param_str})
-    testObj.assertEqual(actual, expected)
-        """
-
-
-
 class Scraper:
-    def __init__(self, problem_type):
+    def __init__(self):
         self.headers = {}
         self.title = ''
         self.id = ''
         self.title_slug = ''
-        self.problem_type = problem_type
+        self.problem_type = ''
         self.code_definition = ''
         self.content = ''
+        self.classname = ''
         self.functoin_code = ''
+        # common 
         self.function_name = ''
+        # design
+        self.function_names: List[str] = []
         self.typed_param_str = ''
         self.untyped_param_str = ''
-        self.function_params = []
+        self.function_params: List[Parameter] = []
         self.function_return_type = ''
         self.definition_for = ''
         self.test_function_code = ''
@@ -150,11 +78,6 @@ class Scraper:
         result = self.api_instance.graphql_post(body=graphql_request)
         return result.data.question
 
-    def parse_function_code_design(self):
-        pass
-
-
-
     def parse_test_cases(self, tc):
         tc_string = tc.xpath('string()')
         # get input
@@ -196,22 +119,24 @@ class Scraper:
             params = self.parse_test_cases(tc)
             if params == None:
                 continue
-            test_case_string += f"\n    def test_{test_case_index}(self):\n        test(self{params})\n"
+            params = params.strip(',')
+            test_case_string += f"\n    def test_{test_case_index}(self):\n        test(self, {params})\n"
+            test_case_string
             test_case_index += 1
         self.test_case_code = test_case_string
 
     def select_code_generation_strategry(self):
-        if self.type == '' and 'Design' in self.title:
-            self.type = 'Design'
-            self.code_generation_strategy = CodeGeneratorCommonStrategy()
+        if self.problem_type == 'Design' or 'Design' in self.title:
+            self.problem_type = 'Design'
+            self.code_generation_strategy = CodeGeneratorDesignStrategy()
             print("It is a design question.")
-        elif self.type == '':
-            self.type = 'Common'
+        elif self.problem_type == '':
+            self.problem_type = 'Common'
             self.code_generation_strategy = CodeGeneratorCommonStrategy()
 
-    def __call__(self, title_slug, type):
+    def __call__(self, title_slug, problem_type):
         self.title_slug = title_slug
-        self.type = type
+        self.problem_type = problem_type
         question = self.get_detail(title_slug)
         self.id = question.question_frontend_id
         self.title = question.title
@@ -221,13 +146,10 @@ class Scraper:
         self.code_definition = [
             d for d in code_definitions if d['value'] == 'python3'][0]['defaultCode']
         self.remove_comments()
-        self.extract_definition_for()
-        
-        self.parse_function_code()
-        # self.code_generation_strategy.generate_test_function_code(self)
+        self.get_classname()
+        self.code_generation_strategy.parse_function_code(self)
         self.html = etree.HTML(question.content)
         self.generate_test_case_code()
-        self.parse_test_function_code()
         self.code_generation_strategy.generate_test_function_code(self)
         self.generate_code()
 
@@ -242,67 +164,23 @@ class Scraper:
             if line.startswith('"""'):
                 is_comment = not is_comment
 
-            if not is_comment and not line.startswith('"""'):
+            if not is_comment and not line.startswith('"""') and not line.startswith('#'):
                 code_definition += line + '\n'
         print(code_definition)
         self.code_definition = code_definition
 
-    def extract_definition_for(self):
-        lines = self.code_definition.split('\n')
-        lines = [line.strip('\n').strip('\r') for line in lines]
-
-        code_definition = ''
-        definition_for = ''
-        is_definition_for = False
-        for line in lines:
-            if line.startswith('#'):
-                is_definition_for = True
-            if is_definition_for and not line.startswith('#'):
-                is_definition_for = False
-
-            if is_definition_for:
-                definition_for += line + '\n'
-            else:
-                code_definition += line + '\n'
-        self.definition_for = definition_for
-        self.code_definition = code_definition
-
-    def parse_test_function_code(self):
-        if self.problem_type == 'design':
-            self.parse_test_function_code_design()
-        else:
-            self.parse_test_function_code_common()
-    
-    def parse_test_function_code_design(self):
-        pass
-
-    def parse_test_function_code_common(self):
-
-        test_function_parameters = ''
-        type_changing_code = ''
-        for param in self.function_params:
-            if param.type == 'Optional[TreeNode]' or  param.type == 'TreeNode':
-                test_function_parameters += f'{param.name}_arr: List[int], '
-                type_changing_code += f'    {param.name} = array_to_treenode({param.name}_arr)'
-            else:
-                test_function_parameters += f'{param.name}: {param.type}, '
-        test_function_parameters = test_function_parameters.strip().strip(',')
-
-        self.test_function_code = f"""
-def test(testObj: unittest.TestCase, {test_function_parameters}, expected:int) -> None:
-    {type_changing_code}
-    so = Solution()
-    actual = so.{self.function_name}({self.untyped_param_str})
-    testObj.assertEqual(actual, expected)
-        """
+    def get_classname(self):
+        class_at = self.code_definition.index('class')
+        colon_at = self.code_definition.index(':', class_at)
+        self.classname = self.code_definition[class_at+6:colon_at]
 
     def generate_code(self):
         self.code = f"""
 from heapq import heappop, heappush
 import unittest
 from typing import List, Optional
-from utils.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from utils.nary_tree import Node, array_to_node, node_to_array
+from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
+from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 {self.code_definition}
         pass
@@ -317,20 +195,21 @@ if __name__ == '__main__':
         """
 
 
-title_slug = sys.argv[1]
+title_slug = sys.argv[1] if len(sys.argv) >= 2 else 'time-based-key-value-store'
 title_slug = re.sub('https://leetcode.c[n|om]/problems/', '', title_slug)
 title_slug = re.sub('https://leetcode.c[n|om]/contest/(bi)?weekly-contest-\d+/problems/', '', title_slug)
 title_slug = title_slug.replace('solution/', '')
 title_slug = title_slug.replace('submissions/', '')
 
-question_type = ''
+problem_type = ''
 if len(sys.argv) >= 3:
-    question_type = sys.argv[2]
+    problem_type = sys.argv[2]
 
 scraper = Scraper()
-scraper(title_slug, question_type)
+scraper(title_slug, problem_type)
 
 with open(f'test/{scraper.id}. {scraper.title}.test.py', mode='w') as f:
     f.write(scraper.code)
 
 print(f'{scraper.id}. {scraper.title} done')
+

@@ -5,8 +5,8 @@ from pickle import FALSE
 import unittest
 from typing import List, Optional
 from collections import Counter, defaultdict
-from utils.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from utils.nary_tree import Node, array_to_node, node_to_array
+from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
+from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 class Solution:
     def isPossible(self, nums: List[int]) -> bool:

@@ -6,35 +6,31 @@ from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 class Solution:
-    def isPowerOfFour(self, n: int) -> bool:
-        if n<1:
-            return False
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
         
-        if n == 1:
-            return True
 
-        return (n+3) == (n|3)
 
-def test(testObj: unittest.TestCase, n: int, expected:int) -> None:
+        pass
+
+
+def test(testObj: unittest.TestCase, nums: List[int], target: int, expected:int) -> None:
     
     so = Solution()
-    actual = so.isPowerOfFour(n)
+    actual = so.twoSum(nums,target)
     testObj.assertEqual(actual, expected)
         
 
 class TestStringMethods(unittest.TestCase):
     
     def test_1(self):
-        test(self,  16, True)
+        test(self,  [2,7,11,15],  9, [0,1])
 
     def test_2(self):
-        test(self,  5, False)
+        test(self,  [3,2,4],  6, [1,2])
 
     def test_3(self):
-        test(self,  1, True)
+        test(self,  [3,3],  6, [0,1])
     
-    def test_4(self):
-        test(self,  32, True)
 
 if __name__ == '__main__':
     unittest.main()

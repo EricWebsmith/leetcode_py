@@ -1,4 +1,3 @@
-from tkinter.tix import Tree
 from typing import List, Optional
 
 class TreeNode:

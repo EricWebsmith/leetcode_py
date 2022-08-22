@@ -7,7 +7,7 @@ import os
 current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
-from utils.binary_tree import TreeNode
+from data_structure.binary_tree import TreeNode
 
 class Solution:
 
