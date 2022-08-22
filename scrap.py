@@ -21,8 +21,10 @@
 # open the following url from chrome to check the following two variable
 # chrome://settings/cookies/detail?site=leetcode.com
 
+from abc import ABC, abstractmethod
 import sys
 from dataclasses import dataclass
+from typing import Protocol
 import leetcode
 import leetcode.auth
 import re
@@ -36,13 +38,45 @@ class Parameter:
     name: str
     type: str
 
+class ScraperProtocol(Protocol):
+    code_definition: str
+    function_name: str
+    typed_param_str: str
+    untyped_param_str: str
+    functoin_code: str
+
+class CodeGeneratorStrategy(ABC):
+    @abstractmethod
+    def generate_test_function_code(self, scraper: ScraperProtocol):
+        ...
+
+class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
+    def generate_test_function_code(self, scraper: ScraperProtocol):
+        def_at = scraper.code_definition.index('def ')
+        open_at = scraper.code_definition.index('(')
+        close_at = scraper.code_definition.index(')')
+        scraper.typed_param_str = scraper.code_definition[open_at+7: close_at]
+        print(scraper.typed_param_str)
+
+        for param in scraper.typed_param_str.split(','):
+            param_name_type = param.split(':')
+            print(param_name_type)
+            paramObj = Parameter(param_name_type[0].strip(), param_name_type[1].strip())
+            scraper.function_params.append(paramObj)
+            scraper.untyped_param_str += paramObj.name+','
+        scraper.untyped_param_str = scraper.untyped_param_str.strip(',')
+        scraper.function_name = scraper.code_definition[def_at+4:open_at]
+
+        scraper.functoin_code = scraper.code_definition
+
+
 class Scraper:
-    def __init__(self):
+    def __init__(self, problem_type):
         self.headers = {}
         self.title = ''
         self.id = ''
         self.title_slug = ''
-        self.type = type
+        self.problem_type = problem_type
         self.code_definition = ''
         self.content = ''
         self.functoin_code = ''
@@ -91,14 +125,19 @@ class Scraper:
         result = self.api_instance.graphql_post(body=graphql_request)
         return result.data.question
 
-    def parse_function_code(self):
+    def parse_function_code_design(self):
+        pass
+
+    def parse_function_code_common(self):
         def_at = self.code_definition.index('def ')
         open_at = self.code_definition.index('(')
         close_at = self.code_definition.index(')')
         self.typed_param_str = self.code_definition[open_at+7: close_at]
+        print(self.typed_param_str)
 
         for param in self.typed_param_str.split(','):
             param_name_type = param.split(':')
+            print(param_name_type)
             paramObj = Parameter(param_name_type[0].strip(), param_name_type[1].strip())
             self.function_params.append(paramObj)
             self.untyped_param_str += paramObj.name+','
@@ -136,6 +175,8 @@ class Scraper:
         output_string = output_string.strip(':')
         output_string = output_string.strip()
         output_string = re.sub('\\bnull\\b', 'None', output_string)
+        output_string = re.sub('\\bfalse\\b', 'False', output_string)
+        output_string = re.sub('\\btrue\\b', 'True', output_string)
         return input_string+', '+output_string
 
     def generate_test_case_code(self):
@@ -172,7 +213,6 @@ class Scraper:
         self.generate_test_case_code()
         self.parse_test_function_code()
         self.generate_code()
-        # return self.code
 
     def remove_comments(self):
         lines = self.code_definition.split('\n')
@@ -211,6 +251,15 @@ class Scraper:
         self.code_definition = code_definition
 
     def parse_test_function_code(self):
+        if self.problem_type == 'design':
+            self.parse_test_function_code_design()
+        else:
+            self.parse_test_function_code_common()
+    
+    def parse_test_function_code_design(self):
+        pass
+
+    def parse_test_function_code_common(self):
 
         test_function_parameters = ''
         type_changing_code = ''
@@ -225,8 +274,8 @@ class Scraper:
         self.test_function_code = f"""
 def test(testObj: unittest.TestCase, {test_function_parameters}, expected:int) -> None:
     {type_changing_code}
-    s = Solution()
-    actual = s.{self.function_name}({self.untyped_param_str})
+    so = Solution()
+    actual = so.{self.function_name}({self.untyped_param_str})
     testObj.assertEqual(actual, expected)
         """
 
