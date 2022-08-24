@@ -29,6 +29,7 @@ class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
             else:
                 test_function_parameters += f'{param.name}: {param.type}, '
         test_function_parameters = test_function_parameters.strip().strip(',')
+        type_changing_code = type_changing_code.strip()
 
         scraper.test_function_code = f"""
 def test(testObj: unittest.TestCase, {test_function_parameters}, expected:int) -> None:

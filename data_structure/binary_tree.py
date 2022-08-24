@@ -7,6 +7,9 @@ class TreeNode:
         self.right = right
 
 def array_to_treenode(arr: List[int]) -> TreeNode:
+    if len(arr) == 0:
+        return None
+
     root = TreeNode(arr[0])
     q = [root]
     l = len(q)
