@@ -1,6 +1,5 @@
-
-
 import sys
+import os
 from typing import List
 import leetcode
 import leetcode.auth
@@ -13,6 +12,8 @@ from code_generator_strategy import CodeGeneratorStrategy
 from code_generator_common_strategy import CodeGeneratorCommonStrategy
 from code_generator_design_strategy import CodeGeneratorDesignStrategy
 
+DESIGN = 'DESIGN'
+COMMON = 'COMMON'
 
 env = dotenv_values()
 leetcode_session = env['LEETCODE_SESSION']
@@ -126,17 +127,17 @@ class Scraper:
         self.test_case_code = test_case_string
 
     def select_code_generation_strategry(self):
-        if self.problem_type == 'Design' or 'Design' in self.title:
-            self.problem_type = 'Design'
+        if self.problem_type == DESIGN or DESIGN in self.title.upper():
+            self.problem_type = DESIGN
             self.code_generation_strategy = CodeGeneratorDesignStrategy()
             print("It is a design question.")
         elif self.problem_type == '':
-            self.problem_type = 'Common'
+            self.problem_type = COMMON
             self.code_generation_strategy = CodeGeneratorCommonStrategy()
 
-    def __call__(self, title_slug, problem_type):
+    def __call__(self, title_slug:str, problem_type:str):
         self.title_slug = title_slug
-        self.problem_type = problem_type
+        self.problem_type = problem_type.upper()
         question = self.get_detail(title_slug)
         self.id = question.question_frontend_id
         self.title = question.title
@@ -179,6 +180,7 @@ class Scraper:
 from heapq import heappop, heappush
 import unittest
 from typing import List, Optional
+from math import sqrt
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
@@ -207,6 +209,9 @@ if len(sys.argv) >= 3:
 
 scraper = Scraper()
 scraper(title_slug, problem_type)
+
+if not os.path.exists('test'):
+    os.mkdir('test')
 
 with open(f'test/{scraper.id}. {scraper.title}.test.py', mode='w') as f:
     f.write(scraper.code)

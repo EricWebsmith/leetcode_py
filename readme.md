@@ -18,3 +18,10 @@ or
 ```python
 mod = 10 ** 9 + 7
 ```
+
+# Using Numpy
+
+Don't forget to make the array int.
+```
+np.zeros([4, m, n], dtype=int)
+```

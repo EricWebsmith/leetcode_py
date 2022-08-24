@@ -40,7 +40,7 @@ class CodeGeneratorDesignStrategy(CodeGeneratorStrategy):
         scraper.test_function_code = f"""
 def test(testObj: unittest.TestCase, actions:List, params:List , expected:List) -> None:
     n = len(actions)
-    obj = {scraper.classname}()
+    obj = {scraper.classname}(*params[0])
     for i in range(1, n):
         match actions[i]:
             {cases}

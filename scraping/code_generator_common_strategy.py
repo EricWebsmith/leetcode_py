@@ -9,11 +9,9 @@ class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
         open_at = scraper.code_definition.index('(')
         close_at = scraper.code_definition.index(')')
         scraper.typed_param_str = scraper.code_definition[open_at+7: close_at]
-        print(scraper.typed_param_str)
 
         for param in scraper.typed_param_str.split(','):
             param_name_type = param.split(':')
-            print(param_name_type)
             paramObj = Parameter(param_name_type[0].strip(), param_name_type[1].strip())
             scraper.function_params.append(paramObj)
             scraper.untyped_param_str += paramObj.name+','
