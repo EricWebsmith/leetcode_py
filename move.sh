@@ -1,1 +1,1 @@
-mv ./test/* ./archive/
+mv ./test/*.py ./archive/
