@@ -1,15 +1,10 @@
-
-from heapq import heappop, heappush
 import unittest
+from heapq import heappop, heappush
 from typing import List
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
-def test(testObj: unittest.TestCase, nums: List[int]) -> None:
-    root = array_to_node(nums)
-    actual = node_to_array(root)
 
-    testObj.assertEqual(actual, nums)
 
 
 class TestStringMethods(unittest.TestCase):
@@ -27,6 +22,12 @@ class TestStringMethods(unittest.TestCase):
     def test_4(self):
         test(self,  [1, None, 2, 2, None, 3, None, 3])
 
+
+def test(testObj: unittest.TestCase, nums: List[int]) -> None:
+    root = array_to_node(nums)
+    actual = node_to_array(root)
+
+    testObj.assertEqual(actual, nums)
 
 if __name__ == '__main__':
     unittest.main()

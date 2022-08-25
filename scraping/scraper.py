@@ -189,13 +189,15 @@ from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 {self.test_function_code}
 
-class TestStringMethods(unittest.TestCase):
+class TestClass(unittest.TestCase):
     {self.test_case_code}    
 
 if __name__ == '__main__':
     unittest.main()
-        """
 
+'''
+'''
+"""
 
 title_slug = sys.argv[1] if len(sys.argv) >= 2 else 'time-based-key-value-store'
 title_slug = re.sub('https://leetcode.c[n|om]/problems/', '', title_slug)
@@ -213,8 +215,14 @@ scraper(title_slug, problem_type)
 if not os.path.exists('test'):
     os.mkdir('test')
 
-with open(f'test/{scraper.id}. {scraper.title}.test.py', mode='w') as f:
+title_slug_fixed = title_slug.replace('-', '_')
+
+path = f'test/lc_{scraper.id}_{title_slug_fixed}.py'
+
+with open(path, mode='w') as f:
     f.write(scraper.code)
 
 print(f'{scraper.id}. {scraper.title} done')
 
+import subprocess
+subprocess.call(['code', path])
