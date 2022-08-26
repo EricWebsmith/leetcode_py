@@ -5,6 +5,9 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+    
+    def __repr__(self) -> str:
+        return str(self.val)
 
 def array_to_treenode(arr: List[int]) -> TreeNode:
     if len(arr) == 0:
@@ -62,3 +65,32 @@ def treenode_to_array(root: Optional[TreeNode]) -> List[int]:
         arr = arr[:-1]
 
     return arr
+
+def get_treenode_by_val(root: TreeNode, val: int):
+    ans = None
+    def dfs(node):
+        if node is None:
+            return
+        
+        if node.val == val:
+            ans = node
+            return
+        
+        dfs(node.left)
+        dfs(node.right)
+    dfs(root)
+    return ans
+
+def get_treenodes_by_vals(root: TreeNode, vals: List[int]):
+    ans = []
+    def dfs(node):
+        if node is None:
+            return
+        
+        if node.val in vals:
+            ans.append(node)
+        
+        dfs(node.left)
+        dfs(node.right)
+    dfs(root)
+    return ans
