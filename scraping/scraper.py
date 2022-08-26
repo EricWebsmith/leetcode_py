@@ -176,8 +176,7 @@ class Scraper:
         self.classname = self.code_definition[class_at+6:colon_at]
 
     def generate_code(self):
-        self.code = f"""
-from heapq import heappop, heappush
+        self.code = f"""from heapq import heappop, heappush
 import unittest
 from typing import List, Optional
 from math import sqrt
