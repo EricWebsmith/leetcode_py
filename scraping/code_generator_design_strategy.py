@@ -42,6 +42,7 @@ def test(testObj: unittest.TestCase, actions:List, params:List , expected:List) 
     n = len(actions)
     obj = {scraper.classname}(*params[0])
     for i in range(1, n):
+        print(i, actions[i], params[i], expected[i])
         match actions[i]:
             {cases}
         """
