@@ -8,3 +8,6 @@ config.js
 scrap_config.py
 .env
 t.py
+t.java
+t.cs
+t.cpp
