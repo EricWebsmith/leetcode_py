@@ -1,5 +1,5 @@
 from collections import defaultdict
-from typing import List, Optional, Set, Dict
+from typing import Any, List, Optional, Set, Dict
 
 # for graph
 # it is better to use dict, in stead of list, because the  (0 based, 1 based?) is error-prone.
@@ -8,6 +8,14 @@ def get_edges(k: int, from_tos: List[List[int]]) -> Dict[int, Set[int]]:
     edges = {i+1: set() for i in range(k)}
     for from_, to_ in from_tos:
         edges[from_].add(to_)
+    
+    return edges
+
+def get_bidirectional_edges(vetices: List, from_tos: List[List]) -> Dict[Any, Set]:
+    edges = {v: set() for v in vetices}
+    for from_, to_ in from_tos:
+        edges[from_].add(to_)
+        edges[to_].add(from_)
     
     return edges
 
