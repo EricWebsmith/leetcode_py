@@ -200,10 +200,11 @@ if __name__ == '__main__':
 """
 
 title_slug = sys.argv[1] if len(sys.argv) >= 2 else 'time-based-key-value-store'
-title_slug = re.sub('https://leetcode.c[n|om]/problems/', '', title_slug)
-title_slug = re.sub('https://leetcode.c[n|om]/contest/(bi)?weekly-contest-\d+/problems/', '', title_slug)
+title_slug = re.sub('https://leetcode[.]c(n|om)/problems/', '', title_slug)
+title_slug = re.sub('https://leetcode[.]c(n|om)/contest/(bi)?weekly-contest-\d+/problems/', '', title_slug)
 title_slug = title_slug.replace('solution/', '')
 title_slug = title_slug.replace('submissions/', '')
+title_slug = re.sub('/$', '', title_slug)
 
 problem_type = ''
 if len(sys.argv) >= 3:
