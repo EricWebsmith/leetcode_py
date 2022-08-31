@@ -1,13 +1,10 @@
-from typing import List, Optional
-
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-    
-    def __repr__(self) -> str:
-        return str(self.val)
+from heapq import heappop, heappush
+import unittest
+from typing import List, Optional, Dict, Set
+from math import sqrt
+from queue import Queue
+from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
+from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 def array_to_treenode(arr: List[int]) -> TreeNode:
     if len(arr) == 0:
@@ -66,31 +63,44 @@ def treenode_to_array(root: Optional[TreeNode]) -> List[int]:
 
     return arr
 
-def get_treenode_by_val(root: TreeNode, val: int):
-    ans = None
-    def dfs(node):
-        if node is None:
-            return
-        
-        if node.val == val:
-            ans = node
-            return
-        
-        dfs(node.left)
-        dfs(node.right)
-    dfs(root)
-    return ans
+class Codec:
 
-def get_treenodes_by_vals(root: TreeNode, vals: List[int]):
-    ans = []
-    def dfs(node):
-        if node is None:
-            return
+    def serialize(self, root: Optional[TreeNode]) -> str:
+        """Encodes a tree to a single string.
+        """
+        arr = treenode_to_array(root)
+        return str(arr)
+
+    def deserialize(self, data: str) -> Optional[TreeNode]:
+        """Decodes your encoded data to tree.
+        """
+        arr = eval(data)
+        root = array_to_treenode(arr)
+        return root
+
+
+def test(testObj: unittest.TestCase, root_arr: List[int], expected:int) -> None:
+    root = array_to_treenode(root_arr)
+
+    so = Codec()
+    s = so.serialize(root)
+    root2 = so.deserialize(s)
+    actual = treenode_to_array(root2)
+    testObj.assertEqual(actual, expected)
         
-        if node.val in vals:
-            ans.append(node)
-        
-        dfs(node.left)
-        dfs(node.right)
-    dfs(root)
-    return ans
+
+class TestClass(unittest.TestCase):
+    
+    def test_1(self):
+        test(self,   [2,1,3], [2,1,3])
+
+    def test_2(self):
+        test(self,   [], [])
+    
+
+if __name__ == '__main__':
+    unittest.main()
+
+'''
+
+'''
