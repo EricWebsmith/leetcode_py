@@ -6,6 +6,7 @@ from queue import Queue
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
+
 def array_to_treenode(arr: List[int]) -> TreeNode:
     if len(arr) == 0:
         return None
@@ -15,7 +16,7 @@ def array_to_treenode(arr: List[int]) -> TreeNode:
     l = len(q)
     index = 1
 
-    while l>0 and index<len(arr):
+    while l > 0 and index < len(arr):
         for i in range(0, l):
             node = q.pop(0)
 
@@ -27,9 +28,9 @@ def array_to_treenode(arr: List[int]) -> TreeNode:
             else:
                 node.left = TreeNode(arr[index])
             q.append(node.left)
-            index+=1
+            index += 1
 
-            if index==len(arr):
+            if index == len(arr):
                 break
 
             if arr[index] == None:
@@ -37,18 +38,19 @@ def array_to_treenode(arr: List[int]) -> TreeNode:
             else:
                 node.right = TreeNode(arr[index])
             q.append(node.right)
-            index+=1
+            index += 1
 
-            if index==len(arr):
+            if index == len(arr):
                 break
         l = len(q)
-    
+
     return root
+
 
 def treenode_to_array(root: Optional[TreeNode]) -> List[int]:
     q = [root]
     arr = []
-    while len(q)>0:
+    while len(q) > 0:
         for i in range(0, len(q)):
             node = q.pop(0)
             if node is None:
@@ -58,10 +60,11 @@ def treenode_to_array(root: Optional[TreeNode]) -> List[int]:
                 q.append(node.left)
                 q.append(node.right)
 
-    while len(arr)>0 and arr[-1] == None:
+    while len(arr) > 0 and arr[-1] == None:
         arr = arr[:-1]
 
     return arr
+
 
 class Codec:
 
@@ -79,7 +82,7 @@ class Codec:
         return root
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], expected:int) -> None:
+def test(testObj: unittest.TestCase, root_arr: List[int], expected: int) -> None:
     root = array_to_treenode(root_arr)
 
     so = Codec()
@@ -87,16 +90,16 @@ def test(testObj: unittest.TestCase, root_arr: List[int], expected:int) -> None:
     root2 = so.deserialize(s)
     actual = treenode_to_array(root2)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,   [2,1,3], [2,1,3])
+        test(self,   [2, 1, 3], [2, 1, 3])
 
     def test_2(self):
         test(self,   [], [])
-    
+
 
 if __name__ == '__main__':
     unittest.main()

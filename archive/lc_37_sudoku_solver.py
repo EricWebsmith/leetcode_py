@@ -6,6 +6,7 @@ from math import sqrt
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
+
 class Solution:
     def __init__(self):
         self.solved = False
@@ -13,13 +14,13 @@ class Solution:
     def solveSudoku(self, board: List[List[str]]) -> None:
         def could_place(d, r, c):
             return not (d in rows[r] or d in columns[c] or d in boxes[box_index(r, c)])
-        
+
         def place_number(d, r, c):
             rows[r][d] += 1
             columns[c][d] += 1
             boxes[box_index(r, c)][d] += 1
             board[r][c] = str(d)
-        
+
         def remove_number(d, r, c):
             del rows[r][d]
             del columns[c][d]
@@ -48,7 +49,7 @@ class Solution:
 
         n = 3
         N = n * n
-        box_index = lambda r, c: (r // n ) * n + c // n
+        def box_index(r, c): return (r // n) * n + c // n
         rows = [defaultdict(int) for i in range(N)]
         columns = [defaultdict(int) for i in range(N)]
         boxes = [defaultdict(int) for i in range(N)]
@@ -63,20 +64,21 @@ class Solution:
         backtrack()
 
 
-def test(testObj: unittest.TestCase, board: List[List[str]], expected:int) -> None:
-    
+def test(testObj: unittest.TestCase, board: List[List[str]], expected: int) -> None:
+
     so = Solution()
     so.solveSudoku(board)
     testObj.assertEqual(board, expected)
-        
+
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,   
-        [["5","3",".",".","7",".",".",".","."],["6",".",".","1","9","5",".",".","."],[".","9","8",".",".",".",".","6","."],["8",".",".",".","6",".",".",".","3"],["4",".",".","8",".","3",".",".","1"],["7",".",".",".","2",".",".",".","6"],[".","6",".",".",".",".","2","8","."],[".",".",".","4","1","9",".",".","5"],[".",".",".",".","8",".",".","7","9"]], 
-        [["5","3","4","6","7","8","9","1","2"],["6","7","2","1","9","5","3","4","8"],["1","9","8","3","4","2","5","6","7"],["8","5","9","7","6","1","4","2","3"],["4","2","6","8","5","3","7","9","1"],["7","1","3","9","2","4","8","5","6"],["9","6","1","5","3","7","2","8","4"],["2","8","7","4","1","9","6","3","5"],["3","4","5","2","8","6","1","7","9"]])
-    
+        test(self,
+             [["5", "3", ".", ".", "7", ".", ".", ".", "."], ["6", ".", ".", "1", "9", "5", ".", ".", "."], [".", "9", "8", ".", ".", ".", ".", "6", "."], ["8", ".", ".", ".", "6", ".", ".", ".", "3"], ["4", ".", ".", "8", ".",
+                                                                                                                                                                                                           "3", ".", ".", "1"], ["7", ".", ".", ".", "2", ".", ".", ".", "6"], [".", "6", ".", ".", ".", ".", "2", "8", "."], [".", ".", ".", "4", "1", "9", ".", ".", "5"], [".", ".", ".", ".", "8", ".", ".", "7", "9"]],
+             [["5", "3", "4", "6", "7", "8", "9", "1", "2"], ["6", "7", "2", "1", "9", "5", "3", "4", "8"], ["1", "9", "8", "3", "4", "2", "5", "6", "7"], ["8", "5", "9", "7", "6", "1", "4", "2", "3"], ["4", "2", "6", "8", "5", "3", "7", "9", "1"], ["7", "1", "3", "9", "2", "4", "8", "5", "6"], ["9", "6", "1", "5", "3", "7", "2", "8", "4"], ["2", "8", "7", "4", "1", "9", "6", "3", "5"], ["3", "4", "5", "2", "8", "6", "1", "7", "9"]])
+
 
 if __name__ == '__main__':
     unittest.main()

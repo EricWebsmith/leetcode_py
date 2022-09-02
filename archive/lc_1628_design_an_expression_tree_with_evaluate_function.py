@@ -3,13 +3,15 @@ import unittest
 from typing import List, Optional
 from math import sqrt
 
-from abc import ABC, abstractmethod 
+from abc import ABC, abstractmethod
+
 
 class Node(ABC):
     @abstractmethod
     # define your fields here
     def evaluate(self) -> int:
         pass
+
 
 class TreeNode(Node):
     def __init__(self) -> None:
@@ -21,6 +23,7 @@ class TreeNode(Node):
 
     def evaluate(self) -> int:
         return self.val
+
 
 class TreeBuilder(object):
     def buildTree(self, postfix: List[str]) -> 'Node':
@@ -36,7 +39,7 @@ class TreeBuilder(object):
                 node.opertion = p
                 node.right = stack.pop()
                 node.left = stack.pop()
-                
+
                 match p:
                     case '+':
                         node.val = node.left.val + node.right.val
@@ -51,21 +54,21 @@ class TreeBuilder(object):
         return stack[0]
 
 
-def test(testObj: unittest.TestCase, postfix:List[str], expected:int) -> None:
+def test(testObj: unittest.TestCase, postfix: List[str], expected: int) -> None:
     obj = TreeBuilder()
     expTree = obj.buildTree(postfix)
     ans = expTree.evaluate()
     testObj.assertEqual(ans, expected)
-        
+
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,   ["3","4","+","2","*","7","/"], 2)
+        test(self,   ["3", "4", "+", "2", "*", "7", "/"], 2)
 
     def test_2(self):
-        test(self,   ["4","5","2","7","+","-","*"], -16)
-    
+        test(self,   ["4", "5", "2", "7", "+", "-", "*"], -16)
+
 
 if __name__ == '__main__':
     unittest.main()

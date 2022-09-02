@@ -1,3 +1,4 @@
+import subprocess
 import sys
 import os
 from typing import List
@@ -19,6 +20,7 @@ env = dotenv_values()
 leetcode_session = env['LEETCODE_SESSION']
 csrf_token = env['CSRF_TOKEN']
 
+
 class Scraper:
     def __init__(self):
         self.headers = {}
@@ -30,7 +32,7 @@ class Scraper:
         self.content = ''
         self.classname = ''
         self.functoin_code = ''
-        # common 
+        # common
         self.function_name = ''
         # design
         self.function_names: List[str] = []
@@ -135,7 +137,7 @@ class Scraper:
             self.problem_type = COMMON
             self.code_generation_strategy = CodeGeneratorCommonStrategy()
 
-    def __call__(self, title_slug:str, problem_type:str):
+    def __call__(self, title_slug: str, problem_type: str):
         self.title_slug = title_slug
         self.problem_type = problem_type.upper()
         question = self.get_detail(title_slug)
@@ -180,7 +182,7 @@ class Scraper:
 import unittest
 from typing import List, Optional, Dict, Set
 from math import sqrt
-from queue import Queue
+from collections import deque
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
@@ -200,9 +202,12 @@ if __name__ == '__main__':
 '''
 """
 
-title_slug = sys.argv[1] if len(sys.argv) >= 2 else 'time-based-key-value-store'
+
+title_slug = sys.argv[1] if len(
+    sys.argv) >= 2 else 'time-based-key-value-store'
 title_slug = re.sub('https://leetcode[.]c(n|om)/problems/', '', title_slug)
-title_slug = re.sub('https://leetcode[.]c(n|om)/contest/(bi)?weekly-contest-\d+/problems/', '', title_slug)
+title_slug = re.sub(
+    'https://leetcode[.]c(n|om)/contest/(bi)?weekly-contest-\d+/problems/', '', title_slug)
 title_slug = title_slug.replace('solution/', '')
 title_slug = title_slug.replace('submissions/', '')
 title_slug = re.sub('/$', '', title_slug)
@@ -226,5 +231,4 @@ with open(path, mode='w') as f:
 
 print(f'{scraper.id}. {scraper.title} done')
 
-import subprocess
 subprocess.call(['code', path])

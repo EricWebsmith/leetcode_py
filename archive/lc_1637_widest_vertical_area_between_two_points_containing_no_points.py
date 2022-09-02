@@ -6,6 +6,7 @@ from math import sqrt
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
+
 class Solution:
     def maxWidthOfVerticalArea(self, points: List[List[int]]) -> int:
         points.sort()
@@ -18,21 +19,21 @@ class Solution:
         return w
 
 
-def test(testObj: unittest.TestCase, points: List[List[int]], expected:int) -> None:
-    
+def test(testObj: unittest.TestCase, points: List[List[int]], expected: int) -> None:
+
     so = Solution()
     actual = so.maxWidthOfVerticalArea(points)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,   [[8,7],[9,9],[7,4],[9,7]], 1)
+        test(self,   [[8, 7], [9, 9], [7, 4], [9, 7]], 1)
 
     def test_2(self):
-        test(self,   [[3,1],[9,0],[1,0],[1,4],[5,3],[8,8]], 3)
-    
+        test(self,   [[3, 1], [9, 0], [1, 0], [1, 4], [5, 3], [8, 8]], 3)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -6,9 +6,10 @@ from queue import Queue
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
+
 class ZigzagIterator:
     def __init__(self, v1: List[int], v2: List[int]):
-        self.v1= v1
+        self.v1 = v1
         self.v2 = v2
         self.n = len(v1) + len(v2)
         v1.reverse()
@@ -28,8 +29,8 @@ class ZigzagIterator:
 
                 if v1_exausted and v2_exausted:
                     break
-                
-                if len(v)>0:
+
+                if len(v) > 0:
                     yield v.pop()
 
     def next(self) -> int:
@@ -43,21 +44,22 @@ class ZigzagIterator:
 def test(testObj: unittest.TestCase, v1: List[int], v2: List[int], expected: List[int]) -> None:
     i = ZigzagIterator(v1, v2)
     actual = []
-    while i.hasNext(): 
+    while i.hasNext():
         actual.append(i.next())
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,   [1,2],  [3,4,5,6], [1,3,2,4,5,6])
+        test(self,   [1, 2],  [3, 4, 5, 6], [1, 3, 2, 4, 5, 6])
 
     def test_2(self):
         test(self,   [1],  [], [1])
 
     def test_3(self):
         test(self,   [],  [1], [1])
+
 
 if __name__ == '__main__':
     unittest.main()

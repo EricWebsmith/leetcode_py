@@ -7,6 +7,7 @@ from math import sqrt
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
+
 class MedianFinder:
 
     def __init__(self):
@@ -22,7 +23,6 @@ class MedianFinder:
             min_in_hi = -heappop(self.hi)
             heappush(self.lo, min_in_hi)
 
-
     def findMedian(self) -> float:
         if len(self.lo) == len(self.hi):
             return (-self.lo[0] + self.hi[0])/2.0
@@ -30,7 +30,7 @@ class MedianFinder:
             return -self.lo[0]
 
 
-def test(testObj: unittest.TestCase, actions:List, params:List , expected:List) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = MedianFinder(*params[0])
     for i in range(1, n):
@@ -39,18 +39,18 @@ def test(testObj: unittest.TestCase, actions:List, params:List , expected:List) 
             case "addNum":
                 actual = obj.addNum(*params[i])
                 testObj.assertEqual(actual, expected[i])
-            
+
             case "findMedian":
                 actual = obj.findMedian(*params[i])
                 testObj.assertEqual(actual, expected[i])
-            
-        
+
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self, ["MedianFinder", "addNum", "addNum", "findMedian", "addNum", "findMedian"], [[], [1], [2], [], [3], []], [None, None, None, 1.5, None, 2.0])
-    
+        test(self, ["MedianFinder", "addNum", "addNum", "findMedian", "addNum", "findMedian"], [
+             [], [1], [2], [], [3], []], [None, None, None, 1.5, None, 2.0])
+
 
 if __name__ == '__main__':
     unittest.main()

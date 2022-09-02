@@ -9,16 +9,17 @@ from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 import itertools
 
+
 class Solution:
     def shipWithinDays(self, weights: List[int], days: int) -> int:
         def get_need_days(mid):
             index = 0
             pre_sum = 0
             need_days = 0
-            while index<n:
+            while index < n:
                 index = bisect_right(pre_sums, pre_sum + mid)
                 pre_sum = pre_sums[index-1]
-                need_days+=1
+                need_days += 1
             return need_days
 
         n = len(weights)
@@ -29,44 +30,44 @@ class Solution:
         while left < right:
             mid = (left + right) >> 1
             need_days = get_need_days(mid)
-            if need_days>days:
+            if need_days > days:
                 left = mid + 1
             else:
                 right = mid
-        
+
         return left
 
 
-def test(testObj: unittest.TestCase, weights: List[int], days: int, expected:int) -> None:
-    
+def test(testObj: unittest.TestCase, weights: List[int], days: int, expected: int) -> None:
+
     so = Solution()
-    actual = so.shipWithinDays(weights,days)
+    actual = so.shipWithinDays(weights, days)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,   [1,2,3,4,5,6,7,8,9,10],  5, 15)
+        test(self,   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],  5, 15)
 
     def test_2(self):
-        test(self,   [3,2,2,4,1,4],  3, 6)
+        test(self,   [3, 2, 2, 4, 1, 4],  3, 6)
 
     def test_3(self):
-        test(self,   [1,2,3,1,1],  4, 3)
-    
+        test(self,   [1, 2, 3, 1, 1],  4, 3)
+
     def test_4(self):
         test(self,   [1],  1, 1)
-    
+
     def test_5(self):
         test(self,   [1, 2, 3, 4, 5],  2, 9)
-    
+
     def test_6(self):
         test(self,   [1, 2, 3, 4, 5],  3, 6)
-    
+
     def test_7(self):
         test(self,   [1, 2, 3, 4, 5],  4, 5)
-    
+
 
 if __name__ == '__main__':
     unittest.main()

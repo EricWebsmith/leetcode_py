@@ -5,6 +5,7 @@ from math import sqrt
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
+
 class Solution:
     def isMatch(self, s: str, p: str) -> bool:
         if s == p == "":
@@ -30,15 +31,15 @@ class Solution:
         return dp[-1]
 
 
-def test(testObj: unittest.TestCase, s: str, p: str, expected:int) -> None:
-    
+def test(testObj: unittest.TestCase, s: str, p: str, expected: int) -> None:
+
     so = Solution()
-    actual = so.isMatch(s,p)
+    actual = so.isMatch(s, p)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
         test(self,   "aa",  "a", False)
 
@@ -47,10 +48,10 @@ class TestClass(unittest.TestCase):
 
     def test_3(self):
         test(self,   "cb",  "?a", False)
-    
+
     def test_4(self):
         test(self,   "adceb", "*a*b", True)
-    
+
 
 if __name__ == '__main__':
     unittest.main()

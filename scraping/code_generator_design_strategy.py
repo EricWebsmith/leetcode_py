@@ -7,8 +7,8 @@ class CodeGeneratorDesignStrategy(CodeGeneratorStrategy):
     def parse_function_code(self, scraper: ScraperProtocol):
 
         def_at = scraper.code_definition.find('def ')
-        while def_at>0:
-        
+        while def_at > 0:
+
             open_at = scraper.code_definition.find('(', def_at)
             function_name = scraper.code_definition[def_at+4:open_at]
             if function_name != '__init__':
@@ -19,7 +19,7 @@ class CodeGeneratorDesignStrategy(CodeGeneratorStrategy):
         test_function_parameters = ''
         type_changing_code = ''
         for param in scraper.function_params:
-            if param.type == 'Optional[TreeNode]' or  param.type == 'TreeNode':
+            if param.type == 'Optional[TreeNode]' or param.type == 'TreeNode':
                 test_function_parameters += f'{param.name}_arr: List[int], '
                 type_changing_code += f'    {param.name} = array_to_treenode({param.name}_arr)'
             else:
@@ -33,9 +33,7 @@ class CodeGeneratorDesignStrategy(CodeGeneratorStrategy):
                 actual = obj.{function_name}(*params[i])
                 testObj.assertEqual(actual, expected[i])
             """
-            cases+=case
-
-
+            cases += case
 
         scraper.test_function_code = f"""
 def test(testObj: unittest.TestCase, actions:List, params:List , expected:List) -> None:

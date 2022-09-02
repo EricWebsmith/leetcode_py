@@ -5,6 +5,7 @@ from math import sqrt
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
+
 class Solution:
     def superEggDrop(self, k: int, n: int) -> int:
         """
@@ -15,7 +16,7 @@ class Solution:
         min j that makes dp(k, j) >= n 
         """
         memo = [[0]*(n + 1) for _ in range(k + 1)]
-        
+
         for j in range(1, n + 1):
             for i in range(1, k + 1):
                 memo[i][j] = memo[i - 1][j - 1] + 1 + memo[i][j - 1]
@@ -24,15 +25,15 @@ class Solution:
         return -1
 
 
-def test(testObj: unittest.TestCase, k: int, n: int, expected:int) -> None:
-    
+def test(testObj: unittest.TestCase, k: int, n: int, expected: int) -> None:
+
     so = Solution()
-    actual = so.superEggDrop(k,n)
+    actual = so.superEggDrop(k, n)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1_2(self):
         test(self,   1,  2, 2)
 
@@ -49,7 +50,7 @@ class TestClass(unittest.TestCase):
         test(self, 2,  4, 3)
 
     def test_2_5(self):
-        test(self, 2,5, 3)
+        test(self, 2, 5, 3)
 
     def test_2_10(self):
         test(self, 2,  10, 4)
@@ -59,7 +60,7 @@ class TestClass(unittest.TestCase):
 
     def test_2_100(self):
         test(self,  2, 100, 14)
-    
+
     def test_2_101(self):
         test(self,  2, 101, 14)
 
@@ -74,37 +75,37 @@ class TestClass(unittest.TestCase):
 
     def test_3_1(self):
         test(self,   3,  1, 1)
-    
+
     def test_3_2(self):
         test(self,   3,  2, 2)
-    
+
     def test_3_3(self):
         test(self,   3,  3, 2)
-    
+
     def test_3_4(self):
         test(self,   3,  4, 3)
-    
+
     def test_3_5(self):
         test(self,   3,  5, 3)
-    
+
     def test_3_6(self):
         test(self,   3,  6, 3)
-    
+
     def test_3_7(self):
         test(self,   3,  7, 3)
-    
+
     def test_3_14(self):
         test(self,   3,  14, 4)
-    
+
     def test_3_100(self):
         test(self,   3,  100, 9)
-    
+
     def test_3_200(self):
         test(self,   3,  200, 11)
-    
+
     def test_3_1000(self):
         test(self,   3,  1000, 19)
-    
+
 
 if __name__ == '__main__':
     unittest.main()

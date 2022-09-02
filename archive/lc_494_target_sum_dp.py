@@ -5,6 +5,7 @@ from math import sqrt
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
+
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
         n = len(nums)
@@ -18,28 +19,29 @@ class Solution:
         for i in range(1, n):
             next = [0] * (2 * total + 1)
             for s in range(-total, total+1):
-                if dp[s+total]>0:
+                if dp[s+total] > 0:
                     next[total+s+nums[i]] += dp[s+total]
                     next[total+s-nums[i]] += dp[s+total]
             dp = next
-        
+
         return dp[total + target]
 
-def test(testObj: unittest.TestCase, nums: List[int], target: int, expected:int) -> None:
-    
+
+def test(testObj: unittest.TestCase, nums: List[int], target: int, expected: int) -> None:
+
     so = Solution()
-    actual = so.findTargetSumWays(nums,target)
+    actual = so.findTargetSumWays(nums, target)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,   [1,1,1,1,1],  3, 5)
+        test(self,   [1, 1, 1, 1, 1],  3, 5)
 
     def test_2(self):
         test(self,   [1],  1, 1)
-    
+
 
 if __name__ == '__main__':
     unittest.main()

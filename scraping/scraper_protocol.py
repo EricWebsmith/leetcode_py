@@ -3,6 +3,7 @@ from typing import Protocol
 from typing import List
 from scraping.parameter import Parameter
 
+
 class ScraperProtocol(Protocol):
     code_definition: str
     classname: str

@@ -25,3 +25,8 @@ Don't forget to make the array int.
 ```
 np.zeros([4, m, n], dtype=int)
 ```
+
+# Queue
+Use collections.deque in stead of queue.Queue. 
+
+https://www.geeksforgeeks.org/difference-between-queue-queue-vs-collections-deque-in-python/

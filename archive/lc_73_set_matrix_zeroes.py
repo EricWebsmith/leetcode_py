@@ -5,6 +5,7 @@ from math import sqrt
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
+
 class Solution:
     def setZeroes(self, matrix: List[List[int]]) -> None:
         """
@@ -19,7 +20,7 @@ class Solution:
                 if matrix[r][c] == 0:
                     rows.append(r)
                     break
-        
+
         cols = []
         for c in range(n):
             for r in range(m):
@@ -30,27 +31,29 @@ class Solution:
         for r in rows:
             for c in range(n):
                 matrix[r][c] = 0
-        
+
         for c in cols:
             for r in range(m):
                 matrix[r][c] = 0
 
 
-def test(testObj: unittest.TestCase, matrix: List[List[int]], expected:int) -> None:
-    
+def test(testObj: unittest.TestCase, matrix: List[List[int]], expected: int) -> None:
+
     so = Solution()
     so.setZeroes(matrix)
     testObj.assertEqual(matrix, expected)
-        
+
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,   [[1,1,1],[1,0,1],[1,1,1]], [[1,0,1],[0,0,0],[1,0,1]])
+        test(self,   [[1, 1, 1], [1, 0, 1], [1, 1, 1]],
+             [[1, 0, 1], [0, 0, 0], [1, 0, 1]])
 
     def test_2(self):
-        test(self,   [[0,1,2,0],[3,4,5,2],[1,3,1,5]], [[0,0,0,0],[0,4,5,0],[0,3,1,0]])
-    
+        test(self,   [[0, 1, 2, 0], [3, 4, 5, 2], [1, 3, 1, 5]],
+             [[0, 0, 0, 0], [0, 4, 5, 0], [0, 3, 1, 0]])
+
 
 if __name__ == '__main__':
     unittest.main()

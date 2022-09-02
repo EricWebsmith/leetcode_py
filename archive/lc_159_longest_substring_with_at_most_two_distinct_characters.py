@@ -6,16 +6,17 @@ from queue import Queue
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
+
 class Solution:
     def lengthOfLongestSubstringTwoDistinct(self, s: str) -> int:
         n = len(s)
-        if n<3:
+        if n < 3:
             return n
         c1 = s[0]
 
         left = 0
         right = 0
-        while right<n and s[right] == c1:
+        while right < n and s[right] == c1:
             right += 1
 
         if right == n:
@@ -24,11 +25,11 @@ class Solution:
         c2 = s[right]
 
         d = {}
-        d[c1] = right -1
+        d[c1] = right - 1
         d[c2] = right
 
         max_length = 2
-        while right<n:
+        while right < n:
             if not s[right] in [c1, c2]:
                 # remove all c2 or c1
                 if s[right-1] == c1:
@@ -44,21 +45,21 @@ class Solution:
         return max_length
 
 
-def test(testObj: unittest.TestCase, s: str, expected:int) -> None:
-    
+def test(testObj: unittest.TestCase, s: str, expected: int) -> None:
+
     so = Solution()
     actual = so.lengthOfLongestSubstringTwoDistinct(s)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
         test(self,   "eceba", 3)
 
     def test_2(self):
         test(self,   "ccaabbb", 5)
-    
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -7,6 +7,7 @@ from queue import Queue
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
+
 class BinaryMatrix(object):
     def __init__(self, mat: List[List[int]]) -> None:
         self.mat = mat
@@ -19,6 +20,7 @@ class BinaryMatrix(object):
     def dimensions(self) -> List[int]:
         return [self.m, self.n]
 
+
 class Solution:
     def __init__(self) -> None:
         self.binaryMatrix = None
@@ -26,10 +28,10 @@ class Solution:
     def leftMostColumnWithOne(self, binaryMatrix: 'BinaryMatrix') -> int:
         self.binaryMatrix = binaryMatrix
         m, n = binaryMatrix.dimensions()
-        
+
         def find_1(row, right=n):
-            left =  0
-            while left<right:
+            left = 0
+            while left < right:
                 mid = left + (right - left)//2
                 if binaryMatrix.get(row, mid) == 0:
                     left = mid + 1
@@ -39,31 +41,32 @@ class Solution:
 
         right = find_1(0)
         for r in range(1, m):
-            if right<n and binaryMatrix.get(r, right) == 0:
+            if right < n and binaryMatrix.get(r, right) == 0:
                 continue
             right = find_1(r, right)
 
-        return right if right<n else -1
+        return right if right < n else -1
 
-def test(testObj: unittest.TestCase, mat: List[List[int]], expected:int) -> None:
-    
+
+def test(testObj: unittest.TestCase, mat: List[List[int]], expected: int) -> None:
+
     binaryMatrix = BinaryMatrix(mat)
     so = Solution()
     actual = so.leftMostColumnWithOne(binaryMatrix)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,   [[0,0],[1,1]], 0)
+        test(self,   [[0, 0], [1, 1]], 0)
 
     def test_2(self):
-        test(self,   [[0,0],[0,1]], 1)
+        test(self,   [[0, 0], [0, 1]], 1)
 
     def test_3(self):
-        test(self,   [[0,0],[0,0]], -1)
-    
+        test(self,   [[0, 0], [0, 0]], -1)
+
 
 if __name__ == '__main__':
     unittest.main()
