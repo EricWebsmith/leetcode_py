@@ -1,3 +1,38 @@
+# install
+```bash
+pip install lxml
+pip install python-dotenv
+pip install python-leetcode
+```
+
+# vs code config
+
+`.vscode/settings.json`
+
+```json
+{
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        "./test",
+        "-p",
+        "*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "__pycache__": true,
+        "**/__pycache__": true
+    }
+}
+```
+
 # Scrap Problem 
 
 Go to scraping/readme.md
@@ -8,6 +43,7 @@ Do not use, because it is float. and the answer will be wrong.
 ```python
 # Do not use this.
 mod = 1e9+7
+# Do not use this.
 ```
 
 Use

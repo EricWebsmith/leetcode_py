@@ -1,1 +1,1 @@
-python scraping/scraper.py $1 $2
+python3 scraping/scraper.py $1 $2
