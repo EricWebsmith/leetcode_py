@@ -13,3 +13,4 @@ class ScraperProtocol(Protocol):
     untyped_param_str: str
     functoin_code: str
     function_params: List[Parameter]
+    function_return_type: str
