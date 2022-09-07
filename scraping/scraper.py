@@ -1,3 +1,4 @@
+from copyreg import constructor
 import subprocess
 import sys
 import os
@@ -145,6 +146,8 @@ class Scraper:
         self.title = question.title
         self.select_code_generation_strategry()
 
+        print(question)
+
         code_definitions = json.loads(question.code_definition)
         self.code_definition = [
             d for d in code_definitions if d['value'] == 'python3'][0]['defaultCode']
@@ -185,6 +188,7 @@ from math import sqrt
 from collections import deque
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
+null = None
 
 {self.code_definition}
         pass

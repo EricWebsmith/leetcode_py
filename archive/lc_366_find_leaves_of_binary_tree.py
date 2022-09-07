@@ -1,13 +1,11 @@
-
 from heapq import heappop, heappush
 import unittest
-from typing import List, Optional
-import sys
-import os
-current = os.path.dirname(os.path.realpath(__file__))
-parent = os.path.dirname(current)
-sys.path.append(parent)
-from data_structure.binary_tree import TreeNode
+from typing import List, Optional, Dict, Set
+from math import sqrt
+from collections import deque
+from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
+from data_structure.nary_tree import Node, array_to_node, node_to_array
+
 
 class Solution:
 
@@ -26,7 +24,7 @@ class Solution:
         return level
 
     def findLeaves(self, root: Optional[TreeNode]) -> List[List[int]]:
-        
+
         self.dfs(root)
         keys = [k for k in self.dict.keys()]
         keys.sort()
@@ -37,21 +35,28 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, root: Optional[TreeNode], expected:int) -> None:
-    s = Solution()
-    actual = s.findLeaves(root)
-    testObj.assertEqual(actual, expected)
-        
+def test(testObj: unittest.TestCase, root_arr: List[int], expected: List[List[int]]) -> None:
+    root = array_to_treenode(root_arr)
+    so = Solution()
 
-class TestStringMethods(unittest.TestCase):
-        
-    # def test_1(self):
-    #     test(self,  [1,2,3,4,5], [[4,5,3],[2],[1]])
+    actual = so.findLeaves(root)
+
+    testObj.assertEqual(actual, expected)
+
+
+class TestClass(unittest.TestCase):
+
+    def test_1(self):
+        test(self,   [1, 2, 3, 4, 5], [[4, 5, 3], [2], [1]])
 
     def test_2(self):
-        test(self,  [1], [[1]])
-    
+        test(self,   [1], [[1]])
+
 
 if __name__ == '__main__':
     unittest.main()
-        
+
+'''
+Runtime: 29 ms, faster than 97.10% of Python3 online submissions for Find Leaves of Binary Tree.
+Memory Usage: 13.8 MB, less than 74.47% of Python3 online submissions for Find Leaves of Binary Tree.
+'''
