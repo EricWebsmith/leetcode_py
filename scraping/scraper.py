@@ -146,8 +146,6 @@ class Scraper:
         self.title = question.title
         self.select_code_generation_strategry()
 
-        print(question)
-
         code_definitions = json.loads(question.code_definition)
         self.code_definition = [
             d for d in code_definitions if d['value'] == 'python3'][0]['defaultCode']
