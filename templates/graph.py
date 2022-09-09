@@ -4,20 +4,23 @@ from typing import Any, List, Optional, Set, Dict
 # for graph
 # it is better to use dict, in stead of list, because the  (0 based, 1 based?) is error-prone.
 
+
 def get_edges(k: int, from_tos: List[List[int]]) -> Dict[int, Set[int]]:
     edges = {i+1: set() for i in range(k)}
     for from_, to_ in from_tos:
         edges[from_].add(to_)
-    
+
     return edges
+
 
 def get_bidirectional_edges(vetices: List, from_tos: List[List]) -> Dict[Any, Set]:
     edges = {v: set() for v in vetices}
     for from_, to_ in from_tos:
         edges[from_].add(to_)
         edges[to_].add(from_)
-    
+
     return edges
+
 
 def top_sort(edges: Dict[int, Set[int]]) -> List[int]:
     stack = []
@@ -25,6 +28,7 @@ def top_sort(edges: Dict[int, Set[int]]) -> List[int]:
     visited = set()
 
     cyclic = False
+
     def dfs(v: int):
         nonlocal cyclic
         if cyclic:
@@ -33,7 +37,7 @@ def top_sort(edges: Dict[int, Set[int]]) -> List[int]:
         if v in visited:
             return
         if v in visiting:
-            cyclic =  True
+            cyclic = True
             return
 
         if len(edges[v]) == 0:
@@ -44,17 +48,15 @@ def top_sort(edges: Dict[int, Set[int]]) -> List[int]:
                 dfs(child)
             stack.append(v)
             visiting.remove(v)
-        
-        visited.add(v)
 
+        visited.add(v)
 
     for v in edges:
         dfs(v)
-    
+
     if cyclic:
         return []
 
     stack.reverse()
 
     return stack
-    
