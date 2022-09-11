@@ -66,3 +66,7 @@ np.zeros([4, m, n], dtype=int)
 Use collections.deque in stead of queue.Queue. 
 
 https://www.geeksforgeeks.org/difference-between-queue-queue-vs-collections-deque-in-python/
+
+# Serialize
+
+> 297. Serialize and Deserialize Binary Tree
