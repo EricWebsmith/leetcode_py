@@ -70,3 +70,8 @@ https://www.geeksforgeeks.org/difference-between-queue-queue-vs-collections-dequ
 # Serialize
 
 > 297. Serialize and Deserialize Binary Tree
+
+# int max
+```
+sys.maxsize
+```
