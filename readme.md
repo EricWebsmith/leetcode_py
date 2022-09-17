@@ -39,7 +39,7 @@ Go to scraping/readme.md
 
 # Modulos
 
-Do not use, because it is float. and the answer will be wrong. 
+Do not use, because it is `float`. and the answer will be wrong. 
 ```python
 # Do not use this.
 mod = 1e9+7
@@ -75,3 +75,17 @@ https://www.geeksforgeeks.org/difference-between-queue-queue-vs-collections-dequ
 ```
 sys.maxsize
 ```
+
+# array
+
+del is 3 times faster
+
+```
+del arr[k]
+```
+
+```
+arr = arr[:k] + arr[k+1:]
+```
+
+I guess the later will reconstruct arr. 
