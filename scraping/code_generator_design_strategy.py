@@ -39,6 +39,10 @@ class CodeGeneratorDesignStrategy(CodeGeneratorStrategy):
 def test(testObj: unittest.TestCase, actions:List, params:List , expected:List) -> None:
     n = len(actions)
     obj = {scraper.classname}(*params[0])
+    print('------------test case-----------')
+    for i in range(1, n):
+        print(i, actions[i], params[i], expected[i])
+    print('-------done-------------')
     for i in range(1, n):
         print(i, actions[i], params[i], expected[i])
         match actions[i]:
