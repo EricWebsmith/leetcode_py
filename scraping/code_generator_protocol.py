@@ -4,7 +4,7 @@ from typing import List
 from scraping.parameter import Parameter
 
 
-class ScraperProtocol(Protocol):
+class CodeGeneratorProtocol(Protocol):
     code_definition: str
     classname: str
     function_name: str

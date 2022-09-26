@@ -1,12 +1,12 @@
 from abc import ABC, abstractmethod
-from scraping.scraper_protocol import ScraperProtocol
+from scraping.code_generator_protocol import CodeGeneratorProtocol
 
 
 class CodeGeneratorStrategy(ABC):
     @abstractmethod
-    def parse_function_code(self, scraper: ScraperProtocol):
+    def parse_function_code(self, scraper: CodeGeneratorProtocol):
         ...
 
     @abstractmethod
-    def generate_test_function_code(self, scraper: ScraperProtocol):
+    def generate_test_function_code(self, scraper: CodeGeneratorProtocol):
         ...

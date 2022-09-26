@@ -1,10 +1,10 @@
 from parameter import Parameter
 from code_generator_strategy import CodeGeneratorStrategy
-from scraper_protocol import ScraperProtocol
+from scraping.code_generator_protocol import CodeGeneratorProtocol
 
 
 class CodeGeneratorDesignStrategy(CodeGeneratorStrategy):
-    def parse_function_code(self, scraper: ScraperProtocol):
+    def parse_function_code(self, scraper: CodeGeneratorProtocol):
 
         def_at = scraper.code_definition.find('def ')
         while def_at > 0:
@@ -15,7 +15,7 @@ class CodeGeneratorDesignStrategy(CodeGeneratorStrategy):
                 scraper.function_names.append(function_name)
             def_at = scraper.code_definition.find('def ', open_at)
 
-    def generate_test_function_code(self, scraper: ScraperProtocol):
+    def generate_test_function_code(self, scraper: CodeGeneratorProtocol):
         test_function_parameters = ''
         type_changing_code = ''
         for param in scraper.function_params:
