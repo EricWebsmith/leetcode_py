@@ -26,6 +26,7 @@ class DSU:
         self.e += 1
         return 0
 
+
 class Solution:
     def numberOfGoodPaths(self, vals: List[int], edges: List[List[int]]) -> int:
         n = len(vals)
@@ -34,12 +35,12 @@ class Solution:
         for u, v in edges:
             e[u].append(v)
             e[v].append(u)
-        
+
         value_indices = defaultdict(list)
         for i, v in enumerate(vals):
             value_indices[v].append(i)
 
-        ans = 0
+        ans = n
         for v in sorted(value_indices.keys()):
             for i in value_indices[v]:
                 for j in e[i]:
@@ -52,32 +53,29 @@ class Solution:
                 c[p] += 1
 
             for _, count in c.items():
-                if count == 1:
-                    ans += 1
-                else:
-                    ans += count * (count + 1) // 2
+                if count > 1:
+                    ans += count * (count - 1) // 2
 
         return ans
 
 
-
-def test(testObj: unittest.TestCase, vals: List[int], edges: List[List[int]], expected:int) -> None:
+def test(testObj: unittest.TestCase, vals: List[int], edges: List[List[int]], expected: int) -> None:
     so = Solution()
-    actual = so.numberOfGoodPaths(vals,edges)
+    actual = so.numberOfGoodPaths(vals, edges)
     testObj.assertEqual(actual, expected)
 
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,   [1,3,2,1,3],  [[0,1],[0,2],[2,3],[2,4]], 6)
+        test(self,   [1, 3, 2, 1, 3],  [[0, 1], [0, 2], [2, 3], [2, 4]], 6)
 
     def test_2(self):
-        test(self,   [1,1,2,2,3],  [[0,1],[1,2],[2,3],[2,4]], 7)
+        test(self,   [1, 1, 2, 2, 3],  [[0, 1], [1, 2], [2, 3], [2, 4]], 7)
 
     def test_3(self):
         test(self,   [1],  [], 1)
-    
+
 
 if __name__ == '__main__':
     unittest.main()
