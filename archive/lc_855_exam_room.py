@@ -1,10 +1,6 @@
-from bisect import bisect_left, bisect_right, insort_left, insort_right
-from heapq import heappop, heappush
+from bisect import bisect_left, insort_left, insort_right
 import unittest
-from functools import cache
-from typing import List, Optional, Dict, Set, Any
-from math import sqrt
-from collections import deque, defaultdict
+from typing import List
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 null = None

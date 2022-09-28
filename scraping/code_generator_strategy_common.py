@@ -39,6 +39,9 @@ class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
             elif param.type == 'Optional[Node]' or param.type == 'Node':
                 test_function_parameters += f'{param.name}_arr: List[int], '
                 type_changing_code += f'    {param.name} = array_to_node({param.name}_arr)\r\n'
+            elif param.type == 'Optional[ListNode]' or param.type == 'ListNode':
+                test_function_parameters += f'{param.name}_arr: List[int], '
+                type_changing_code += f'    {param.name} = array_to_listnode({param.name}_arr)\r\n'
             else:
                 test_function_parameters += f'{param.name}: {param.type}, '
         test_function_parameters = test_function_parameters.strip().strip(',')
@@ -49,6 +52,8 @@ class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
             return_type_changing_code = 'actual = treenode_to_array(actual_root)'
         elif scraper.function_return_type in ['Optional[Node]', 'Node']:
             return_type_changing_code = 'actual = node_to_array(actual_root)'
+        elif scraper.function_return_type in ['Optional[ListNode]', 'ListNode']:
+            return_type_changing_code = 'actual = listnode_to_array(actual_root)'
 
         actual_code = f"""
     actual = so.{scraper.function_name}({scraper.untyped_param_str})

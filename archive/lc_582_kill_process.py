@@ -1,8 +1,5 @@
-from heapq import heappop, heappush
 import unittest
-from typing import List, Optional, Dict, Set
-from math import sqrt
-from collections import deque
+from typing import List
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 null = None
@@ -23,7 +20,6 @@ class Solution:
         for child_id, parent_id in zip(pid, ppid):
             child_node: Node = node_dict[child_id]
             if parent_id == 0:
-                root = child_node
                 continue
             parent_node: Node = node_dict[parent_id]
             parent_node.children.append(child_node)

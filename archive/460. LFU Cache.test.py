@@ -1,8 +1,6 @@
 
-from heapq import heappop, heappush
 import unittest
-from typing import List, Optional, Dict
-from math import sqrt
+from typing import Dict, List
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
@@ -13,7 +11,6 @@ class LFUCache:
         self.key_fre_dict: Dict[int, int] = {}
         self.fre_key_dict:Dict[int, List[int]] = {}
         self.key_value_dict: Dict[int, int] = {}
-        pass
 
     def update_fre(self, key):
 

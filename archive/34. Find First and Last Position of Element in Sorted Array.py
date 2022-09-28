@@ -1,5 +1,4 @@
 from bisect import bisect_left, bisect_right
-from turtle import right
 from typing import List
 import unittest
 

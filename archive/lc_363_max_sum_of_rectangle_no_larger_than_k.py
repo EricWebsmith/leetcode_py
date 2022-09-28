@@ -1,12 +1,8 @@
 from bisect import bisect_left, insort_left
-from heapq import heappop, heappush
 import unittest
-from typing import List, Optional
-from math import sqrt
-from unittest import result
+from typing import List
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
-import sys
 
 
 class Solution:

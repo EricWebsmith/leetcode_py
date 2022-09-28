@@ -1,8 +1,5 @@
-from heapq import heappop, heappush
 import unittest
-from typing import List, Optional, Dict, Set, Any
-from math import sqrt
-from collections import deque, defaultdict
+from typing import List
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 null = None
@@ -29,7 +26,6 @@ class Solution:
     def maxFont(self, text: str, w: int, h: int, fonts: List[int], fontInfo : 'FontInfo') -> int:
         def fit(m: int):
             moving_width = 0
-            height = 0
             c_h = fontInfo.getHeight(m)
             
             if c_h>h:
@@ -62,7 +58,6 @@ def test(testObj: unittest.TestCase, text: str, w: int, h: int, fonts: List[int]
     """
     Cannot mimic FontInfo
     """
-    pass
     # so = Solution()
     
     # actual = so.maxFont(text,w,h,fonts,fontInfo)

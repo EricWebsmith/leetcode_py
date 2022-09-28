@@ -1,9 +1,6 @@
 
-from bisect import bisect_right
-from heapq import heappop, heappush
-from turtle import right
 import unittest
-from typing import List, Optional
+from typing import List
 import sys, os
 current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)

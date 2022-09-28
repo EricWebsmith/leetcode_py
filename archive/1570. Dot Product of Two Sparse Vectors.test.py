@@ -1,5 +1,4 @@
 
-from heapq import heappop, heappush
 import unittest
 from typing import List
 
@@ -8,7 +7,6 @@ class SparseVector:
         self.dict = {}
         for i in range(0, len(nums)):
             self.dict[i] = nums[i]
-        pass
 
     # Return the dotProduct of two sparse vectors
     def dotProduct(self, vec: 'SparseVector') -> int:

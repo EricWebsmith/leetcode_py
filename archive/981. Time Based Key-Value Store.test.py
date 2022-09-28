@@ -1,9 +1,8 @@
 
-from bisect import bisect_left, bisect_right
+from bisect import bisect_right
 from dataclasses import dataclass
-from heapq import heappop, heappush
 import unittest
-from typing import List, Optional, Dict
+from typing import Dict, List
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
