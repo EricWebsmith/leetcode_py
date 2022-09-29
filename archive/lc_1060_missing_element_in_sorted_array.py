@@ -1,32 +1,41 @@
+from heapq import heappop, heappush
 import unittest
-from typing import List
+from typing import List, Optional, Dict, Set
+from math import sqrt
+from collections import deque
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 from data_structure.nary_tree import Node, array_to_node, node_to_array
+null = None
 
 
 class Solution:
     def missingElement(self, nums: List[int], k: int) -> int:
         n = len(nums)
-        def count_missing(m): return nums[m] - nums[0] - m
 
-        l = 0
-        r = n - 1
-        while l < r:
-            m = (l+r+1) >> 1
-            c = count_missing(m)
-            if c < k:
-                l = m
+        def get_missing(nums: List[int], mid: int) -> int:
+            return nums[mid] - nums[0] - mid
+
+        left = 0
+        right = n - 1
+        while left < right:
+            mid = (left + right + 1) >> 1
+            missing = get_missing(nums, mid)
+            if missing < k:
+                left = mid
             else:
-                r = m - 1
-        c = count_missing(l)
-        left = k - c
-        return nums[l] + left
+                right = mid - 1
+
+        missing = get_missing(nums, left)
+
+        return nums[left] + (k - missing)
 
 
 def test(testObj: unittest.TestCase, nums: List[int], k: int, expected: int) -> None:
 
     so = Solution()
+
     actual = so.missingElement(nums, k)
+
     testObj.assertEqual(actual, expected)
 
 
@@ -46,6 +55,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 300 ms, faster than 93.12% of Python3 online submissions for Missing Element in Sorted Array.
-Memory Usage: 20.1 MB, less than 86.89% of Python3 online submissions for Missing Element in Sorted Array.
+Runtime: 295 ms, faster than 95.76% of Python3 online submissions for Missing Element in Sorted Array.
+Memory Usage: 20.4 MB, less than 37.68% of Python3 online submissions for Missing Element in Sorted Array.
 '''
