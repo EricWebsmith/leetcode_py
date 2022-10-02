@@ -1,7 +1,9 @@
+import json
+
 import requests
 from dotenv import dotenv_values
 from lxml import etree
-import json
+
 from scraping.scraper_result import ScraperResult
 
 env = dotenv_values()
