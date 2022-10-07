@@ -1,10 +1,11 @@
-from typing import List
 import re
-from parameter import Parameter
+from typing import List
+
 from code_generator_strategy import CodeGeneratorStrategy
+from parameter import Parameter
+from scraper_result import ScraperResult
 from scraping.code_generator_strategy_common import CodeGeneratorCommonStrategy
 from scraping.code_generator_strategy_design import CodeGeneratorDesignStrategy
-from scraper_result import ScraperResult
 
 DESIGN = 'DESIGN'
 COMMON = 'COMMON'
@@ -83,7 +84,7 @@ class CodeGenerator:
         self.test_case_code = test_case_string
 
     def select_code_generation_strategry(self):
-        if self.problem_type == DESIGN or DESIGN in self.title.upper():
+        if self.problem_type.upper() == DESIGN or DESIGN in self.title.upper():
             self.problem_type = DESIGN
             self.code_generation_strategy = CodeGeneratorDesignStrategy()
             print("It is a design question.")
