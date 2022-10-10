@@ -35,6 +35,7 @@ class ContestScraper:
         codeDefinition_str = text[codeDefinition_at +
                                   len('codeDefinition:'): newline_at-1]
 
+        print(codeDefinition_str)
         code_definitions = eval(codeDefinition_str)
         result.code_definition = [
             d for d in code_definitions if d['value'] == 'python3'][0]['defaultCode']
