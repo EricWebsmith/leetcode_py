@@ -1,5 +1,5 @@
 from typing import List
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass
@@ -8,7 +8,7 @@ class ScraperResult:
     title_slug: str = ''
     title: str = ''
     code_definition: str = ''
-    test_cases: List[str] = None
+    test_cases: List[str] = field(default_factory=list)
 
     def __init__(self) -> None:
         self.test_cases = []

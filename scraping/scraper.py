@@ -15,7 +15,7 @@ COMMON = 'COMMON'
 title_slug = sys.argv[1] if len(
     sys.argv) >= 2 else 'time-based-key-value-store'
 
-scraper_result: ScraperResult = None
+scraper_result: ScraperResult
 if title_slug.find('contest') > 0:
     print('----------------------contest----------------------')
     scraper_result = ContestScraper()(title_slug)
