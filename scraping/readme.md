@@ -21,6 +21,12 @@ open the following url from chrome to check the following two variable
 
 > chrome://settings/cookies/detail?site=leetcode.com
 
+or check out this article:
+
+https://cookie-script.com/documentation/how-to-check-cookies-on-chrome-and-firefox
+
 I load them like that:
+
 leetcode_session = env['LEETCODE_SESSION']
+
 csrf_token = env['CSRF_TOKEN']
