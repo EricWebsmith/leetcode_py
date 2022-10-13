@@ -1,6 +1,5 @@
-from typing import Protocol
+from typing import List, Protocol
 
-from typing import List
 from scraping.parameter import Parameter
 
 
@@ -13,4 +12,4 @@ class CodeGeneratorProtocol(Protocol):
     untyped_param_str: str
     functoin_code: str
     function_params: List[Parameter]
-    function_return_type: str
+    function_return_type: str = 'None'

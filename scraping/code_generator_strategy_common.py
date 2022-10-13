@@ -1,5 +1,5 @@
-from parameter import Parameter
 from code_generator_strategy import CodeGeneratorStrategy
+from parameter import Parameter
 from scraping.code_generator_protocol import CodeGeneratorProtocol
 
 
@@ -8,8 +8,8 @@ class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
         def_at = scraper.code_definition.index('def ')
         open_at = scraper.code_definition.index('(', def_at)
         close_at = scraper.code_definition.index(')', open_at)
-        arrow_at = scraper.code_definition.index('->', open_at)
-        comma_at = scraper.code_definition.index(':', arrow_at)
+        arrow_at = scraper.code_definition.find('->', open_at)
+        comma_at = scraper.code_definition.index(':', close_at)
 
         # function name
         scraper.function_name = scraper.code_definition[def_at+4:open_at]
@@ -18,15 +18,19 @@ class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
 
         for param in scraper.typed_param_str.split(','):
             param_name_type = param.split(':')
-            paramObj = Parameter(
-                param_name_type[0].strip(), param_name_type[1].strip().strip("'").strip('"'))
+            param_type = 'Any'
+            if len(param_name_type) == 2:
+                param_type = param_name_type[1].strip().strip("'").strip('"')
+            paramObj = Parameter(param_name_type[0].strip(), param_type)
             scraper.function_params.append(paramObj)
             scraper.untyped_param_str += paramObj.name+','
         scraper.untyped_param_str = scraper.untyped_param_str.strip(',')
 
         # return type
-        scraper.function_return_type = scraper.code_definition[arrow_at+2: comma_at].strip(
-        )
+        scraper.function_return_type = 'None'
+        if arrow_at > 0:
+            scraper.function_return_type = scraper.code_definition[arrow_at+2: comma_at] \
+                .strip()
         scraper.functoin_code = scraper.code_definition
 
     def generate_test_function_code(self, scraper: CodeGeneratorProtocol):
