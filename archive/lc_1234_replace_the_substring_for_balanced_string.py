@@ -3,21 +3,21 @@ from typing import Dict
 
 
 class Solution:
-    def isBalanced(self, d: Dict, n4: int):
+    def isBalanced(self, d: Dict, avg: int):
         for v in d.values():
-            if v > n4:
+            if v > avg:
                 return False
 
         return True
 
     def balancedString(self, s: str) -> int:
         n = len(s)
-        n4 = n // 4
+        avg = n // 4
         d = {'Q': 0, 'W': 0, 'E': 0, 'R': 0}
         for c in s:
             d[c] += 1
 
-        if self.isBalanced(d, n4):
+        if self.isBalanced(d, avg):
             return 0
 
         left = 0
@@ -25,7 +25,7 @@ class Solution:
         ans = n
         d[s[0]] -= 1
         while left <= right and right < n:
-            if self.isBalanced(d, n4):
+            if self.isBalanced(d, avg):
                 ans = min(ans, right - left + 1)
                 d[s[left]] += 1
                 left += 1
