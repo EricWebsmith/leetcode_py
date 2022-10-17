@@ -12,7 +12,7 @@ class Solution:
             char_index = ord(s[i-1]) - ord('a')
             j = last[char_index]
             dup = dp[j-1] if j > 0 else 0
-            dp[i] = dp[i-1] * 2 - dup
+            dp[i] = ((dp[i-1] << 1) - dup) % mod
             last[char_index] = i
 
         return (dp[-1]-1) % mod
@@ -48,7 +48,7 @@ if __name__ == '__main__':
 
 '''
 Runtime
-63 ms
+47 ms
 Beats
-86.56%
+98.75%
 '''
