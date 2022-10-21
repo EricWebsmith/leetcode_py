@@ -1,29 +1,22 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class StockSpanner:
 
     def __init__(self):
-        self.arr = []
-        self.dp = []
+        self.arr = [1_000_000]
+        self.hop = [-1]
 
     def next(self, price: int) -> int:
         self.arr.append(price)
         n = len(self.arr)
-        if n == 1:
-            self.dp.append(1)
-            return 1
-
         prev = n-2
-        while prev >= 0 and self.arr[prev] <= price:
-            prev -= self.dp[prev]
+        while self.arr[prev] <= price:
+            prev = self.hop[prev]
 
-        ans = n-prev-1
-        self.dp.append(ans)
-        return ans
+        self.hop.append(prev)
+        return n - 1 - prev
 
 
 def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
