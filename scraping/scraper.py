@@ -44,7 +44,9 @@ if not os.path.exists('test'):
 
 title_slug_fixed = cg.title_slug.replace('-', '_')
 
-path = f'test/lc_{cg.id}_{title_slug_fixed}.py'
+padded_number = str(cg.id).rjust(4, '0')
+
+path = f'test/lc_{padded_number}_{title_slug_fixed}.py'
 
 with open(path, mode='w') as f:
     f.write(cg.code)
