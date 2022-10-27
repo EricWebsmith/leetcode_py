@@ -1,11 +1,6 @@
-from bisect import bisect_left, bisect_right
-from heapq import heappop, heappush
 import unittest
-from typing import List, Optional, Dict, Set
-from math import sqrt
 from collections import deque
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+from typing import List
 
 
 class Solution:
@@ -34,9 +29,7 @@ class Solution:
 def test(testObj: unittest.TestCase, nums: List[int], k: int, expected: int) -> None:
 
     so = Solution()
-
     actual = so.shortestSubarray(nums, k)
-
     testObj.assertEqual(actual, expected)
 
 
