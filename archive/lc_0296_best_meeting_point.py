@@ -1,5 +1,4 @@
 import unittest
-from collections import deque
 from typing import List
 
 
