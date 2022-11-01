@@ -6,16 +6,11 @@ def generate_chars(word_arr: List[str]) -> Generator[str, None, None]:
     for word in word_arr:
         for c in word:
             yield c
+    yield ' '
 
 
 class Solution:
     def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:
-        size1 = sum(len(s) for s in word1)
-        size2 = sum(len(s) for s in word2)
-
-        if size1 != size2:
-            return False
-
         g1 = generate_chars(word1)
         g2 = generate_chars(word2)
         for c1, c2 in zip(g1, g2):
@@ -51,7 +46,7 @@ if __name__ == '__main__':
 
 '''
 Runtime
-33 ms
+23 ms
 Beats
-94.90%
+99.86%
 '''

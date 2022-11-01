@@ -1,12 +1,20 @@
 import unittest
 
 
+def get_digit_sum(n):
+    s = 0
+    while n:
+        i = n % 10
+        n = n // 10
+        s += i
+    return s
+
+
 class Solution:
     def makeIntegerBeautiful(self, n: int, target: int) -> int:
         start = n
         i = 0
-
-        while sum(map(int, str(n))) > target:
+        while get_digit_sum(n) > target:
             n = n // 10 + 1
             i += 1
 
@@ -14,7 +22,6 @@ class Solution:
 
 
 def test(testObj: unittest.TestCase, n: int, target: int, expected: int) -> None:
-
     so = Solution()
     actual = so.makeIntegerBeautiful(n, target)
     testObj.assertEqual(actual, expected)
@@ -31,16 +38,13 @@ class TestClass(unittest.TestCase):
     def test_3(self):
         test(self,   1,  1, 0)
 
-    def test_4(self):
-        test(self,   19,  1, 81)
-
 
 if __name__ == '__main__':
     unittest.main()
 
 '''
 Runtime
-55 ms
+54 ms
 Beats
 20%
 '''

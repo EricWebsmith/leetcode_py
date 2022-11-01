@@ -1,60 +1,45 @@
 import unittest
-from typing import Dict, List, Optional
+from collections import defaultdict
+from typing import List, Optional
 
-from data_structure.binary_tree import (TreeNode, array_to_treenode,
-                                        treenode_to_array)
+from data_structure.binary_tree import TreeNode, array_to_treenode
 
 null = None
 
 
 class Solution:
     def treeQueries(self, root: Optional[TreeNode], queries: List[int]) -> List[int]:
-        d = {}
-        d_height: Dict[int, int] = {}
-        d_p: Dict[int, int] = {}
+        depths = defaultdict(list)
+        heights = defaultdict(int)
 
-        def dfs(node):
+        def dfs(node: TreeNode, d: int) -> int:
             if node == None:
                 return -1
-            d[node.val] = node
-            if node.left:
-                d_p[node.left.val] = node.val
-            if node.right:
-                d_p[node.right.val] = node.val
-            h = max(dfs(node.left), dfs(node.right)) + 1
-            d_height[node.val] = h
+
+            depths[node.val] = d
+            h = max(dfs(node.left, d+1), dfs(node.right, d+1)) + 1
+            heights[node.val] = h
             return h
 
-        dfs(root)
+        dfs(root, 0)
+
+        levels = defaultdict(list)
+        for val, d in depths.items():
+            levels[d].append((-heights[val], val))
+            levels[d].sort()
+
+            if len(levels[d]) > 2:
+                levels[d].pop()
 
         ans = []
         for q in queries:
-            h = -1
-            c = q
-            p = d_p[c]
-            while True:
-                p_node = d[p]
-                other = None
-                if p_node.left and p_node.left.val == c:
-                    other = p_node.right
-                if p_node.right and p_node.right.val == c:
-                    other = p_node.left
-
-                if other:
-                    h = max(h, d_height[other.val]) + 1
-                else:
-                    h = h + 1
-
-                if p == root.val:
-                    break
-
-                if h == d_height[p]:
-                    h = d_height[root.val]
-                    break
-
-                c = p
-                p = d_p[c]
-            ans.append(h)
+            d = depths[q]
+            if len(levels[d]) == 1:
+                ans.append(d-1)
+            elif levels[d][0][1] == q:
+                ans.append(-levels[d][1][0] + d)
+            else:
+                ans.append(-levels[d][0][0] + d)
 
         return ans
 
@@ -87,5 +72,8 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-
+Runtime
+1184 ms
+Beats
+100%
 '''
