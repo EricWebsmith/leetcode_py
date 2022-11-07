@@ -1,9 +1,6 @@
-from heapq import heappop, heappush
 import unittest
+from heapq import heappop, heappush
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -14,19 +11,15 @@ class Solution:
         for start, end in intervals[1:]:
             if rooms[0] <= start:
                 heappop(rooms)
-            
-            heappush(rooms, end)
 
+            heappush(rooms, end)
 
         return len(rooms)
 
 
 def test(testObj: unittest.TestCase, intervals: List[List[int]], expected: int) -> None:
-
     so = Solution()
-
     actual = so.minMeetingRooms(intervals)
-
     testObj.assertEqual(actual, expected)
 
 
@@ -39,7 +32,7 @@ class TestClass(unittest.TestCase):
         test(self,   [[7, 10], [2, 4]], 1)
 
     def test_3(self):
-        test(self,   [[2,15],[36,45],[9,29],[16,23],[4,9]], 2)
+        test(self,   [[2, 15], [36, 45], [9, 29], [16, 23], [4, 9]], 2)
 
 
 if __name__ == '__main__':
