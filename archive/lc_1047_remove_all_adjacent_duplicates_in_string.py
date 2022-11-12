@@ -2,33 +2,33 @@ import unittest
 
 
 class Solution:
-    def makeGood(self, s: str) -> str:
-        stack = []
+    def removeDuplicates(self, s: str) -> str:
+        result = []
         for c in s:
-            if stack and abs(ord(c) - ord(stack[-1])) == ord('a') - ord('A'):
-                stack.pop()
+            if result and result[-1] == c:
+                result.pop()
             else:
-                stack.append(c)
+                result.append(c)
 
-        return ''.join(stack)
+        return ''.join(result)
 
 
 def test(testObj: unittest.TestCase, s: str, expected: str) -> None:
     so = Solution()
-    actual = so.makeGood(s)
+    actual = so.removeDuplicates(s)
     testObj.assertEqual(actual, expected)
 
 
 class TestClass(unittest.TestCase):
 
     def test_1(self):
-        test(self,   "leEeetcode", "leetcode")
+        test(self,   "abbaca", "ca")
 
     def test_2(self):
-        test(self,   "abBAcC", "")
+        test(self,   "azxxzy", "ay")
 
     def test_3(self):
-        test(self,   "s", "s")
+        test(self,   "aaaaaaaa", "")
 
 
 if __name__ == '__main__':
@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
 '''
 Runtime
-42 ms
+75 ms
 Beats
-88.98%
+94.8%
 '''
