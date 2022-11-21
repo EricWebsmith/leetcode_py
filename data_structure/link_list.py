@@ -9,6 +9,8 @@ class ListNode:
 
 def array_to_listnode(arr: List[int]) -> ListNode:
     n = len(arr)
+    if n == 0:
+        return None
     head = ListNode(arr[0])
     current = head
     for i in range(1, n):

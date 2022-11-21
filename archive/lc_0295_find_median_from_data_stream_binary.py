@@ -1,18 +1,6 @@
 import unittest
-from bisect import bisect_left, insort_left
-from collections import defaultdict, deque
-from functools import cache
-from heapq import heappop, heappush
-from math import sqrt
-from typing import Any, Dict, List, Optional, Set
-
-from data_structure.binary_tree import (TreeNode, array_to_treenode,
-                                        treenode_to_array)
-from data_structure.link_list import (ListNode, array_to_listnode,
-                                      listnode_to_array)
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-
-null = None
+from bisect import insort_left
+from typing import List
 
 
 class MedianFinder:
@@ -62,5 +50,8 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-
+Runtime
+1471 ms
+Beats
+34.8%
 '''
