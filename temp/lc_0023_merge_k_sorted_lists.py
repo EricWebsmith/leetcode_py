@@ -9,7 +9,7 @@ from data_structure.link_list import (ListNode, array_to_listnode,
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         k = len(lists)
-        h = []
+        h: List[int] = []
         for list_index in range(k):
             if lists[list_index]:
                 heappush(h, (lists[list_index].val, list_index))
@@ -33,7 +33,6 @@ def test(testObj: unittest.TestCase, arrs: List[List[int]], expected: Optional[L
     so = Solution()
     actual_root = so.mergeKLists(heads)
     actual = listnode_to_array(actual_root)
-
     testObj.assertEqual(actual, expected)
 
 
