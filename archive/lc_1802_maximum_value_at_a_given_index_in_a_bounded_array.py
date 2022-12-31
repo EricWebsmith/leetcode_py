@@ -20,21 +20,20 @@ class Solution:
                 right = (m + arr_last) * (n - index) >> 1
             return left + right - m
 
-        l = 1
-        r = maxSum - n + 1
-        while l < r:
-            m = (l + r + 1) >> 1
+        left = 1
+        right = maxSum - n + 1
+        while left < right:
+            m = (left + right + 1) >> 1
             s = get_sum(m)
             if s <= maxSum:
-                l = m
+                left = m
             else:
-                r = m - 1
+                right = m - 1
 
-        return l
+        return left
 
 
 def test(testObj: unittest.TestCase, n: int, index: int, maxSum: int, expected: int) -> None:
-
     so = Solution()
     actual = so.maxValue(n, index, maxSum)
     testObj.assertEqual(actual, expected)
@@ -54,6 +53,8 @@ if __name__ == '__main__':
 
 
 """
-Runtime: 43 ms, faster than 87.96% of Python3 online submissions for Maximum Value at a Given Index in a Bounded Array.
-Memory Usage: 13.9 MB, less than 86.11% of Python3 online submissions for Maximum Value at a Given Index in a Bounded Array.
+Runtime
+43 ms
+Beats
+83.70%
 """

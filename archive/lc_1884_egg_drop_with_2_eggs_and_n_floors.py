@@ -1,9 +1,5 @@
-from heapq import heappop, heappush
 import unittest
-from typing import List, Optional, Dict, Set
-from math import sqrt
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+
 
 class Solution:
     def twoEggDrop(self, n: int) -> int:
@@ -26,7 +22,7 @@ class Solution:
             not_break_drops_2 = dp[i - first_drop_2-1] + 1
             drops_2 = max(break_drops_2, not_break_drops_2)
 
-            if drops_2<=drops_1:
+            if drops_2 <= drops_1:
                 dp_first_drop.append(first_drop_2)
                 dp.append(drops_2)
             else:
@@ -36,15 +32,15 @@ class Solution:
         return dp[n]
 
 
-def test(testObj: unittest.TestCase, n: int, expected:int) -> None:
-    
+def test(testObj: unittest.TestCase, n: int, expected: int) -> None:
+
     so = Solution()
     actual = so.twoEggDrop(n)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestClass(unittest.TestCase):
-        
+
     def test_1(self):
         test(self,   1, 1)
 
@@ -68,7 +64,7 @@ class TestClass(unittest.TestCase):
 
     def test_100(self):
         test(self,   100, 14)
-    
+
     def test_101(self):
         test(self,   101, 14)
 
@@ -81,10 +77,11 @@ class TestClass(unittest.TestCase):
     def test_1000(self):
         test(self,   1000, 45)
 
+
 if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 46 ms, faster than 77.25% of Python3 online submissions for Egg Drop With 2 Eggs and N Floors.
-Memory Usage: 13.9 MB, less than 70.75% of Python3 online submissions for Egg Drop With 2 Eggs and N Floors.
+Runtime: 46 ms, faster than 77.25%
+Memory Usage: 13.9 MB, less than 70.75%
 '''

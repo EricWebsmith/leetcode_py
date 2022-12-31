@@ -1,8 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -47,6 +44,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 668 ms, faster than 48.34% of Python3 online submissions for Minimize Max Distance to Gas Station.
-Memory Usage: 14.2 MB, less than 79.38% of Python3 online submissions for Minimize Max Distance to Gas Station.
+Runtime: 668 ms, faster than 48.34%
+Memory Usage: 14.2 MB, less than 79.38%
 '''

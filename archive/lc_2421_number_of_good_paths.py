@@ -1,6 +1,6 @@
 import unittest
+from collections import Counter, defaultdict
 from typing import List
-from collections import defaultdict, Counter
 
 
 class DSU:
@@ -81,6 +81,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 2031 ms, faster than 69.23% of Python3 online submissions for Number of Good Paths.
-Memory Usage: 31.9 MB, less than 38.46% of Python3 online submissions for Number of Good Paths.
+Runtime: 2031 ms, faster than 69.23%
+Memory Usage: 31.9 MB, less than 38.46%
 '''

@@ -1,9 +1,6 @@
-from dataclasses import dataclass
 import unittest
+from dataclasses import dataclass
 from typing import Dict, List, Set
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 def detect_circle(edges: Dict[int, Set[int]]) -> List[int]:
@@ -98,6 +95,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 569 ms, faster than 70.63% of Python3 online submissions for Strange Printer II.
-Memory Usage: 16.4 MB, less than 11.90% of Python3 online submissions for Strange Printer II.
+Runtime: 569 ms, faster than 70.63%
+Memory Usage: 16.4 MB, less than 11.90%
 '''

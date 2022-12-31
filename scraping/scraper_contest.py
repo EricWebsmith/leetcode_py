@@ -1,5 +1,3 @@
-import json
-
 import requests
 from dotenv import dotenv_values
 from lxml import etree

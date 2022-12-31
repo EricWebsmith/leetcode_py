@@ -37,11 +37,8 @@ class Solution:
 
 
 def test(testObj: unittest.TestCase, grid: List[List[int]], k: int, expected: int) -> None:
-
     so = Solution()
-
     actual = so.numberOfPaths(grid, k)
-
     testObj.assertEqual(actual, expected)
 
 

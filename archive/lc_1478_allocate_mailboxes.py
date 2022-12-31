@@ -1,9 +1,6 @@
-from functools import cache
 import unittest
+from functools import cache
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -54,6 +51,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 293 ms, faster than 96.34% of Python3 online submissions for Allocate Mailboxes.
-Memory Usage: 16.3 MB, less than 39.94% of Python3 online submissions for Allocate Mailboxes.
+Runtime: 293 ms, faster than 96.34%
+Memory Usage: 16.3 MB, less than 39.94%
 '''

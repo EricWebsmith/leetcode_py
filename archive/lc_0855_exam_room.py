@@ -1,9 +1,6 @@
-from bisect import bisect_left, insort_left, insort_right
 import unittest
+from bisect import bisect_left, insort_left, insort_right
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class ExamRoom:
@@ -106,54 +103,55 @@ class TestClass(unittest.TestCase):
 
     def test_10(self):
         test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[10], [], [], [], [], [4], []], [null, 0, 9, 4, 2, null, 5])
+             [[10], [], [], [], [], [4], []], [None, 0, 9, 4, 2, None, 5])
 
     def test_100_0(self):
         test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[100], [], [], [], [], [0], []], [null, 0, 99, 49, 74, null, 0])
+             [[100], [], [], [], [], [0], []], [None, 0, 99, 49, 74, None, 0])
 
     def test_100_49(self):
         test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[100], [], [], [], [], [49], []], [null, 0, 99, 49, 74, null, 37])
+             [[100], [], [], [], [], [49], []], [None, 0, 99, 49, 74, None, 37])
 
     def test_100_74(self):
         test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[100], [], [], [], [], [74], []], [null, 0, 99, 49, 74, null, 74])
+             [[100], [], [], [], [], [74], []], [None, 0, 99, 49, 74, None, 74])
 
     def test_100_99(self):
         test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[100], [], [], [], [], [99], []], [null, 0, 99, 49, 74, null, 99])
+             [[100], [], [], [], [], [99], []], [None, 0, 99, 49, 74, None, 99])
 
     def test_1000(self):
         test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[1000], [], [], [], [], [749], []], [null, 0, 999, 499, 749, null, 749])
+             [[1000], [], [], [], [], [749], []], [None, 0, 999, 499, 749, None, 749])
 
     def test_10000(self):
         test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[10000], [], [], [], [], [7499], []], [null, 0, 9999, 4999, 7499, null, 7499])
+             [[10000], [], [], [], [], [7499], []], [None, 0, 9999, 4999, 7499, None, 7499])
 
     def test_50000(self):
         test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
              [[50000], [], [], [], [], [37499], []],
-             [null, 0, 49999, 24999, 37499, null, 37499])
+             [None, 0, 49999, 24999, 37499, None, 37499])
 
     def test_1000000000(self):
         test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[1000000000], [], [], [], [], [749999999], []], [null, 0, 999999999, 499999999, 749999999, null, 749999999])
+             [[1000000000], [], [], [], [], [749999999], []],
+             [None, 0, 999999999, 499999999, 749999999, None, 749999999])
 
     def test_4(self):
         test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "leave", "seat"],
-             [[4], [], [], [], [], [1], [3], []], [null, 0, 3, 1, 2, null, null, 1])
+             [[4], [], [], [], [], [1], [3], []], [None, 0, 3, 1, 2, None, None, 1])
 
     def test_2(self):
         test(self, ["ExamRoom", "seat", "seat", "leave"],
-             [[2], [], [], [0]], [null, 0, 1, null])
+             [[2], [], [], [0]], [None, 0, 1, None])
 
 
 if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 174 ms, faster than 66.45% of Python3 online submissions for Exam Room.
-Memory Usage: 18.1 MB, less than 52.99% of Python3 online submissions for Exam Room.
+Runtime: 174 ms, faster than 66.45%
+Memory Usage: 18.1 MB, less than 52.99%
 '''

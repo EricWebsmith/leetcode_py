@@ -1,11 +1,8 @@
 import unittest
-from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
-    def getMaximumConsecutive(self, coins: List[int]) -> int:
+    def getMaximumConsecutive(self, coins: list[int]) -> int:
         coins.sort()
         cur_max = 0
         for coin in coins:
@@ -19,7 +16,7 @@ class Solution:
         return cur_max + 1
 
 
-def test(testObj: unittest.TestCase, coins: List[int], expected: int) -> None:
+def test(testObj: unittest.TestCase, coins: list[int], expected: int) -> None:
 
     so = Solution()
     actual = so.getMaximumConsecutive(coins)
@@ -42,6 +39,8 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 843 ms, faster than 89.76% of Python3 online submissions for Maximum Number of Consecutive Values You Can Make.
-Memory Usage: 19.7 MB, less than 38.58% of Python3 online submissions for Maximum Number of Consecutive Values You Can Make.
+Runtime
+788 ms
+Beats
+81.51%
 '''

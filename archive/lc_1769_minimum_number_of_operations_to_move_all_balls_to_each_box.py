@@ -1,11 +1,13 @@
 
+import os
+import sys
 import unittest
 from typing import List
-import sys, os
+
 current = os.path.dirname(os.path.realpath(__file__))
 parent = os.path.dirname(current)
 sys.path.append(parent)
-from data_structure.binary_tree import TreeNode, array_to_treenode
+
 
 class Solution:
     def minOperations(self, boxes: str) -> List[int]:
@@ -24,22 +26,21 @@ class Solution:
         return results
 
 
-def test(testObj: unittest.TestCase, boxes: str, expected:int) -> None:
-    
+def test(testObj: unittest.TestCase, boxes: str, expected: int) -> None:
+
     s = Solution()
     actual = s.minOperations(boxes)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestStringMethods(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,  "110", [1,1,3])
+        test(self,  "110", [1, 1, 3])
 
     def test_2(self):
-        test(self,  "001011", [11,8,5,4,3,4])
-    
+        test(self,  "001011", [11, 8, 5, 4, 3, 4])
+
 
 if __name__ == '__main__':
     unittest.main()
-        

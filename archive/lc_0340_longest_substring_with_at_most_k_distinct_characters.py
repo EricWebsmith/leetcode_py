@@ -1,6 +1,4 @@
 import unittest
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -71,6 +69,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 76 ms, faster than 94.26% of Python3 online submissions for Longest Substring with At Most K Distinct Characters.
-Memory Usage: 14.3 MB, less than 42.46% of Python3 online submissions for Longest Substring with At Most K Distinct Characters.
+Runtime: 76 ms, faster than 94.26%
+Memory Usage: 14.3 MB, less than 42.46%
 '''

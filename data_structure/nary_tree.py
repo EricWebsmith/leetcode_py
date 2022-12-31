@@ -1,5 +1,5 @@
-from typing import List
 from queue import Queue
+from typing import List
 
 
 class Node:
@@ -27,7 +27,7 @@ def node_to_array(root: Node) -> List[int]:
             arr.append(None)
         qSize = q.qsize()
     # trim
-    while arr[-1] == None:
+    while arr[-1] is None:
         arr = arr[:-1]
     return arr
 

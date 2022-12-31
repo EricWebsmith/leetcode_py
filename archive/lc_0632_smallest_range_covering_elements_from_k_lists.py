@@ -1,8 +1,6 @@
-from heapq import heapify, heappop, heappush
 import unittest
+from heapq import heapify, heappop, heappush
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -51,6 +49,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 229 ms, faster than 97.97% of Python3 online submissions for Smallest Range Covering Elements from K Lists.
-Memory Usage: 20.4 MB, less than 49.45% of Python3 online submissions for Smallest Range Covering Elements from K Lists.
+Runtime: 229 ms, faster than 97.97%
+Memory Usage: 20.4 MB, less than 49.45%
 '''

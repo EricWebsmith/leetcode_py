@@ -1,7 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 MAX_INT = 2 ** 31 - 1
 
@@ -55,6 +53,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 47 ms, faster than 80.53% of Python3 online submissions for Search in a Sorted Array of Unknown Size.
-Memory Usage: 15.1 MB, less than 55.25% of Python3 online submissions for Search in a Sorted Array of Unknown Size.
+Runtime: 47 ms, faster than 80.53%
+Memory Usage: 15.1 MB, less than 55.25%
 '''

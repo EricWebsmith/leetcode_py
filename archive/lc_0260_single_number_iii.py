@@ -1,8 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -45,6 +42,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 54 ms, faster than 99.25% of Python3 online submissions for Single Number III.
-Memory Usage: 15.8 MB, less than 48.17% of Python3 online submissions for Single Number III.
+Runtime: 54 ms, faster than 99.25%
+Memory Usage: 15.8 MB, less than 48.17%
 '''

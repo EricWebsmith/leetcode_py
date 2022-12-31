@@ -1,7 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Interval:
@@ -58,8 +56,11 @@ class TestClass(unittest.TestCase):
 
     def test_3(self):
         test(self,
-             [[[7, 24], [29, 33], [45, 57], [66, 69], [94, 99]], [[6, 24], [43, 49], [56, 59], [61, 75], [80, 81]], [[5, 16], [18, 26], [
-                 33, 36], [39, 57], [65, 74]], [[9, 16], [27, 35], [40, 55], [68, 71], [78, 81]], [[0, 25], [29, 31], [40, 47], [57, 87], [91, 94]]],
+             [[[7, 24], [29, 33], [45, 57], [66, 69], [94, 99]],
+              [[6, 24], [43, 49], [56, 59],  [61, 75], [80, 81]],
+              [[5, 16], [18, 26], [33, 36], [39, 57], [65, 74]],
+              [[9, 16], [27, 35], [40, 55], [68, 71], [78, 81]],
+              [[0, 25], [29, 31], [40, 47], [57, 87], [91, 94]]],
              [[26, 27], [36, 39], [87, 91]])
 
 
@@ -67,6 +68,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 95 ms, faster than 91.67% of Python3 online submissions for Employee Free Time.
-Memory Usage: 15.7 MB, less than 78.36% of Python3 online submissions for Employee Free Time.
+Runtime: 95 ms, faster than 91.67%
+Memory Usage: 15.7 MB, less than 78.36%
 '''

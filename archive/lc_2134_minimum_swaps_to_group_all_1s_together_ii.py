@@ -1,7 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -48,6 +46,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 1367 ms, faster than 73.44% of Python3 online submissions for Minimum Swaps to Group All 1's Together II.
-Memory Usage: 17.8 MB, less than 82.81% of Python3 online submissions for Minimum Swaps to Group All 1's Together II.
+Runtime: 1367 ms, faster than 73.44%
+Memory Usage: 17.8 MB, less than 82.81%
 '''

@@ -1,7 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -65,10 +63,10 @@ class TestClass(unittest.TestCase):
     def test_8(self):
         test(self,   "10",  10, ['10'])
 
-    def test_8(self):
+    def test_9(self):
         test(self,   "100",  10, ['10+0', '10-0'])
 
-    def test_9(self):
+    def test_10(self):
         test(self,   "105", 5, ["1*0+5", "10-5"])
 
 
@@ -76,6 +74,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 797 ms, faster than 95.26% of Python3 online submissions for Expression Add Operators.
-Memory Usage: 14.7 MB, less than 88.62% of Python3 online submissions for Expression Add Operators.
+Runtime: 797 ms, faster than 95.26%
+Memory Usage: 14.7 MB, less than 88.62%
 '''

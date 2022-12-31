@@ -1,9 +1,6 @@
-from bisect import bisect_left
 import unittest
+from bisect import bisect_left
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class SummaryRanges:
@@ -62,29 +59,37 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
 class TestClass(unittest.TestCase):
 
     def test_1(self):
-        test(self, ["SummaryRanges", "addNum", "getIntervals", "addNum", "getIntervals", "addNum", "getIntervals", "addNum", "getIntervals", "addNum", "getIntervals"], [[], [
-             1], [], [3], [], [7], [], [2], [], [6], []], [None, None, [[1, 1]], None, [[1, 1], [3, 3]], None, [[1, 1], [3, 3], [7, 7]], None, [[1, 3], [7, 7]], None, [[1, 3], [6, 7]]])
+        test(self, ["SummaryRanges", "addNum", "getIntervals", "addNum", "getIntervals",
+                    "addNum", "getIntervals", "addNum", "getIntervals", "addNum", "getIntervals"],
+             [[], [1], [], [3], [], [7], [], [2], [], [6], []],
+             [None, None, [[1, 1]], None, [[1, 1], [3, 3]], None,
+             [[1, 1], [3, 3], [7, 7]], None, [[1, 3], [7, 7]], None, [[1, 3], [6, 7]]])
 
     def test_2(self):
         test(self,
              ["SummaryRanges", "addNum", "getIntervals", "addNum",
                  "getIntervals", "addNum", "getIntervals"],
              [[], [1], [], [9], [], [2], []],
-             [null, null, [[1, 1]], null, [[1, 1], [9, 9]], null, [[1, 2], [9, 9]]])
+             [None, None, [[1, 1]], None, [[1, 1], [9, 9]], None, [[1, 2], [9, 9]]])
 
     def test_3(self):
         test(self,
-             ["SummaryRanges", "addNum", "getIntervals", "addNum", "getIntervals", "addNum", "getIntervals", "addNum", "getIntervals", "addNum", "getIntervals",
-              "addNum", "getIntervals", "addNum", "getIntervals", "addNum", "getIntervals", "addNum", "getIntervals", "addNum", "getIntervals"],
+             ["SummaryRanges", "addNum", "getIntervals", "addNum", "getIntervals", "addNum", "getIntervals",
+              "addNum", "getIntervals", "addNum", "getIntervals", "addNum", "getIntervals", "addNum",
+              "getIntervals", "addNum", "getIntervals", "addNum", "getIntervals", "addNum", "getIntervals"],
              [[], [6], [], [6], [], [0], [], [4], [], [8], [],
                  [7], [], [6], [], [4], [], [7], [], [5], []],
-             [null, null, [[6, 6]], null, [[6, 6]], null, [[0, 0], [6, 6]], null, [[0, 0], [4, 4], [6, 6]], null, [[0, 0], [4, 4], [6, 6], [8, 8]], null, [[0, 0], [4, 4], [6, 8]], null, [[0, 0], [4, 4], [6, 8]], null, [[0, 0], [4, 4], [6, 8]], null, [[0, 0], [4, 4], [6, 8]], null, [[0, 0], [4, 8]]])
+             [None, None, [[6, 6]], None, [[6, 6]], None, [[0, 0], [6, 6]], None,
+              [[0, 0], [4, 4], [6, 6]], None,
+              [[0, 0], [4, 4], [6, 6], [8, 8]], None, [[0, 0], [4, 4], [6, 8]], None,
+              [[0, 0], [4, 4], [6, 8]], None, [[0, 0], [4, 4], [6, 8]], None,
+              [[0, 0], [4, 4], [6, 8]], None, [[0, 0], [4, 8]]])
 
 
 if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 325 ms, faster than 35.25% of Python3 online submissions for Data Stream as Disjoint Intervals.
-Memory Usage: 19 MB, less than 48.30% of Python3 online submissions for Data Stream as Disjoint Intervals.
+Runtime: 325 ms, faster than 35.25%
+Memory Usage: 19 MB, less than 48.30%
 '''

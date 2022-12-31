@@ -1,8 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class MRUQueue:
@@ -37,15 +34,16 @@ class TestClass(unittest.TestCase):
              [8], [3], [5], [2], [8]], [None, 3, 6, 2, 2])
 
     def test_2(self):
-        test(self, ["MRUQueue", "fetch", "fetch", "fetch", "fetch", "fetch", "fetch", "fetch", "fetch", "fetch", "fetch"],
+        test(self,
+             ["MRUQueue", "fetch", "fetch", "fetch", "fetch", "fetch", "fetch", "fetch", "fetch", "fetch", "fetch"],
              [[3], [2], [1], [2], [2], [2], [3], [2], [1], [1], [2]],
-             [null, 2, 1, 2, 1, 2, 2, 1, 3, 2, 3])
+             [None, 2, 1, 2, 1, 2, 2, 1, 3, 2, 3])
 
 
 if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 352 ms, faster than 61.97% of Python3 online submissions for Design Most Recently Used Queue.
-Memory Usage: 15.1 MB, less than 63.03% of Python3 online submissions for Design Most Recently Used Queue.
+Runtime: 352 ms, faster than 61.97%
+Memory Usage: 15.1 MB, less than 63.03%
 '''

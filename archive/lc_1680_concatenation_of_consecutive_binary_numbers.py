@@ -1,7 +1,4 @@
 import unittest
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -62,6 +59,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 1183 ms, faster than 96.06% of Python3 online submissions for Concatenation of Consecutive Binary Numbers.
-Memory Usage: 13.8 MB, less than 80.31% of Python3 online submissions for Concatenation of Consecutive Binary Numbers.
+Runtime: 1183 ms, faster than 96.06%
+Memory Usage: 13.8 MB, less than 80.31%
 '''

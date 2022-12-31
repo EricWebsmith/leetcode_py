@@ -27,7 +27,8 @@ class Solution:
         return intervals[:left] + [newInterval] + intervals[right+1:]
 
 
-def test(testObj: unittest.TestCase, intervals: List[List[int]], newInterval: List[int], expected: List[List[int]]) -> None:
+def test(testObj: unittest.TestCase, intervals: List[List[int]],
+         newInterval: List[int], expected: List[List[int]]) -> None:
     so = Solution()
     actual = so.insert(intervals, newInterval)
     testObj.assertEqual(actual, expected)

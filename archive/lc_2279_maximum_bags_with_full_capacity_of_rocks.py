@@ -1,10 +1,9 @@
 import unittest
-from typing import List
 
 
 class Solution:
-    def maximumBags(self, capacity: List[int], rocks: List[int], additionalRocks: int) -> int:
-        spaces: List[int] = [c-r for c, r in zip(capacity, rocks)]
+    def maximumBags(self, capacity: list[int], rocks: list[int], additionalRocks: int) -> int:
+        spaces: list[int] = [c-r for c, r in zip(capacity, rocks)]
         spaces.sort()
         ans = 0
         for space in spaces:
@@ -17,12 +16,10 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, capacity: List[int], rocks: List[int], additionalRocks: int, expected: int) -> None:
-
+def test(testObj: unittest.TestCase, capacity: list[int],
+         rocks: list[int], additionalRocks: int, expected: int) -> None:
     so = Solution()
-
     actual = so.maximumBags(capacity, rocks, additionalRocks)
-
     testObj.assertEqual(actual, expected)
 
 

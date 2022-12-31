@@ -1,19 +1,17 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
     """
-    The idea is to compare if the value is in range, 
+    The idea is to compare if the value is in range,
     So we do not need string conversion or bitwise operations.
     It is just simply use the > and < operations.
 
     Author:
     https://github.com/EricWebsmith/leetcode_py
     """
+
     def validUtf8(self, data: List[int]) -> bool:
         # firstly, we convert int to binary
         # so in the following code, we do not need to worry about this any more.
@@ -51,7 +49,7 @@ class Solution:
                         return False
                     i += 1
             # 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
-            # 
+            #
             elif _11110000 <= data[i] < _11111000:
                 i += 1
                 for j in range(3):
@@ -67,11 +65,8 @@ class Solution:
 
 
 def test(testObj: unittest.TestCase, data: List[int], expected: bool) -> None:
-
     so = Solution()
-
     actual = so.validUtf8(data)
-
     testObj.assertEqual(actual, expected)
 
 
@@ -122,7 +117,7 @@ class TestClass(unittest.TestCase):
     # 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx false
     def test_12(self):
         test(self,   [240, 128, 192, 128], False)
-    
+
     # 0xxxxxxx
     def test_13(self):
         test(self,   [128, 0, 0], False)
@@ -132,6 +127,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 142 ms, faster than 78.65% of Python3 online submissions for UTF-8 Validation.
-Memory Usage: 14.1 MB, less than 96.64% of Python3 online submissions for UTF-8 Validation.
+Runtime: 142 ms, faster than 78.65%
+Memory Usage: 14.1 MB, less than 96.64%
 '''

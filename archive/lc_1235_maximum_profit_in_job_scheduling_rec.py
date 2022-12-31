@@ -25,7 +25,8 @@ class Solution:
         return dfs(0)
 
 
-def test(testObj: unittest.TestCase, startTime: List[int], endTime: List[int], profit: List[int], expected: int) -> None:
+def test(testObj: unittest.TestCase, startTime: List[int], endTime: List[int],
+         profit: List[int], expected: int) -> None:
     so = Solution()
     actual = so.jobScheduling(startTime, endTime, profit)
     testObj.assertEqual(actual, expected)

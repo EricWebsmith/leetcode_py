@@ -5,10 +5,6 @@ from typing import List
 
 import numpy as np
 
-from data_structure.binary_tree import (TreeNode, array_to_treenode,
-                                        treenode_to_array)
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-
 
 class Solution:
     def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
@@ -49,6 +45,6 @@ if __name__ == '__main__':
 
 
 """
-Runtime: 9256 ms, faster than 20.00% of Python3 online submissions for Shifting Letters II.
-Memory Usage: 57.3 MB, less than 40.00% of Python3 online submissions for Shifting Letters II.
+Runtime: 9256 ms, faster than 20.00%
+Memory Usage: 57.3 MB, less than 40.00%
 """

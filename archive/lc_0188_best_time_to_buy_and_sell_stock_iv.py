@@ -1,10 +1,6 @@
-from heapq import heappop, heappush
 import unittest
-from typing import List, Optional, Dict, Set
-from math import sqrt
-from queue import Queue
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+from typing import List
+
 
 class Solution:
     def maxProfit(self, k: int, prices: List[int]) -> int:
@@ -24,26 +20,26 @@ class Solution:
         return dp[-1][-1]
 
 
-def test(testObj: unittest.TestCase, k: int, prices: List[int], expected:int) -> None:
-    
+def test(testObj: unittest.TestCase, k: int, prices: List[int], expected: int) -> None:
+
     so = Solution()
-    actual = so.maxProfit(k,prices)
+    actual = so.maxProfit(k, prices)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,   2,  [2,4,1], 2)
+        test(self,   2,  [2, 4, 1], 2)
 
     def test_2(self):
-        test(self,   2,  [3,2,6,5,0,3], 7)
-    
+        test(self,   2,  [3, 2, 6, 5, 0, 3], 7)
+
 
 if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 99 ms, faster than 94.55% of Python3 online submissions for Best Time to Buy and Sell Stock IV.
-Memory Usage: 15.3 MB, less than 65.66% of Python3 online submissions for Best Time to Buy and Sell Stock IV.
+Runtime: 99 ms, faster than 94.55%
+Memory Usage: 15.3 MB, less than 65.66%
 '''

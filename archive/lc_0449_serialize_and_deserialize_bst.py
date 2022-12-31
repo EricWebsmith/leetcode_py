@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+
+from data_structure.binary_tree import TreeNode
 
 
 def array_to_treenode(arr: List[int]) -> TreeNode:
@@ -10,17 +10,17 @@ def array_to_treenode(arr: List[int]) -> TreeNode:
 
     root = TreeNode(arr[0])
     q = [root]
-    l = len(q)
+    length = len(q)
     index = 1
 
-    while l > 0 and index < len(arr):
-        for i in range(0, l):
+    while length > 0 and index < len(arr):
+        for i in range(0, length):
             node = q.pop(0)
 
-            if node == None:
+            if node is None:
                 continue
 
-            if arr[index] == None:
+            if arr[index] is None:
                 node.left = None
             else:
                 node.left = TreeNode(arr[index])
@@ -30,7 +30,7 @@ def array_to_treenode(arr: List[int]) -> TreeNode:
             if index == len(arr):
                 break
 
-            if arr[index] == None:
+            if arr[index] is None:
                 node.right = None
             else:
                 node.right = TreeNode(arr[index])
@@ -39,7 +39,7 @@ def array_to_treenode(arr: List[int]) -> TreeNode:
 
             if index == len(arr):
                 break
-        l = len(q)
+        length = len(q)
 
     return root
 
@@ -57,7 +57,7 @@ def treenode_to_array(root: Optional[TreeNode]) -> List[int]:
                 q.append(node.left)
                 q.append(node.right)
 
-    while len(arr) > 0 and arr[-1] == None:
+    while len(arr) > 0 and arr[-1] is None:
         arr = arr[:-1]
 
     return arr

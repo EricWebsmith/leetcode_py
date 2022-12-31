@@ -14,9 +14,9 @@ class Solution:
                 max_time = max(neededTime[i], max_time)
             else:
                 max_time = neededTime[i]
-            
+
             previous_color = colors[i]
-        
+
         return ans
 
 
@@ -39,7 +39,7 @@ class TestClass(unittest.TestCase):
         test(self,   "aabaa",  [1, 2, 3, 4, 1], 2)
 
     def test_4(self):
-        test(self,   "bbbaaa",  [4,9,3,8,8,9], 23)
+        test(self,   "bbbaaa",  [4, 9, 3, 8, 8, 9], 23)
 
 
 if __name__ == '__main__':

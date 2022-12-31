@@ -1,29 +1,26 @@
-from functools import cache
 import unittest
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
+from functools import cache
 
 
 class Solution:
     def longestPalindromeSubseq(self, s: str) -> int:
 
         @cache
-        def dp(l, r) -> int:
-            if l > r:
+        def dp(left, right) -> int:
+            if left > right:
                 return 0, None
-            elif l == r:
+            elif left == right:
                 return 0, None
             else:
-                if s[l] == s[r] and s[l]:
-                    count, c = dp(l+1, r-1)
-                    if c == s[l]:
+                if s[left] == s[right] and s[left]:
+                    count, c = dp(left+1, right-1)
+                    if c == s[left]:
                         return count, c
                     else:
-                        return count+2, s[l]
+                        return count+2, s[left]
                 else:
-                    left_count, left_c = dp(l+1, r)
-                    right_count, right_c = dp(l, r-1)
+                    left_count, left_c = dp(left+1, right)
+                    right_count, right_c = dp(left, right-1)
                     if left_count > right_count:
                         return left_count, left_c
                     elif right_count > left_count:
@@ -60,16 +57,16 @@ class TestClass(unittest.TestCase):
         test(self,   "aba", 2)
 
     def test_5(self):
-        test(self,   "udpdjnmlcekqctotjaaqeuikbknoqhrjzwdivybtqtjjelzeveruwudebsbemoaetdfuoagrkaoyotidhvwmworkwlguyvebixyarkvxoglbfctcjjschtyomaxdcnumqdcouwjwdbdcrwsvjfjdavibjkkxcsrdqvmjxmhhnmxtnglawnhtvlgwcrfxitvesalreuvkzrtkyyptkvwrwavocnhdmrjvtzqedvzigoybqgyjh", 80)
+        test(self,   "udpdjnmlcekqctotjaaqeuikbknoqhrjzwdivybtqtjjelzeveruwudebsbemoaetdfuoagrkaoyotidhvwmworkwlguyvebixyarkvxoglbfctcjjschtyomaxdcnumqdcouwjwdbdcrwsvjfjdavibjkkxcsrdqvmjxmhhnmxtnglawnhtvlgwcrfxitvesalreuvkzrtkyyptkvwrwavocnhdmrjvtzqedvzigoybqgyjh", 80)  # noqa
 
     def test_6(self):
-        test(self,   "hnkzqnijsjwetjsjzhqqxyecqrjbuaxifhgilqgchkiynkzpcymqxwgntacusvjmxfqslchsdvapolduzogkjjnsgqmkgxdrkcejubclkvcinpbpibzkgmraxnxmxnkrlfqljtfhztradlmrlwytphgkbeyflyfxojxaqbhqwdahxwifuvcwtkplzjyhuzevsdmsritmhwwanilvzgbcayzctsldimhnesppju", 74)
+        test(self,   "hnkzqnijsjwetjsjzhqqxyecqrjbuaxifhgilqgchkiynkzpcymqxwgntacusvjmxfqslchsdvapolduzogkjjnsgqmkgxdrkcejubclkvcinpbpibzkgmraxnxmxnkrlfqljtfhztradlmrlwytphgkbeyflyfxojxaqbhqwdahxwifuvcwtkplzjyhuzevsdmsritmhwwanilvzgbcayzctsldimhnesppju", 74)  # noqa
 
 
 if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 315 ms, faster than 95.29% of Python3 online submissions for Longest Palindromic Subsequence II.
-Memory Usage: 85.4 MB, less than 58.82% of Python3 online submissions for Longest Palindromic Subsequence II.
+Runtime: 315 ms, faster than 95.29%
+Memory Usage: 85.4 MB, less than 58.82%
 '''

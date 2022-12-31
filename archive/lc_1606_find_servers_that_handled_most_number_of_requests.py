@@ -1,10 +1,7 @@
-from bisect import bisect_left, insort_left
 import unittest
-from typing import List
+from bisect import bisect_left, insort_left
 from collections import defaultdict
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
+from typing import List
 
 
 class Solution:

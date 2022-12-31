@@ -1,8 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -33,7 +30,8 @@ class Solution:
         return False
 
 
-def test(testObj: unittest.TestCase, maze: List[List[int]], start: List[int], destination: List[int], expected: bool) -> None:
+def test(testObj: unittest.TestCase, maze: List[List[int]], start: List[int],
+         destination: List[int], expected: bool) -> None:
 
     so = Solution()
 
@@ -61,6 +59,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 295 ms, faster than 92.32% of Python3 online submissions for The Maze.
-Memory Usage: 14.8 MB, less than 45.07% of Python3 online submissions for The Maze.
+Runtime: 295 ms, faster than 92.32%
+Memory Usage: 14.8 MB, less than 45.07%
 '''

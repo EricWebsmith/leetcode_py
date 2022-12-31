@@ -1,8 +1,6 @@
 import unittest
-from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 from collections import Counter
+from typing import List
 
 
 class Solution:
@@ -39,6 +37,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 932 ms, faster than 99.47% of Python3 online submissions for Minimum Rounds to Complete All Tasks.
-Memory Usage: 28.5 MB, less than 38.92% of Python3 online submissions for Minimum Rounds to Complete All Tasks.
+Runtime: 932 ms, faster than 99.47%
+Memory Usage: 28.5 MB, less than 38.92%
 '''

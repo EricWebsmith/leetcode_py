@@ -52,6 +52,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 568 ms, faster than 93.03% of Python3 online submissions for Find Median from Data Stream.
-Memory Usage: 36.4 MB, less than 21.94% of Python3 online submissions for Find Median from Data Stream.
+Runtime: 568 ms, faster than 93.03%
+Memory Usage: 36.4 MB, less than 21.94%
 '''

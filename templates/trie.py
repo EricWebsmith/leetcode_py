@@ -15,7 +15,7 @@ class TrieNode:
         current = root
         for c in word:
             index = ord(c) - ord('a')
-            if current.children[index] == None:
+            if current.children[index] is None:
                 current.children[index] = TrieNode()
             current = current.children[index]
         current.is_word = True

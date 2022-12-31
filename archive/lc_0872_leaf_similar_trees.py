@@ -6,9 +6,9 @@ from data_structure.binary_tree import TreeNode, array_to_treenode
 
 class Solution:
     def get_leaves(self, root: Optional[TreeNode]) -> list[int]:
-        if root == None:
+        if root is None:
             return []
-        if root.left == None and root.right == None:
+        if root.left is None and root.right is None:
             return [root]
         return self.get_leaves(root.left) + self.get_leaves(root.right)
 

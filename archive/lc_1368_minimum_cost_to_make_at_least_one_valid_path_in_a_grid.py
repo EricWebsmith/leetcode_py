@@ -1,9 +1,6 @@
 import unittest
-from typing import List
 from collections import deque
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
+from typing import List
 
 
 class Solution:
@@ -65,6 +62,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 3758 ms, faster than 5.22% of Python3 online submissions for Minimum Cost to Make at Least One Valid Path in a Grid.
-Memory Usage: 14.5 MB, less than 98.26% of Python3 online submissions for Minimum Cost to Make at Least One Valid Path in a Grid.
+Runtime: 3758 ms, faster than 5.22%
+Memory Usage: 14.5 MB, less than 98.26%
 '''

@@ -1,9 +1,6 @@
-from heapq import heapify, heappop, heappush
 import unittest
+from heapq import heapify, heappop, heappush
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -27,7 +24,7 @@ class Solution:
             for r in range(m):
                 new_indices = [*indices]
                 new_indices[r] += 1
-                if new_indices[r]==n:
+                if new_indices[r] == n:
                     continue
                 new_s = s + mat[r][new_indices[r]] - mat[r][indices[r]]
                 heappush(q, (new_s, tuple(new_indices)))
@@ -60,6 +57,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 253 ms, faster than 72.41% of Python3 online submissions for Find the Kth Smallest Sum of a Matrix With Sorted Rows.
-Memory Usage: 18 MB, less than 26.11% of Python3 online submissions for Find the Kth Smallest Sum of a Matrix With Sorted Rows.
+Runtime: 253 ms, faster than 72.41%
+Memory Usage: 18 MB, less than 26.11%
 '''

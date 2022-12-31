@@ -6,9 +6,9 @@ from data_structure.binary_tree import TreeNode, array_to_treenode
 
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        if p == None and q == None:
+        if p is None and q is None:
             return True
-        if p == None or q == None:
+        if p is None or q is None:
             return False
         if p.val != q.val:
             return False

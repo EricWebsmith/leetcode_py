@@ -1,7 +1,7 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+
+from data_structure.nary_tree import Node, array_to_node
 
 
 class Solution:
@@ -66,6 +66,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 57 ms, faster than 81.99% of Python3 online submissions for Diameter of N-Ary Tree.
-Memory Usage: 16 MB, less than 53.92% of Python3 online submissions for Diameter of N-Ary Tree.
+Runtime: 57 ms, faster than 81.99%
+Memory Usage: 16 MB, less than 53.92%
 '''

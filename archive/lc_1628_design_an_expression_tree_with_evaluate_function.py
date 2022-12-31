@@ -1,7 +1,6 @@
 import unittest
-from typing import List
-
 from abc import ABC, abstractmethod
+from typing import List
 
 
 class Node(ABC):
@@ -28,7 +27,7 @@ class TreeBuilder(object):
         operations = ['+', '-', '*', '/']
         stack = []
         for p in postfix:
-            if not p in operations:
+            if p not in operations:
                 node = TreeNode()
                 node.val = int(p)
                 stack.append(node)
@@ -72,6 +71,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 40 ms, faster than 87.00% of Python3 online submissions for Design an Expression Tree With Evaluate Function.
-Memory Usage: 14 MB, less than 16.63% of Python3 online submissions for Design an Expression Tree With Evaluate Function.
+Runtime: 40 ms, faster than 87.00%,
+Memory Usage: 14 MB, less than 16.63%
 '''

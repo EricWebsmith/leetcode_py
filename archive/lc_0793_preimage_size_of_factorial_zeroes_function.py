@@ -1,7 +1,5 @@
 import unittest
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
+
 
 class Solution:
     def preimageSizeFZF(self, k: int) -> int:
@@ -9,7 +7,7 @@ class Solution:
         def f(m):
             ans = m
             five = 5
-            while five<=m:
+            while five <= m:
                 ans += m // five
                 five *= 5
 
@@ -18,12 +16,12 @@ class Solution:
         # left and right are divide by 5 already.
         left = k * 4 // 5
         right = k
-        while left<right+1:
+        while left < right+1:
             m = (left + right) >> 1
             zeros = f(m)
-            if zeros==k:
+            if zeros == k:
                 return 5
-            elif zeros<k:
+            elif zeros < k:
                 left = m + 1
             else:
                 right = m - 1
@@ -31,16 +29,15 @@ class Solution:
         return 0
 
 
+def test(testObj: unittest.TestCase, k: int, expected: int) -> None:
 
-def test(testObj: unittest.TestCase, k: int, expected:int) -> None:
-    
     so = Solution()
     actual = so.preimageSizeFZF(k)
     testObj.assertEqual(actual, expected)
 
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
         test(self,   0, 5)
 
@@ -49,33 +46,33 @@ class TestClass(unittest.TestCase):
 
     def test_3(self):
         test(self,   3, 5)
-    
+
     def test_4(self):
         test(self,   1_000_000_000, 5)
-    
+
     def test_5(self):
         test(self,   1_000_000, 5)
-    
+
     def test_6(self):
         test(self,   1_000, 5)
-    
+
     def test_7(self):
         test(self,   17, 0)
-    
+
     def test_8(self):
         test(self,   18, 5)
-    
+
     def test_9(self):
         test(self,   23, 0)
-    
+
     def test_10(self):
         test(self,   45, 5)
-    
+
 
 if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 26 ms, faster than 98.93% of Python3 online submissions for Preimage Size of Factorial Zeroes Function.
-Memory Usage: 14 MB, less than 16.04% of Python3 online submissions for Preimage Size of Factorial Zeroes Function.
+Runtime: 26 ms, faster than 98.93%
+Memory Usage: 14 MB, less than 16.04%
 '''

@@ -1,8 +1,4 @@
-from collections import defaultdict
-from typing import Any, List, Optional, Set, Dict
-
-# for graph
-# it is better to use dict, in stead of list, because the  (0 based, 1 based?) is error-prone.
+from typing import Any, Dict, List, Set
 
 
 def get_edges(k: int, from_tos: List[List[int]]) -> Dict[int, Set[int]]:

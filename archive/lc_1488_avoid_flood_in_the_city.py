@@ -1,9 +1,8 @@
 
-from bisect import bisect_right
 import unittest
+from bisect import bisect_right
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+
 
 class Solution:
     def avoidFlood(self, rains: List[int]) -> List[int]:
@@ -23,43 +22,41 @@ class Solution:
                     clean_day_index = bisect_right(clean_days, last_rain)
                     if clean_day_index == len(clean_days):
                         return []
-                    
-                    
+
                     ans[clean_days[clean_day_index]] = rains[i]
                     del clean_days[clean_day_index]
-                d[rains[i]]=i
+                d[rains[i]] = i
 
         return ans
 
 
-def test(testObj: unittest.TestCase, rains: List[int], expected:int) -> None:
-    
+def test(testObj: unittest.TestCase, rains: List[int], expected: int) -> None:
+
     so = Solution()
     actual = so.avoidFlood(rains)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestStringMethods(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,   [1,2,3,4], [-1,-1,-1,-1])
+        test(self,   [1, 2, 3, 4], [-1, -1, -1, -1])
 
     def test_2(self):
-        test(self,   [1,2,0,0,2,1], [-1,-1,2,1,-1,-1])
+        test(self,   [1, 2, 0, 0, 2, 1], [-1, -1, 2, 1, -1, -1])
 
     def test_3(self):
-        test(self,   [1,2,0,1,2], [])
-    
+        test(self,   [1, 2, 0, 1, 2], [])
+
     def test_4(self):
-        test(self,   [69,0,0,0,69], [-1,69,1,1,-1])
-    
+        test(self,   [69, 0, 0, 0, 69], [-1, 69, 1, 1, -1])
+
     def test_5(self):
-        test(self,   [0,1,1], [])
-    
+        test(self,   [0, 1, 1], [])
+
     def test_6(self):
-        test(self,   [1,0,2,0,2,1], [-1, 1, -1, 2, -1, -1])
-    
+        test(self,   [1, 0, 2, 0, 2, 1], [-1, 1, -1, 2, -1, -1])
+
 
 if __name__ == '__main__':
     unittest.main()
-        

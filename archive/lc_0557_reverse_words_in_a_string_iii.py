@@ -1,7 +1,4 @@
 import unittest
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -32,6 +29,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 53 ms, faster than 73.28% of Python3 online submissions for Reverse Words in a String III.
-Memory Usage: 14.6 MB, less than 46.10% of Python3 online submissions for Reverse Words in a String III.
+Runtime: 53 ms, faster than 73.28%
+Memory Usage: 14.6 MB, less than 46.10%
 '''

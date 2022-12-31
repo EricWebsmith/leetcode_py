@@ -1,8 +1,6 @@
-from bisect import bisect_left, bisect_right
 import unittest
+from bisect import bisect_left, bisect_right
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -41,6 +39,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 40 ms, faster than 92.86% of Python3 online submissions for Check If a Number Is Majority Element in a Sorted Array.
-Memory Usage: 14 MB, less than 82.74% of Python3 online submissions for Check If a Number Is Majority Element in a Sorted Array.
+Runtime: 40 ms, faster than 92.86%
+Memory Usage: 14 MB, less than 82.74%
 '''

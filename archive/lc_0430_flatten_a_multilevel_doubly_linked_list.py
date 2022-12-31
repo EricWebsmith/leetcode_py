@@ -1,6 +1,5 @@
 import unittest
 from typing import Optional
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 
 
 class Node:
@@ -16,7 +15,7 @@ class Solution:
         def dfs(node):
             first = node
             last = node
-            while node != None:
+            while node is not None:
                 last = node
                 next = node.next
                 if node.child:
@@ -60,6 +59,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 42 ms, faster than 84.79% of Python3 online submissions for Flatten a Multilevel Doubly Linked List.
-Memory Usage: 14.9 MB, less than 43.96% of Python3 online submissions for Flatten a Multilevel Doubly Linked List.
+Runtime: 42 ms, faster than 84.79%
+Memory Usage: 14.9 MB, less than 43.96%
 '''

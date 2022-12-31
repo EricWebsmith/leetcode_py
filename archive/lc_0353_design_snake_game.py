@@ -1,9 +1,6 @@
 import unittest
-from typing import List
 from collections import deque
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
+from typing import List
 
 
 class SnakeGame:
@@ -33,7 +30,8 @@ class SnakeGame:
             return -1
 
         eat_food = False
-        if self.food_index < len(self.food) and new_r == self.food[self.food_index][0] and new_c == self.food[self.food_index][1]:
+        if self.food_index < len(self.food) and new_r == self.food[self.food_index][0] \
+                and new_c == self.food[self.food_index][1]:
             self.food_index += 1
             eat_food = True
 
@@ -69,6 +67,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 344 ms, faster than 66.90% of Python3 online submissions for Design Snake Game.
-Memory Usage: 15.8 MB, less than 51.61% of Python3 online submissions for Design Snake Game.
+Runtime: 344 ms, faster than 66.90%
+Memory Usage: 15.8 MB, less than 51.61%
 '''

@@ -1,14 +1,5 @@
-from heapq import heappop, heappush
-from os import curdir
-from select import select
-import string
 import unittest
-from typing import List, Optional, Dict, Set, Union
-from math import sqrt
-from collections import deque
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
+from typing import List, Optional
 
 
 class Solution:
@@ -130,6 +121,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 55 ms, faster than 70.33% of Python3 online submissions for Basic Calculator III.
-Memory Usage: 13.8 MB, less than 94.41% of Python3 online submissions for Basic Calculator III.
+Runtime: 55 ms, faster than 70.33%
+Memory Usage: 13.8 MB, less than 94.41%
 '''

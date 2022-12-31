@@ -2,8 +2,6 @@ import unittest
 from collections import deque
 from typing import List
 
-null = None
-
 
 class Solution:
     def shortestPath(self, grid: List[List[int]], k: int) -> int:
@@ -33,11 +31,8 @@ class Solution:
 
 
 def test(testObj: unittest.TestCase, grid: List[List[int]], k: int, expected: int) -> None:
-
     so = Solution()
-
     actual = so.shortestPath(grid, k)
-
     testObj.assertEqual(actual, expected)
 
 

@@ -1,8 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -66,6 +63,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 1500 ms, faster than 92.68% of Python3 online submissions for Find Original Array From Doubled Array.
-Memory Usage: 28.7 MB, less than 98.54% of Python3 online submissions for Find Original Array From Doubled Array.
+Runtime: 1500 ms, faster than 92.68%
+Memory Usage: 28.7 MB, less than 98.54%
 '''

@@ -1,10 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
-true = True
-false = False
 
 
 class Node:
@@ -148,19 +143,24 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
 class TestClass(unittest.TestCase):
 
     def test_1(self):
-        test(self, ["MyCircularDeque", "insertLast", "insertLast", "insertFront", "insertFront", "getRear", "isFull", "deleteLast", "insertFront", "getFront"],
-             [[3], [1], [2], [3], [4], [], [], [], [4], []], [None, True, True, True, False, 2, True, True, True, 4])
+        test(self,
+             ["MyCircularDeque", "insertLast", "insertLast", "insertFront", "insertFront",
+              "getRear", "isFull", "deleteLast", "insertFront", "getFront"],
+             [[3], [1], [2], [3], [4], [], [], [], [4], []],
+             [None, True, True, True, False, 2, True, True, True, 4])
 
     def test_2(self):
-        test(self, ["MyCircularDeque", "insertFront", "insertLast", "getFront", "insertLast", "getFront", "insertFront", "getRear", "getFront", "getFront", "deleteLast", "getRear"],
+        test(self,
+             ["MyCircularDeque", "insertFront", "insertLast", "getFront", "insertLast",
+              "getFront", "insertFront", "getRear", "getFront", "getFront", "deleteLast", "getRear"],
              [[5], [7], [0], [], [3], [], [9], [], [], [], [], []],
-             [null, true, true, 7, true, 7, true, 3, 9, 9, true, 0])
+             [None, True, True, 7, True, 7, True, 3, 9, 9, True, 0])
 
 
 if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 67 ms, faster than 98.39% of Python3 online submissions for Design Circular Deque.
-Memory Usage: 15.1 MB, less than 12.88% of Python3 online submissions for Design Circular Deque.
+Runtime: 67 ms, faster than 98.39%
+Memory Usage: 15.1 MB, less than 12.88%
 '''

@@ -1,10 +1,6 @@
-from heapq import heappop, heappush
-from tkinter import Frame
 import unittest
+from heapq import heappop, heappush
 from typing import List, Set, Tuple
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -60,8 +56,8 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 3952 ms, faster than 23.22% of Python3 online submissions for K-th Smallest Prime Fraction.
-Memory Usage: 89.5 MB, less than 25.00% of Python3 online submissions for K-th Smallest Prime Fraction.
+Runtime: 3952 ms, faster than 23.22%
+Memory Usage: 89.5 MB, less than 25.00%
 '''
 
 # # TLE

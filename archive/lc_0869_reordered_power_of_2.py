@@ -1,8 +1,6 @@
 
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -23,8 +21,9 @@ class Solution:
         # for i in range(0, 31):
         #     print(2 ** i, end=', ')
 
-        two = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144, 524288,
-               1048576, 2097152, 4194304, 8388608, 16777216, 33554432, 67108864, 134217728, 268435456, 536870912, 1073741824]
+        two = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768,
+               65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 33554432,
+               67108864, 134217728, 268435456, 536870912, 1073741824]
 
         if n < 0:
             n = -n
@@ -61,6 +60,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 42 ms, faster than 84.49% of Python3 online submissions for Reordered Power of 2.
-Memory Usage: 13.9 MB, less than 64.17% of Python3 online submissions for Reordered Power of 2.
+Runtime: 42 ms, faster than 84.49%
+Memory Usage: 13.9 MB, less than 64.17%
 '''

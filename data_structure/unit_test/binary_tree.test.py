@@ -1,7 +1,7 @@
-from heapq import heappop, heappush
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
+
+from data_structure.binary_tree import array_to_treenode, treenode_to_array
 
 
 def test(testObj: unittest.TestCase, nums: List[int]) -> None:

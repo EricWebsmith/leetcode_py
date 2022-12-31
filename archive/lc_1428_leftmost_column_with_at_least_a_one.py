@@ -1,7 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class BinaryMatrix(object):
@@ -68,6 +66,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 137 ms, faster than 70.46% of Python3 online submissions for Leftmost Column with at Least a One.
-Memory Usage: 14.2 MB, less than 50.45% of Python3 online submissions for Leftmost Column with at Least a One.
+Runtime: 137 ms, faster than 70.46%
+Memory Usage: 14.2 MB, less than 50.45%
 '''

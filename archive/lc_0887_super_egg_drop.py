@@ -1,6 +1,4 @@
 import unittest
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -10,7 +8,7 @@ class Solution:
         dp(i, j) = dp(i - 1, j - 1) + 1 + dp(i, j - 1)
         dp(0, j) = 0
         dp(i, 0) = 0
-        min j that makes dp(k, j) >= n 
+        min j that makes dp(k, j) >= n
         """
         memo = [[0]*(n + 1) for _ in range(k + 1)]
 
@@ -108,6 +106,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 65 ms, faster than 80.11% of Python3 online submissions for Super Egg Drop.
-Memory Usage: 20.4 MB, less than 68.11% of Python3 online submissions for Super Egg Drop.
+Runtime: 65 ms, faster than 80.11%
+Memory Usage: 20.4 MB, less than 68.11%
 '''

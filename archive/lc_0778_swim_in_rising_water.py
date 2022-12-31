@@ -1,8 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class DSU:
@@ -94,6 +91,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 122 ms, faster than 88.35% of Python3 online submissions for Swim in Rising Water.
-Memory Usage: 14.5 MB, less than 90.64% of Python3 online submissions for Swim in Rising Water.
+Runtime: 122 ms, faster than 88.35%
+Memory Usage: 14.5 MB, less than 90.64%
 '''

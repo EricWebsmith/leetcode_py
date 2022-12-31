@@ -1,8 +1,6 @@
 import unittest
-from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 from functools import cache
+from typing import List
 
 
 class Solution:
@@ -55,6 +53,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 934 ms, faster than 8.92% of Python3 online submissions for Target Sum.
-Memory Usage: 73.4 MB, less than 8.55% of Python3 online submissions for Target Sum.
+Runtime: 934 ms, faster than 8.92%
+Memory Usage: 73.4 MB, less than 8.55%
 '''

@@ -2,6 +2,7 @@
 import unittest
 from typing import List
 
+
 class Solution:
     def maxSumAfterOperation(self, nums: List[int]) -> int:
         operated = float('-inf')
@@ -11,28 +12,31 @@ class Solution:
             operated = max(operated+num, unoperated + num**2, num**2)
             unoperated = max(num, unoperated + num)
             maxS = max(operated, maxS)
-        
+
         return maxS
-        
-def test(testObj: unittest.TestCase, courses:List[List[int]], expected:int) -> None:
+
+
+def test(testObj: unittest.TestCase, courses: List[List[int]], expected: int) -> None:
     s = Solution()
     actual = s.maxSumAfterOperation(courses)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestStringMethods(unittest.TestCase):
-        
+
     def test_1(self):
-        test(self,  [2,-1,-4,-3], 17)
+        test(self,  [2, -1, -4, -3], 17)
 
     def test_2(self):
-        test(self,  [1,-1,1,1,-1,-1,1], 4)
-    
+        test(self,  [1, -1, 1, 1, -1, -1, 1], 4)
+
 
 if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 1407 ms, faster than 71.50% of Python3 online submissions for Maximum Subarray Sum After One Operation.
-Memory Usage: 27.7 MB, less than 65.29% of Python3 online submissions for Maximum Subarray Sum After One Operation.        
-'''        
+Runtime
+1407 ms
+Beats
+66.67%
+'''

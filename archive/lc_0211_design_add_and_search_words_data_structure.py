@@ -1,8 +1,6 @@
 import unittest
 from typing import Dict, List
 
-null = None
-
 
 class WordDictionary:
     """
@@ -17,7 +15,7 @@ class WordDictionary:
         # prefix
         node = self.prefix
         for c in word:
-            if not c in node:
+            if c not in node:
                 node[c] = {}
             node = node[c]
         node['$'] = True
@@ -25,7 +23,7 @@ class WordDictionary:
         # postfix
         node = self.postfix
         for c in reversed(list(word)):
-            if not c in node:
+            if c not in node:
                 node[c] = {}
             node = node[c]
         node['$'] = True
@@ -35,7 +33,7 @@ class WordDictionary:
 
         def search_in_node(chars, node) -> bool:
             for i, ch in enumerate(chars):
-                if not ch in node:
+                if ch not in node:
                     # if the current character is '.'
                     # check all possible nodes at this level
                     if ch == '.':
@@ -108,8 +106,9 @@ def test2(testObj: unittest.TestCase, actions: List, params: List) -> None:
 class TestClass(unittest.TestCase):
 
     def test_1(self):
-        test(self, ["WordDictionary", "addWord", "addWord", "addWord", "search", "search", "search", "search"], [[], [
-             "bad"], ["dad"], ["mad"], ["pad"], ["bad"], [".ad"], ["b.."]], [None, None, None, None, False, True, True, True])
+        test(self, ["WordDictionary", "addWord", "addWord", "addWord", "search", "search", "search", "search"],
+             [[], ["bad"], ["dad"], ["mad"], ["pad"], ["bad"], [".ad"], ["b.."]],
+             [None, None, None, None, False, True, True, True])
 
     def test_2(self):
         operations = ['WordDictionary']

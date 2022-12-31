@@ -24,7 +24,7 @@ def array_to_listnode(arr: List[int]) -> ListNode:
 def listnode_to_array(head: ListNode) -> List[int]:
     arr = []
     current = head
-    while current != None:
+    while current is not None:
         arr.append(current.val)
         current = current.next
     return arr

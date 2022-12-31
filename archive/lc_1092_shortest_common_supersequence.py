@@ -1,7 +1,4 @@
 import unittest
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -25,7 +22,7 @@ class Solution:
                 t = str1[r-1] + t
                 r -= 1
                 c -= 1
-            elif r == 0 or (c>0 and dp[r][c-1] == dp[r][c]):
+            elif r == 0 or (c > 0 and dp[r][c-1] == dp[r][c]):
                 t = str2[c-1] + t
                 c -= 1
             else:
@@ -73,16 +70,16 @@ class TestClass(unittest.TestCase):
         test(self, "abc", "bcd", "abcd")
 
     def test_6(self):
-        test(self, 
-            "bcaaacbbbcbdcaddadcacbdddcdcccdadadcbabaccbccdcdcbcaccacbbdcbabb",
-            "dddbbdcbccaccbababaacbcbacdddcdabadcacddbacadabdabcdbaaabaccbdaa",
-            "dddbbdcaabccaccbababaacbdcbacddadcdacbadcaddcdcccdbacdadcbabdaccbccdbaaacdcbcaccacbbdacbabb")
+        test(self,
+             "bcaaacbbbcbdcaddadcacbdddcdcccdadadcbabaccbccdcdcbcaccacbbdcbabb",
+             "dddbbdcbccaccbababaacbcbacdddcdabadcacddbacadabdabcdbaaabaccbdaa",
+             "dddbbdcaabccaccbababaacbdcbacddadcdacbadcaddcdcccdbacdadcbabdaccbccdbaaacdcbcaccacbbdacbabb")
 
 
 if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 419 ms, faster than 97.50% of Python3 online submissions for Shortest Common Supersequence .
-Memory Usage: 21.8 MB, less than 94.87% of Python3 online submissions for Shortest Common Supersequence .
+Runtime: 419 ms, faster than 97.50%
+Memory Usage: 21.8 MB, less than 94.87%
 '''

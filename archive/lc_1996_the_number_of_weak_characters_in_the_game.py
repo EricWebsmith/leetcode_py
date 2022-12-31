@@ -1,8 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -59,6 +56,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 2619 ms, faster than 83.36% of Python3 online submissions for The Number of Weak Characters in the Game.
-Memory Usage: 70.4 MB, less than 10.18% of Python3 online submissions for The Number of Weak Characters in the Game.
+Runtime: 2619 ms, faster than 83.36%
+Memory Usage: 70.4 MB, less than 10.18%
 '''

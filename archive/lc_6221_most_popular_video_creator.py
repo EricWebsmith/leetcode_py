@@ -1,7 +1,6 @@
 import unittest
-from collections import defaultdict, deque
 from dataclasses import dataclass, field
-from typing import Any, Dict, List, Optional, Set
+from typing import List
 
 
 @dataclass
@@ -53,7 +52,8 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, creators: List[str], ids: List[str], views: List[int], expected: List[List[str]]) -> None:
+def test(testObj: unittest.TestCase, creators: List[str], ids: List[str],
+         views: List[int], expected: List[List[str]]) -> None:
 
     so = Solution()
 

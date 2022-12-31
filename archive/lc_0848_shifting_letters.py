@@ -1,8 +1,7 @@
 
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+
 
 class Solution:
     def shiftingLetters(self, S, shifts) -> str:
@@ -16,22 +15,21 @@ class Solution:
         return "".join(ans)
 
 
-def test(testObj: unittest.TestCase, s: str, shifts: List[int], expected:int) -> None:
-    
+def test(testObj: unittest.TestCase, s: str, shifts: List[int], expected: int) -> None:
+
     so = Solution()
-    actual = so.shiftingLetters(s,shifts)
+    actual = so.shiftingLetters(s, shifts)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestStringMethods(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,  "abc",  [3,5,9], "rpl")
+        test(self,  "abc",  [3, 5, 9], "rpl")
 
     def test_2(self):
-        test(self,  "aaa",  [1,2,3], "gfd")
-    
+        test(self,  "aaa",  [1, 2, 3], "gfd")
+
 
 if __name__ == '__main__':
     unittest.main()
-        

@@ -1,8 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -55,6 +52,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 75 ms, faster than 96.78% of Python3 online submissions for Dungeon Game.
-Memory Usage: 15.1 MB, less than 55.23% of Python3 online submissions for Dungeon Game.
+Runtime: 75 ms, faster than 96.78%
+Memory Usage: 15.1 MB, less than 55.23%
 '''

@@ -1,7 +1,4 @@
 import unittest
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -69,6 +66,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 34 ms, faster than 99.07% of Python3 online submissions for Longest Repeating Substring.
-Memory Usage: 14.4 MB, less than 63.55% of Python3 online submissions for Longest Repeating Substring.
+Runtime: 34 ms, faster than 99.07%
+Memory Usage: 14.4 MB, less than 63.55%
 '''

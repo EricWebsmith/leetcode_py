@@ -1,6 +1,5 @@
 import unittest
 from typing import List
-null = None
 
 
 class Solution:
@@ -46,6 +45,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 940 ms, faster than 63.89% of Python3 online submissions for Count Square Submatrices with All Ones.
-Memory Usage: 18.4 MB, less than 6.48% of Python3 online submissions for Count Square Submatrices with All Ones.
+Runtime: 940 ms, faster than 63.89%
+Memory Usage: 18.4 MB, less than 6.48%
 '''

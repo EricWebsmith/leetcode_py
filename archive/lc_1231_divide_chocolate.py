@@ -1,7 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -54,6 +52,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 286 ms, faster than 74.81% of Python3 online submissions for Divide Chocolate.
-Memory Usage: 15.3 MB, less than 60.19% of Python3 online submissions for Divide Chocolate.
+Runtime: 286 ms, faster than 74.81%
+Memory Usage: 15.3 MB, less than 60.19%
 '''

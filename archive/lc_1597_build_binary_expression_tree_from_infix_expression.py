@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-null = None
+
+from data_structure.binary_tree import treenode_to_array
 
 
 class Node:
@@ -108,6 +108,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 42 ms, faster than 72.01% of Python3 online submissions for Build Binary Expression Tree From Infix Expression.
-Memory Usage: 14.2 MB, less than 30.63% of Python3 online submissions for Build Binary Expression Tree From Infix Expression.
+Runtime: 42 ms, faster than 72.01%,
+Memory Usage: 14.2 MB, less than 30.63%
 '''

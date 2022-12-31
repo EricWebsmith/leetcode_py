@@ -18,42 +18,43 @@ class Solution:
                     cols[c] += 1
                     signature += (1 << c)
             rows_signatures.append(signature)
-        
+
         ctr = Counter(rows_signatures)
-        
+
         ans = 0
-        for r in range(m):  
+        for r in range(m):
             if ctr[rows_signatures[r]] != target:
                 continue
 
             for c in range(n):
                 if picture[r][c] == 'B' and rows[r] == target and cols[c] == target:
                     ans += 1
-        
+
         return ans
 
 
+def test(testObj: unittest.TestCase, picture: List[List[str]], target: int, expected: int) -> None:
 
-def test(testObj: unittest.TestCase, picture: List[List[str]], target: int, expected:int) -> None:
-    
     so = Solution()
-    
-    actual = so.findBlackPixel(picture,target)
+
+    actual = so.findBlackPixel(picture, target)
 
     testObj.assertEqual(actual, expected)
 
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,   [["W","B","W","B","B","W"],["W","B","W","B","B","W"],["W","B","W","B","B","W"],["W","W","B","W","B","W"]],  3, 6)
+        test(self,   [["W", "B", "W", "B", "B", "W"], ["W", "B", "W", "B", "B", "W"],
+             ["W", "B", "W", "B", "B", "W"], ["W", "W", "B", "W", "B", "W"]],  3, 6)
 
     def test_2(self):
-        test(self,   [["W","W","B"],["W","W","B"],["W","W","B"]],  1, 0)
-    
+        test(self,   [["W", "W", "B"], ["W", "W", "B"], ["W", "W", "B"]],  1, 0)
+
     def test_3(self):
-        test(self,   [["W","B","W","B","B","W"],["B","W","B","W","W","B"],["W","B","W","B","B","W"],["B","W","B","W","W","B"],["W","W","W","B","B","W"],["B","W","B","W","W","B"]],  3, 9)
-    
+        test(self,   [["W", "B", "W", "B", "B", "W"], ["B", "W", "B", "W", "W", "B"], ["W", "B", "W", "B", "B", "W"], [
+             "B", "W", "B", "W", "W", "B"], ["W", "W", "W", "B", "B", "W"], ["B", "W", "B", "W", "W", "B"]],  3, 9)
+
 
 if __name__ == '__main__':
     unittest.main()

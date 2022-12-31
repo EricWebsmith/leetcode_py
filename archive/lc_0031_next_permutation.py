@@ -1,7 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -56,6 +54,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 39 ms, faster than 97.89% of Python3 online submissions for Next Permutation.
-Memory Usage: 13.9 MB, less than 24.98% of Python3 online submissions for Next Permutation.
+Runtime: 39 ms, faster than 97.89%
+Memory Usage: 13.9 MB, less than 24.98%
 '''

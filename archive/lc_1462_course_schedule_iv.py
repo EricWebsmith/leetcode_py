@@ -1,8 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -34,7 +31,8 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]], expected: List[bool]) -> None:
+def test(testObj: unittest.TestCase, numCourses: int, prerequisites: List[List[int]],
+         queries: List[List[int]], expected: List[bool]) -> None:
 
     so = Solution()
 
@@ -61,13 +59,13 @@ class TestClass(unittest.TestCase):
 
     def test_5(self):
         test(self, 8,  [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6]],  [
-            [0, 4], [2, 3], [6, 5], [5,7]], [True, True, False, False])
+            [0, 4], [2, 3], [6, 5], [5, 7]], [True, True, False, False])
 
 
 if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 773 ms, faster than 95.76% of Python3 online submissions for Course Schedule IV.
-Memory Usage: 17.7 MB, less than 43.97% of Python3 online submissions for Course Schedule IV.
+Runtime: 773 ms, faster than 95.76%
+Memory Usage: 17.7 MB, less than 43.97%
 '''

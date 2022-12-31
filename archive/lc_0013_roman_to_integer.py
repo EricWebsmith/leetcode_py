@@ -33,15 +33,15 @@ class Solution:
 
         return ans
 
-        
-def test(testObj: unittest.TestCase, courses:List[List[int]], expected:int) -> None:
+
+def test(testObj: unittest.TestCase, courses: List[List[int]], expected: int) -> None:
     s = Solution()
     actual = s.romanToInt(courses)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestStringMethods(unittest.TestCase):
-        
+
     def test_1(self):
         test(self,  "III", 3)
 
@@ -50,8 +50,7 @@ class TestStringMethods(unittest.TestCase):
 
     def test_3(self):
         test(self,  "MCMXCIV", 1994)
-    
+
 
 if __name__ == '__main__':
     unittest.main()
-        

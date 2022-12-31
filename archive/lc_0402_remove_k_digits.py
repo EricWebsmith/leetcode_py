@@ -1,6 +1,4 @@
 import unittest
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -54,6 +52,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 69 ms, faster than 95.38% of Python3 online submissions for Remove K Digits.
-Memory Usage: 15.5 MB, less than 42.47% of Python3 online submissions for Remove K Digits.
+Runtime: 69 ms, faster than 95.38%
+Memory Usage: 15.5 MB, less than 42.47%
 '''

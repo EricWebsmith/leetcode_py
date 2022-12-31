@@ -1,8 +1,7 @@
 import unittest
 from typing import List, Optional
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
+
+from data_structure.binary_tree import TreeNode, array_to_treenode
 
 
 class Solution:
@@ -63,6 +62,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 885 ms, faster than 94.08% of Python3 online submissions for Pseudo-Palindromic Paths in a Binary Tree.
-Memory Usage: 85.3 MB, less than 65.11% of Python3 online submissions for Pseudo-Palindromic Paths in a Binary Tree.
+Runtime: 885 ms, faster than 94.08%
+Memory Usage: 85.3 MB, less than 65.11%
 '''

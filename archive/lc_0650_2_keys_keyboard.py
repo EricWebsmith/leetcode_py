@@ -1,7 +1,5 @@
 
 import unittest
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 from math import sqrt
 
 # dp = [n] * (n+1)
@@ -18,12 +16,13 @@ from math import sqrt
 # dp[10] = dp[5] + 2
 # dp[11] = 11
 
+
 class Solution:
     def minSteps(self, n: int) -> int:
-        if n==1:
+        if n == 1:
             return 0
 
-        if n<=5:
+        if n <= 5:
             return n
 
         for i in range(2, int(sqrt(n))+1):
@@ -32,15 +31,16 @@ class Solution:
 
         return n
 
-def test(testObj: unittest.TestCase, n: int, expected:int) -> None:
-    
+
+def test(testObj: unittest.TestCase, n: int, expected: int) -> None:
+
     so = Solution()
     actual = so.minSteps(n)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestStringMethods(unittest.TestCase):
-    
+
     def test_1(self):
         test(self,   3, 3)
 
@@ -52,15 +52,15 @@ class TestStringMethods(unittest.TestCase):
 
     def test_4(self):
         test(self,   100, 14)
-    
+
     def test_5(self):
         test(self,   1000, 21)
-    
+
 
 if __name__ == '__main__':
     unittest.main()
 
 """
-Runtime: 49 ms, faster than 80.46% of Python3 online submissions for 2 Keys Keyboard.
-Memory Usage: 14 MB, less than 41.37% of Python3 online submissions for 2 Keys Keyboard.
+Runtime: 49 ms, faster than 80.46%
+Memory Usage: 14 MB, less than 41.37%
 """

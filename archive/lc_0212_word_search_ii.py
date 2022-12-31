@@ -1,8 +1,6 @@
 import unittest
 from typing import Dict, List, Tuple
 
-null = None
-
 
 class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
@@ -12,7 +10,7 @@ class Solution:
         for word in words:
             current = root
             for c in word:
-                if not c in current:
+                if c not in current:
                     current[c] = {}
                 current = current[c]
             current['$'] = word
@@ -31,7 +29,7 @@ class Solution:
                 return
 
             ch = board[r][c]
-            if not ch in node:
+            if ch not in node:
                 return
 
             path.append((r, c))
@@ -87,7 +85,19 @@ class TestClass(unittest.TestCase):
              "a", "h", "k", "r"], ["a", "f", "l", "v"]], ["oa", "oaa"], ["oa", "oaa"])
 
     def test_5(self):
-        test(self,   [["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"], ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"], ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"], ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"], ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"], ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"], ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"], ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"], ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"], ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"], ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"], ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"]],
+        test(self,
+             [["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"],
+              ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"],
+              ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"],
+              ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"],
+              ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"],
+              ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"],
+              ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"],
+              ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"],
+              ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"],
+              ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"],
+              ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"],
+              ["a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a"]],
              ["a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa",
                  "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa"],
              ["a", "aa", "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa", "aaaaaaaa", "aaaaaaaaa", "aaaaaaaaaa"])
@@ -97,6 +107,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 1999 ms, faster than 61.41% of Python3 online submissions for Word Search II.
-Memory Usage: 15.5 MB, less than 73.89% of Python3 online submissions for Word Search II.
+Runtime: 1999 ms, faster than 61.41%
+Memory Usage: 15.5 MB, less than 73.89%
 '''

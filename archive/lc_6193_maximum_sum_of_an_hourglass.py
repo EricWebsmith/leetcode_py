@@ -1,17 +1,5 @@
 import unittest
-from collections import defaultdict, deque
-from functools import cache
-from heapq import heappop, heappush
-from math import sqrt
-from typing import Any, Dict, List, Optional, Set
-
-from data_structure.binary_tree import (TreeNode, array_to_treenode,
-                                        treenode_to_array)
-from data_structure.link_list import (ListNode, array_to_listnode,
-                                      listnode_to_array)
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-
-null = None
+from typing import List
 
 
 class Solution:
@@ -51,9 +39,9 @@ class TestClass(unittest.TestCase):
         test(self,   [[6, 2, 1, 3], [4, 2, 1, 5],
              [9, 2, 8, 7], [4, 1, 2, 100]], 119)
 
-
     def test_4(self):
-        test(self,   [[520626,685427,788912,800638,717251,683428],[23602,608915,697585,957500,154778,209236],[287585,588801,818234,73530,939116,252369]], 5095181)
+        test(self,   [[520626, 685427, 788912, 800638, 717251, 683428], [23602, 608915, 697585,
+             957500, 154778, 209236], [287585, 588801, 818234, 73530, 939116, 252369]], 5095181)
 
 
 if __name__ == '__main__':

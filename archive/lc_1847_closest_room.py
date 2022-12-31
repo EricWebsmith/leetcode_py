@@ -1,9 +1,6 @@
-from bisect import bisect_right, insort_left
 import unittest
+from bisect import bisect_right, insort_left
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -25,7 +22,8 @@ class Solution:
                 continue
 
             index = bisect_right(valid_room_ids, pre_id)
-            if (index == len(valid_room_ids)) or index > 0 and pre_id - valid_room_ids[index-1] <= valid_room_ids[index] - pre_id:
+            if (index == len(valid_room_ids)) or index > 0 and \
+                    pre_id - valid_room_ids[index-1] <= valid_room_ids[index] - pre_id:
                 ans[i] = valid_room_ids[index-1]
             else:
                 ans[i] = valid_room_ids[index]
@@ -57,6 +55,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 2056 ms, faster than 100.00% of Python3 online submissions for Closest Room.
-Memory Usage: 66 MB, less than 47.62% of Python3 online submissions for Closest Room.
+Runtime: 2056 ms, faster than 100.00%
+Memory Usage: 66 MB, less than 47.62%
 '''

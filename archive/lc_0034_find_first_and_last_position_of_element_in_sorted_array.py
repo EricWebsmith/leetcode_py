@@ -1,6 +1,6 @@
+import unittest
 from bisect import bisect_left, bisect_right
 from typing import List
-import unittest
 
 
 class Solution:
@@ -39,5 +39,5 @@ if __name__ == '__main__':
     unittest.main()
 
 
-# Runtime: 83 ms, faster than 98.27% of Python3 online submissions for Find First and Last Position of Element in Sorted Array.
-# Memory Usage: 15.4 MB, less than 92.49% of Python3 online submissions for Find First and Last Position of Element in Sorted Array.
+# Runtime: 83 ms, faster than 98.27%
+# Memory Usage: 15.4 MB, less than 92.49%

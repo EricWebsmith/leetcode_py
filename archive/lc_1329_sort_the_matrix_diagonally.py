@@ -1,7 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -64,14 +62,16 @@ class TestClass(unittest.TestCase):
              [[1, 1, 1, 1], [1, 2, 2, 2], [1, 2, 3, 3]])
 
     def test_2(self):
-        test(self,   [[11, 25, 66, 1, 69, 7], [23, 55, 17, 45, 15, 52], [75, 31, 36, 44, 58, 8], [22, 27, 33, 25, 68, 4], [84, 28, 14, 11, 5, 50]], [
-             [5, 17, 4, 1, 52, 7], [11, 11, 25, 45, 8, 69], [14, 23, 25, 44, 58, 15], [22, 27, 31, 36, 50, 66], [84, 28, 75, 33, 55, 68]])
+        test(self,   [[11, 25, 66, 1, 69, 7], [23, 55, 17, 45, 15, 52], [75, 31, 36, 44, 58, 8],
+                      [22, 27, 33, 25, 68, 4], [84, 28, 14, 11, 5, 50]],
+             [[5, 17, 4, 1, 52, 7], [11, 11, 25, 45, 8, 69], [14, 23, 25, 44, 58, 15],
+              [22, 27, 31, 36, 50, 66], [84, 28, 75, 33, 55, 68]])
 
 
 if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 95 ms, faster than 85.06% of Python3 online submissions for Sort the Matrix Diagonally.
-Memory Usage: 14.2 MB, less than 95.10% of Python3 online submissions for Sort the Matrix Diagonally.
+Runtime: 95 ms, faster than 85.06%
+Memory Usage: 14.2 MB, less than 95.10%
 '''

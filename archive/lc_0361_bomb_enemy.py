@@ -1,9 +1,9 @@
 
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+
 import numpy as np
+
 
 class Solution:
     def maxKilledEnemies(self, grid: List[List[str]]) -> int:
@@ -22,11 +22,10 @@ class Solution:
                     previous_block = c
                     kill = 0
                 elif grid[r][c] == 'E':
-                    kill+=1
-                
+                    kill += 1
+
                 if c == n-1:
                     horizontal_kills[r][previous_block+1:c+1] = kill
-
 
         for c in range(n):
             previous_block = -1
@@ -37,44 +36,44 @@ class Solution:
                     previous_block = r
                     kill = 0
                 elif grid[r][c] == 'E':
-                    kill+=1
+                    kill += 1
 
                 if r == m - 1:
                     vertical_kills[previous_block+1:r+1, c] = kill
-        
+
         max_kill = 0
         for r in range(m):
             for c in range(n):
                 if grid[r][c] == '0':
                     max_kill = max(max_kill, vertical_kills[r][c] + horizontal_kills[r][c])
-        
+
         return max_kill
 
 
-def test(testObj: unittest.TestCase, grid: List[List[str]], expected:int) -> None:
-    
+def test(testObj: unittest.TestCase, grid: List[List[str]], expected: int) -> None:
+
     so = Solution()
     actual = so.maxKilledEnemies(grid)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestStringMethods(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,   [["0","E","0","0"],["E","0","W","E"],["0","E","0","0"]], 3)
+        test(self,   [["0", "E", "0", "0"], ["E", "0", "W", "E"], ["0", "E", "0", "0"]], 3)
 
     def test_2(self):
-        test(self,   [["W","W","W"],["0","0","0"],["E","E","E"]], 1)
-    
+        test(self,   [["W", "W", "W"], ["0", "0", "0"], ["E", "E", "E"]], 1)
+
     def test_3(self):
-        test(self,   [["W","E","E","E","E","0"],["E","E","E","E","E","W"]], 4)
-    
+        test(self,   [["W", "E", "E", "E", "E", "0"], ["E", "E", "E", "E", "E", "W"]], 4)
+
 
 if __name__ == '__main__':
     unittest.main()
-        
+
 
 """
-Runtime: 1161 ms, faster than 58.55% of Python3 online submissions for Bomb Enemy.
-Memory Usage: 41.4 MB, less than 12.58% of Python3 online submissions for Bomb Enemy.
+Runtime: 1161 ms, faster than 58.55%
+Memory Usage: 41.4 MB, less than 12.58%
 """

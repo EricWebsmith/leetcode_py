@@ -1,9 +1,6 @@
-from heapq import heappop, heappush
 import unittest
-from typing import List, Optional
-from math import sqrt
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+from typing import List
+
 
 class Solution:
     def garbageCollection(self, garbage: List[str], travel: List[int]) -> int:
@@ -30,28 +27,27 @@ class Solution:
                 drive += s
             if last_g == i:
                 drive += s
-            if i<len(travel):
+            if i < len(travel):
                 s += travel[i]
-        
 
         return picks + drive
 
 
-def test(testObj: unittest.TestCase, garbage: List[str], travel: List[int], expected:int) -> None:
-    
+def test(testObj: unittest.TestCase, garbage: List[str], travel: List[int], expected: int) -> None:
+
     so = Solution()
-    actual = so.garbageCollection(garbage,travel)
+    actual = so.garbageCollection(garbage, travel)
     testObj.assertEqual(actual, expected)
-        
+
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,   ["G","P","GP","GG"],  [2,4,3], 21)
+        test(self,   ["G", "P", "GP", "GG"],  [2, 4, 3], 21)
 
     def test_2(self):
-        test(self,   ["MMM","PGM","GP"],  [3,10], 37)
-    
+        test(self,   ["MMM", "PGM", "GP"],  [3, 10], 37)
+
 
 if __name__ == '__main__':
     unittest.main()

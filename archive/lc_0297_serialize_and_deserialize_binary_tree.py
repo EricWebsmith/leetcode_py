@@ -40,10 +40,10 @@ def array_to_treenode(arr: List[int]) -> TreeNode:
     q = deque([root])
     for i in range(1, len(arr), 2):
         node = q.popleft()
-        if arr[i] != None:
+        if arr[i] is not None:
             node.left = TreeNode(arr[i])
             q.append(node.left)
-        if i+1 < len(arr) and arr[i+1] != None:
+        if i+1 < len(arr) and arr[i+1] is not None:
             node.right = TreeNode(arr[i+1])
             q.append(node.right)
 

@@ -1,7 +1,8 @@
-import unittest
-from typing import List
-from collections import deque
 import itertools
+import unittest
+from collections import deque
+from typing import List
+
 null = None
 
 
@@ -32,7 +33,7 @@ class Solution:
                     return semester + 1
                 if not seen[taken]:
                     q.append((taken, semester+1))
-                    seen[taken] == True
+                    seen[taken] = True
             else:
                 for batch in itertools.combinations(available, k):
                     t = taken ^ sum(batch)
@@ -59,8 +60,9 @@ class TestClass(unittest.TestCase):
 
     def test_3(self):
         test(self,   13,
-             [[12, 8], [2, 4], [3, 7], [6, 8], [11, 8], [9, 4], [9, 7], [12, 4], [11, 4], [6, 4], [1, 4], [10, 7], [10, 4], [
-                 1, 7], [1, 8], [2, 7], [8, 4], [10, 8], [12, 7], [5, 4], [3, 4], [11, 7], [7, 4], [13, 4], [9, 8], [13, 8]],
+             [[12, 8], [2, 4], [3, 7], [6, 8], [11, 8], [9, 4], [9, 7], [12, 4], [11, 4], [6, 4], [1, 4],
+              [10, 7], [10, 4], [1, 7], [1, 8], [2, 7], [8, 4], [10, 8], [12, 7], [5, 4], [3, 4], [11, 7],
+              [7, 4], [13, 4], [9, 8], [13, 8]],
              9, 3)
 
     def test_4(self):
@@ -72,6 +74,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 827 ms, faster than 87.94% of Python3 online submissions for Parallel Courses II.
-Memory Usage: 14.9 MB, less than 84.40% of Python3 online submissions for Parallel Courses II.
+Runtime: 827 ms, faster than 87.94%
+Memory Usage: 14.9 MB, less than 84.40%
 '''

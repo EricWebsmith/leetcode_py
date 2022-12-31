@@ -1,8 +1,9 @@
 import unittest
-from typing import List, Optional
 from collections import deque
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+from typing import List, Optional
+
+from data_structure.binary_tree import TreeNode, array_to_treenode
+
 null = None
 
 
@@ -67,6 +68,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 347 ms, faster than 91.98% of Python3 online submissions for Find Nearest Right Node in Binary Tree.
-Memory Usage: 51.8 MB, less than 74.26% of Python3 online submissions for Find Nearest Right Node in Binary Tree.
+Runtime: 347 ms, faster than 91.98%
+Memory Usage: 51.8 MB, less than 74.26%
 '''

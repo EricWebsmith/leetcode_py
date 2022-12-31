@@ -64,6 +64,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 1406 ms, faster than 88.70% of Python3 online submissions for Shortest Subarray with Sum at Least K.
-Memory Usage: 28.3 MB, less than 73.12% of Python3 online submissions for Shortest Subarray with Sum at Least K.
+Runtime: 1406 ms, faster than 88.70%
+Memory Usage: 28.3 MB, less than 73.12%
 '''

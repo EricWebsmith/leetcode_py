@@ -1,12 +1,7 @@
-from bisect import bisect_left
-import unittest
-from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 import random
-null = None
-true = True
-false = False
+import unittest
+from bisect import bisect_left
+from typing import List
 
 
 class RandomizedCollection:
@@ -16,7 +11,7 @@ class RandomizedCollection:
 
     def insert(self, val: int) -> bool:
         index = bisect_left(self.arr, val)
-        ans = not(index < len(self.arr) and self.arr[index] == val)
+        ans = not (index < len(self.arr) and self.arr[index] == val)
         self.arr.insert(index, val)
         return ans
 
@@ -66,13 +61,13 @@ class TestClass(unittest.TestCase):
     def test_2(self):
         test(self, ["RandomizedCollection", "insert", "remove", "insert", "getRandom", "remove", "insert", "getRandom"],
              [[], [1], [2], [2], [], [1], [2], []],
-             [null, true, false, true, 2, true, false, 2])
+             [None, True, False, True, 2, True, False, 2])
 
 
 if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 457 ms, faster than 94.39% of Python3 online submissions for Insert Delete GetRandom O(1) - Duplicates allowed.
-Memory Usage: 64.6 MB, less than 95.77% of Python3 online submissions for Insert Delete GetRandom O(1) - Duplicates allowed.
+Runtime: 457 ms, faster than 94.39%
+Memory Usage: 64.6 MB, less than 95.77%
 '''

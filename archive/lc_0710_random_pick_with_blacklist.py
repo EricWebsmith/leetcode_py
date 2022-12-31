@@ -1,9 +1,6 @@
 import random
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -16,16 +13,16 @@ class Solution:
     def pick(self) -> int:
         m = len(self.blocklist)
         v = random.randint(0, self.n-m-1)
-        l = 0
-        r = m
-        while l < r:
-            m = (l + r) >> 1
+        left = 0
+        right = m
+        while left < right:
+            m = (left + right) >> 1
             if v + m >= self.blocklist[m]:
-                l = m + 1
+                left = m + 1
             else:
-                r = m
+                right = m
 
-        return v + r
+        return v + right
 
 
 def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
@@ -60,6 +57,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 492 ms, faster than 55.74% of Python3 online submissions for Random Pick with Blacklist.
-Memory Usage: 23.4 MB, less than 95.29% of Python3 online submissions for Random Pick with Blacklist.
+Runtime: 492 ms, faster than 55.74%
+Memory Usage: 23.4 MB, less than 95.29%
 '''

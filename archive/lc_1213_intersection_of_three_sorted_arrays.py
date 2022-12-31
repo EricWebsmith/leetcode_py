@@ -1,7 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -49,6 +47,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 111 ms, faster than 75.72% of Python3 online submissions for Intersection of Three Sorted Arrays.
-Memory Usage: 14.2 MB, less than 84.10% of Python3 online submissions for Intersection of Three
+Runtime: 111 ms, faster than 75.72%
+Memory Usage: 14.2 MB, less than 84.10%
 '''

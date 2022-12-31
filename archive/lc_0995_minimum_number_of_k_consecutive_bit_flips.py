@@ -1,8 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -52,6 +49,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 1171 ms, faster than 90.00% of Python3 online submissions for Minimum Number of K Consecutive Bit Flips.
-Memory Usage: 17.1 MB, less than 92.50% of Python3 online submissions for Minimum Number of K Consecutive Bit Flips.
+Runtime: 1171 ms, faster than 90.00%
+Memory Usage: 17.1 MB, less than 92.50%
 '''

@@ -1,7 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -48,7 +46,8 @@ class Solution:
         return dfs(0)
 
 
-def test(testObj: unittest.TestCase, startTime: List[int], endTime: List[int], profit: List[int], expected: int) -> None:
+def test(testObj: unittest.TestCase, startTime: List[int],
+         endTime: List[int], profit: List[int], expected: int) -> None:
 
     so = Solution()
     actual = so.jobScheduling(startTime, endTime, profit)
@@ -72,6 +71,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 762 ms, faster than 70.45% of Python3 online submissions for Maximum Profit in Job Scheduling.
-Memory Usage: 45 MB, less than 26.29% of Python3 online submissions for Maximum Profit in Job Scheduling.
+Runtime: 762 ms, faster than 70.45%
+Memory Usage: 45 MB, less than 26.29%
 '''

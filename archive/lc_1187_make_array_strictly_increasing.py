@@ -1,11 +1,8 @@
 
-from bisect import bisect_right
 import unittest
+from bisect import bisect_right
 from functools import cache
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -78,6 +75,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 797 ms, faster than 87.79% of Python3 online submissions for Make Array Strictly Increasing.
-Memory Usage: 136.4 MB, less than 48.85% of Python3 online submissions for Make Array Strictly Increasing.
+Runtime: 797 ms, faster than 87.79%
+Memory Usage: 136.4 MB, less than 48.85%
 '''

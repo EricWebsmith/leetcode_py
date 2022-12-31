@@ -1,7 +1,8 @@
 import unittest
 from typing import List, Optional
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+
+from data_structure.binary_tree import (TreeNode, array_to_treenode,
+                                        treenode_to_array)
 
 
 class Solution:
@@ -54,6 +55,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 54 ms, faster than 92.66% of Python3 online submissions for Delete Leaves With a Given Value.
-Memory Usage: 14.7 MB, less than 50.52% of Python3 online submissions for Delete Leaves With a Given Value.
+Runtime: 54 ms, faster than 92.66%
+Memory Usage: 14.7 MB, less than 50.52%
 '''

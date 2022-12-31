@@ -1,8 +1,14 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
+
+
+class Node:
+    def __init__(self, val=None, children=None):
+        self.val = val
+        self.children: List[Node] = children if children is not None else []
+
+    def __repr__(self) -> str:
+        return str(self.val)
 
 
 class Solution:
@@ -16,7 +22,6 @@ class Solution:
             if id == kill:
                 kill_node = node
 
-        root: Node = None
         for child_id, parent_id in zip(pid, ppid):
             child_node: Node = node_dict[child_id]
             if parent_id == 0:
@@ -57,6 +62,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 545 ms, faster than 75.99% of Python3 online submissions for Kill Process.
-Memory Usage: 31 MB, less than 7.92% of Python3 online submissions for Kill Process.
+Runtime: 545 ms, faster than 75.99%
+Memory Usage: 31 MB, less than 7.92%
 '''

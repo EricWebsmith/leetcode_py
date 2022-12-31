@@ -1,7 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class ZigzagIterator:
@@ -62,6 +60,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 54 ms, faster than 88.03% of Python3 online submissions for Zigzag Iterator.
-Memory Usage: 14.5 MB, less than 7.28% of Python3 online submissions for Zigzag Iterator.
+Runtime: 54 ms, faster than 88.03%
+Memory Usage: 14.5 MB, less than 7.28%
 '''

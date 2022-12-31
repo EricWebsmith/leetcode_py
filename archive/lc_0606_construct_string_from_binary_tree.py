@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+
+from data_structure.binary_tree import TreeNode, array_to_treenode
 
 
 class Solution:
@@ -40,6 +40,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 49 ms, faster than 96.44% of Python3 online submissions for Construct String from Binary Tree.
-Memory Usage: 16.3 MB, less than 95.12% of Python3 online submissions for Construct String from Binary Tree.
+Runtime: 49 ms, faster than 96.44%
+Memory Usage: 16.3 MB, less than 95.12%
 '''

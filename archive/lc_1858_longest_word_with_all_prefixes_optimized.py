@@ -1,9 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
-
 
 ascii_a = 97
 
@@ -24,9 +20,9 @@ class TrieNode:
             index = ord(c) - ascii_a
             # here is the optimization
             # we only add a word when the prefixes exist.
-            if i < len(word)-1 and current.children[index] == None:
+            if i < len(word)-1 and current.children[index] is None:
                 return
-            if i == len(word)-1 and current.children[index] == None:
+            if i == len(word)-1 and current.children[index] is None:
                 current.children[index] = TrieNode()
             current = current.children[index]
         current.is_word = True
@@ -82,10 +78,7 @@ class TestClass(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
 
-# only lowercase 26 letters are allowed.
-# 'word' must consist of values in ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'] only
-
 '''
-Runtime: 777 ms, faster than 42.13% of Python3 online submissions for Longest Word With All Prefixes.
-Memory Usage: 17.4 MB, less than 80.71% of Python3 online submissions for Longest Word With All Prefixes.
+Runtime: 777 ms, faster than 42.13%
+Memory Usage: 17.4 MB, less than 80.71%
 '''

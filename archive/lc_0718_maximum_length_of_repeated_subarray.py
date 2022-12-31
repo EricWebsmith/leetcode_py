@@ -1,8 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -53,6 +50,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 6260 ms, faster than 45.01% of Python3 online submissions for Maximum Length of Repeated Subarray.
-Memory Usage: 13.8 MB, less than 99.96% of Python3 online submissions for Maximum Length of Repeated Subarray.
+Runtime: 6260 ms, faster than 45.01%
+Memory Usage: 13.8 MB, less than 99.96%
 '''

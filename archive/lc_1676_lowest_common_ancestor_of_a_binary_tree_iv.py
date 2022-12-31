@@ -1,8 +1,9 @@
 
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array, get_treenodes_by_vals
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+
+from data_structure.binary_tree import (TreeNode, array_to_treenode,
+                                        get_treenodes_by_vals)
 
 
 class Solution:
@@ -55,6 +56,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 126 ms, faster than 95.83% of Python3 online submissions for Lowest Common Ancestor of a Binary Tree IV.
-Memory Usage: 19.6 MB, less than 94.89% of Python3 online submissions for Lowest Common Ancestor of a Binary Tree IV.
+Runtime: 126 ms, faster than 95.83%
+Memory Usage: 19.6 MB, less than 94.89%
 '''

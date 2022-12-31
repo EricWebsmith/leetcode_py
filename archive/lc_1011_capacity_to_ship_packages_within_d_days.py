@@ -1,9 +1,7 @@
-from bisect import bisect_right
-import unittest
-from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 import itertools
+import unittest
+from bisect import bisect_right
+from typing import List
 
 
 class Solution:
@@ -69,6 +67,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 639 ms, faster than 72.24% of Python3 online submissions for Capacity To Ship Packages Within D Days.
-Memory Usage: 18.4 MB, less than 7.42% of Python3 online submissions for Capacity To Ship Packages Within D Days.
+Runtime: 639 ms, faster than 72.24%
+Memory Usage: 18.4 MB, less than 7.42%
 '''

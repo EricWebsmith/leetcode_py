@@ -1,16 +1,15 @@
 
 import unittest
-from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
-    def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
-        return list(filter(lambda x: x < pivot, nums)) + list(filter(lambda x: x == pivot, nums)) + list(filter(lambda x: x > pivot, nums))
+    def pivotArray(self, nums: list[int], pivot: int) -> list[int]:
+        return list(filter(lambda x: x < pivot, nums)) + \
+            list(filter(lambda x: x == pivot, nums)) + \
+            list(filter(lambda x: x > pivot, nums))
 
 
-def test(testObj: unittest.TestCase, nums: List[int], pivot: int, expected: int) -> None:
+def test(testObj: unittest.TestCase, nums: list[int], pivot: int, expected: int) -> None:
 
     so = Solution()
     actual = so.pivotArray(nums, pivot)
@@ -30,6 +29,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 1754 ms, faster than 78.80% of Python3 online submissions for Partition Array According to Given Pivot.
-Memory Usage: 31.6 MB, less than 42.17% of Python3 online submissions for Partition Array According to Given Pivot.
+Runtime: 1754 ms, faster than 78.80%
+Memory Usage: 31.6 MB, less than 42.17%
 '''

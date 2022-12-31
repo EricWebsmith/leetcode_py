@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+
+from data_structure.binary_tree import TreeNode, treenode_to_array
 
 
 class Solution:
@@ -55,6 +55,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 53 ms, faster than 98.29% of Python3 online submissions for Unique Binary Search Trees II.
-Memory Usage: 15.7 MB, less than 76.03% of Python3 online submissions for Unique Binary Search Trees II.
+Runtime: 53 ms, faster than 98.29%
+Memory Usage: 15.7 MB, less than 76.03%
 '''

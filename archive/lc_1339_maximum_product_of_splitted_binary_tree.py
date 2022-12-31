@@ -3,8 +3,6 @@ from typing import List, Optional
 
 from data_structure.binary_tree import TreeNode, array_to_treenode
 
-null = None
-
 
 def get_sum(node: TreeNode):
     if node is None:

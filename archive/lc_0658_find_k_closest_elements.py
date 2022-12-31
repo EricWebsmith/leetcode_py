@@ -8,15 +8,15 @@ class Solution:
         n = len(arr)
         right = bisect_left(arr, x)
         left = right - 1
-        l = 0
-        while l < k:
-            if right == n or (left>=0 and x-arr[left] <= arr[right]-x):
+        condidate = 0
+        while condidate < k:
+            if right == n or (left >= 0 and x-arr[left] <= arr[right]-x):
                 left -= 1
             else:
                 right += 1
-            l += 1
+            condidate += 1
 
-        return arr[left+1 : right]
+        return arr[left+1: right]
 
 
 def test(testObj: unittest.TestCase, arr: List[int], k: int, x: int, expected: List[int]) -> None:
@@ -41,6 +41,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 288 ms, faster than 98.53% of Python3 online submissions for Find K Closest Elements.
-Memory Usage: 15.6 MB, less than 45.71% of Python3 online submissions for Find K Closest Elements.
+Runtime: 288 ms, faster than 98.53%
+Memory Usage: 15.6 MB, less than 45.71%
 '''

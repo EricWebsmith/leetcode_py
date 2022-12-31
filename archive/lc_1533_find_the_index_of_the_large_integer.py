@@ -1,8 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class ArrayReader(object):
@@ -14,14 +11,14 @@ class ArrayReader(object):
     def __init__(self, arr) -> None:
         self.arr = arr
 
-    def compareSub(self, l: int, r: int, x: int, y: int) -> int:
-        left = sum(self.arr[l: r+1])
+    def compareSub(self, left: int, right: int, x: int, y: int) -> int:
+        left = sum(self.arr[left: right+1])
         right = sum(self.arr[x: y+1])
-        if left>right:
+        if left > right:
             return 1
         if left == right:
             return 0
-        
+
         return -1
 
         # Returns the length of the array
@@ -41,7 +38,7 @@ class Solution:
             c = reader.compareSub(left, m1, m2, right)
             if c == 0:
                 return m1
-            if c>0:
+            if c > 0:
                 right = m1
             else:
                 left = m2
@@ -67,13 +64,13 @@ class TestClass(unittest.TestCase):
         test(self,   [6, 6, 12], 2)
 
     def test_3(self):
-        test(self,   [1,1,1,1,1,1,2,1,1], 6)
+        test(self,   [1, 1, 1, 1, 1, 1, 2, 1, 1], 6)
 
 
 if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 300 ms, faster than 85.50% of Python3 online submissions for Find the Index of the Large Integer.
-Memory Usage: 54 MB, less than 51.14% of Python3 online submissions for Find the Index of the Large Integer.
+Runtime: 300 ms, faster than 85.50%
+Memory Usage: 54 MB, less than 51.14%
 '''

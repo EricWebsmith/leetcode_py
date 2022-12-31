@@ -1,12 +1,8 @@
 import unittest
-from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
-    def maximumScore(self, nums: List[int], multipliers: List[int]) -> int:
+    def maximumScore(self, nums: list[int], multipliers: list[int]) -> int:
         n = len(nums)
         m = len(multipliers)
 
@@ -22,12 +18,9 @@ class Solution:
         return dp[0][0]
 
 
-def test(testObj: unittest.TestCase, nums: List[int], multipliers: List[int], expected: int) -> None:
-
+def test(testObj: unittest.TestCase, nums: list[int], multipliers: list[int], expected: int) -> None:
     so = Solution()
-
     actual = so.maximumScore(nums, multipliers)
-
     testObj.assertEqual(actual, expected)
 
 
@@ -56,8 +49,10 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 3997 ms, faster than 99.46% of Python3 online submissions for Maximum Score from Performing Multiplication Operations.
-Memory Usage: 41.3 MB, less than 28.85% of Python3 online submissions for Maximum Score from Performing Multiplication Operations.
+Runtime
+1131 ms
+Beats
+98.72%
 '''
 
 # but the same can be Time Limit Exceeded

@@ -1,7 +1,4 @@
 import unittest
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -51,6 +48,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 47 ms, faster than 68.92% of Python3 online submissions for Permutation Sequence.
-Memory Usage: 13.9 MB, less than 77.91% of Python3 online submissions for Permutation Sequence.
+Runtime: 47 ms, faster than 68.92%
+Memory Usage: 13.9 MB, less than 77.91%
 '''

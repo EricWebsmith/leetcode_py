@@ -1,8 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class DSU:
@@ -130,6 +127,6 @@ if __name__ == '__main__':
 # adding max weight has significant impact
 # from 2000ms to 1000ms
 '''
-Runtime: 782 ms, faster than 83.65% of Python3 online submissions for Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree.
-Memory Usage: 14.1 MB, less than 60.58% of Python3 online submissions for Find Critical and Pseudo-Critical Edges in Minimum Spanning Tree.
+Runtime: 782 ms, faster than 83.65%
+Memory Usage: 14.1 MB, less than 60.58%
 '''

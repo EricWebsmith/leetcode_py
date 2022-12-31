@@ -1,8 +1,6 @@
 
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -37,6 +35,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 1001 ms, faster than 82.76% of Python3 online submissions for Widest Vertical Area Between Two Points Containing No Points.
-Memory Usage: 54.9 MB, less than 18.94% of Python3 online submissions for Widest Vertical Area Between Two Points Containing No Points.
+Runtime: 1001 ms, faster than 82.76%
+Memory Usage: 54.9 MB, less than 18.94%
 '''

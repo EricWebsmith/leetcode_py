@@ -1,8 +1,5 @@
 import unittest
 from functools import cache
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -59,6 +56,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 258 ms, faster than 89.74% of Python3 online submissions for Number of Dice Rolls With Target Sum.
-Memory Usage: 18.3 MB, less than 42.91% of Python3 online submissions for Number of Dice Rolls With Target Sum.
+Runtime: 258 ms, faster than 89.74%
+Memory Usage: 18.3 MB, less than 42.91%
 '''

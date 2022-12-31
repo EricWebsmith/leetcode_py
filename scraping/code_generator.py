@@ -4,6 +4,7 @@ from typing import List
 from code_generator_strategy import CodeGeneratorStrategy
 from parameter import Parameter
 from scraper_result import ScraperResult
+
 from scraping.code_generator_strategy_common import CodeGeneratorCommonStrategy
 from scraping.code_generator_strategy_design import CodeGeneratorDesignStrategy
 
@@ -75,7 +76,7 @@ class CodeGenerator:
         test_case_index = 1
         for tc in self.test_cases:
             params = self.parse_test_cases(tc)
-            if params == None:
+            if params is None:
                 continue
             params = params.strip(',')
             test_case_string += f"\n    def test_{test_case_index}(self):\n        test(self, {params})\n"
@@ -141,7 +142,7 @@ null = None
 {self.test_function_code}
 
 class TestClass(unittest.TestCase):
-    {self.test_case_code}    
+    {self.test_case_code}
 
 if __name__ == '__main__':
     unittest.main()

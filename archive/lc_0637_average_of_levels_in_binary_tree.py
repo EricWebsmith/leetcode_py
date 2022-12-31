@@ -1,9 +1,8 @@
 import unittest
+from collections import deque
 from typing import List, Optional
 
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-from collections import deque
+from data_structure.binary_tree import TreeNode, array_to_treenode
 
 
 class Solution:
@@ -52,6 +51,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 47 ms, faster than 98.17% of Python3 online submissions for Average of Levels in Binary Tree.
-Memory Usage: 16.5 MB, less than 87.46% of Python3 online submissions for Average of Levels in Binary Tree.
+Runtime: 47 ms, faster than 98.17%
+Memory Usage: 16.5 MB, less than 87.46%
 '''

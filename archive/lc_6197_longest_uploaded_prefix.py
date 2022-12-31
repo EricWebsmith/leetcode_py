@@ -14,7 +14,7 @@ class LUPrefix:
     def upload(self, video: int) -> None:
         self.arr[video-1] = 1
         new_index = self.last
-        while new_index<self.n-1 and self.arr[new_index+1] == 1:
+        while new_index < self.n-1 and self.arr[new_index+1] == 1:
             new_index += 1
 
         self.last = new_index
@@ -54,14 +54,10 @@ class TestClass(unittest.TestCase):
 
     def test_2(self):
         test(self,
-             ["LUPrefix","upload","longest","upload","longest","upload","longest","upload","longest"],
-                [[4],[3],[],[1],[],[2],[],[4],[]],
+             ["LUPrefix", "upload", "longest", "upload", "longest", "upload", "longest", "upload", "longest"],
+             [[4], [3], [], [1], [], [2], [], [4], []],
              [None, None, 0, None, 1, None, 3, None, 4])
 
 
 if __name__ == '__main__':
     unittest.main()
-
-'''
-
-'''

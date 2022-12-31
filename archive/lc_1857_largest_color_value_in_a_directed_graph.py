@@ -1,11 +1,5 @@
-from heapq import heappop, heappush
 import unittest
-from typing import Counter, List, Optional, Dict, Set
-from math import sqrt
-from collections import deque
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
+from typing import Dict, List, Set
 
 
 def get_edges(n: int, from_tos: List[List[int]]) -> Dict[int, Set[int]]:
@@ -101,7 +95,8 @@ class TestClass(unittest.TestCase):
 
     def test_6(self):
         test(self,   "hhqhuqhqff",
-             [[0, 1], [0, 2], [2, 3], [3, 4], [3, 5], [5, 6], [2, 7], [6, 7], [7, 8], [3, 8], [5, 8], [8, 9], [3, 9], [6, 9]], 3)
+             [[0, 1], [0, 2], [2, 3], [3, 4], [3, 5], [5, 6], [2, 7], [6, 7], [7, 8],
+              [3, 8], [5, 8], [8, 9], [3, 9], [6, 9]], 3)
 
     def test_7(self):
         test(self,   "ccbba", [[1, 0], [4, 3], [3, 2], [4, 1]], 2)

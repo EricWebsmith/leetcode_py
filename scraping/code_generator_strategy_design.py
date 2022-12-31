@@ -1,5 +1,5 @@
-from parameter import Parameter
 from code_generator_strategy import CodeGeneratorStrategy
+
 from scraping.code_generator_protocol import CodeGeneratorProtocol
 
 

@@ -20,11 +20,8 @@ class Solution:
 
 
 def test(testObj: unittest.TestCase, nums: List[int], expected: int) -> None:
-
     so = Solution()
-
     actual = so.findMaxK(nums)
-
     testObj.assertEqual(actual, expected)
 
 

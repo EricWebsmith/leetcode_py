@@ -1,7 +1,7 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+
+from data_structure.binary_tree import TreeNode, array_to_treenode
 
 
 class Solution:
@@ -48,6 +48,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 251 ms, faster than 96.75% of Python3 online submissions for Count Good Nodes in Binary Tree.
-Memory Usage: 33 MB, less than 7.60% of Python3 online submissions for Count Good Nodes in Binary Tree.
+Runtime: 251 ms, faster than 96.75%
+Memory Usage: 33 MB, less than 7.60%
 '''

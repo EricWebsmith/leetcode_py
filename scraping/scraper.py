@@ -22,12 +22,12 @@ if title_slug.find('contest') > 0:
 else:
     title_slug = re.sub('https://leetcode[.]c(n|om)/problems/', '', title_slug)
     title_slug = re.sub(
-        'https://leetcode[.]c(n|om)/contest/(bi)?weekly-contest-\d+/problems/', '', title_slug)
+        r'https://leetcode[.]c(n|om)/contest/(bi)?weekly-contest-\d+/problems/', '', title_slug)
     title_slug = title_slug.replace('solution/', '')
     title_slug = title_slug.replace('description/', '')
     title_slug = title_slug.replace('discussion/', '')
     title_slug = title_slug.replace('submissions/', '')
-    title_slug = re.sub('\?.*', '', title_slug)
+    title_slug = re.sub(r'\?.*', '', title_slug)
     title_slug = re.sub('/$', '', title_slug)
     scraper_result = ProblemScraper()(title_slug)
 

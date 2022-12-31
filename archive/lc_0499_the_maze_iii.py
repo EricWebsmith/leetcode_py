@@ -1,9 +1,6 @@
-from heapq import heapify, heappop, heappush
 import unittest
+from heapq import heapify, heappop, heappush
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -32,7 +29,7 @@ class Solution:
                         break
 
                 # stop moving
-                if d>0 and dist + d <= stopped.get((nr, nc), m * n):
+                if d > 0 and dist + d <= stopped.get((nr, nc), m * n):
                     stopped[(nr, nc)] = dist + d
                     heappush(q, (dist+d, nr, nc, path+dir))
 
@@ -53,11 +50,8 @@ class Solution:
 
 
 def test(testObj: unittest.TestCase, maze: List[List[int]], ball: List[int], hole: List[int], expected: str) -> None:
-
     so = Solution()
-
     actual = so.findShortestWay(maze, ball, hole)
-
     testObj.assertEqual(actual, expected)
 
 
@@ -90,15 +84,19 @@ class TestClass(unittest.TestCase):
         test(self,   [[0, 0]],  [0, 1], [0, 0],  "l")
 
     def test_8(self):
-        test(self,   [[0,1,0,0,1,0,0,1,0,0],[0,0,1,0,0,1,0,0,1,0],[0,0,0,0,0,0,1,0,0,1],[0,0,0,0,0,0,1,0,0,1],[0,1,0,0,1,0,0,1,0,0],[0,0,1,0,0,1,0,0,0,0],[0,0,0,0,0,0,1,0,0,0],[1,0,0,1,0,0,0,0,0,1],[0,1,0,0,1,0,0,1,0,0],[0,0,0,0,0,1,0,0,1,0]],
-[2,4],
-[7,6], "drdrdrdldl")
+        test(self,   [[0, 1, 0, 0, 1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1, 0, 0, 1, 0],
+                      [0, 0, 0, 0, 0, 0, 1, 0, 0, 1], [0, 0, 0, 0, 0, 0, 1, 0, 0, 1],
+                      [0, 1, 0, 0, 1, 0, 0, 1, 0, 0], [0, 0, 1, 0, 0, 1, 0, 0, 0, 0],
+                      [0, 0, 0, 0, 0, 0, 1, 0, 0, 0], [1, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+                      [0, 1, 0, 0, 1, 0, 0, 1, 0, 0], [0, 0, 0, 0, 0, 1, 0, 0, 1, 0]],
+             [2, 4],
+             [7, 6], "drdrdrdldl")
 
 
 if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 71 ms, faster than 83.66% of Python3 online submissions for The Maze III.
-Memory Usage: 13.9 MB, less than 99.26% of Python3 online submissions for The Maze III.
+Runtime: 71 ms, faster than 83.66%
+Memory Usage: 13.9 MB, less than 99.26%
 '''

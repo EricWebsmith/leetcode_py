@@ -1,8 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -59,6 +56,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 317 ms, faster than 86.74% of Python3 online submissions for First Missing Positive.
-Memory Usage: 27.3 MB, less than 63.57% of Python3 online submissions for First Missing Positive.
+Runtime: 317 ms, faster than 86.74%
+Memory Usage: 27.3 MB, less than 63.57%
 '''

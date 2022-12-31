@@ -1,7 +1,5 @@
 import unittest
 from typing import Dict, List, Set
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 def get_edges(k: int, from_tos: List[List[int]]) -> Dict[int, Set[int]]:
@@ -83,6 +81,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 109 ms, faster than 89.96% of Python3 online submissions for Course Schedule II.
-Memory Usage: 18.1 MB, less than 5.09% of Python3 online submissions for Course Schedule II.
+Runtime: 109 ms, faster than 89.96%
+Memory Usage: 18.1 MB, less than 5.09%
 '''

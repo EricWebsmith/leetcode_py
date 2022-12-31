@@ -10,7 +10,7 @@ class Solution:
         ans = sum(n_digits ** i for i in range(1, n))
         for i, c in enumerate(s):
             ans += n_digits ** (n-i-1) * sum(d < c for d in digits)
-            if not c in digits:
+            if c not in digits:
                 return ans
 
         return ans + 1

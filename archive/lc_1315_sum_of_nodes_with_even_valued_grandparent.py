@@ -1,8 +1,8 @@
 
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+
+from data_structure.binary_tree import TreeNode, array_to_treenode
 
 
 class Solution:
@@ -59,6 +59,6 @@ if __name__ == '__main__':
 
 
 """
-Runtime: 141 ms, faster than 69.80% of Python3 online submissions for Sum of Nodes with Even-Valued Grandparent.
-Memory Usage: 17.7 MB, less than 61.70% of Python3 online submissions for Sum of Nodes with Even-Valued Grandparent.
+Runtime: 141 ms, faster than 69.80%
+Memory Usage: 17.7 MB, less than 61.70%
 """

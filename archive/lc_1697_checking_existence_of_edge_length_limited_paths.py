@@ -1,8 +1,4 @@
 import unittest
-from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class DSU:
@@ -30,7 +26,7 @@ class DSU:
 
 
 class Solution:
-    def distanceLimitedPathsExist(self, n: int, edgeList: List[List[int]], queries: List[List[int]]) -> List[bool]:
+    def distanceLimitedPathsExist(self, n: int, edgeList: list[list[int]], queries: list[list[int]]) -> list[bool]:
         edgeList.sort(key=lambda x: -x[2])
 
         queries = [(s, d, l, i) for i, (s, d, l) in enumerate(queries)]
@@ -48,12 +44,10 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, n: int, edgeList: List[List[int]], queries: List[List[int]], expected: List[bool]) -> None:
-
+def test(testObj: unittest.TestCase, n: int, edgeList: list[list[int]],
+         queries: list[list[int]], expected: list[bool]) -> None:
     so = Solution()
-
     actual = so.distanceLimitedPathsExist(n, edgeList, queries)
-
     testObj.assertEqual(actual, expected)
 
 
@@ -75,6 +69,8 @@ if __name__ == '__main__':
 # Exaplanation
 
 '''
-Runtime: 2675 ms, faster than 73.01% of Python3 online submissions for Checking Existence of Edge Length Limited Paths.
-Memory Usage: 60.3 MB, less than 62.39% of Python3 online submissions for Checking Existence of Edge Length Limited Paths.
+Runtime
+2675 ms
+Beats
+58.61%
 '''

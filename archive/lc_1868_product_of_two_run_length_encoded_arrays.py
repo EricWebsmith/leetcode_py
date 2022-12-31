@@ -1,7 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -52,6 +50,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 2828 ms, faster than 96.16% of Python3 online submissions for Product of Two Run-Length Encoded Arrays.
-Memory Usage: 67.3 MB, less than 96.91% of Python3 online submissions for Product of Two Run-Length Encoded Arrays.
+Runtime: 2828 ms, faster than 96.16%
+Memory Usage: 67.3 MB, less than 96.91%
 '''

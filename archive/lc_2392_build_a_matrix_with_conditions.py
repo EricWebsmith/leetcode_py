@@ -1,7 +1,5 @@
 import unittest
 from typing import Dict, List, Set
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 def get_edges(k: int, from_tos: List[List[int]]) -> Dict[int, Set[int]]:
@@ -75,7 +73,8 @@ class Solution:
         return mat
 
 
-def test(testObj: unittest.TestCase, k: int, rowConditions: List[List[int]], colConditions: List[List[int]], expected: int) -> None:
+def test(testObj: unittest.TestCase, k: int, rowConditions: List[List[int]],
+         colConditions: List[List[int]], expected: int) -> None:
 
     so = Solution()
     actual = so.buildMatrix(k, rowConditions, colConditions)
@@ -96,6 +95,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 823 ms, faster than 100.00% of Python3 online submissions for Build a Matrix With Conditions.
-Memory Usage: 23.9 MB, less than 100.00% of Python3 online submissions for Build a Matrix With Conditions.
+Runtime: 823 ms, faster than 100.00%
+Memory Usage: 23.9 MB, less than 100.00%
 '''

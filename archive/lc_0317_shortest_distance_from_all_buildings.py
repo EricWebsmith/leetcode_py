@@ -1,9 +1,6 @@
 import unittest
-from typing import List
 from collections import deque
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
+from typing import List
 
 
 class Solution:
@@ -12,7 +9,8 @@ class Solution:
         # the number of the existing buildings
         n_buildings = sum(cell for row in grid for cell in row if cell == 1)
 
-        # distSum = access = [[0 for c in range(C)] for r in range(R)] # record the cnt of accessible building to this cell # this cannot work
+        # distSum = access = [[0 for c in range(C)] for r in range(R)]
+        # # record the cnt of accessible building to this cell # this cannot work
         # record the cnt of accessible building to this cell
         access_grid = [[0 for c in range(n)] for r in range(m)]
         # record the accumulated distances from other buildings to this cell
@@ -54,7 +52,8 @@ class Solution:
                     if not bfs(x, y):  # if any build cannot reach the other build, return false
                         return -1
 
-        return min([dist_grid[i][j] for i in range(m) for j in range(n) if grid[i][j] == 0 and access_grid[i][j] == n_buildings] or [-1])
+        return min([dist_grid[i][j] for i in range(m) for j in range(n)
+                    if grid[i][j] == 0 and access_grid[i][j] == n_buildings] or [-1])
 
 
 def test(testObj: unittest.TestCase, grid: List[List[int]], expected: int) -> None:
@@ -82,6 +81,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 2009 ms, faster than 99.92% of Python3 online submissions for Shortest Distance from All Buildings.
-Memory Usage: 14.2 MB, less than 94.69% of Python3 online submissions for Shortest Distance from All Buildings.
+Runtime: 2009 ms, faster than 99.92%
+Memory Usage: 14.2 MB, less than 94.69%
 '''

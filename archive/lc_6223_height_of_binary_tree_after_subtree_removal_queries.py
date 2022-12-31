@@ -13,7 +13,7 @@ class Solution:
         heights = defaultdict(int)
 
         def dfs(node: TreeNode, d: int) -> int:
-            if node == None:
+            if node is None:
                 return -1
 
             depths[node.val] = d

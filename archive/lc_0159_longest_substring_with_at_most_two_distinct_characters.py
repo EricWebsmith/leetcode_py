@@ -1,6 +1,4 @@
 import unittest
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 from collections import defaultdict
 
 
@@ -56,6 +54,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 298 ms, faster than 97.97% of Python3 online submissions for Longest Substring with At Most Two Distinct Characters.
-Memory Usage: 14.8 MB, less than 38.02% of Python3 online submissions for Longest Substring with At Most Two Distinct Characters.
+Runtime: 298 ms, faster than 97.97%
+Memory Usage: 14.8 MB, less than 38.02%
 '''

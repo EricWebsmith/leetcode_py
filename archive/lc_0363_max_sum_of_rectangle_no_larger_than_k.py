@@ -1,8 +1,6 @@
-from bisect import bisect_left, insort_left
 import unittest
+from bisect import bisect_left, insort_left
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -62,6 +60,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 1528 ms, faster than 98.02% of Python3 online submissions for Max Sum of Rectangle No Larger Than K.
-Memory Usage: 14.8 MB, less than 57.31% of Python3 online submissions for Max Sum of Rectangle No Larger Than K.
+Runtime: 1528 ms, faster than 98.02%
+Memory Usage: 14.8 MB, less than 57.31%
 '''

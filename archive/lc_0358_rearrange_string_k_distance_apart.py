@@ -1,8 +1,5 @@
 import unittest
 from typing import Counter
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -70,6 +67,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 90 ms, faster than 88.54% of Python3 online submissions for Rearrange String k Distance Apart.
-Memory Usage: 15 MB, less than 86.76% of Python3 online submissions for Rearrange String k Distance Apart.
+Runtime: 90 ms, faster than 88.54%
+Memory Usage: 15 MB, less than 86.76%
 '''

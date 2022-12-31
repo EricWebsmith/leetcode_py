@@ -1,7 +1,8 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+
+from data_structure.binary_tree import (TreeNode, array_to_treenode,
+                                        treenode_to_array)
 
 
 class Solution:
@@ -52,6 +53,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 36 ms, faster than 86.45% of Python3 online submissions for Binary Search Tree to Greater Sum Tree.
-Memory Usage: 13.9 MB, less than 74.25% of Python3 online submissions for Binary Search Tree to Greater Sum Tree.
+Runtime: 36 ms, faster than 86.45%
+Memory Usage: 13.9 MB, less than 74.25%
 '''

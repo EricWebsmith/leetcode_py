@@ -1,17 +1,5 @@
 import unittest
-from collections import defaultdict, deque
-from functools import cache
-from heapq import heappop, heappush
-from math import sqrt
-from typing import Any, Dict, List, Optional, Set
 
-from data_structure.binary_tree import (TreeNode, array_to_treenode,
-                                        treenode_to_array)
-from data_structure.link_list import (ListNode, array_to_listnode,
-                                      listnode_to_array)
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-
-null = None
 
 class Solution:
     def one_step(self, s):
@@ -44,18 +32,17 @@ class Solution:
         return c
 
 
+def test(testObj: unittest.TestCase, s: str, expected: int) -> None:
 
-def test(testObj: unittest.TestCase, s: str, expected:int) -> None:
-    
     so = Solution()
-    
+
     actual = so.numDecodings(s)
 
     testObj.assertEqual(actual, expected)
 
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
         test(self,   "12", 2)
 
@@ -64,7 +51,7 @@ class TestClass(unittest.TestCase):
 
     def test_3(self):
         test(self,   "06", 0)
-    
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,9 +1,6 @@
-from bisect import bisect_left, bisect_right
 import unittest
+from bisect import bisect_left, bisect_right
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -47,7 +44,8 @@ class Solution:
         return intervals
 
 
-def test(testObj: unittest.TestCase, intervals: List[List[int]], toBeRemoved: List[int], expected: List[List[int]]) -> None:
+def test(testObj: unittest.TestCase, intervals: List[List[int]],
+         toBeRemoved: List[int], expected: List[List[int]]) -> None:
 
     so = Solution()
 
@@ -73,6 +71,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 394 ms, faster than 92.56% of Python3 online submissions for Remove Interval.
-Memory Usage: 20.8 MB, less than 73.55% of Python3 online submissions for Remove Interval.
+Runtime: 394 ms, faster than 92.56%
+Memory Usage: 20.8 MB, less than 73.55%
 '''

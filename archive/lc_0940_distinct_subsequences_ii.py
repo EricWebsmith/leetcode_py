@@ -40,7 +40,9 @@ class TestClass(unittest.TestCase):
         test(self,   "lee", 5)
 
     def test_5(self):
-        test(self,   "zchmliaqdgvwncfatcfivphddpzjkgyygueikthqzyeeiebczqbqhdytkoawkehkbizdmcnilcjjlpoeoqqoqpswtqdpvszfaksn", 97915677)
+        test(self,
+             "zchmliaqdgvwncfatcfivphddpzjkgyygueikthqzyeeiebczqbqhdytkoawkehkbizdmcnilcjjlpoeoqqoqpswtqdpvszfaksn",
+             97915677)
 
 
 if __name__ == '__main__':

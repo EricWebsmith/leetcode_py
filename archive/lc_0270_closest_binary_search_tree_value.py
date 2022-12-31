@@ -1,8 +1,7 @@
 import unittest
 from typing import List, Optional
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
+
+from data_structure.binary_tree import TreeNode, array_to_treenode
 
 
 class Solution:
@@ -48,6 +47,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 57 ms, faster than 65.16% of Python3 online submissions for Closest Binary Search Tree Value.
-Memory Usage: 16.2 MB, less than 34.57% of Python3 online submissions for Closest Binary Search Tree Value.
+Runtime: 57 ms, faster than 65.16%
+Memory Usage: 16.2 MB, less than 34.57%
 '''

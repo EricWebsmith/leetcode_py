@@ -1,7 +1,5 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:
@@ -42,6 +40,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 197 ms, faster than 39.20% of Python3 online submissions for Gray Code.
-Memory Usage: 21.5 MB, less than 31.80% of Python3 online submissions for Gray Code.
+Runtime: 197 ms, faster than 39.20%
+Memory Usage: 21.5 MB, less than 31.80%
 '''

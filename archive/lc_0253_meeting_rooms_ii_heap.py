@@ -40,6 +40,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 86 ms, faster than 89.95% of Python3 online submissions for Meeting Rooms II.
-Memory Usage: 17.5 MB, less than 83.51% of Python3 online submissions for Meeting Rooms II.
+Runtime: 86 ms, faster than 89.95%
+Memory Usage: 17.5 MB, less than 83.51%
 '''

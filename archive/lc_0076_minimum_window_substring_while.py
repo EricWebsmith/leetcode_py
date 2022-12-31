@@ -1,41 +1,33 @@
 import unittest
-from typing import Any, Dict, List, Optional, Set
 
 
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
         bag = [0] * 128
-
         for c in t:
             bag[ord(c)] += 1
-        if bag[ord(s[left])] > 0:
-            counter += 1
-        bag[ord[s[0]]] -= 1
+
         n = len(s)
-        left, right = 0, 0
+        left = 0
         best = ''
         best_length = 1000000000
         counter = len(t)
 
-        while right < n:
-            if counter == 0:
-                length = right - left + 1
-                if length < best_length:
-                    best_length = length
-                    best = s[left: right+1]
-
-                bag[ord(s[left])] += 1
-                if bag[ord(s[left])] > 0:
+        for right in range(n):
+            right_index = ord(s[right])
+            if bag[right_index] > 0:
+                counter -= 1
+            bag[right_index] -= 1
+            while counter == 0:
+                left_index = ord(s[left])
+                bag[left_index] += 1
+                if bag[left_index] > 0:
                     counter += 1
+                    length = right - left + 1
+                    if length < best_length:
+                        best_length = length
+                        best = s[left: right+1]
                 left += 1
-            else:
-                right += 1
-                if right == n:
-                    break
-                if bag[ord(s[right])] > 0:
-                    counter -= 1
-                bag[ord(s[right])] -= 1
-
         return best
 
 

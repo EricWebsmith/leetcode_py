@@ -1,11 +1,9 @@
-import unittest
-from typing import List
-from collections import deque
 import itertools
-null = None
+import unittest
+from collections import deque
 
 
-def bit_or(arr: List[int]):
+def bit_or(arr: list[int]):
     """
     not sure if this will make it faster.
     """
@@ -16,7 +14,7 @@ def bit_or(arr: List[int]):
 
 
 class Solution:
-    def minNumberOfSemesters(self, n: int, relations: List[List[int]], k: int) -> int:
+    def minNumberOfSemesters(self, n: int, relations: list[list[int]], k: int) -> int:
         g = [0] * n
         prerequisites_bitmask = 0
         for pre, post in relations:
@@ -69,7 +67,7 @@ class Solution:
                         seen[t] = 1
 
 
-def test(testObj: unittest.TestCase, n: int, relations: List[List[int]], k: int, expected: int) -> None:
+def test(testObj: unittest.TestCase, n: int, relations: list[list[int]], k: int, expected: int) -> None:
     so = Solution()
     actual = so.minNumberOfSemesters(n, relations, k)
     testObj.assertEqual(actual, expected)
@@ -85,8 +83,9 @@ class TestClass(unittest.TestCase):
 
     def test_3(self):
         test(self,   13,
-             [[12, 8], [2, 4], [3, 7], [6, 8], [11, 8], [9, 4], [9, 7], [12, 4], [11, 4], [6, 4], [1, 4], [10, 7], [10, 4], [
-                 1, 7], [1, 8], [2, 7], [8, 4], [10, 8], [12, 7], [5, 4], [3, 4], [11, 7], [7, 4], [13, 4], [9, 8], [13, 8]],
+             [[12, 8], [2, 4], [3, 7], [6, 8], [11, 8], [9, 4], [9, 7], [12, 4], [11, 4], [6, 4],
+              [1, 4], [10, 7], [10, 4], [1, 7], [1, 8], [2, 7], [8, 4], [10, 8], [12, 7], [5, 4],
+              [3, 4], [11, 7], [7, 4], [13, 4], [9, 8], [13, 8]],
              9, 3)
 
     def test_4(self):
@@ -98,6 +97,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 75 ms, faster than 93.62% of Python3 online submissions for Parallel Courses II.
-Memory Usage: 14.1 MB, less than 95.74% of Python3 online submissions for Parallel Courses II.
+Runtime: 75 ms, faster than 93.62%
+Memory Usage: 14.1 MB, less than 95.74%
 '''

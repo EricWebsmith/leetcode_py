@@ -1,7 +1,5 @@
 import unittest
 from typing import Dict, List, Set
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 def top_sort(edges: Dict[int, Set[int]]) -> List[int]:
@@ -82,7 +80,8 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, n: int, m: int, group: List[int], beforeItems: List[List[int]], expected: int) -> None:
+def test(testObj: unittest.TestCase, n: int, m: int, group: List[int],
+         beforeItems: List[List[int]], expected: int) -> None:
 
     so = Solution()
     actual = so.sortItems(n, m, group, beforeItems)
@@ -108,6 +107,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 538 ms, faster than 77.30% of Python3 online submissions for Sort Items by Groups Respecting Dependencies.
-Memory Usage: 46.6 MB, less than 16.22% of Python3 online submissions for Sort Items by Groups Respecting Dependencies.
+Runtime: 538 ms, faster than 77.30%
+Memory Usage: 46.6 MB, less than 16.22%
 '''

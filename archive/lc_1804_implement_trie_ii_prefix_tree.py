@@ -1,6 +1,5 @@
 import unittest
 from typing import Dict, List
-null = None
 
 
 class TrieNode:
@@ -18,7 +17,7 @@ class Trie:
     def insert(self, word: str) -> None:
         current = self.root
         for c in word:
-            if not c in current.children:
+            if c not in current.children:
                 current.children[c] = TrieNode()
             current.children[c].count += 1
             current = current.children[c]
@@ -27,7 +26,7 @@ class Trie:
     def countWordsEqualTo(self, word: str) -> int:
         current = self.root
         for c in word:
-            if not c in current.children:
+            if c not in current.children:
                 current.children[c] = TrieNode()
             current = current.children[c]
         return current.count_end
@@ -35,7 +34,7 @@ class Trie:
     def countWordsStartingWith(self, prefix: str) -> int:
         current = self.root
         for c in prefix:
-            if not c in current.children:
+            if c not in current.children:
                 current.children[c] = TrieNode()
             current = current.children[c]
         return current.count
@@ -43,7 +42,7 @@ class Trie:
     def erase(self, word: str) -> None:
         current = self.root
         for c in word:
-            if not c in current.children:
+            if c not in current.children:
                 current.children[c] = TrieNode()
             current.children[c].count -= 1
             current = current.children[c]
@@ -77,8 +76,10 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
 class TestClass(unittest.TestCase):
 
     def test_1(self):
-        test(self, ["Trie", "insert", "insert", "countWordsEqualTo", "countWordsStartingWith", "erase", "countWordsEqualTo", "countWordsStartingWith", "erase", "countWordsStartingWith"], [
-             [], ["apple"], ["apple"], ["apple"], ["app"], ["apple"], ["apple"], ["app"], ["apple"], ["app"]], [None, None, None, 2, 2, None, 1, 1, None, 0])
+        test(self, ["Trie", "insert", "insert", "countWordsEqualTo", "countWordsStartingWith", "erase",
+                    "countWordsEqualTo", "countWordsStartingWith", "erase", "countWordsStartingWith"],
+             [[], ["apple"], ["apple"], ["apple"], ["app"], ["apple"], ["apple"], ["app"], ["apple"], ["app"]],
+             [None, None, None, 2, 2, None, 1, 1, None, 0])
 
 
 if __name__ == '__main__':
@@ -88,6 +89,6 @@ if __name__ == '__main__':
 # leetcode will say : 'erase' arguments are invalid: expected 'erase existing word' to have value from 1 to 100000 only
 
 '''
-Runtime: 355 ms, faster than 91.22% of Python3 online submissions for Implement Trie II (Prefix Tree).
-Memory Usage: 28.6 MB, less than 50.00% of Python3 online submissions for Implement Trie II (Prefix Tree).
+Runtime: 355 ms, faster than 91.22%
+Memory Usage: 28.6 MB, less than 50.00%
 '''

@@ -21,7 +21,6 @@ class Solution:
 
             index += 1
 
-
         slow_pointer.next = slow_pointer.next.next
 
         return prehead.next
@@ -60,6 +59,6 @@ if __name__ == "__main__":
     unittest.main()
 
 """
-Runtime: 31 ms, faster than 97.25% of Python3 online submissions for Remove Nth Node From End of List.
-Memory Usage: 14 MB, less than 20.71% of Python3 online submissions for Remove Nth Node From End of List.
+Runtime: 31 ms, faster than 97.25%
+Memory Usage: 14 MB, less than 20.71%
 """

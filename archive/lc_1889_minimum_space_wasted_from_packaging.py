@@ -1,10 +1,7 @@
-from bisect import bisect_right
 import sys
 import unittest
+from bisect import bisect_right
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -33,7 +30,6 @@ class Solution:
                 pre_index = index
 
             best_waste = min(best_waste, waste)
-
 
         return -1 if best_waste == sys.maxsize else best_waste % MOD
 
@@ -71,6 +67,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 1679 ms, faster than 86.67% of Python3 online submissions for Minimum Space Wasted From Packaging.
-Memory Usage: 38.8 MB, less than 29.17% of Python3 online submissions for Minimum Space Wasted From Packaging.
+Runtime: 1679 ms, faster than 86.67%
+Memory Usage: 38.8 MB, less than 29.17%
 '''

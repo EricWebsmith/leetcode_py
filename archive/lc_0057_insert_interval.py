@@ -17,7 +17,8 @@ class Solution:
         return ans + [newInterval]
 
 
-def test(testObj: unittest.TestCase, intervals: List[List[int]], newInterval: List[int], expected: List[List[int]]) -> None:
+def test(testObj: unittest.TestCase, intervals: List[List[int]],
+         newInterval: List[int], expected: List[List[int]]) -> None:
 
     so = Solution()
     actual = so.insert(intervals, newInterval)

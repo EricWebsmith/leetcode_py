@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+
+from data_structure.binary_tree import TreeNode, array_to_treenode
 
 
 class Solution:
@@ -15,7 +15,7 @@ class Solution:
         left = self.dfs(node.left)
         right = self.dfs(node.right)
         level = max(left, right)+1
-        if not level in self.dict:
+        if level not in self.dict:
             self.dict[level] = []
         self.dict[level].append(node.val)
         return level
@@ -54,6 +54,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 29 ms, faster than 97.10% of Python3 online submissions for Find Leaves of Binary Tree.
-Memory Usage: 13.8 MB, less than 74.47% of Python3 online submissions for Find Leaves of Binary Tree.
+Runtime: 29 ms, faster than 97.10%
+Memory Usage: 13.8 MB, less than 74.47%
 '''

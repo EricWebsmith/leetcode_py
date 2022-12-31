@@ -47,6 +47,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 448 ms, faster than 89.53% of Python3 online submissions for Online Stock Span.
-Memory Usage: 19.7 MB, less than 7.77% of Python3 online submissions for Online Stock Span.
+Runtime: 448 ms, faster than 89.53%
+Memory Usage: 19.7 MB, less than 7.77%
 '''

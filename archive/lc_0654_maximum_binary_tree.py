@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+
+from data_structure.binary_tree import TreeNode, treenode_to_array
 
 
 class Solution:
@@ -43,6 +43,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 226 ms, faster than 85.61% of Python3 online submissions for Maximum Binary Tree.
-Memory Usage: 14.7 MB, less than 21.38% of Python3 online submissions for Maximum Binary Tree.
+Runtime: 226 ms, faster than 85.61%
+Memory Usage: 14.7 MB, less than 21.38%
 '''

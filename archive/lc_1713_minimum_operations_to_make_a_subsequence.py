@@ -1,9 +1,6 @@
-from bisect import bisect_left
 import unittest
+from bisect import bisect_left
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
 
 
 class Solution:
@@ -16,7 +13,7 @@ class Solution:
 
         if len(arr_indices) == 0:
             return len(target)
-        
+
         increase_arr = [arr_indices[0]]
         for i in arr_indices[1:]:
             if i > increase_arr[-1]:
@@ -55,16 +52,16 @@ class TestClass(unittest.TestCase):
         test(self,   [1, 2, 3, 4],  [1, 4, 3, 2, 1], 2)
 
     def test_6(self):
-        test(self,   [1,3,8], [2,6], 3)
+        test(self,   [1, 3, 8], [2, 6], 3)
 
     def test_7(self):
-        test(self,   [1,3,8], [2,6, 8], 2)
+        test(self,   [1, 3, 8], [2, 6, 8], 2)
 
 
 if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 1005 ms, faster than 96.15% of Python3 online submissions for Minimum Operations to Make a Subsequence.
-Memory Usage: 36.9 MB, less than 91.03% of Python3 online submissions for Minimum Operations to Make a Subsequence.
+Runtime: 1005 ms, faster than 96.15%
+Memory Usage: 36.9 MB, less than 91.03%
 '''

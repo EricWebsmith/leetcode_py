@@ -1,7 +1,8 @@
 import unittest
 from typing import List, Optional
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+
+from data_structure.binary_tree import (TreeNode, array_to_treenode,
+                                        treenode_to_array)
 
 
 class Solution:
@@ -57,6 +58,6 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 35 ms, faster than 88.94% of Python3 online submissions for Binary Tree Pruning.
-Memory Usage: 13.9 MB, less than 23.50% of Python3 online submissions for Binary Tree Pruning.
+Runtime: 35 ms, faster than 88.94%
+Memory Usage: 13.9 MB, less than 23.50%
 '''

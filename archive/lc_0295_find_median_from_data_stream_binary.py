@@ -12,11 +12,11 @@ class MedianFinder:
         insort_left(self.arr, num)
 
     def findMedian(self) -> float:
-        l = len(self.arr)
-        if l % 2 == 1:
-            return self.arr[l//2]
+        length = len(self.arr)
+        if length % 2 == 1:
+            return self.arr[length//2]
         else:
-            return (self.arr[l//2] + self.arr[l//2 - 1])/2
+            return (self.arr[length//2] + self.arr[length//2 - 1])/2
 
 
 def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:

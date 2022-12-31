@@ -1,8 +1,6 @@
 import unittest
 from typing import List
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-null = None
+
 
 class Solution:
     def findMaxAverage(self, nums: List[int], k: int) -> float:
@@ -17,7 +15,7 @@ class Solution:
             error = abs(prev_mid - mid)
             prev_mid = mid
         return min_val
-    
+
     def check(self, nums, mid, k):
         prev, min_sum = 0, 0
         total = sum([nums[i] - mid for i in range(k)])
@@ -32,21 +30,20 @@ class Solution:
         return False
 
 
-
-def test(testObj: unittest.TestCase, nums: List[int], k: int, expected:float) -> None:
+def test(testObj: unittest.TestCase, nums: List[int], k: int, expected: float) -> None:
     so = Solution()
-    actual = so.findMaxAverage(nums,k)
-    testObj.assertTrue(abs(actual - expected)<0.05)
+    actual = so.findMaxAverage(nums, k)
+    testObj.assertTrue(abs(actual - expected) < 0.05)
 
 
 class TestClass(unittest.TestCase):
-    
+
     def test_1(self):
-        test(self,   [1,12,-5,-6,50,3],  4, 12.75000)
+        test(self,   [1, 12, -5, -6, 50, 3],  4, 12.75000)
 
     def test_2(self):
         test(self,   [5],  1, 5.00000)
-    
+
 
 if __name__ == '__main__':
     unittest.main()
