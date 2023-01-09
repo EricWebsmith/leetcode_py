@@ -1,8 +1,7 @@
-import requests
+import requests  # type: ignore
 from dotenv import dotenv_values
-from lxml import etree
-
-from scraping.scraper_result import ScraperResult
+from lxml import etree  # type: ignore
+from scraper_result import ScraperResult
 
 env = dotenv_values()
 Cookie = env['Cookie']

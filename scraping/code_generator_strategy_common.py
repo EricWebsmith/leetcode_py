@@ -1,6 +1,6 @@
+from code_generator_protocol import CodeGeneratorProtocol
 from code_generator_strategy import CodeGeneratorStrategy
 from parameter import Parameter
-from scraping.code_generator_protocol import CodeGeneratorProtocol
 
 
 class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):

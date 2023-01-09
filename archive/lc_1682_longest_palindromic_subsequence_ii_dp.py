@@ -6,7 +6,7 @@ class Solution:
     def longestPalindromeSubseq(self, s: str) -> int:
 
         @cache
-        def dp(left, right) -> int:
+        def dp(left: int, right: int) -> tuple[int, str | None]:
             if left > right:
                 return 0, None
             elif left == right:

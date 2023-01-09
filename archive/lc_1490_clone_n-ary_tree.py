@@ -1,17 +1,11 @@
 
-import os
-import sys
 import unittest
 
 from data_structure.nary_tree import Node, array_to_node, node_to_array
 
-current = os.path.dirname(os.path.realpath(__file__))
-parent = os.path.dirname(current)
-sys.path.append(parent)
-
 
 class Solution:
-    def cloneTree(self, root: Node) -> Node:
+    def cloneTree(self, root: 'Node') -> 'Node':
         if root is None:
             return None
 
@@ -22,7 +16,7 @@ class Solution:
         return newRoot
 
 
-def test(testObj: unittest.TestCase, rootArr: Node, expected: int) -> None:
+def test(testObj: unittest.TestCase, rootArr: list[int], expected: int) -> None:
     root = array_to_node(rootArr)
     s = Solution()
     actualRoot = s.cloneTree(root)
@@ -46,6 +40,8 @@ if __name__ == '__main__':
     unittest.main()
 
 """
-Runtime: 106 ms, faster than 78.43%
-Memory Usage: 17.9 MB, less than 79.88%
+Runtime
+77 ms
+Beats
+80.40%
 """

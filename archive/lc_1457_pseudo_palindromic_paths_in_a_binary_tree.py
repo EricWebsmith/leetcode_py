@@ -1,5 +1,5 @@
 import unittest
-from typing import List, Optional
+from typing import Optional
 
 from data_structure.binary_tree import TreeNode, array_to_treenode
 
@@ -8,7 +8,7 @@ class Solution:
     def __init__(self) -> None:
         self.ans = 0
 
-    def pseudoPalindromicPaths(self, root: Optional[TreeNode]) -> int:
+    def pseudoPalindromicPaths(self, root: TreeNode) -> int:
 
         value_counts = [0] * 10
 
@@ -37,12 +37,10 @@ class Solution:
         return self.ans
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], expected: int) -> None:
+def test(testObj: unittest.TestCase, root_arr: list[int], expected: int) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
-
     actual = so.pseudoPalindromicPaths(root)
-
     testObj.assertEqual(actual, expected)
 
 

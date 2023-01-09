@@ -16,6 +16,7 @@ class Solution:
 
             for i in range(q_size):
                 node = q.popleft()
+                assert node is not None
                 layer_sum += node.val
                 if node.left:
                     q.append(node.left)

@@ -1,9 +1,8 @@
 import unittest
-from typing import List
 
 
 class Solution:
-    def outerTrees(self, trees: List[List[int]]) -> List[List[int]]:
+    def outerTrees(self, trees: list[list[int]]) -> list[list[int]]:
         def clock_wise(p1, p2, p3):
             x1, y1 = p1
             x2, y2 = p2
@@ -25,7 +24,7 @@ class Solution:
         return [[x, y] for (x, y) in set(upper+lower)]
 
 
-def test(testObj: unittest.TestCase, trees: List[List[int]], expected: List[List[int]]) -> None:
+def test(testObj: unittest.TestCase, trees: list[list[int]], expected: list[list[int]]) -> None:
     so = Solution()
     actual = so.outerTrees(trees)
     actual.sort()

@@ -41,7 +41,9 @@ class Solution:
                         return semester + 1
                     if not seen[t]:
                         q.append((t, semester+1))
-                        seen[t] = 1
+                        seen[t] = True
+
+        return -1
 
 
 def test(testObj: unittest.TestCase, n: int, relations: List[List[int]], k: int, expected: int) -> None:

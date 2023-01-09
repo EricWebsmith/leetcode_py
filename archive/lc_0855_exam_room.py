@@ -7,8 +7,8 @@ class ExamRoom:
 
     def __init__(self, n: int):
         self.n = n
-        self.occupied = []
-        self.gaps = []
+        self.occupied: list = []
+        self.gaps: list = []
         self.gap_key = lambda x: x[0] * 1_000_000_000 - x[1]
 
     def gap_func(self, left, right):
@@ -95,8 +95,8 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
                 testObj.assertEqual(actual, expected[i])
 
             case "leave":
-                actual = obj.leave(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.leave(*params[i])
+                testObj.assertEqual(None, expected[i])
 
 
 class TestClass(unittest.TestCase):

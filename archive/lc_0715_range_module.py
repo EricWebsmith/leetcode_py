@@ -57,16 +57,14 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
         match actions[i]:
 
             case "addRange":
-                actual = obj.addRange(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.addRange(*params[i])
 
             case "queryRange":
                 actual = obj.queryRange(*params[i])
                 testObj.assertEqual(actual, expected[i])
 
             case "removeRange":
-                actual = obj.removeRange(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.removeRange(*params[i])
 
 
 class TestClass(unittest.TestCase):

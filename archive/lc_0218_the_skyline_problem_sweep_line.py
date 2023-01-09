@@ -1,14 +1,13 @@
 import unittest
-from typing import List
 
-import sortedcontainers
+import sortedcontainers  # type: ignore
 
 EVENT_START = 0
 EVENT_END = 1
 
 
 class Solution:
-    def getSkyline(self, buildings: List[List[int]]) -> List[List[int]]:
+    def getSkyline(self, buildings: list[list[int]]) -> list[list[int]]:
         events = []
         for b in buildings:
             events.append((b[0], EVENT_START, b[2]))
@@ -36,12 +35,9 @@ class Solution:
         return result
 
 
-def test(testObj: unittest.TestCase, buildings: List[List[int]], expected: List[List[int]]) -> None:
-
+def test(testObj: unittest.TestCase, buildings: list[list[int]], expected: list[list[int]]) -> None:
     so = Solution()
-
     actual = so.getSkyline(buildings)
-
     testObj.assertEqual(actual, expected)
 
 

@@ -7,7 +7,7 @@ from typing import List
 class Solution:
     def isPossible(self, nums: List[int]) -> bool:
         c = Counter(nums)
-        ends = defaultdict(int)
+        ends: dict = defaultdict(int)
 
         for num in nums:
             if c[num] == 0:

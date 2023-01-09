@@ -28,12 +28,12 @@ class MyCalendarThree:
     def add(self, start: int, end: int, node: SegmentNode):
         if node.split != -1:
             if end <= node.split:
-                self.add(start, end, node.left)
+                self.add(start, end, node.left)  # type: ignore
             elif start >= node.split:
-                self.add(start, end, node.right)
+                self.add(start, end, node.right)  # type: ignore
             else:
-                self.add(start, node.split, node.left)
-                self.add(node.split, end, node.right)
+                self.add(start, node.split, node.left)  # type: ignore
+                self.add(node.split, end, node.right)  # type: ignore
             return
 
         if start == node.low and end == node.high:

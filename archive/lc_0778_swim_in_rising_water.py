@@ -30,7 +30,7 @@ class Solution:
     def swimInWater(self, grid: List[List[int]]) -> int:
         n = len(grid)
         nn = n * n
-        depth_position_dict = [0] * (nn)
+        depth_position_dict = [[0, 0]] * (nn)
         for r in range(n):
             for c in range(n):
                 depth_position_dict[grid[r][c]] = [r, c]

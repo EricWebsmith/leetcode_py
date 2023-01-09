@@ -2,11 +2,10 @@ import re
 from typing import List
 
 from code_generator_strategy import CodeGeneratorStrategy
+from code_generator_strategy_common import CodeGeneratorCommonStrategy
+from code_generator_strategy_design import CodeGeneratorDesignStrategy
 from parameter import Parameter
 from scraper_result import ScraperResult
-
-from scraping.code_generator_strategy_common import CodeGeneratorCommonStrategy
-from scraping.code_generator_strategy_design import CodeGeneratorDesignStrategy
 
 DESIGN = 'DESIGN'
 COMMON = 'COMMON'
@@ -14,7 +13,7 @@ COMMON = 'COMMON'
 
 class CodeGenerator:
     def __init__(self, result: ScraperResult, problem_type: str):
-        self.headers = {}
+        self.headers: dict = {}
         self.title = result.title
         self.id = result.id
         self.title_slug = result.title_slug
@@ -37,7 +36,7 @@ class CodeGenerator:
         self.test_cases = result.test_cases
         self.test_case_code = ''
         self.html = None
-        self.code_generation_strategy: CodeGeneratorStrategy = None
+        self.code_generation_strategy: CodeGeneratorStrategy | None = None
 
     def parse_test_cases(self, tc_string):
         # get input

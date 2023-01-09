@@ -1,10 +1,9 @@
 import unittest
-from typing import List
 
 
 class Solution:
-    def checkIfPrerequisite(self, n: int, prerequisites: List[List[int]], queries: List[List[int]]) -> List[bool]:
-        edge_dict = {v: set() for v in range(n)}
+    def checkIfPrerequisite(self, n: int, prerequisites: list[list[int]], queries: list[list[int]]) -> list[bool]:
+        edge_dict: dict[int, set] = {v: set() for v in range(n)}
         for pre, post in prerequisites:
             edge_dict[post].add(pre)
 
@@ -31,13 +30,10 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, numCourses: int, prerequisites: List[List[int]],
-         queries: List[List[int]], expected: List[bool]) -> None:
-
+def test(testObj: unittest.TestCase, numCourses: int, prerequisites: list[list[int]],
+         queries: list[list[int]], expected: list[bool]) -> None:
     so = Solution()
-
     actual = so.checkIfPrerequisite(numCourses, prerequisites, queries)
-
     testObj.assertEqual(actual, expected)
 
 

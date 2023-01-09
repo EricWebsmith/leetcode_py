@@ -6,11 +6,11 @@ class Solution:
         if k-1 + maxPts <= n:
             return 1
 
-        dp = [0] * (k + maxPts)
+        dp: list[float] = [0] * (k + maxPts)
         for i in range(k, n+1):
             dp[i] = 1
 
-        s = (n-k+1)/maxPts
+        s = (n-k+1) / maxPts
         for i in range(k-1, -1, -1):
             dp[i] = s
             s -= dp[i+maxPts] / maxPts

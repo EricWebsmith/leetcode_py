@@ -1,5 +1,5 @@
 import unittest
-from typing import List, Optional
+from typing import Optional
 
 from data_structure.binary_tree import (TreeNode, array_to_treenode,
                                         treenode_to_array)
@@ -15,10 +15,11 @@ class Solution:
             return new_root
 
         current_depth = 1
-        q = [root]
+        q: list = [root]
         while q:
             new_q = []
             for node in q:
+                assert node is not None
                 if current_depth == depth - 1:
                     left = node.left
                     node.left = TreeNode(val)
@@ -37,7 +38,7 @@ class Solution:
         return root
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], val: int, depth: int, expected: Optional[TreeNode]) -> None:
+def test(testObj: unittest.TestCase, root_arr: list[int], val: int, depth: int, expected: Optional[TreeNode]) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
 

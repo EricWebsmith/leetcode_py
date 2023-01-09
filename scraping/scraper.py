@@ -3,10 +3,10 @@ import re
 import subprocess
 import sys
 
-from scraping.code_generator import CodeGenerator
-from scraping.scraper_contest import ContestScraper
-from scraping.scraper_problem import ProblemScraper
-from scraping.scraper_result import ScraperResult
+from code_generator import CodeGenerator
+from scraper_contest import ContestScraper
+from scraper_problem import ProblemScraper
+from scraper_result import ScraperResult
 
 DESIGN = 'DESIGN'
 COMMON = 'COMMON'

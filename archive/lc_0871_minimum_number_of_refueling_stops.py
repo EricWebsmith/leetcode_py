@@ -2,13 +2,12 @@
 # from heapq import heappop, heappush
 import heapq
 import unittest
-from typing import List
 
 
 class Solution:
-    def minRefuelStops(self, target: int, startFuel: int, stations: List[List[int]]) -> int:
-        pq = []
-        stations.append([target, float('inf')])
+    def minRefuelStops(self, target: int, startFuel: int, stations: list[list[int]]) -> int:
+        pq: list[int] = []
+        stations.append([target, 1_000_000_000])
         tank = startFuel
 
         ans = 0
@@ -27,7 +26,7 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, target: int, startFuel: int, stations: List[List[int]], expected: int) -> None:
+def test(testObj: unittest.TestCase, target: int, startFuel: int, stations: list[list[int]], expected: int) -> None:
 
     s = Solution()
     actual = s.minRefuelStops(target, startFuel, stations)
@@ -51,6 +50,8 @@ if __name__ == '__main__':
 
 
 """
-Runtime: 162 ms, faster than 78.41%
-Memory Usage: 14.3 MB, less than 10.13%
+Runtime
+119 ms
+Beats
+93.41%
 """

@@ -3,16 +3,16 @@ from typing import List
 
 
 class Node:
-    def __init__(self, val=None, children=None):
+    def __init__(self, val=None, children=None) -> None:
         self.val = val
-        self.children: List[Node] = children if children is not None else []
+        self.children: list[Node] = children if children is not None else []
 
     def __repr__(self) -> str:
         return str(self.val)
 
 
 def node_to_array(root: Node) -> List[int]:
-    q = Queue()
+    q = Queue[Node]()
 
     q.put(root)
     arr = [root.val, None]
@@ -33,7 +33,7 @@ def node_to_array(root: Node) -> List[int]:
 
 
 def array_to_node(arr: List[int]) -> Node:
-    q = Queue()
+    q = Queue[Node]()
     root = Node(arr[0])
     q.put(root)
     qSize = q.qsize()

@@ -1,6 +1,5 @@
+from code_generator_protocol import CodeGeneratorProtocol
 from code_generator_strategy import CodeGeneratorStrategy
-
-from scraping.code_generator_protocol import CodeGeneratorProtocol
 
 
 class CodeGeneratorDesignStrategy(CodeGeneratorStrategy):

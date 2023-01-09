@@ -1,20 +1,19 @@
 import unittest
-from typing import List
 
 
 class Node:
     def __init__(self, val: int) -> None:
         self.val = val
-        self.pre: Node = None
-        self.next: Node = None
+        self.pre: Node | None = None
+        self.next: Node | None = None
 
 
 class MyCircularDeque:
 
     def __init__(self, k: int):
         self.k = k
-        self.first = None
-        self.last = None
+        self.first: Node | None = None
+        self.last: Node | None = None
         self.size = 0
 
     def insertFront(self, value: int) -> bool:
@@ -27,6 +26,7 @@ class MyCircularDeque:
             new_first = Node(value)
             # double link
             new_first.next = self.first
+            assert self.first is not None
             self.first.pre = new_first
             self.first = new_first
         self.size += 1
@@ -43,6 +43,7 @@ class MyCircularDeque:
             new_last = Node(value)
             # double link
             new_last.pre = self.last
+            assert self.last is not None
             self.last.next = new_last
             self.last = new_last
 
@@ -59,7 +60,9 @@ class MyCircularDeque:
             self.size = 0
             return True
 
+        assert self.first is not None
         new_front = self.first.next
+        assert new_front is not None
         new_front.pre = None
         self.first = new_front
 
@@ -75,7 +78,9 @@ class MyCircularDeque:
             self.size = 0
             return True
 
+        assert self.last is not None
         new_last = self.last.pre
+        assert new_last is not None
         new_last.next = None
         self.last = new_last
         self.size -= 1
@@ -99,7 +104,7 @@ class MyCircularDeque:
         return self.size == self.k
 
 
-def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
+def test(testObj: unittest.TestCase, actions: list, params: list, expected: list) -> None:
     n = len(actions)
     print(0, '__init__', params[0])
     obj = MyCircularDeque(*params[0])
@@ -124,12 +129,12 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
                 testObj.assertEqual(actual, expected[i])
 
             case "getFront":
-                actual = obj.getFront(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                actual_get_front = obj.getFront(*params[i])
+                testObj.assertEqual(actual_get_front, expected[i])
 
             case "getRear":
-                actual = obj.getRear(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                actual_get_rear = obj.getRear(*params[i])
+                testObj.assertEqual(actual_get_rear, expected[i])
 
             case "isEmpty":
                 actual = obj.isEmpty(*params[i])

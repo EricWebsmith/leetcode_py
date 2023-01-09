@@ -1,17 +1,16 @@
 import unittest
-from typing import List
 
 
 class Interval:
-    def __init__(self, start: int = None, end: int = None):
-        self.start = start
-        self.end = end
+    def __init__(self, start: int | None = None, end: int | None = None):
+        self.start: int | None = start
+        self.end: int | None = end
 
 
 class Solution:
-    def employeeFreeTime(self, schedule: List[List[List[int]]]) -> List[List[int]]:
+    def employeeFreeTime(self, schedule: list[list[Interval]]) -> list[Interval]:
 
-        hq = []
+        hq: list[list] = []
         for i in range(len(schedule)):
             for j in range(len(schedule[i])):
                 hq.append([schedule[i][j].start, schedule[i][j].end])
@@ -30,12 +29,13 @@ class Solution:
         return ans[1:]
 
 
-def test(testObj: unittest.TestCase, schedule_arr: '[[Interval]]', expected: int) -> None:
+def test(testObj: unittest.TestCase, schedule_arr: list[list[list[int]]], expected: int) -> None:
+
     schedule = []
     for i in range(len(schedule_arr)):
         person = []
         for j in range(len(schedule_arr[i])):
-            person.append(Interval(*schedule_arr[i][j]))
+            person.append(Interval(start=schedule_arr[i][j][0], end=schedule_arr[i][j][1]))
         schedule.append(person)
     so = Solution()
     actual_arr = so.employeeFreeTime(schedule)

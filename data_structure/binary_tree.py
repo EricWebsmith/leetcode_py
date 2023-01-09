@@ -3,16 +3,16 @@ from typing import List, Optional
 
 
 class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
+    def __init__(self, val=0, left=None, right=None) -> None:
         self.val = val
-        self.left: TreeNode = left
-        self.right: TreeNode = right
+        self.left: TreeNode | None = left
+        self.right: TreeNode | None = right
 
     def __repr__(self) -> str:
         return str(self.val)
 
 
-def array_to_treenode(arr: List[int]) -> TreeNode:
+def array_to_treenode(arr: List[int]) -> TreeNode | None:
     if not arr:
         return None
     root = TreeNode(arr[0])

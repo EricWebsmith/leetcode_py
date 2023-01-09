@@ -1,9 +1,10 @@
-from dotenv import dotenv_values
-from lxml import etree
 import json
-import leetcode
-import leetcode.auth
-from scraping.scraper_result import ScraperResult
+
+import leetcode  # type: ignore
+import leetcode.auth  # type: ignore
+from dotenv import dotenv_values
+from lxml import etree  # type: ignore
+from scraper_result import ScraperResult
 
 env = dotenv_values()
 leetcode_session = env['LEETCODE_SESSION']

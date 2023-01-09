@@ -57,8 +57,7 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
         match actions[i]:
 
             case "insert":
-                actual = obj.insert(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.insert(*params[i])
 
             case "countWordsEqualTo":
                 actual = obj.countWordsEqualTo(*params[i])
@@ -69,8 +68,7 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
                 testObj.assertEqual(actual, expected[i])
 
             case "erase":
-                actual = obj.erase(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.erase(*params[i])
 
 
 class TestClass(unittest.TestCase):

@@ -1,14 +1,13 @@
 
 import unittest
 from bisect import bisect_right
-from typing import List
 
 
 class Solution:
-    def avoidFlood(self, rains: List[int]) -> List[int]:
+    def avoidFlood(self, rains: list[int]) -> list[int]:
         n = len(rains)
         clean_days = []
-        d = {}
+        d: dict = {}
         ans = [-1] * n
         for i in range(n):
             if rains[i] == 0:
@@ -16,8 +15,6 @@ class Solution:
                 ans[i] = 1
             else:
                 if rains[i] in d:
-                    # if len(stack)==0:
-                    #     return []
                     last_rain = d[rains[i]]
                     clean_day_index = bisect_right(clean_days, last_rain)
                     if clean_day_index == len(clean_days):
@@ -30,7 +27,7 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, rains: List[int], expected: int) -> None:
+def test(testObj: unittest.TestCase, rains: list[int], expected: int) -> None:
 
     so = Solution()
     actual = so.avoidFlood(rains)

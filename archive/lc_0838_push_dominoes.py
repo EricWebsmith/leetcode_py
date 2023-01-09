@@ -2,8 +2,8 @@ import unittest
 
 
 class Solution:
-    def pushDominoes(self, dominoes: str) -> str:
-        dominoes = list(dominoes)
+    def pushDominoes(self, dominoe_str: str) -> str:
+        dominoes = list(dominoe_str)
         n = len(dominoes)
         i = 0
         while i < n:

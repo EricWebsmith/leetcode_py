@@ -56,12 +56,13 @@ class Solution:
                             t -= stack[-1]
                         stack.pop()
                         stack.pop()
+
                     first = stack.pop()
-                    t = first + t
+                    t = int(first) + t
                     stack.append(t)
 
                 if new_op == ')':
-                    t = stack.pop()
+                    t = int(stack.pop())
                     stack.pop()
                     stack.append(t)
                     self.calc_multiply_divide()
@@ -69,7 +70,7 @@ class Solution:
                 else:
                     stack.append(new_op)
 
-        return stack[0]
+        return int(stack[0])
 
 
 def test(testObj: unittest.TestCase, s: str, expected: int) -> None:

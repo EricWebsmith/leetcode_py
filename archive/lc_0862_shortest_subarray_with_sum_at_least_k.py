@@ -12,7 +12,7 @@ class Solution:
             pres[i+1] = nums[i] + pres[i]
 
         ans = 1_000_000
-        monoq = deque()
+        monoq = deque[int]()
 
         for i, pre in enumerate(pres):
             while monoq and pre <= pres[monoq[-1]]:

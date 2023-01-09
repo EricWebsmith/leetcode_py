@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
-from scraping.code_generator_protocol import CodeGeneratorProtocol
+
+from code_generator_protocol import CodeGeneratorProtocol
 
 
 class CodeGeneratorStrategy(ABC):

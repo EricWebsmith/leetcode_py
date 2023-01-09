@@ -1,13 +1,12 @@
 import unittest
-from typing import List
 
 
 class Solution:
-    def sumSubarrayMins(self, arr: List[int]) -> int:
+    def sumSubarrayMins(self, arr: list[int]) -> int:
         n = len(arr)
         MOD = 10**9 + 7
         s = 0
-        stack = []
+        stack: list[int] = []
 
         for i in range(n+1):
             while stack and (i == n or arr[stack[-1]] >= arr[i]):
@@ -22,7 +21,7 @@ class Solution:
         return s % MOD
 
 
-def test(testObj: unittest.TestCase, arr: List[int], expected: int) -> None:
+def test(testObj: unittest.TestCase, arr: list[int], expected: int) -> None:
     so = Solution()
     actual = so.sumSubarrayMins(arr)
     testObj.assertEqual(actual, expected)

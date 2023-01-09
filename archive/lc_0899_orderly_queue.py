@@ -9,9 +9,9 @@ class Solution:
                 t = s[i:] + s[:i]
                 ans = min(ans, t)
         else:
-            s = list(s)
-            s.sort()
-            ans = ''.join(s)
+            chars = list(s)
+            chars.sort()
+            ans = ''.join(chars)
         return ans
 
 

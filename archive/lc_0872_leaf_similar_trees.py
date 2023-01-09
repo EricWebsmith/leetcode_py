@@ -5,7 +5,7 @@ from data_structure.binary_tree import TreeNode, array_to_treenode
 
 
 class Solution:
-    def get_leaves(self, root: Optional[TreeNode]) -> list[int]:
+    def get_leaves(self, root: Optional[TreeNode]) -> list[TreeNode]:
         if root is None:
             return []
         if root.left is None and root.right is None:

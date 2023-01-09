@@ -1,11 +1,10 @@
 import unittest
-from typing import List, Optional
 
 from data_structure.binary_tree import TreeNode, array_to_treenode
 
 
 class Solution:
-    def tree2str(self, root: Optional[TreeNode]) -> str:
+    def tree2str(self, root: TreeNode) -> str:
 
         ans = f'{root.val}'
         if root.left and root.right:
@@ -18,7 +17,7 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], expected: str) -> None:
+def test(testObj: unittest.TestCase, root_arr: list[int], expected: str) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
 
@@ -40,6 +39,8 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 49 ms, faster than 96.44%
-Memory Usage: 16.3 MB, less than 95.12%
+Runtime
+49 ms
+Beats
+91.40%
 '''

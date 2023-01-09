@@ -1,6 +1,6 @@
-from sortedcontainers import SortedList
 import unittest
-from typing import List
+
+from sortedcontainers import SortedList  # type: ignore
 
 
 class MaxStack:
@@ -32,7 +32,7 @@ class MaxStack:
         return value
 
 
-def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
+def test(testObj: unittest.TestCase, actions: list, params: list, expected: list) -> None:
     n = len(actions)
     obj = MaxStack(*params[0])
     print('------------test case-----------')
@@ -44,8 +44,8 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
         match actions[i]:
 
             case "push":
-                actual = obj.push(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.push(*params[i])
+                testObj.assertEqual(None, expected[i])
 
             case "pop":
                 actual = obj.pop(*params[i])

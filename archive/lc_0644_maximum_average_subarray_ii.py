@@ -4,7 +4,7 @@ from typing import List
 
 class Solution:
     def findMaxAverage(self, nums: List[int], k: int) -> float:
-        max_val, min_val, error = max(nums), min(nums), float('inf')
+        max_val, min_val, error = max(nums) * 1.0, min(nums) * 1.0, float('inf')
         prev_mid = max_val
         while error > 0.00001:
             mid = (max_val + min_val) / 2

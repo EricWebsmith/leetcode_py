@@ -1,13 +1,12 @@
 import unittest
-from typing import List, Optional
 
 from data_structure.binary_tree import (TreeNode, array_to_treenode,
                                         treenode_to_array)
 
 
 class Solution:
-    def pruneTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        def get_removable(node: TreeNode):
+    def pruneTree(self, root: TreeNode | None) -> TreeNode | None:
+        def get_removable(node: TreeNode | None):
             if node is None:
                 return True
             if node.left is None and node.right is None:
@@ -31,7 +30,7 @@ class Solution:
         return root
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], expected: List[int]) -> None:
+def test(testObj: unittest.TestCase, root_arr: list[int], expected: list[int]) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
     actual_root = so.pruneTree(root)
