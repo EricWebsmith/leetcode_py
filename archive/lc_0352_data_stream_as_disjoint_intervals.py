@@ -5,8 +5,8 @@ from typing import List
 
 class SummaryRanges:
 
-    def __init__(self):
-        self.intervals = []
+    def __init__(self) -> None:
+        self.intervals: list = []
 
     def addNum(self, val: int) -> None:
         if len(self.intervals) == 0:
@@ -48,8 +48,7 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
         match actions[i]:
 
             case "addNum":
-                actual = obj.addNum(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.addNum(*params[i])
 
             case "getIntervals":
                 actual = obj.getIntervals(*params[i])

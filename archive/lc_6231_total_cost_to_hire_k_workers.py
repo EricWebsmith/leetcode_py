@@ -6,15 +6,15 @@ from typing import List
 class Solution:
     def totalCost(self, costs: List[int], k: int, candidates: int) -> int:
         n = len(costs)
-        h = []
+        h: list = []
         left = 0
         right = n - 1
         for i in range(candidates):
             if left <= right:
-                heappush(h, (costs[i], i))
+                heappush(h, (costs[i], i))  # type: ignore
                 left += 1
             if left <= right:
-                heappush(h, (costs[n-1-i], n-1-i))
+                heappush(h, (costs[n-1-i], n-1-i))  # type: ignore
                 right -= 1
 
         ans = 0
@@ -23,10 +23,10 @@ class Solution:
             ans += c
             if left <= right:
                 if i < left:
-                    heappush(h, (costs[left], left))
+                    heappush(h, (costs[left], left))  # type: ignore
                     left += 1
                 elif i > right:
-                    heappush(h, (costs[right], right))
+                    heappush(h, (costs[right], right))  # type: ignore
                     right -= 1
 
         return ans

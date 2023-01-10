@@ -1,15 +1,16 @@
 import unittest
 
+# def print4():
+#     arr: list = []
+#     for i in range(0, 16):
+#         arr.append(4**i)
+
+#     print(arr)
+#         # [1, 4, 16, 64, 256, 1024, 4096, 16384, 65536, 262144, 1048576, 4194304, 16777216,
+#         # 67108864, 268435456, 1073741824]
+
 
 class Solution:
-    def print4(self):
-        arr = []
-        for i in range(0, 16):
-            arr.append(4**i)
-
-        print(arr)
-        # [1, 4, 16, 64, 256, 1024, 4096, 16384, 65536, 262144, 1048576, 4194304, 16777216,
-        # 67108864, 268435456, 1073741824]
 
     def isPowerOfFour(self, n: int) -> bool:
         return n in [1, 4, 16, 64, 256, 1024, 4096, 16384, 65536, 262144, 1048576, 4194304,

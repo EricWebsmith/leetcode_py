@@ -10,14 +10,14 @@ class Solution:
         m = len(matrix)
         n = len(matrix[0])
 
-        rows = []
+        rows: list = []
         for r in range(m):
             for c in range(n):
                 if matrix[r][c] == 0:
                     rows.append(r)
                     break
 
-        cols = []
+        cols: list = []
         for c in range(n):
             for r in range(m):
                 if matrix[r][c] == 0:

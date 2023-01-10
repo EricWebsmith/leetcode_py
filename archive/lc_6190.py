@@ -39,7 +39,7 @@ class Solution:
 
         print(right)
 
-        ans = []
+        ans: list = []
         for i in range(k, n-k):
             if left[i-1] == 1 and right[i+1] == 1:
                 ans.append(i)

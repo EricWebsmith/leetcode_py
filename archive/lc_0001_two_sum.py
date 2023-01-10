@@ -3,13 +3,15 @@ import unittest
 
 class Solution:
     def twoSum(self, nums: list[int], target: int) -> list[int]:
-        d = {}
+        d: dict = dict()
         for i, num in enumerate(nums):
             complement = target - num
             if complement in d:
                 ans = [d[complement], i]
                 return ans
             d[num] = i
+
+        return []
 
 
 def test(testObj: unittest.TestCase, nums: list[int], target: int, expected: int) -> None:

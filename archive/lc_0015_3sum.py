@@ -21,7 +21,7 @@ class Solution:
 
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
-        result: List[List[int]] = []
+        result: list[list[int]] = []
         for i in range(len(nums)):
             if nums[i] > 0:
                 break

@@ -7,8 +7,8 @@ class Solution:
     def largestPalindromic(self, num: str) -> str:
         arr = list(num)
         c = Counter(arr)
-        left = []
-        right = []
+        left: list = []
+        right: list = []
         mid = ''
         for key in ['9', '8', '7', '6', '5', '4', '3', '2', '1', '0']:
 

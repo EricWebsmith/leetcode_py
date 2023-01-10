@@ -9,7 +9,7 @@ class Solution:
         n = len(arr)
         if n == m:
             return n
-        keys = []
+        keys: list = []
         for i in range(n-1, -1, -1):
             index = bisect_left(keys, arr[i])
             keys.insert(index, arr[i])

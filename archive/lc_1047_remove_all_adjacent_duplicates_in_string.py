@@ -3,7 +3,7 @@ import unittest
 
 class Solution:
     def removeDuplicates(self, s: str) -> str:
-        result = []
+        result: list = []
         for c in s:
             if result and result[-1] == c:
                 result.pop()

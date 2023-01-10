@@ -3,14 +3,14 @@ import unittest
 
 class Solution:
     def maxRepeating(self, sequence: str, word: str) -> int:
-        arr = []
+        arr: list = []
         i = sequence.find(word)
 
         while i > -1:
             arr.append(i)
             i = sequence.find(word, i+1)
 
-        s = {}
+        s = dict()
         for i in arr:
             if i-len(word) in s:
                 s[i] = s[i-len(word)] + 1

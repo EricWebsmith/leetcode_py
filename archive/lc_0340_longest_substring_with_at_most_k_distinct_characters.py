@@ -11,7 +11,7 @@ class Solution:
 
         left = 0
         right = 0
-        d = {}
+        d: dict = dict()
         while right < n and len(d) < k:
             d[s[right]] = right
             right += 1
@@ -21,9 +21,9 @@ class Solution:
             if not s[right] in d:
                 remove_char = ''
                 earliest = right
-                for k, v in d.items():
+                for key, v in d.items():
                     if v < earliest:
-                        remove_char = k
+                        remove_char = key
                         earliest = v
                 left = earliest + 1
                 del d[remove_char]

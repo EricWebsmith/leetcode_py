@@ -5,7 +5,7 @@ from typing import List
 class Solution:
     def sortPeople(self, names: List[str], heights: List[int]) -> List[str]:
         n = len(names)
-        name_heights = []
+        name_heights: list = []
         for i in range(n):
             name_heights.append((heights[i], names[i]))
 

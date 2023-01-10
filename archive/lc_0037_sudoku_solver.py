@@ -4,7 +4,7 @@ from typing import List
 
 
 class Solution:
-    def __init__(self):
+    def __init__(self) -> None:
         self.solved = False
 
     def solveSudoku(self, board: List[List[str]]) -> None:
@@ -46,9 +46,9 @@ class Solution:
         n = 3
         N = n * n
         def box_index(r, c): return (r // n) * n + c // n
-        rows = [defaultdict(int) for i in range(N)]
-        columns = [defaultdict(int) for i in range(N)]
-        boxes = [defaultdict(int) for i in range(N)]
+        rows: list[dict] = [defaultdict(int) for i in range(N)]
+        columns: list[dict] = [defaultdict(int) for i in range(N)]
+        boxes: list[dict] = [defaultdict(int) for i in range(N)]
 
         for r in range(N):
             for c in range(N):

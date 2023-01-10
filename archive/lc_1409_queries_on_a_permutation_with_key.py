@@ -4,11 +4,11 @@ from typing import List
 
 class Solution:
     def processQueries(self, queries: List[int], m: int) -> List[int]:
-        p = []
+        p: list = []
         for i in range(m):
             p.append(i+1)
 
-        ans = []
+        ans: list = []
         for q in queries:
             i = p.index(q)
             ans.append(i)

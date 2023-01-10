@@ -16,7 +16,7 @@ class Node:
 
 class Solution:
     def __init__(self) -> None:
-        self.stack = []
+        self.stack: list = []
 
     def deal_mul_div(self):
         stack = self.stack

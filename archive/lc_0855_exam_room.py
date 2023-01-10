@@ -5,7 +5,7 @@ from typing import List
 
 class ExamRoom:
 
-    def __init__(self, n: int):
+    def __init__(self, n: int) -> None:
         self.n = n
         self.occupied: list = []
         self.gaps: list = []
@@ -62,7 +62,7 @@ class ExamRoom:
             return
         gaps = self.gaps
         p_at = bisect_left(occupied, p)
-        gap_removes = []
+        gap_removes: list = []
         if p_at < len(occupied) - 1:
             left_gap_index = self._find_gap(occupied[p_at], occupied[p_at+1])
             gap_removes.append(left_gap_index)

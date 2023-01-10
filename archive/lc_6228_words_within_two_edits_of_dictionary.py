@@ -15,7 +15,7 @@ def is_similar(s: str, t: str):
 
 class Solution:
     def twoEditWords(self, queries: List[str], dictionary: List[str]) -> List[str]:
-        ans = []
+        ans: list = []
         for q in queries:
             for d in dictionary:
                 if is_similar(q, d):

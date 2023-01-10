@@ -7,7 +7,7 @@ class Solution:
         n = len(s)
         open_count = 0
         close_count = 0
-        close_errs = []
+        close_errs: list = []
         for i in range(n):
             if s[i] == '(':
                 open_count += 1
@@ -19,7 +19,7 @@ class Solution:
 
         open_count = 0
         close_count = 0
-        open_errs = []
+        open_errs: list = []
         for i in range(n-1, -1, -1):
             if s[i] == '(':
                 open_count += 1
@@ -77,7 +77,7 @@ class Solution:
 
         dfs_right(right, 0)
 
-        ans = []
+        ans: list = []
         for s_left in correct_left:
 
             for s_right in correct_right:

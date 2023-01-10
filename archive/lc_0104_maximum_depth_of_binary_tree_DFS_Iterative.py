@@ -1,16 +1,15 @@
 import unittest
-from typing import List, Optional, Tuple
 
 from data_structure.binary_tree import TreeNode, array_to_treenode
 
 
 class Solution:
-    def maxDepth(self, root: Optional[TreeNode]) -> int:
-        stack: List[Tuple[TreeNode, int]] = [(root, 1)]
+    def maxDepth(self, root: TreeNode | None) -> int:
+        stack: list[tuple[TreeNode | None, int]] = [(root, 1)]
         ans = 0
         while stack:
             node, depth = stack.pop()
-            if node:
+            if node is not None:
                 ans = max(ans, depth)
                 stack.append((node.left, depth+1))
                 stack.append((node.right, depth+1))
@@ -18,7 +17,7 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], expected: int) -> None:
+def test(testObj: unittest.TestCase, root_arr: list[int], expected: int) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
     actual = so.maxDepth(root)

@@ -9,7 +9,7 @@ class Solution:
             return False
 
         seen_pattern = set()
-        word_to_pattern = {}
+        word_to_pattern: dict = dict()
 
         for word, p in zip(words, pattern):
             if word in word_to_pattern:

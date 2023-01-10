@@ -6,7 +6,7 @@ from typing import List
 
 class WordDistance:
 
-    def __init__(self, wordsDict: List[str]):
+    def __init__(self, wordsDict: List[str]) -> None:
         self.locations = defaultdict(list)
         for i, w in enumerate(wordsDict):
             self.locations[w].append(i)

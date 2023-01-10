@@ -31,7 +31,7 @@ class Solution:
             if len(levels[d]) > 2:
                 levels[d].pop()
 
-        ans = []
+        ans: list = []
         for q in queries:
             d = depths[q]
             if len(levels[d]) == 1:

@@ -5,7 +5,7 @@ from typing import List
 class Node:
     def __init__(self, val=None, children=None):
         self.val = val
-        self.children: List[Node] = children if children is not None else []
+        self.children: list[Node] = children if children is not None else []
 
     def __repr__(self) -> str:
         return str(self.val)
@@ -13,8 +13,8 @@ class Node:
 
 class Solution:
     def killProcess(self, pid: List[int], ppid: List[int], kill: int) -> List[int]:
-        node_dict = {}
-        kill_node: Node = None
+        node_dict = dict()
+        kill_node: Node
         for id in pid:
             node = Node(id)
             node.children = []
@@ -29,7 +29,7 @@ class Solution:
             parent_node: Node = node_dict[parent_id]
             parent_node.children.append(child_node)
 
-        ans = []
+        ans: list = []
 
         def dfs(node: Node):
             ans.append(node.val)

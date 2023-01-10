@@ -4,8 +4,8 @@ from typing import List
 
 
 class SparseVector:
-    def __init__(self, nums: List[int]):
-        self.dict = {}
+    def __init__(self, nums: List[int]) -> None:
+        self.dict = dict()
         for i in range(0, len(nums)):
             self.dict[i] = nums[i]
 

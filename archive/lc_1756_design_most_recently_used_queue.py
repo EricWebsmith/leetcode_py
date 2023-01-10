@@ -4,7 +4,7 @@ from typing import List
 
 class MRUQueue:
 
-    def __init__(self, n: int):
+    def __init__(self, n: int) -> None:
         self.arr = [i+1 for i in range(n)]
 
     def fetch(self, k: int) -> int:

@@ -6,7 +6,7 @@ from typing import List
 class Solution:
     def minOperations(self, target: List[int], arr: List[int]) -> int:
         num_index_dict = {num: i for i, num in enumerate(target)}
-        arr_indices = []
+        arr_indices: list = []
         for num in arr:
             if num in num_index_dict:
                 arr_indices.append(num_index_dict[num])

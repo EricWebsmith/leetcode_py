@@ -1,24 +1,24 @@
 import unittest
-from typing import List, Optional
+from typing import List
 
 from data_structure.binary_tree import TreeNode, array_to_treenode
 
 
-def get_left_depth(node: TreeNode) -> int:
-    if not node:
+def get_left_depth(node: TreeNode | None) -> int:
+    if node is None:
         return 0
     return get_left_depth(node.left) + 1
 
 
-def get_right_depth(node: TreeNode) -> int:
-    if not node:
+def get_right_depth(node: TreeNode | None) -> int:
+    if node is None:
         return 0
     return get_right_depth(node.right) + 1
 
 
 class Solution:
 
-    def countNodes(self, root: Optional[TreeNode]) -> int:
+    def countNodes(self, root: TreeNode | None) -> int:
         def dfs(node) -> int:
             if not node:
                 return 0

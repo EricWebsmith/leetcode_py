@@ -9,7 +9,7 @@ class Solution:
         heap: list[int] = []
         max_time = 0
         for time, end_time in courses:
-            heappush(heap, -time)
+            heappush(heap, -time)  # type: ignore
             max_time += time
             if max_time > end_time:
                 big_time = heappop(heap)

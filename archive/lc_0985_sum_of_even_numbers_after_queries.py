@@ -6,7 +6,7 @@ class Solution:
     def sumEvenAfterQueries(self, nums: List[int], queries: List[List[int]]) -> List[int]:
         n = len(nums)
         s = sum(num for num in nums if num % 2 == 0)
-        ans = []
+        ans: list = []
         for i in range(n):
             val, index = queries[i]
             s -= (1 - nums[index] % 2) * nums[index]

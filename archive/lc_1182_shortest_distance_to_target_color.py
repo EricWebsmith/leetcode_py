@@ -6,7 +6,7 @@ from typing import List
 class Solution:
     def shortestDistanceColor(self, colors: List[int], queries: List[List[int]]) -> List[int]:
         n = len(colors)
-        d = {}
+        d = dict()
 
         for i,  q in enumerate(queries):
             q.append(i)
@@ -22,7 +22,7 @@ class Solution:
                     ans[queries[q_index][2]] = i - previous_index
                 q_index += 1
 
-        d = {}
+        d = dict()
         q_index = len(queries) - 1
         for i in range(n-1, -1, -1):
             d[colors[i]] = i

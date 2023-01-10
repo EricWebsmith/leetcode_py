@@ -19,7 +19,7 @@ class Solution:
                 stars -= 1
 
             if start_removing and stars == 0 and (index > 0 and s[index-1] != '*' or index == 0):
-                t = []
+                t: list = []
                 if index > 0:
                     t += s[:index]
                 if end < n-1:

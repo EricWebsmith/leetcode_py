@@ -5,7 +5,7 @@ from sortedcontainers import SortedList  # type: ignore
 
 class MaxStack:
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.value_index = SortedList()
         self.index_value = SortedList()
         self.index = 0

@@ -5,7 +5,7 @@ from typing import List
 
 class Solution:
     def shiftingLetters(self, S, shifts) -> str:
-        ans = []
+        ans: list = []
         X = sum(shifts) % 26
         for i, c in enumerate(S):
             index = ord(c) - ord('a')

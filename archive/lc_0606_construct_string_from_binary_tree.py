@@ -19,10 +19,9 @@ class Solution:
 
 def test(testObj: unittest.TestCase, root_arr: list[int], expected: str) -> None:
     root = array_to_treenode(root_arr)
+    assert root is not None
     so = Solution()
-
     actual = so.tree2str(root)
-
     testObj.assertEqual(actual, expected)
 
 

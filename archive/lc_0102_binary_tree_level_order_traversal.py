@@ -8,15 +8,15 @@ null = None
 
 
 class Solution:
-    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+    def levelOrder(self, root: Optional[TreeNode]) -> list[list[int]]:
         if root is None:
             return []
 
-        ans: List[List[int]] = []
+        ans: list[list[int]] = []
         q = deque([root])
         qsize = len(q)
         while qsize > 0:
-            layer = []
+            layer: list = []
             for _ in range(qsize):
                 node = q.popleft()
                 layer.append(node.val)

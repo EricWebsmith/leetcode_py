@@ -38,7 +38,7 @@ class Solution:
                     c_next += dc
                     p_next += 1
 
-                heappush(q, ((p_next, r_next, c_next)))
+                heappush(q, ((p_next, r_next, c_next)))  # type: ignore
 
         return -1 if shortest_mat[destination[0]][destination[1]] == MAX_PATH \
             else shortest_mat[destination[0]][destination[1]]

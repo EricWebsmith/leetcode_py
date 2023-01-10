@@ -31,7 +31,7 @@ def array_to_treenode(arr: List[int]) -> TreeNode | None:
 
 def treenode_to_array(root: Optional[TreeNode]) -> List[int]:
     q = deque([root])
-    arr = []
+    arr: list = []
     while q:
         node = q.popleft()
         if node:
@@ -66,7 +66,7 @@ def get_treenode_by_val(root: TreeNode, val: int):
 
 
 def get_treenodes_by_vals(root: TreeNode, vals: List[int]):
-    ans = []
+    ans: list = []
 
     def dfs(node):
         if node is None:

@@ -6,7 +6,7 @@ null = None
 
 class LUPrefix:
 
-    def __init__(self, n: int):
+    def __init__(self, n: int) -> None:
         self.n = n
         self.arr = [-1] * n
         self.last = -1

@@ -3,7 +3,7 @@ import unittest
 
 class Solution:
     def makeGood(self, s: str) -> str:
-        stack = []
+        stack: list = []
         for c in s:
             if stack and abs(ord(c) - ord(stack[-1])) == ord('a') - ord('A'):
                 stack.pop()

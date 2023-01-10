@@ -5,7 +5,7 @@ from typing import List
 
 class SnakeGame:
 
-    def __init__(self, width: int, height: int, food: List[List[int]]):
+    def __init__(self, width: int, height: int, food: List[List[int]]) -> None:
         self.n = width
         self.m = height
         self.food = food

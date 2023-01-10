@@ -28,7 +28,7 @@ class Solution:
                     if new_dist >= visited[neighbor]:
                         continue
 
-                    heappush(q, (new_dist, neighbor))
+                    heappush(q, (new_dist, neighbor))  # type: ignore
 
                     if visited[neighbor] == distanceThreshold+1:
                         n_cities += 1

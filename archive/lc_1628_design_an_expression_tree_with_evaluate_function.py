@@ -25,7 +25,7 @@ class TreeNode(Node):
 class TreeBuilder(object):
     def buildTree(self, postfix: List[str]) -> 'Node':
         operations = ['+', '-', '*', '/']
-        stack = []
+        stack: list = []
         for p in postfix:
             if p not in operations:
                 node = TreeNode()

@@ -4,8 +4,8 @@ from typing import Dict
 
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        s_dict = {}
-        t_dict = {}
+        s_dict: dict = dict()
+        t_dict: dict = dict()
 
         def get_code(c: str, d: Dict[str, int]):
             code = -1

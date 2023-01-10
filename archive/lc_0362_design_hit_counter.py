@@ -5,8 +5,8 @@ from typing import List
 
 class HitCounter:
 
-    def __init__(self):
-        self.hits = defaultdict(int)
+    def __init__(self) -> None:
+        self.hits: dict = defaultdict(int)
 
     def hit(self, timestamp: int) -> None:
         self.hits[timestamp] += 1
@@ -28,8 +28,7 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
         match actions[i]:
 
             case "hit":
-                actual = obj.hit(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.hit(*params[i])
 
             case "getHits":
                 actual = obj.getHits(*params[i])

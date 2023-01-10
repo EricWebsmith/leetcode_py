@@ -6,15 +6,17 @@ from data_structure.link_list import (ListNode, array_to_listnode,
 
 class Solution:
     def deleteNode(self, node: ListNode):
-        node.val = node.next.val
-        node.next = node.next.next
+        if node.next:
+            node.val = node.next.val
+            node.next = node.next.next
 
 
-def test(testObj: unittest.TestCase, head_arr: ListNode, node_val: int, expected: ListNode) -> None:
+def test(testObj: unittest.TestCase, head_arr: list[int], node_val: int, expected: ListNode) -> None:
     head = array_to_listnode(head_arr)
-    node = head
+    assert head is not None
+    node: ListNode = head
     while node.val != node_val:
-        node = node.next
+        node = node.next  # type: ignore
     so = Solution()
     so.deleteNode(node)
     actual = listnode_to_array(head)

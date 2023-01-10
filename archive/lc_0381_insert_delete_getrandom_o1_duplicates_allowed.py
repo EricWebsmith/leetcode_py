@@ -6,8 +6,8 @@ from typing import List
 
 class RandomizedCollection:
 
-    def __init__(self):
-        self.arr = []
+    def __init__(self) -> None:
+        self.arr: list = []
 
     def insert(self, val: int) -> bool:
         index = bisect_left(self.arr, val)
@@ -40,16 +40,16 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
         match actions[i]:
 
             case "insert":
-                actual = obj.insert(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                actual_bool = obj.insert(*params[i])
+                testObj.assertEqual(actual_bool, expected[i])
 
             case "remove":
-                actual = obj.remove(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                actual_bool = obj.remove(*params[i])
+                testObj.assertEqual(actual_bool, expected[i])
 
             case "getRandom":
-                actual = obj.getRandom(*params[i])
-                # testObj.assertEqual(actual, expected[i])
+                actual_get_random = obj.getRandom(*params[i])
+                testObj.assertEqual(actual_get_random, expected[i])
 
 
 class TestClass(unittest.TestCase):

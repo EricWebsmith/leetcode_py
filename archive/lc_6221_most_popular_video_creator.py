@@ -13,7 +13,7 @@ class Creator:
 
 class Solution:
     def mostPopularCreator(self, creators: List[str], ids: List[str], views: List[int]) -> List[List[str]]:
-        d = {}
+        d = dict()
         creatorObjs: List[Creator] = []
         for cname, m, v in zip(creators, ids, views):
             c = Creator()
@@ -28,7 +28,7 @@ class Solution:
             c.views.append(v)
             c.popularity += v
 
-        best_creators = []
+        best_creators: list = []
         best_creator_views = -1
         for c in creatorObjs:
             if c.popularity == best_creator_views:
@@ -37,7 +37,7 @@ class Solution:
                 best_creator_views = c.popularity
                 best_creators = [c.name]
 
-        ans = []
+        ans: list = []
         for best_creator in best_creators:
             movie_most = -1
             movie = ''

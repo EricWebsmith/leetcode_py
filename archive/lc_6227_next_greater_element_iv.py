@@ -9,7 +9,7 @@ class Solution:
             return [-1]
         if n == 2:
             return [-1, -1]
-        stack = []
+        stack: list = []
         numk = nums[-2]
         numj = nums[-1]
         ans = [-1] * n

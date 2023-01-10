@@ -3,14 +3,14 @@ from typing import List
 
 
 class TrieNode:
-    def __init__(self):
-        self.children = {}
+    def __init__(self) -> None:
+        self.children: dict = dict()
         self.endOfWord = False
 
 
 class Trie:
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.root = TrieNode()
 
     def insert(self, word: str) -> None:
@@ -50,8 +50,7 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
         match actions[i]:
 
             case "insert":
-                actual = obj.insert(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.insert(*params[i])
 
             case "search":
                 actual = obj.search(*params[i])

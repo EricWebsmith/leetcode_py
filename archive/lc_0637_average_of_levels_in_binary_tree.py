@@ -10,7 +10,7 @@ class Solution:
         q = deque([root])
 
         q_size = 1
-        ans = []
+        ans: list = []
         while q_size > 0:
             layer_sum = 0
 

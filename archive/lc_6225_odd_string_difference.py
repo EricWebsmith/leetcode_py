@@ -17,7 +17,7 @@ def get_pattern(s: str) -> int:
 
 class Solution:
     def oddString(self, words: List[str]) -> str:
-        codes = []
+        codes: list = []
         for i, word in enumerate(words):
             code = get_pattern(word)
             codes.append(code)

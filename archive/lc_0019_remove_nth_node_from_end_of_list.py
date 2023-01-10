@@ -1,5 +1,5 @@
 import unittest
-from typing import List, Optional
+from typing import Optional
 
 from data_structure.link_list import (ListNode, array_to_listnode,
                                       listnode_to_array)
@@ -14,23 +14,23 @@ class Solution:
         slow_pointer = prehead
 
         index = 0
-        while fast_pointer:
-            fast_pointer = fast_pointer.next
+        while fast_pointer is not None:
+            fast_pointer = fast_pointer.next  # type: ignore
             if index > n:
-                slow_pointer = slow_pointer.next
+                slow_pointer = slow_pointer.next   # type: ignore
 
             index += 1
 
-        slow_pointer.next = slow_pointer.next.next
+        slow_pointer.next = slow_pointer.next.next   # type: ignore
 
         return prehead.next
 
 
 def test(
     testObj: unittest.TestCase,
-    head_arr: List[int],
+    head_arr: list[int],
     n: int,
-    expected: Optional[ListNode],
+    expected: list[int],
 ) -> None:
     head = array_to_listnode(head_arr)
     so = Solution()

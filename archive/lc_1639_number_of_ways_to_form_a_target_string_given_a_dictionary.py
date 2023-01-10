@@ -1,13 +1,13 @@
 import unittest
+from collections import defaultdict
 from functools import cache
 from typing import List
-from collections import defaultdict
 
 
 class Solution:
     def numWays(self, words: List[str], target: str) -> int:
         m = len(words[0])
-        word_counters = []
+        word_counters: list = []
         for j in range(m):
             counter = defaultdict(int)
             for word in words:

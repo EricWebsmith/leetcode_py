@@ -1,11 +1,10 @@
 import unittest
-from typing import List
 
 
 class Solution:
-    def addOperators(self, num: str, target: int) -> List[str]:
+    def addOperators(self, num: str, target: int) -> list[str]:
 
-        ans = []
+        ans: list = []
 
         def dfs(expr, pos, prev, res):
             if pos == len(num):
@@ -30,7 +29,7 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, num: str, target: int, expected: int) -> None:
+def test(testObj: unittest.TestCase, num: str, target: int, expected: list[str]) -> None:
 
     so = Solution()
     actual = so.addOperators(num, target)
@@ -74,6 +73,8 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 797 ms, faster than 95.26%
-Memory Usage: 14.7 MB, less than 88.62%
+Runtime
+754 ms
+Beats
+95.92%
 '''

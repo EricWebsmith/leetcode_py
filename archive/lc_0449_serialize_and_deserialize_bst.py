@@ -4,12 +4,12 @@ from typing import List, Optional
 from data_structure.binary_tree import TreeNode
 
 
-def array_to_treenode(arr: List[int]) -> TreeNode:
+def array_to_treenode(arr: List[int]) -> TreeNode | None:
     if len(arr) == 0:
         return None
 
     root = TreeNode(arr[0])
-    q = [root]
+    q: list[TreeNode | None] = [root]
     length = len(q)
     index = 1
 
@@ -44,9 +44,9 @@ def array_to_treenode(arr: List[int]) -> TreeNode:
     return root
 
 
-def treenode_to_array(root: Optional[TreeNode]) -> List[int]:
+def treenode_to_array(root: Optional[TreeNode]) -> List[int | None]:
     q = [root]
-    arr = []
+    arr: list[int | None] = []
     while len(q) > 0:
         for i in range(0, len(q)):
             node = q.pop(0)

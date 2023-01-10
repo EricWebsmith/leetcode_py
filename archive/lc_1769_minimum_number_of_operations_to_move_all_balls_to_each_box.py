@@ -12,7 +12,7 @@ sys.path.append(parent)
 class Solution:
     def minOperations(self, boxes: str) -> List[int]:
         n = len(boxes)
-        results = []
+        results: list = []
         for i in range(n):
             result = 0
             for j in range(i):

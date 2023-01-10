@@ -47,7 +47,7 @@ class Solution:
     def isPrintable(self, grid: List[List[int]]) -> bool:
         m = len(grid)
         n = len(grid[0])
-        r_dict: Dict[int, Rectangle] = {}
+        r_dict: Dict[int, Rectangle] = dict()
         for r in range(m):
             for c in range(n):
                 if not grid[r][c] in r_dict:

@@ -6,9 +6,9 @@ from typing import List
 class Solution:
     def removeInterval(self, intervals: List[List[int]], toBeRemoved: List[int]) -> List[List[int]]:
         if toBeRemoved[0] >= intervals[-1][1]:
-            return
+            return []
         if toBeRemoved[1] <= intervals[0][0]:
-            return
+            return []
 
         # left and right is indices we want to delete
         # we delete intervals [left, right)
@@ -48,9 +48,7 @@ def test(testObj: unittest.TestCase, intervals: List[List[int]],
          toBeRemoved: List[int], expected: List[List[int]]) -> None:
 
     so = Solution()
-
     actual = so.removeInterval(intervals, toBeRemoved)
-
     testObj.assertEqual(actual, expected)
 
 

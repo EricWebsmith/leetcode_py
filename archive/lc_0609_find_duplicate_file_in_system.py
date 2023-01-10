@@ -12,7 +12,7 @@ class Solution:
                 file, content = file_content.split('(')
                 dic[content].add(folder+"/"+file)
 
-        ans = []
+        ans: list = []
         for _, val in dic.items():
             if len(val) > 1:
                 ans.append(list(val))

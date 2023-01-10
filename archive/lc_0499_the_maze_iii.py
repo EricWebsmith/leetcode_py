@@ -31,7 +31,7 @@ class Solution:
                 # stop moving
                 if d > 0 and dist + d <= stopped.get((nr, nc), m * n):
                     stopped[(nr, nc)] = dist + d
-                    heappush(q, (dist+d, nr, nc, path+dir))
+                    heappush(q, (dist+d, nr, nc, path+dir))  # type: ignore
 
         if len(ans_with_dist) == 0:
             return 'impossible'
@@ -39,7 +39,7 @@ class Solution:
         ans_with_dist.sort()
 
         min_dist = -ans_with_dist[-1][0]
-        ans = []
+        ans: list = []
         while ans_with_dist and ans_with_dist[-1][0] == -min_dist:
             ans.append(ans_with_dist[-1][1])
             ans_with_dist.pop()

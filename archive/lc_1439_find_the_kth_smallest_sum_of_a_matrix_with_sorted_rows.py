@@ -27,7 +27,7 @@ class Solution:
                 if new_indices[r] == n:
                     continue
                 new_s = s + mat[r][new_indices[r]] - mat[r][indices[r]]
-                heappush(q, (new_s, tuple(new_indices)))
+                heappush(q, (new_s, tuple(new_indices)))  # type: ignore
 
         return -1
 

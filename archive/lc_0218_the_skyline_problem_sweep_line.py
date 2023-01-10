@@ -8,7 +8,7 @@ EVENT_END = 1
 
 class Solution:
     def getSkyline(self, buildings: list[list[int]]) -> list[list[int]]:
-        events = []
+        events: list = []
         for b in buildings:
             events.append((b[0], EVENT_START, b[2]))
             events.append((b[1], EVENT_END, b[2]))
@@ -18,7 +18,7 @@ class Solution:
 
         print(events)
 
-        result = []
+        result: list = []
 
         current_heights = sortedcontainers.SortedList([0])
 

@@ -3,7 +3,7 @@ from typing import Dict, List, Set
 
 
 def top_sort(edges: Dict[int, Set[int]]) -> List[int]:
-    stack = []
+    stack: list = []
     visiting = set()
     visited = set()
 
@@ -53,7 +53,7 @@ class Solution:
         groups = list(range(m))
 
         betweenGroupEdges: Dict[int, Set[int]] = {g: set() for g in groups}
-        inGroupEdges: Dict[int, Dict[int, Set[int]]] = {g: {} for g in groups}
+        inGroupEdges: Dict[int, Dict[int, Set[int]]] = {g: dict() for g in groups}
         for i in range(n):
             g = group[i]
             inGroupEdges[g][i] = set()
@@ -69,7 +69,7 @@ class Solution:
 
         group_sort = top_sort(betweenGroupEdges)
 
-        ans = []
+        ans: list = []
         for g in group_sort:
             edges = inGroupEdges[g]
             ians = top_sort(edges)

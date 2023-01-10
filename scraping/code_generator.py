@@ -12,8 +12,8 @@ COMMON = 'COMMON'
 
 
 class CodeGenerator:
-    def __init__(self, result: ScraperResult, problem_type: str):
-        self.headers: dict = {}
+    def __init__(self, result: ScraperResult, problem_type: str) -> None:
+        self.headers: dict = dict()
         self.title = result.title
         self.id = result.id
         self.title_slug = result.title_slug

@@ -6,9 +6,9 @@ from typing import List
 
 class SnapshotArray:
 
-    def __init__(self, length: int):
+    def __init__(self, length: int) -> None:
         self.cur_snap_id = 0
-        self.snaps = defaultdict(list)
+        self.snaps: dict = defaultdict(list)
 
     def set(self, index: int, val: int) -> None:
         if index in self.snaps[index] and self.snaps[index][-1][0] == self.cur_snap_id:
@@ -48,16 +48,15 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
     for i in range(1, n):
         match actions[i]:
             case "set":
-                actual = obj.set(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.set(*params[i])
 
             case "snap":
-                actual = obj.snap(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                actual_int = obj.snap(*params[i])
+                testObj.assertEqual(actual_int, expected[i])
 
             case "get":
-                actual = obj.get(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                actual_int = obj.get(*params[i])
+                testObj.assertEqual(actual_int, expected[i])
 
 
 class TestStringMethods(unittest.TestCase):

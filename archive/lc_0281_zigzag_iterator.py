@@ -3,7 +3,7 @@ from typing import List
 
 
 class ZigzagIterator:
-    def __init__(self, v1: List[int], v2: List[int]):
+    def __init__(self, v1: List[int], v2: List[int]) -> None:
         self.v1 = v1
         self.v2 = v2
         self.n = len(v1) + len(v2)
@@ -38,7 +38,7 @@ class ZigzagIterator:
 
 def test(testObj: unittest.TestCase, v1: List[int], v2: List[int], expected: List[int]) -> None:
     i = ZigzagIterator(v1, v2)
-    actual = []
+    actual: list = []
     while i.hasNext():
         actual.append(i.next())
     testObj.assertEqual(actual, expected)

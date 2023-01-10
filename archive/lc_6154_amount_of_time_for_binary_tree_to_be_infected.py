@@ -10,10 +10,10 @@ UP = -1
 
 class Solution:
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.distance = 0
         self.start = 0
-        self.path = []
+        self.path: list = []
 
     def backtrack(self, current):
         last_node = current[-1]

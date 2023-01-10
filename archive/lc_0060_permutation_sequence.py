@@ -14,7 +14,7 @@ class Solution:
         k -= 1
 
         # compute factorial representation of k
-        output = []
+        output: list = []
         for i in range(n - 1, -1, -1):
             idx = k // factorials[i]
             k -= idx * factorials[i]

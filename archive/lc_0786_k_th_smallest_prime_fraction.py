@@ -7,7 +7,7 @@ class Solution:
     def kthSmallestPrimeFraction(self, arr: List[int], k: int) -> List[int]:
         n = len(arr)
 
-        visited: Set[Tuple[int]] = set()
+        visited: Set[Tuple[int, int]] = set()
         left = 0
         right = n - 1
 
@@ -19,11 +19,11 @@ class Solution:
             result = [arr[left], arr[right]]
             if (left+1, right) not in visited:
                 heappush(
-                    minHeap, (arr[left+1] / arr[right], left+1, right))
+                    minHeap, (arr[left+1] / arr[right], left+1, right))  # type: ignore
                 visited.add((left+1, right))
             if (left, right-1) not in visited:
                 heappush(
-                    minHeap, (arr[left] / arr[right-1], left, right-1))
+                    minHeap, (arr[left] / arr[right-1], left, right-1))  # type: ignore
                 visited.add((left, right-1))
 
             k -= 1

@@ -5,8 +5,8 @@ from typing import List
 
 class RangeModule:
 
-    def __init__(self):
-        self.arr = []
+    def __init__(self) -> None:
+        self.arr: list = []
 
     def addRange(self, left: int, right: int) -> None:
         # Main Logic

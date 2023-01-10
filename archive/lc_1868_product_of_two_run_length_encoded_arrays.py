@@ -1,10 +1,9 @@
 import unittest
-from typing import List
 
 
 class Solution:
-    def findRLEArray(self, encoded1: List[List[int]], encoded2: List[List[int]]) -> List[List[int]]:
-        ans = []
+    def findRLEArray(self, encoded1: list[list[int]], encoded2: list[list[int]]) -> list[list[int]]:
+        ans: list = []
         v_prev, c_prev = -1, -1
         while len(encoded1) > 0:
             v1, c1 = encoded1.pop()
@@ -13,9 +12,9 @@ class Solution:
             c = min(c1, c2)
 
             if c1-c > 0:
-                encoded1.append((v1, c1-c))
+                encoded1.append([v1, c1-c])
             if c2-c > 0:
-                encoded2.append((v2, c2-c))
+                encoded2.append([v2, c2-c])
 
             if len(ans) > 0:
                 v_prev, c_prev = ans[-1]
@@ -29,7 +28,7 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, encoded1: List[List[int]], encoded2: List[List[int]], expected: int) -> None:
+def test(testObj: unittest.TestCase, encoded1: list[list[int]], encoded2: list[list[int]], expected: int) -> None:
 
     so = Solution()
     actual = so.findRLEArray(encoded1, encoded2)

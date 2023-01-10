@@ -8,7 +8,7 @@ Cookie = env['Cookie']
 
 
 class ContestScraper:
-    def __init__(self):
+    def __init__(self) -> None:
         pass
 
     def __call__(self, url: str) -> ScraperResult:

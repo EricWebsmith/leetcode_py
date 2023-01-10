@@ -12,7 +12,7 @@ class Solution:
         left, right = 0, 0
         # hashmap character -> its rightmost position
         # in the sliding window
-        hashmap = defaultdict()
+        hashmap: dict = defaultdict()
 
         max_len = 2
 

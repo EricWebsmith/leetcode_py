@@ -14,7 +14,7 @@ class Solution:
             return list(range(n))
 
         idle_servers = list(range(k))
-        busy_servers = []
+        busy_servers: list = []
         handler_dict = defaultdict(int)
         for i, start_time, span in zip(range(n), arrival, load):
             while busy_servers and busy_servers[-1][0] <= start_time:
@@ -33,7 +33,7 @@ class Solution:
                 end_time, handler), key=lambda x: -x[0])
 
         max_serves = max(handler_dict.values())
-        ans = []
+        ans: list = []
         for server,  serves in handler_dict.items():
             if max_serves == serves:
                 ans.append(server)

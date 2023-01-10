@@ -4,7 +4,7 @@ from typing import List, Optional
 from data_structure.binary_tree import TreeNode, array_to_treenode
 
 
-def get_sum(node: TreeNode):
+def get_sum(node: TreeNode | None):
     if node is None:
         return 0
 

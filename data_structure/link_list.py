@@ -18,8 +18,8 @@ def array_to_listnode(arr: list[int]) -> ListNode | None:
     return head
 
 
-def listnode_to_array(head: ListNode) -> list[int]:
-    arr = []
+def listnode_to_array(head: ListNode | None) -> list[int]:
+    arr: list = []
     current: ListNode | None = head
     while current is not None:
         arr.append(current.val)

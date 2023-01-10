@@ -13,8 +13,8 @@ class TimedValue:
 
 class TimeMap:
 
-    def __init__(self):
-        self.d: Dict[str, TimedValue] = {}
+    def __init__(self) -> None:
+        self.d: Dict[str, TimedValue] = dict()
 
     def set(self, key: str, value: str, timestamp: int) -> None:
         if key not in self.d:
@@ -40,8 +40,7 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
     for i in range(1, n):
         match actions[i]:
             case "set":
-                actual = obj.set(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.set(*params[i])
 
             case "get":
                 actual = obj.get(*params[i])

@@ -6,7 +6,7 @@ class Solution:
     def destroyTargets(self, nums: List[int], space: int) -> int:
         n = len(nums)
         nums.sort()
-        d = {}
+        d: dict = dict()
         max_destroy = 0
         ans = 0
         for i in range(n-1, -1, -1):

@@ -8,9 +8,9 @@ from data_structure.binary_tree import (TreeNode, array_to_treenode,
 class Solution:
     def bstToGst(self, root: TreeNode) -> TreeNode:
 
-        def dfs(node, val) -> None:
+        def dfs(node, val) -> int:
             if node is None:
-                return
+                return 0
 
             if node.right:
                 node.val = node.val + dfs(node.right, val)
@@ -31,6 +31,7 @@ class Solution:
 def test(testObj: unittest.TestCase, root_arr: List[int], expected: int) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
+    assert root is not None
     actual_root = so.bstToGst(root)
     actual = treenode_to_array(actual_root)
     testObj.assertEqual(actual, expected)
@@ -53,6 +54,8 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 36 ms, faster than 86.45%
-Memory Usage: 13.9 MB, less than 74.25%
+Runtime
+31 ms
+Beats
+90.20%
 '''

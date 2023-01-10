@@ -12,7 +12,7 @@ class Solution:
         right_min.reverse()
 
         paper = ''
-        t = []
+        t: list = []
         for i in range(n):
             while t and t[-1] <= right_min[i]:
                 paper += t.pop()

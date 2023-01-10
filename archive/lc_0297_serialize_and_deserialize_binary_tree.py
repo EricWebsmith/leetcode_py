@@ -1,11 +1,10 @@
 import json
 import unittest
 from collections import deque
-from typing import List
 
 
 class TreeNode(object):
-    def __init__(self, x):
+    def __init__(self, x) -> None:
         self.val = x
         self.left = None
         self.right = None
@@ -14,10 +13,10 @@ class TreeNode(object):
         return f'{self.val}'
 
 
-def treenode_to_array(root: TreeNode) -> List[int]:
+def treenode_to_array(root: TreeNode | None) -> list[int]:
     # BFS
     q = deque([root])
-    arr = []
+    arr: list = []
     while q:
         node = q.popleft()
         if node:
@@ -33,26 +32,26 @@ def treenode_to_array(root: TreeNode) -> List[int]:
     return arr
 
 
-def array_to_treenode(arr: List[int]) -> TreeNode:
+def array_to_treenode(arr: list[int]) -> TreeNode | None:
     if not arr:
         return None
     root = TreeNode(arr[0])
-    q = deque([root])
+    q = deque[TreeNode | None]([root])
     for i in range(1, len(arr), 2):
         node = q.popleft()
         if arr[i] is not None:
-            node.left = TreeNode(arr[i])
-            q.append(node.left)
+            node.left = TreeNode(arr[i])  # type: ignore
+            q.append(node.left)  # type: ignore
         if i+1 < len(arr) and arr[i+1] is not None:
-            node.right = TreeNode(arr[i+1])
-            q.append(node.right)
+            node.right = TreeNode(arr[i+1])  # type: ignore
+            q.append(node.right)  # type: ignore
 
     return root
 
 
 class Codec:
 
-    def serialize(self, root: TreeNode) -> str:
+    def serialize(self, root: TreeNode | None) -> str:
         """Encodes a tree to a single string.
 
         :type root: TreeNode
@@ -61,7 +60,7 @@ class Codec:
         arr = treenode_to_array(root)
         return str(arr).replace('None', 'null')
 
-    def deserialize(self, data: str) -> TreeNode:
+    def deserialize(self, data: str) -> TreeNode | None:
         """Decodes your encoded data to tree.
 
         :type data: str
@@ -72,7 +71,7 @@ class Codec:
         return array_to_treenode(arr)
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], expected: None) -> None:
+def test(testObj: unittest.TestCase, root_arr: list[int], expected: list[int]) -> None:
     so = Codec()
     data = str(root_arr)
     root = so.deserialize(data)

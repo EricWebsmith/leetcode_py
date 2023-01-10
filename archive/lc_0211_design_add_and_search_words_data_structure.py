@@ -1,5 +1,5 @@
 import unittest
-from typing import Dict, List
+from typing import List
 
 
 class WordDictionary:
@@ -7,26 +7,26 @@ class WordDictionary:
     Sovle Leetcode 211 using prefix and postfix.
     """
 
-    def __init__(self):
-        self.prefix: Dict[str, Dict[str]] = {}
-        self.postfix: Dict[str, Dict[str]] = {}
+    def __init__(self) -> None:
+        self.prefix: dict[str, dict] = dict()
+        self.postfix: dict[str, dict] = dict()
 
     def addWord(self, word: str) -> None:
         # prefix
         node = self.prefix
         for c in word:
             if c not in node:
-                node[c] = {}
+                node[c] = dict()
             node = node[c]
-        node['$'] = True
+        node['$'] = dict()
 
         # postfix
         node = self.postfix
         for c in reversed(list(word)):
             if c not in node:
-                node[c] = {}
+                node[c] = dict[str, dict]()
             node = node[c]
-        node['$'] = True
+        node['$'] = dict()
 
     def search(self, word: str) -> bool:
         chars = list(word)
@@ -82,8 +82,7 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
         match actions[i]:
 
             case "addWord":
-                actual = obj.addWord(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.addWord(*params[i])
 
             case "search":
                 actual = obj.search(*params[i])

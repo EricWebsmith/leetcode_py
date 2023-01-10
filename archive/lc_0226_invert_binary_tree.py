@@ -8,7 +8,7 @@ from data_structure.binary_tree import (TreeNode, array_to_treenode,
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
         if root is None:
-            return
+            return None
 
         root.left, root.right = root.right, root.left
         self.invertTree(root.left)

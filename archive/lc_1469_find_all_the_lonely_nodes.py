@@ -6,7 +6,7 @@ from data_structure.binary_tree import TreeNode, array_to_treenode
 
 class Solution:
     def getLonelyNodes(self, root: Optional[TreeNode]) -> List[int]:
-        ans = []
+        ans: list = []
         if root is None:
             return []
 

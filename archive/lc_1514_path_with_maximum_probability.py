@@ -26,7 +26,7 @@ class Solution:
                 next_pro = probability * w
                 if next_pro > dp[next]:
                     dp[next] = next_pro
-                    heappush(h, (-next_pro, next))
+                    heappush(h, (-next_pro, next))  # type: ignore
                 if next_pro == end:
                     break
 

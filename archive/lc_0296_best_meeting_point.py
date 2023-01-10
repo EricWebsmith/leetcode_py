@@ -5,7 +5,7 @@ from typing import List
 def get_rows(grid: List[List[int]]) -> List[int]:
     m = len(grid)
     n = len(grid[0])
-    rows = []
+    rows: list = []
     for r in range(m):
         for c in range(n):
             if grid[r][c] == 1:
@@ -16,7 +16,7 @@ def get_rows(grid: List[List[int]]) -> List[int]:
 def get_cols(grid: List[List[int]]) -> List[int]:
     m = len(grid)
     n = len(grid[0])
-    cols = []
+    cols: list = []
     for c in range(n):
         for r in range(m):
             if grid[r][c] == 1:
@@ -37,7 +37,7 @@ def get_dis(arr: List[int]) -> int:
 
 
 class Solution:
-    def minTotalDistance(self, grid: List[List[int]]) -> List[List[int]]:
+    def minTotalDistance(self, grid: List[List[int]]) -> int:
         rows = get_rows(grid)
         cols = get_cols(grid)
         r_ans = get_dis(rows)

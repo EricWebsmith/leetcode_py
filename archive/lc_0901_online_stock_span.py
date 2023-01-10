@@ -4,7 +4,7 @@ from typing import List
 
 class StockSpanner:
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.arr = [1_000_000]
         self.hop = [-1]
 

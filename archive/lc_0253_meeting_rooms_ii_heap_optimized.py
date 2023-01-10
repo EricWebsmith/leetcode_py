@@ -1,23 +1,22 @@
 import unittest
 from heapq import heappop, heappush
-from typing import List
 
 
 class Solution:
-    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
-        rooms: List[List[int]] = []
+    def minMeetingRooms(self, intervals: list[list[int]]) -> int:
+        rooms: list[int] = []
         intervals.sort(key=lambda x: x[0])
-        heappush(rooms, intervals[0][1])
+        heappush(rooms, intervals[0][1])  # type: ignore
         for start, end in intervals[1:]:
             if rooms[0] <= start:
-                heappop(rooms)
+                heappop(rooms)  # type: ignore
 
-            heappush(rooms, end)
+            heappush(rooms, end)  # type: ignore
 
         return len(rooms)
 
 
-def test(testObj: unittest.TestCase, intervals: List[List[int]], expected: int) -> None:
+def test(testObj: unittest.TestCase, intervals: list[list[int]], expected: int) -> None:
     so = Solution()
     actual = so.minMeetingRooms(intervals)
     testObj.assertEqual(actual, expected)

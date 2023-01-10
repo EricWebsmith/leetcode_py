@@ -1,11 +1,10 @@
 import unittest
-from typing import List, Optional
 
 from data_structure.binary_tree import TreeNode, treenode_to_array
 
 
 class Solution:
-    def generateTrees(self, n: int) -> List[Optional[TreeNode]]:
+    def generateTrees(self, n: int) -> list[TreeNode | None]:
 
         def dfs(start, end):
             n = end - start + 1
@@ -14,7 +13,7 @@ class Solution:
             if n == 1:
                 return [TreeNode(start)]
 
-            ans = []
+            ans: list = []  # type: ignore
             for i in range(start, end+1):
                 lefts = dfs(start, i-1)
                 rights = dfs(i+1, end)
@@ -29,15 +28,12 @@ class Solution:
         return dfs(1, n)
 
 
-def test(testObj: unittest.TestCase, n: int, expected: int) -> None:
-
+def test(testObj: unittest.TestCase, n: int, expected: list[TreeNode | None]) -> None:
     so = Solution()
     trees = so.generateTrees(n)
     actual = [treenode_to_array(t) for t in trees]
     actual.sort()
     expected.sort()
-    # print(actual)
-    # print(expected)
     testObj.assertEqual(actual, expected)
 
 

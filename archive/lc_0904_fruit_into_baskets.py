@@ -5,7 +5,7 @@ from typing import List
 class Solution:
     def totalFruit(self, fruits: List[int]) -> int:
         n = len(fruits)
-        basket = {}
+        basket = dict()
         left = 0
         right = 0
         basket[fruits[0]] = 1

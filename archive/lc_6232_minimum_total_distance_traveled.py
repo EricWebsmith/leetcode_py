@@ -5,15 +5,15 @@ from typing import List
 
 class Solution:
     def minimumTotalDistance(self, robot: List[int], factory: List[List[int]]) -> int:
-        h = []
+        h: list = []
         factory.sort()
         robot.sort()
         for r in robot:
             for f, c in factory:
                 d = abs(r - f)
-                heappush(h, (d, r, f))
+                heappush(h, (d, r, f))  # type: ignore
 
-        f_dict = {}
+        f_dict = dict()
         for f, c in factory:
             f_dict[f] = c
 

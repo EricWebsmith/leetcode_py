@@ -7,7 +7,7 @@ class Solution:
     def smallestRange(self, nums: List[List[int]]) -> List[int]:
         k = len(nums)
 
-        hq = []
+        hq: list = []
         high = -100000
         for i in range(k):
             hq.append((nums[i][0], i, 0))
@@ -20,7 +20,7 @@ class Solution:
             if index == len(nums[arr_index]) - 1:
                 break
             high = max(high, nums[arr_index][index+1])
-            heappush(hq, (nums[arr_index][index+1], arr_index, index+1))
+            heappush(hq, (nums[arr_index][index+1], arr_index, index+1))  # type: ignore
 
             if result[1] - result[0] > high - hq[0][0]:
                 result = [hq[0][0], high]

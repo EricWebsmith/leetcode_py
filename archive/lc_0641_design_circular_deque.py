@@ -10,7 +10,7 @@ class Node:
 
 class MyCircularDeque:
 
-    def __init__(self, k: int):
+    def __init__(self, k: int) -> None:
         self.k = k
         self.first: Node | None = None
         self.last: Node | None = None

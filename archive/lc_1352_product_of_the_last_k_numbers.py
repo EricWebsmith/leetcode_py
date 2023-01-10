@@ -4,7 +4,7 @@ from typing import List
 
 class ProductOfNumbers:
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.preprod: List[int] = [1]
 
     def add(self, num: int) -> None:
@@ -27,8 +27,7 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
         match actions[i]:
 
             case "add":
-                actual = obj.add(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.add(*params[i])
 
             case "getProduct":
                 actual = obj.getProduct(*params[i])

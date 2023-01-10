@@ -12,7 +12,7 @@ class Solution:
         queries.sort()
         ans = [-1] * k
 
-        valid_room_ids = []
+        valid_room_ids: list = []
         while queries:
             min_size, pre_id, i = queries.pop()
             while rooms and rooms[-1][1] >= min_size:

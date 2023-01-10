@@ -7,7 +7,7 @@ class Solution:
         m = len(maze)
         n = len(maze[0])
         visited = set()
-        stack = []
+        stack: list = []
         stack.append(start)
         while stack:
             r, c = stack.pop()

@@ -10,8 +10,8 @@ class Solution:
             return ((y3-y2)*(x2-x1) - (y2-y1)*(x3-x2))
 
         trees.sort()
-        upper = []
-        lower = []
+        upper: list = []
+        lower: list = []
         for t in trees:
             while len(upper) > 1 and clock_wise(upper[-2], upper[-1], t) > 0:
                 upper.pop()

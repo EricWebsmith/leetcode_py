@@ -6,8 +6,8 @@ from typing import List
 
 class Solution:
     def getFactors(self, n: int) -> List[List[int]]:
-        res = []
-        cur = []
+        res: list = []
+        cur: list[int] = []
 
         def backtrack(start, x):
             if cur:
@@ -22,7 +22,7 @@ class Solution:
         return res
 
 
-def test(testObj: unittest.TestCase, n: int, expected: int) -> None:
+def test(testObj: unittest.TestCase, n: int, expected: list[list[int]]) -> None:
 
     so = Solution()
     actual = so.getFactors(n)

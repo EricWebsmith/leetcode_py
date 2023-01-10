@@ -5,8 +5,8 @@ from typing import List
 
 class MedianFinder:
 
-    def __init__(self):
-        self.arr = []
+    def __init__(self) -> None:
+        self.arr: list = []
 
     def addNum(self, num: int) -> None:
         insort_left(self.arr, num)
@@ -31,8 +31,7 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
         match actions[i]:
 
             case "addNum":
-                actual = obj.addNum(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.addNum(*params[i])
 
             case "findMedian":
                 actual = obj.findMedian(*params[i])

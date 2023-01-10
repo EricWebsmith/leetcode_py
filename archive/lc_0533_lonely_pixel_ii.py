@@ -9,7 +9,7 @@ class Solution:
 
         rows = [0] * m
         cols = [0] * n
-        rows_signatures = []
+        rows_signatures: list = []
         for r in range(m):
             signature = 0
             for c in range(n):

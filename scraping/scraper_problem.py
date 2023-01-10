@@ -12,7 +12,7 @@ csrf_token = env['CSRF_TOKEN']
 
 
 class ProblemScraper:
-    def __init__(self):
+    def __init__(self) -> None:
         self.api_instance = self.get_api_instance(leetcode_session, csrf_token)
 
     def get_api_instance(self, leetcode_session, csrf_token):

@@ -4,25 +4,25 @@ import unittest
 class Solution:
     def reverseVowels(self, s: str) -> str:
         vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
-        s = list(s)
-        n = len(s)
+        chars = list(s)
+        n = len(chars)
         left = 0
         right = n - 1
         while left < right:
-            while left < n and not s[left] in vowels:
+            while left < n and not chars[left] in vowels:
                 left += 1
 
-            while right > 0 and not s[right] in vowels:
+            while right > 0 and not chars[right] in vowels:
                 right -= 1
 
             if left >= right:
                 break
 
-            s[left], s[right] = s[right], s[left]
+            chars[left], chars[right] = chars[right], chars[left]
             left += 1
             right -= 1
 
-        return "".join(s)
+        return "".join(chars)
 
 
 def test(testObj: unittest.TestCase, s: str, expected: str) -> None:

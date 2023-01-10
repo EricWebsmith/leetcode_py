@@ -17,7 +17,7 @@ class Solution:
         current_depth = 1
         q: list = [root]
         while q:
-            new_q = []
+            new_q: list = []
             for node in q:
                 assert node is not None
                 if current_depth == depth - 1:

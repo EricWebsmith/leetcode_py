@@ -17,7 +17,7 @@ class SegmentNode:
 
 class MyCalendarThree:
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.root = SegmentNode(0, 10**9, 0)
         self.k = 0
 

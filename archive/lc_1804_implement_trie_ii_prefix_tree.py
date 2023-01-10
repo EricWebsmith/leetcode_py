@@ -4,14 +4,14 @@ from typing import Dict, List
 
 class TrieNode:
     def __init__(self) -> None:
-        self.children: Dict[str, TrieNode] = {}
+        self.children: Dict[str, TrieNode] = dict()
         self.count = 0
         self.count_end = 0
 
 
 class Trie:
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.root = TrieNode()
 
     def insert(self, word: str) -> None:

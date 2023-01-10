@@ -1,22 +1,21 @@
 
 import unittest
-from typing import Dict, List
 
 
 class LFUCache:
 
-    def __init__(self, capacity: int):
+    def __init__(self, capacity: int) -> None:
         self.capacity = capacity
-        self.key_fre_dict: Dict[int, int] = {}
-        self.fre_key_dict: Dict[int, List[int]] = {}
-        self.key_value_dict: Dict[int, int] = {}
+        self.key_fre_dict: dict[int, int] = dict()
+        self.fre_key_dict: dict[int, list[int]] = dict()
+        self.key_value_dict: dict[int, int] = dict()
 
     def update_fre(self, key):
 
         fre = self.key_fre_dict[key]
         self.key_fre_dict[key] = fre + 1
 
-        fre_list: List[int] = self.fre_key_dict[fre]
+        fre_list: list[int] = self.fre_key_dict[fre]
         fre_list.remove(key)
         if len(fre_list) == 0:
             del self.fre_key_dict[fre]
@@ -62,7 +61,7 @@ class LFUCache:
             self.update_fre(key)
 
 
-def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
+def test(testObj: unittest.TestCase, actions: list, params: list, expected: list) -> None:
     n = len(actions)
     obj = LFUCache(*params[0])
     for i in range(1, n):
@@ -74,8 +73,7 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
                 testObj.assertEqual(actual, expected[i])
 
             case "put":
-                actual = obj.put(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.put(*params[i])
 
 
 class TestStringMethods(unittest.TestCase):

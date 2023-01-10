@@ -1,34 +1,33 @@
 import unittest
 from heapq import heappop, heappush
-from typing import List, Optional
 
 from data_structure.link_list import (ListNode, array_to_listnode,
                                       listnode_to_array)
 
 
 class Solution:
-    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+    def mergeKLists(self, lists: list[ListNode | None]) -> ListNode | None:
         k = len(lists)
-        h: List[int] = []
+        h: list[tuple[int, int]] = []
         for list_index in range(k):
-            if lists[list_index]:
-                heappush(h, (lists[list_index].val, list_index))
-                lists[list_index] = lists[list_index].next
+            if lists[list_index] is not None:
+                heappush(h, (lists[list_index].val, list_index))  # type: ignore
+                lists[list_index] = lists[list_index].next  # type: ignore
 
         prehead = ListNode(-1)
         current = prehead
         while h:
-            v, list_index = heappop(h)
+            v, list_index = heappop(h)  # type: ignore
             current.next = ListNode(v)
             current = current.next
-            if lists[list_index]:
-                heappush(h, (lists[list_index].val, list_index))
-                lists[list_index] = lists[list_index].next
+            if lists[list_index] is not None:
+                heappush(h, (lists[list_index].val, list_index))  # type: ignore
+                lists[list_index] = lists[list_index].next  # type: ignore
 
         return prehead.next
 
 
-def test(testObj: unittest.TestCase, arrs: List[List[int]], expected: Optional[ListNode]) -> None:
+def test(testObj: unittest.TestCase, arrs: list[list[int]], expected: ListNode | None) -> None:
     heads = [array_to_listnode(arr) for arr in arrs]
     so = Solution()
     actual_root = so.mergeKLists(heads)

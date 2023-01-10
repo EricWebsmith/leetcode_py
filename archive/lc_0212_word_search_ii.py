@@ -1,23 +1,22 @@
 import unittest
-from typing import Dict, List, Tuple
 
 
 class Solution:
-    def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
+    def findWords(self, board: list[list[str]], words: list[str]) -> list[str]:
         m = len(board)
         n = len(board[0])
-        root = {}
+        root: dict = dict()
         for word in words:
             current = root
-            for c in word:
-                if c not in current:
-                    current[c] = {}
-                current = current[c]
+            for ch in word:
+                if ch not in current:
+                    current[ch] = dict()
+                current = current[ch]
             current['$'] = word
 
-        ans = []
+        ans: list = []
 
-        def backtrack(r: int, c: int, node: Dict, path: List[Tuple[int, int]]):
+        def backtrack(r: int, c: int, node: dict, path: list[tuple[int, int]]):
             if len(node) == 0:
                 return
 
@@ -34,7 +33,7 @@ class Solution:
 
             path.append((r, c))
 
-            current = node.get(ch)
+            current = node[ch]
 
             if '$' in current:
                 ans.append(current['$'])
@@ -54,13 +53,11 @@ class Solution:
             for c in range(n):
                 backtrack(r, c, root, [])
 
-        return list(ans)
+        return ans
 
 
-def test(testObj: unittest.TestCase, board: List[List[str]], words: List[str], expected: List[str]) -> None:
-
+def test(testObj: unittest.TestCase, board: list[list[str]], words: list[str], expected: list[str]) -> None:
     so = Solution()
-
     actual = so.findWords(board, words)
     actual.sort()
     expected.sort()

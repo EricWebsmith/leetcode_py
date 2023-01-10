@@ -23,7 +23,7 @@ class Solution:
             dfs(v)
             visited[v] = True
 
-        ans = []
+        ans: list = []
         for pre, post in queries:
             ans.append(pre in edge_dict[post])
 

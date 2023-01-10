@@ -1,17 +1,15 @@
 import unittest
-from typing import List
 
 
 class Node:
-    def __init__(self, val=0, neighbors=None):
+    def __init__(self, val=0, neighbors=None) -> None:
         self.val = val
-        self.neighbors: List['Node'] = neighbors if neighbors is not None else [
-        ]
+        self.neighbors: list[Node] = neighbors if neighbors is not None else []
 
 
 class Solution:
     def __init__(self) -> None:
-        self.visited = {}
+        self.visited: dict = dict()
 
     def cloneGraph(self, node: 'Node') -> 'Node':
         if node is None:
@@ -29,7 +27,7 @@ class Solution:
         return cloned
 
 
-def test(testObj: unittest.TestCase, node_arr: List[int], expected: 'Node') -> None:
+def test(testObj: unittest.TestCase, node_arr: list[int], expected: 'Node') -> None:
     # node = array_to_node(node_arr)
     # so = Solution()
 

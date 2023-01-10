@@ -3,13 +3,11 @@ import unittest
 
 class Solution:
     def removeKdigits(self, num: str, k: int) -> str:
-        stack = []
+        stack: list = []
         for c in num:
             while k > 0 and stack and stack[-1] > c:
                 stack.pop()
                 k -= 1
-            # if k == 0:
-            #     break
             if stack or c != '0':
                 stack.append(c)
 

@@ -18,7 +18,7 @@ class Solution:
         hq.sort()
 
         prev_end = -1
-        ans = []
+        ans: list = []
         while len(hq) > 0:
             first = hq.pop(0)
             if first[0] > prev_end:
@@ -31,15 +31,15 @@ class Solution:
 
 def test(testObj: unittest.TestCase, schedule_arr: list[list[list[int]]], expected: int) -> None:
 
-    schedule = []
+    schedule: list = []
     for i in range(len(schedule_arr)):
-        person = []
+        person: list = []
         for j in range(len(schedule_arr[i])):
             person.append(Interval(start=schedule_arr[i][j][0], end=schedule_arr[i][j][1]))
         schedule.append(person)
     so = Solution()
     actual_arr = so.employeeFreeTime(schedule)
-    actual = []
+    actual: list = []
     for i in range(len(actual_arr)):
         actual.append([actual_arr[i].start, actual_arr[i].end])
     testObj.assertEqual(actual, expected)

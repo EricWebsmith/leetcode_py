@@ -6,7 +6,7 @@ class Solution:
     def diagonalSort(self, mat: List[List[int]]) -> List[List[int]]:
         m = len(mat)
         n = len(mat[0])
-
+        arr: list = []
         for c_start in range(n):
             r = 0
             c = c_start

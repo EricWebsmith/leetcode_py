@@ -5,7 +5,7 @@ from typing import List
 class Solution:
     def __init__(self) -> None:
         self.operations = '+-*'
-        self.cache = {}
+        self.cache: dict = dict()
 
     def diffWaysToCompute(self, expression: str) -> List[int]:
         if expression in self.cache:
@@ -18,7 +18,7 @@ class Solution:
         if n <= 3 and expression[0] == '-':
             return [int(expression)]
 
-        results = []
+        results: list = []
         for i in range(1, n):
             if expression[i] in self.operations:
                 left_parts = self.diffWaysToCompute(expression[:i])

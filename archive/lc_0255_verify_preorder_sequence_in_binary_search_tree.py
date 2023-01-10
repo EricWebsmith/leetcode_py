@@ -1,11 +1,10 @@
 import unittest
-from typing import List
 
 
 class Solution:
-    def verifyPreorder(self, preorder: List[int]) -> bool:
+    def verifyPreorder(self, preorder: list[int]) -> bool:
         check = None
-        stack = []
+        stack: list[int] = []
         for n in preorder:
             while stack and n > stack[-1]:
                 check = stack.pop()
@@ -15,7 +14,7 @@ class Solution:
         return True
 
 
-def test(testObj: unittest.TestCase, preorder: List[int], expected: int) -> None:
+def test(testObj: unittest.TestCase, preorder: list[int], expected: int) -> None:
 
     so = Solution()
     actual = so.verifyPreorder(preorder)

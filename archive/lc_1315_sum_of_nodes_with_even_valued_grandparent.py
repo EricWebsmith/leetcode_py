@@ -1,6 +1,5 @@
 
 import unittest
-from typing import List
 
 from data_structure.binary_tree import TreeNode, array_to_treenode
 
@@ -21,7 +20,7 @@ class Solution:
             if node.right.right:
                 self.ans += node.right.right.val
 
-    def dfs(self, node: TreeNode) -> None:
+    def dfs(self, node: TreeNode | None) -> None:
         if node is None:
             return
 
@@ -31,13 +30,13 @@ class Solution:
         self.dfs(node.left)
         self.dfs(node.right)
 
-    def sumEvenGrandparent(self, root: TreeNode) -> int:
+    def sumEvenGrandparent(self, root: TreeNode | None) -> int:
         self.dfs(root)
 
         return self.ans
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], expected: int) -> None:
+def test(testObj: unittest.TestCase, root_arr: list[int], expected: int) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
     actual = so.sumEvenGrandparent(root)

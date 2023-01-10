@@ -6,18 +6,18 @@ from typing import List
 
 class MedianFinder:
 
-    def __init__(self):
-        self.lo = []
-        self.hi = []
+    def __init__(self) -> None:
+        self.lo: list = []
+        self.hi: list = []
 
     def addNum(self, num: int) -> None:
-        heappush(self.lo, -num)
+        heappush(self.lo, -num)  # type: ignore
         max_in_lo = -heappop(self.lo)
-        heappush(self.hi, max_in_lo)
+        heappush(self.hi, max_in_lo)  # type: ignore
 
         if len(self.lo) < len(self.hi):
             min_in_hi = -heappop(self.hi)
-            heappush(self.lo, min_in_hi)
+            heappush(self.lo, min_in_hi)  # type: ignore
 
     def findMedian(self) -> float:
         if len(self.lo) == len(self.hi):
@@ -33,8 +33,7 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
         print(i, actions[i], params[i], expected[i])
         match actions[i]:
             case "addNum":
-                actual = obj.addNum(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.addNum(*params[i])
 
             case "findMedian":
                 actual = obj.findMedian(*params[i])

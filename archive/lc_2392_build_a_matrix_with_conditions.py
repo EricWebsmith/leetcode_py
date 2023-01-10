@@ -11,7 +11,7 @@ def get_edges(k: int, from_tos: List[List[int]]) -> Dict[int, Set[int]]:
 
 
 def top_sort(edges: Dict[int, Set[int]]) -> List[int]:
-    stack = []
+    stack: list = []
     visiting = set()
     visited = set()
 

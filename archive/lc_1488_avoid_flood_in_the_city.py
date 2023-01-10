@@ -6,8 +6,8 @@ from bisect import bisect_right
 class Solution:
     def avoidFlood(self, rains: list[int]) -> list[int]:
         n = len(rains)
-        clean_days = []
-        d: dict = {}
+        clean_days: list = []
+        d: dict = dict()
         ans = [-1] * n
         for i in range(n):
             if rains[i] == 0:

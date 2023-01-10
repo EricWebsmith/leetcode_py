@@ -3,7 +3,7 @@ from typing import Dict, List, Set
 
 
 def get_edges(k: int, from_tos: List[List[int]]) -> Dict[int, Set[int]]:
-    edges = {i: set() for i in range(k)}
+    edges: dict = {i: set() for i in range(k)}
     for from_, to_ in from_tos:
         edges[from_].add(to_)
 
@@ -11,7 +11,7 @@ def get_edges(k: int, from_tos: List[List[int]]) -> Dict[int, Set[int]]:
 
 
 def top_sort(edges: Dict[int, Set[int]]) -> List[int]:
-    stack = []
+    stack: list = []
     visiting = set()
     visited = set()
 

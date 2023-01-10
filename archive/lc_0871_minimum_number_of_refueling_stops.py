@@ -20,7 +20,7 @@ class Solution:
             if tank < 0:
                 return -1
 
-            heapq.heappush(pq, -capacity)
+            heapq.heappush(pq, -capacity)  # type: ignore
             prev_location = location
 
         return ans

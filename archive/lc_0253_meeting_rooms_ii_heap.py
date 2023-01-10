@@ -5,15 +5,15 @@ from typing import List
 
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
-        rooms: List[List[int]] = []
+        rooms: list[int] = []
         intervals.sort(key=lambda x: x[0])
-        heappush(rooms, intervals[0][1])
+        heappush(rooms, intervals[0][1])  # type: ignore
         max_rooms = 1
         for start, end in intervals[1:]:
             while rooms and rooms[0] <= start:
-                heappop(rooms)
+                heappop(rooms)  # type: ignore
 
-            heappush(rooms, end)
+            heappush(rooms, end)  # type: ignore
             max_rooms = max(max_rooms, len(rooms))
         return max_rooms
 

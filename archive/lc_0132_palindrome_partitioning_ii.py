@@ -4,7 +4,7 @@ import unittest
 class Solution:
     def __init__(self) -> None:
         self.s = ''
-        self.dp = []
+        self.dp: list = []
 
     def minCut(self, s: str) -> int:
         n = len(s)
@@ -36,11 +36,8 @@ class Solution:
 
 
 def test(testObj: unittest.TestCase, s: str, expected: int) -> None:
-
     so = Solution()
-
     actual = so.minCut(s)
-
     testObj.assertEqual(actual, expected)
 
 

@@ -6,8 +6,8 @@ from typing import List
 
 class Leaderboard:
 
-    def __init__(self):
-        self.player_score_dict = defaultdict(int)
+    def __init__(self) -> None:
+        self.player_score_dict: dict = defaultdict(int)
         self.score_player: List[List[int]] = []
         self.n = 0
 
@@ -57,16 +57,13 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
         match actions[i]:
 
             case "addScore":
-                actual = obj.addScore(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.addScore(*params[i])
 
             case "top":
-                actual = obj.top(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.top(*params[i])
 
             case "reset":
-                actual = obj.reset(*params[i])
-                testObj.assertEqual(actual, expected[i])
+                obj.reset(*params[i])
 
 
 class TestClass(unittest.TestCase):

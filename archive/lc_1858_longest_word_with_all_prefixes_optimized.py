@@ -43,7 +43,7 @@ class Solution:
             # we take the first as the answer
             # because Trie is lexicographically ordered.
             ans = q[0][1]
-            new_q = []
+            new_q: list = []
             for parent, prefix in q:
                 for index, child in enumerate(parent.children):
                     if child:

@@ -1,5 +1,4 @@
 import unittest
-from typing import List
 
 
 class Solution:
@@ -34,9 +33,9 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, courses: List[List[int]], expected: int) -> None:
-    s = Solution()
-    actual = s.romanToInt(courses)
+def test(testObj: unittest.TestCase, s: str, expected: int) -> None:
+    so = Solution()
+    actual = so.romanToInt(s)
     testObj.assertEqual(actual, expected)
 
 

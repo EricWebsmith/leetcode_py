@@ -19,7 +19,7 @@ def get_bidirectional_edges(vetices: List, from_tos: List[List]) -> Dict[Any, Se
 
 
 def top_sort(edges: Dict[int, Set[int]]) -> List[int]:
-    stack = []
+    stack: list = []
     visiting = set()
     visited = set()
 

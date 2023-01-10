@@ -1,4 +1,7 @@
 
+"""
+Run ``mypy``, ignoring relevant errors.
+"""
 import string
 import unittest
 from typing import List
@@ -10,8 +13,8 @@ class Solution:
     def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
         letters = string.ascii_lowercase
 
-        indices = [string.ascii_lowercase.index(ss) for ss in s]
-        indices = np.array(indices)
+        indices_list = [string.ascii_lowercase.index(ss) for ss in s]
+        indices = np.array(indices_list)
 
         for start, end, direction in shifts:
             if direction == 0:

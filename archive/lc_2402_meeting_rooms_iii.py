@@ -9,25 +9,25 @@ class Solution:
         heapify(unused_rooms)
         room_counts = [0] * n
         meetings.sort()
-        h = []
+        h: list = []
         for start, end in meetings:
             # firstly, pop finished meetings.
             while h and h[0][0] <= start:
                 _, room_id = heappop(h)
-                heappush(unused_rooms, room_id)
+                heappush(unused_rooms, room_id)  # type: ignore
             wait = 0
 
             # if no available room, pop meetings finish first.
             # if there are more than two, pop all.
             if not unused_rooms:
                 prev_end, room_id = heappop(h)
-                heappush(unused_rooms, room_id)
+                heappush(unused_rooms, room_id)  # type: ignore
                 wait = prev_end - start
 
             # now, we can have the meeting in the smallest meeting room.
             end += wait
             room_id = heappop(unused_rooms)
-            heappush(h, (end, room_id))
+            heappush(h, (end, room_id))  # type: ignore
             room_counts[room_id] += 1
 
         return room_counts.index(max(room_counts))

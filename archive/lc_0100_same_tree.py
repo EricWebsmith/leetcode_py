@@ -1,11 +1,10 @@
 import unittest
-from typing import List, Optional
 
 from data_structure.binary_tree import TreeNode, array_to_treenode
 
 
 class Solution:
-    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+    def isSameTree(self, p: TreeNode | None, q: TreeNode | None) -> bool:
         if p is None and q is None:
             return True
         if p is None or q is None:
@@ -16,7 +15,7 @@ class Solution:
         return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 
 
-def test(testObj: unittest.TestCase, p_arr: List[int], q_arr: List[int], expected: bool) -> None:
+def test(testObj: unittest.TestCase, p_arr: list[int], q_arr: list[int], expected: bool) -> None:
     p = array_to_treenode(p_arr)
     q = array_to_treenode(q_arr)
     so = Solution()
@@ -42,5 +41,8 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-
+Runtime
+28 ms
+Beats
+93.78%
 '''

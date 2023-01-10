@@ -9,7 +9,7 @@ class Solution:
         # masks from a to z, 2^0 to 2^25
         masks = {a: 1 << i for i, a in enumerate(ascii_lowercase)}
 
-        nums = []
+        nums: list = []
         for s in arr:
             num = 0
             skip = False

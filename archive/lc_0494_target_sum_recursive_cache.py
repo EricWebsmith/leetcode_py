@@ -5,7 +5,7 @@ from typing import List
 
 class Solution:
     def __init__(self) -> None:
-        self.nums = []
+        self.nums: list = []
         self.n = 0
 
     @cache

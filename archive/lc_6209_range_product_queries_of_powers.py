@@ -5,7 +5,7 @@ from typing import List
 class Solution:
     def productQueries(self, n: int, queries: List[List[int]]) -> List[int]:
         power = 0
-        powers = []
+        powers: list = []
         while n > 0:
             mask = 1 << power
             if n & mask > 0:
@@ -15,7 +15,7 @@ class Solution:
             #     powers.append(0)
             power += 1
 
-        ans = []
+        ans: list = []
         for start, end in queries:
             c = 1
             for i in range(start, end+1):

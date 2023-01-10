@@ -7,7 +7,7 @@ class Solution:
     def maximumSegmentSum(self, nums: List[int], removeQueries: List[int]) -> List[int]:
         n = len(nums)
         current = sum(nums)
-        ans = []
+        ans: list = []
         for i in range(n):
             current -= nums[removeQueries[i]]
             ans.append(current)

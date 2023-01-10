@@ -7,7 +7,7 @@ class Solution:
     def shortestBridge(self, grid: List[List[int]]) -> int:
         n = len(grid)
         dirs = [(0, 0), (-1, 0), (0, -1), (1, 0), (0, 1)]
-        island1 = deque()
+        island1 = deque[tuple[int, int]]()
 
         def dfs(r, c):
             for dr, dc in dirs:
@@ -34,7 +34,7 @@ class Solution:
                     if 0 <= nr < n and 0 <= nc < n and grid[nr][nc] != 2:
                         if grid[nr][nc] == 0:
                             grid[nr][nc] = 2
-                            island1.append([nr, nc])
+                            island1.append((nr, nc))
                         elif grid[nr][nc] == 1:
                             return bridge
             bridge += 1

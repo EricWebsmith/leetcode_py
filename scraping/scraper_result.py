@@ -1,5 +1,5 @@
-from typing import List
 from dataclasses import dataclass, field
+from typing import List
 
 
 @dataclass
@@ -11,7 +11,7 @@ class ScraperResult:
     test_cases: List[str] = field(default_factory=list)
 
     def __init__(self) -> None:
-        self.test_cases = []
+        self.test_cases: list = []
 
     def __repr__(self) -> str:
         s = f"""{self.id}. {self.title} ({self.title_slug})\r\n{self.code_definition}"""

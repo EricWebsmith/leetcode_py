@@ -7,7 +7,7 @@ class Solution:
         j = 0
         k = 0
 
-        ans = []
+        ans: list = []
         for i in range(len(arr1)):
             while j < len(arr2) and arr2[j] < arr1[i]:
                 j += 1

@@ -5,7 +5,7 @@ from typing import List
 
 class Solution:
 
-    def __init__(self, n: int, blocklist: List[int]):
+    def __init__(self, n: int, blocklist: List[int]) -> None:
         blocklist.sort()
         self.n = n
         self.blocklist = blocklist

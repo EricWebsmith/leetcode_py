@@ -11,7 +11,7 @@ class Solution:
         for i in range(1, n):
             acc.append(acc[i-1]+nums[i])
 
-        ans = []
+        ans: list = []
         for q in queries:
             index = bisect_right(acc, q)
             if index == 0:

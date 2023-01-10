@@ -34,7 +34,7 @@ class Solution:
                 next_fee = passingFees[next_city]
                 previous_fee, previous_time = dp[next_city]
                 if fee + next_fee < previous_fee or time+next_time < previous_time:
-                    heappush(q, [fee+next_fee, time+next_time, next_city])
+                    heappush(q, [fee+next_fee, time+next_time, next_city])  # type: ignore
                     dp[next_city] = [fee+next_fee, time+next_time]
 
         return -1

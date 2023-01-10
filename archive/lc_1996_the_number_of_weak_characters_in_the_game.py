@@ -12,7 +12,7 @@ class Solution:
             print(i)
             post_max_defence[i] = max(post_max_defence[i+1], properties[i][1])
 
-        next_attack_at = {}
+        next_attack_at = dict()
         for i in range(1, n):
             if properties[i-1][0] < properties[i][0]:
                 next_attack_at[properties[i-1][0]] = i

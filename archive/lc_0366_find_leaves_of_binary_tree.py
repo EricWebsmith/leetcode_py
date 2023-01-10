@@ -6,8 +6,8 @@ from data_structure.binary_tree import TreeNode, array_to_treenode
 
 class Solution:
 
-    def __init__(self):
-        self.dict = {}
+    def __init__(self) -> None:
+        self.dict: dict = dict()
 
     def dfs(self, node: Optional[TreeNode]) -> int:
         if node is None:
@@ -25,7 +25,7 @@ class Solution:
         self.dfs(root)
         keys = [k for k in self.dict.keys()]
         keys.sort()
-        ans = []
+        ans: list = []
         for key in keys:
             ans.append(self.dict[key])
 

@@ -10,9 +10,9 @@ class Solution:
 
         changed.sort()
 
-        original = []
+        original: list = []
         original_index = 0
-        double = []
+        double: list = []
         for v in changed:
             if original and original_index < len(original) and original[original_index] * 2 == v:
                 double.append(v)

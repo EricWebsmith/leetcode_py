@@ -73,7 +73,7 @@ class Solution:
             if new_dsu.e == n-1 and new_mst == mst:
                 pseudo_critical.add(pseudo_critical_index)
 
-        critical = []
+        critical: list = []
         for critical_index in pseudo_critical:
             new_mst = 0
             new_dsu = DSU(n)

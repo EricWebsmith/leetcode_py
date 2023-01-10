@@ -20,11 +20,11 @@ class Solution:
                 next_dist = d + v_to_next
                 if next_dist < distances_to_last_node[next_v]:
                     distances_to_last_node[next_v] = next_dist
-                    heappush(q, (next_dist, next_v))
+                    heappush(q, (next_dist, next_v))  # type: ignore
 
         print(distances_to_last_node)
 
-        cache = {}
+        cache = dict()
 
         def dfs(v):
             if v == n - 1:
