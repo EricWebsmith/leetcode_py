@@ -19,7 +19,7 @@ class CodeGeneratorDesignStrategy(CodeGeneratorStrategy):
         type_changing_code = ''
         for param in scraper.function_params:
             if param.type == 'Optional[TreeNode]' or param.type == 'TreeNode':
-                test_function_parameters += f'{param.name}_arr: List[int], '
+                test_function_parameters += f'{param.name}_arr: list[int], '
                 type_changing_code += f'    {param.name} = array_to_treenode({param.name}_arr)'
             else:
                 test_function_parameters += f'{param.name}: {param.type}, '
@@ -35,7 +35,7 @@ class CodeGeneratorDesignStrategy(CodeGeneratorStrategy):
             cases += case
 
         scraper.test_function_code = f"""
-def test(testObj: unittest.TestCase, actions:List, params:List , expected:List) -> None:
+def test(testObj: unittest.TestCase, actions:list, params:list , expected:list) -> None:
     n = len(actions)
     obj = {scraper.classname}(*params[0])
     print('------------test case-----------')

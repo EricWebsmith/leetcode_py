@@ -25,10 +25,10 @@ class CodeGenerator:
         # common
         self.function_name = ''
         # design
-        self.function_names: List[str] = []
+        self.function_names: list[str] = []
         self.typed_param_str = ''
         self.untyped_param_str = ''
-        self.function_params: List[Parameter] = []
+        self.function_params: list[Parameter] = []
         self.function_return_type = ''
         self.definition_for = ''
         self.test_function_code = ''
@@ -127,7 +127,7 @@ class CodeGenerator:
         self.code = f"""from heapq import heappop, heappush
 import unittest
 from functools import cache
-from typing import List, Optional, Dict, Set, Any
+from typing import Optional, Dict, Set, Any
 from math import sqrt
 from collections import deque, defaultdict
 from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array

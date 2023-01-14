@@ -38,13 +38,13 @@ class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
         type_changing_code = ''
         for param in scraper.function_params:
             if param.type == 'Optional[TreeNode]' or param.type == 'TreeNode':
-                test_function_parameters += f'{param.name}_arr: List[int], '
+                test_function_parameters += f'{param.name}_arr: list[int], '
                 type_changing_code += f'    {param.name} = array_to_treenode({param.name}_arr)\r\n'
             elif param.type == 'Optional[Node]' or param.type == 'Node':
-                test_function_parameters += f'{param.name}_arr: List[int], '
+                test_function_parameters += f'{param.name}_arr: list[int], '
                 type_changing_code += f'    {param.name} = array_to_node({param.name}_arr)\r\n'
             elif param.type == 'Optional[ListNode]' or param.type == 'ListNode':
-                test_function_parameters += f'{param.name}_arr: List[int], '
+                test_function_parameters += f'{param.name}_arr: list[int], '
                 type_changing_code += f'    {param.name} = array_to_listnode({param.name}_arr)\r\n'
             else:
                 test_function_parameters += f'{param.name}: {param.type}, '
