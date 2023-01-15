@@ -2,6 +2,10 @@ from code_generator_protocol import CodeGeneratorProtocol
 from code_generator_strategy import CodeGeneratorStrategy
 from parameter import Parameter
 
+TREENODE_AND_OPTIONAL_TYPES = ['Optional[TreeNode]', 'TreeNode | None', 'TreeNode']
+NODE_AND_OPTIONAL_TYPES = ['Optional[Node]', 'Node | None', 'Node']
+LISTNODE_AND_OPTIONAL_TYPES = ['Optional[ListNode]', 'ListNode | None', 'ListNode']
+
 
 class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
     def parse_function_code(self, scraper: CodeGeneratorProtocol):
@@ -37,42 +41,40 @@ class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
         test_function_parameters = ''
         type_changing_code = ''
         for param in scraper.function_params:
-            if param.type == 'Optional[TreeNode]' or param.type == 'TreeNode':
+            if param.type in TREENODE_AND_OPTIONAL_TYPES:
                 test_function_parameters += f'{param.name}_arr: list[int], '
                 type_changing_code += f'    {param.name} = array_to_treenode({param.name}_arr)\r\n'
-            elif param.type == 'Optional[Node]' or param.type == 'Node':
+            elif param.type in NODE_AND_OPTIONAL_TYPES:
                 test_function_parameters += f'{param.name}_arr: list[int], '
                 type_changing_code += f'    {param.name} = array_to_node({param.name}_arr)\r\n'
-            elif param.type == 'Optional[ListNode]' or param.type == 'ListNode':
+            elif param.type in LISTNODE_AND_OPTIONAL_TYPES:
                 test_function_parameters += f'{param.name}_arr: list[int], '
                 type_changing_code += f'    {param.name} = array_to_listnode({param.name}_arr)\r\n'
             else:
                 test_function_parameters += f'{param.name}: {param.type}, '
         test_function_parameters = test_function_parameters.strip().strip(',')
         type_changing_code = type_changing_code.strip()
+        if type_changing_code:
+            type_changing_code += '\r\n    '
 
         return_type_changing_code = ''
-        if scraper.function_return_type in ['Optional[TreeNode]', 'TreeNode']:
+        if scraper.function_return_type in TREENODE_AND_OPTIONAL_TYPES:
             return_type_changing_code = 'actual = treenode_to_array(actual_root)'
-        elif scraper.function_return_type in ['Optional[Node]', 'Node']:
+        elif scraper.function_return_type in NODE_AND_OPTIONAL_TYPES:
             return_type_changing_code = 'actual = node_to_array(actual_root)'
-        elif scraper.function_return_type in ['Optional[ListNode]', 'ListNode']:
+        elif scraper.function_return_type in LISTNODE_AND_OPTIONAL_TYPES:
             return_type_changing_code = 'actual = listnode_to_array(actual_root)'
 
-        actual_code = f"""
-    actual = so.{scraper.function_name}({scraper.untyped_param_str})
-"""
+        actual_code = f'actual = so.{scraper.function_name}({scraper.untyped_param_str})'
         if return_type_changing_code:
-            actual_code = f"""
-    actual_root = so.{scraper.function_name}({scraper.untyped_param_str})
-    {return_type_changing_code}
-"""
+            actual_code = '\r\n'.join([
+                f"actual_root = so.{scraper.function_name}({scraper.untyped_param_str})",
+                "    {return_type_changing_code}"])
 
-        scraper.test_function_code = f"""
-
-def test(testObj: unittest.TestCase, {test_function_parameters}, expected:{scraper.function_return_type}) -> None:
-    {type_changing_code}
-    so = Solution()
-    {actual_code}
-    testObj.assertEqual(actual, expected)
-"""
+        scraper.test_function_code = '\r\n'.join([
+            '',
+            f'def test(testObj: unittest.TestCase, {test_function_parameters}, expected:{scraper.function_return_type}) -> None:',
+            f'    {type_changing_code}so = Solution()',
+            f'    {actual_code}',
+            f'    testObj.assertEqual(actual, expected)',
+            ''])

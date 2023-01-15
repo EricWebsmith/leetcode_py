@@ -34,16 +34,15 @@ class CodeGeneratorDesignStrategy(CodeGeneratorStrategy):
             """
             cases += case
 
-        scraper.test_function_code = f"""
-def test(testObj: unittest.TestCase, actions:list, params:list , expected:list) -> None:
-    n = len(actions)
-    obj = {scraper.classname}(*params[0])
-    print('------------test case-----------')
-    for i in range(1, n):
-        print(i, actions[i], params[i], expected[i])
-    print('-------done-------------')
-    for i in range(1, n):
-        print(i, actions[i], params[i], expected[i])
-        match actions[i]:
-            {cases}
-        """
+        scraper.test_function_code = '\r\n'.join([
+            "def test(testObj: unittest.TestCase, actions:list, params:list , expected:list) -> None:",
+            "    n = len(actions)",
+            f"    obj = {scraper.classname}(*params[0])",
+            "    print('------------test case-----------')",
+            "    for i in range(1, n):",
+            "        print(i, actions[i], params[i], expected[i])",
+            "    print('-------done-------------')",
+            "    for i in range(1, n):",
+            "        print(i, actions[i], params[i], expected[i])",
+            "        match actions[i]:",
+            f"            {cases}",])

@@ -3,7 +3,6 @@ import re
 
 def fix_type(type: str) -> str:
     """make the type 3.10 style"""
-    print(type)
     fixed_type = type
     fixed_type = fixed_type.replace('List[', 'list[')
     fixed_type = re.sub(r'Optional\[([A-Za-z]+)\]', r'\1 | None', fixed_type)

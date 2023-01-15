@@ -124,32 +124,32 @@ class CodeGenerator:
         self.classname = self.code_definition[class_at+6:colon_at]
 
     def generate_code(self):
-        self.code = f"""from heapq import heappop, heappush
-import unittest
-from functools import cache
-from typing import Optional, Dict, Set, Any
-from math import sqrt
-from collections import deque, defaultdict
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
-from data_structure.nary_tree import Node, array_to_node, node_to_array
-from data_structure.link_list import ListNode, listnode_to_array, array_to_listnode
-null = None
-
-{self.code_definition}
-        pass
-
-{self.test_function_code}
-
-class TestClass(unittest.TestCase):
-    {self.test_case_code}
-
-if __name__ == '__main__':
-    unittest.main()
-
-'''
-
-'''
-"""
+        self.code = '\r\n'.join([
+            'from heapq import heappop, heappush',
+            'import unittest',
+            'from functools import cache',
+            'from collections import deque, defaultdict',
+            'from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array',
+            'from data_structure.nary_tree import Node, array_to_node, node_to_array',
+            'from data_structure.link_list import ListNode, listnode_to_array, array_to_listnode',
+            '',
+            '',
+            f'{self.code_definition}',
+            '        pass',
+            '',
+            f'{self.test_function_code}',
+            '',
+            'class TestClass(unittest.TestCase):',
+            f'    {self.test_case_code}',
+            '',
+            "if __name__ == '__main__':",
+            "    unittest.main()",
+            '',
+            '',
+            "'''",
+            '',
+            "'''",
+            ''])
 
 
 if __name__ == '__main__':
@@ -157,19 +157,20 @@ if __name__ == '__main__':
     result.id = '2413'
     result.title = 'Smallest Even Multiple'
     result.title_slug = 'smallest-even-multiple'
-    result.code_definition = """
-class Solution:
-    def smallestEvenMultiple(self, n: int) -> int:
-    """
-    result.test_cases = ["""
-Input: n = 5
-Output: 10
-Explanation: The smallest multiple of both 5 and 2 is 10.
-    """, """
-Input: n = 6
-Output: 6
-Explanation: The smallest multiple of both 6 and 2 is 6. Note that a number is a multiple of itself.
-    """]
+    result.code_definition = '\r\n'.join([
+        "class Solution:",
+        "    def smallestEvenMultiple(self, n: int) -> int:"
+    ])
+
+    result.test_cases = [
+        '\r\n'.join([
+            'Input: n = 5',
+            'Output: 10',
+            'Explanation: The smallest multiple of both 5 and 2 is 10.']),
+        '\r\n'.join([
+            'Input: n = 6',
+            'Output: 6',
+            'Explanation: The smallest multiple of both 6 and 2 is 6. Note that a number is a multiple of itself.'])]
     cg = CodeGenerator(result, 'COMMON')
     cg()
     print(cg.code)
