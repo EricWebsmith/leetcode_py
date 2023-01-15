@@ -3,6 +3,10 @@ from code_generator_strategy import CodeGeneratorStrategy
 
 
 class CodeGeneratorDesignStrategy(CodeGeneratorStrategy):
+    def __init__(self) -> None:
+
+        super().__init__()
+
     def parse_function_code(self, scraper: CodeGeneratorProtocol):
 
         def_at = scraper.code_definition.find('def ')
@@ -27,17 +31,18 @@ class CodeGeneratorDesignStrategy(CodeGeneratorStrategy):
 
         cases = '\n'
         for function_name in scraper.function_names:
-            case = f"""
-            case "{function_name}":
-                actual = obj.{function_name}(*params[i])
-                testObj.assertEqual(actual, expected[i])
-            """
+            case = '\r\n'.join([
+                f'            case "{function_name}":'
+                f'                actual = obj.{function_name}(*params[i])'
+                '                testObj.assertEqual(actual, expected[i])'
+                ''])
+
             cases += case
 
         scraper.test_function_code = '\r\n'.join([
-            "def test(testObj: unittest.TestCase, actions:list, params:list , expected:list) -> None:",
-            "    n = len(actions)",
-            f"    obj = {scraper.classname}(*params[0])",
+            'def test(testObj: unittest.TestCase, actions:list, params:list , expected:list) -> None:',
+            '    n = len(actions)',
+            f'    obj = {scraper.classname}(*params[0])',
             "    print('------------test case-----------')",
             "    for i in range(1, n):",
             "        print(i, actions[i], params[i], expected[i])",

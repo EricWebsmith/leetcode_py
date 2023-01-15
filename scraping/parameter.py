@@ -21,3 +21,14 @@ class Parameter:
     @type.setter
     def type(self, type: str) -> None:
         self._type = fix_type(type)
+
+    @classmethod
+    def from_code(cls, parameter_code: str) -> 'Parameter':
+        parameter_code.strip()
+        if parameter_code == 'self':
+            return Parameter('self', '')
+        elif ':' not in parameter_code:
+            return Parameter(parameter_code, 'any')
+        else:
+            name, ptype = parameter_code.split(':')
+            return Parameter(name, ptype)

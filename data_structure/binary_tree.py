@@ -1,5 +1,4 @@
 from collections import deque
-from typing import List, Optional
 
 
 class TreeNode:
@@ -12,7 +11,7 @@ class TreeNode:
         return str(self.val)
 
 
-def array_to_treenode(arr: List[int]) -> TreeNode | None:
+def array_to_treenode(arr: list[int]) -> TreeNode | None:
     if not arr:
         return None
     root = TreeNode(arr[0])
@@ -29,7 +28,7 @@ def array_to_treenode(arr: List[int]) -> TreeNode | None:
     return root
 
 
-def treenode_to_array(root: Optional[TreeNode]) -> List[int]:
+def treenode_to_array(root: TreeNode | None) -> list[int]:
     q = deque([root])
     arr: list = []
     while q:
@@ -65,7 +64,7 @@ def get_treenode_by_val(root: TreeNode, val: int):
     return ans
 
 
-def get_treenodes_by_vals(root: TreeNode, vals: List[int]):
+def get_treenodes_by_vals(root: TreeNode, vals: list[int]):
     ans: list = []
 
     def dfs(node):

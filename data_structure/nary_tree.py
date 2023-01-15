@@ -1,5 +1,4 @@
-from queue import Queue
-from typing import List
+from collections import deque
 
 
 class Node:
@@ -11,41 +10,41 @@ class Node:
         return str(self.val)
 
 
-def node_to_array(root: Node) -> List[int]:
-    q = Queue[Node]()
+def node_to_array(root: Node) -> list[int]:
+    q = deque[Node]()
 
     q.put(root)
     arr = [root.val, None]
-    qSize = q.qsize()
+    qSize = len(q)
     while qSize > 0:
         for i in range(qSize):
-            n: Node = q.get()
+            n: Node = q.popleft()
 
             for child in n.children:
                 arr.append(child.val)
-                q.put(child)
+                q.append(child)
             arr.append(None)
-        qSize = q.qsize()
+        qSize = len(q)
     # trim
     while arr[-1] is None:
         arr = arr[:-1]
     return arr
 
 
-def array_to_node(arr: List[int]) -> Node:
-    q = Queue[Node]()
+def array_to_node(arr: list[int]) -> Node:
+    q = deque[Node]()
     root = Node(arr[0])
-    q.put(root)
-    qSize = q.qsize()
+    q.append(root)
+    qSize = len(q)
     index = 2
     while qSize > 0 and index < len(arr):
         for i in range(qSize):
-            n: Node = q.get()
+            n: Node = q.popleft()
             while index < len(arr) and arr[index] is not None:
                 subNode = Node(arr[index])
                 n.children.append(subNode)
-                q.put(subNode)
+                q.append(subNode)
                 index += 1
             index += 1
-        qSize = q.qsize()
+        qSize = len(q)
     return root
