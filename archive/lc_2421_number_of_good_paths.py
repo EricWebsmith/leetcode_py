@@ -1,6 +1,5 @@
 import unittest
 from collections import Counter, defaultdict
-from typing import List
 
 
 class DSU:
@@ -28,7 +27,7 @@ class DSU:
 
 
 class Solution:
-    def numberOfGoodPaths(self, vals: List[int], edges: List[List[int]]) -> int:
+    def numberOfGoodPaths(self, vals: list[int], edges: list[list[int]]) -> int:
         n = len(vals)
         uf = DSU(n)
         e = defaultdict(list)
@@ -59,7 +58,7 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, vals: List[int], edges: List[List[int]], expected: int) -> None:
+def test(testObj: unittest.TestCase, vals: list[int], edges: list[list[int]], expected: int) -> None:
     so = Solution()
     actual = so.numberOfGoodPaths(vals, edges)
     testObj.assertEqual(actual, expected)
@@ -81,6 +80,8 @@ if __name__ == '__main__':
     unittest.main()
 
 '''
-Runtime: 2031 ms, faster than 69.23%
-Memory Usage: 31.9 MB, less than 38.46%
+Runtime
+2031 ms
+Beats
+94.13%
 '''

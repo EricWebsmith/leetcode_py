@@ -1,10 +1,9 @@
 import re
-from typing import List
 
 from code_generator_strategy import CodeGeneratorStrategy
 from code_generator_strategy_common import CodeGeneratorCommonStrategy
 from code_generator_strategy_design import CodeGeneratorDesignStrategy
-from parameter import Parameter
+from parameter import Parameter, fix_type
 from scraper_result import ScraperResult
 
 DESIGN = 'DESIGN'
@@ -116,9 +115,10 @@ class CodeGenerator:
             if not is_comment and not line.startswith('"""') and not line.startswith('#'):
                 code_definition += line + '\n'
 
-        self.code_definition = code_definition
+        self.code_definition = fix_type(code_definition)
 
     def get_classname(self):
+        print(self.code_definition)
         class_at = self.code_definition.index('class')
         colon_at = self.code_definition.index(':', class_at)
         self.classname = self.code_definition[class_at+6:colon_at]
