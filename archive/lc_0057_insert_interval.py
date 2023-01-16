@@ -1,25 +1,25 @@
 import unittest
-from typing import List
+from bisect import bisect_left, bisect_right
 
 
 class Solution:
-    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
-        ans: List[List[int]] = []
-        for i, interval in enumerate(intervals):
-            if interval[1] < newInterval[0]:
-                ans.append(interval)
-            elif interval[0] > newInterval[1]:
-                return ans + [newInterval] + intervals[i:]
-            else:
-                newInterval[0] = min(interval[0], newInterval[0])
-                newInterval[1] = max(interval[1], newInterval[1])
+    def insert(self, intervals: list[list[int]], newInterval: list[int]) -> list[list[int]]:
+        n = len(intervals)
+        newStart, newEnd = newInterval
+        left = bisect_left(intervals, x=newStart, key=lambda interval: interval[1])
+        if left < n and intervals[left][0] <= newEnd:
+            newStart = min(intervals[left][0], newStart)
+            newEnd = max(intervals[left][1], newEnd)
 
-        return ans + [newInterval]
+        right = bisect_right(intervals, x=newEnd, key=lambda interval: interval[0]) - 1
+        if right > 0 and intervals[right][1] >= newStart:
+            newStart = min(intervals[right][0], newStart)
+            newEnd = max(intervals[right][1], newEnd)
+
+        return intervals[:left] + [[newStart, newEnd]] + intervals[right+1:]
 
 
-def test(testObj: unittest.TestCase, intervals: List[List[int]],
-         newInterval: List[int], expected: List[List[int]]) -> None:
-
+def test(testObj: unittest.TestCase, intervals: list[list[int]], newInterval: list[int], expected: list[list[int]]) -> None:
     so = Solution()
     actual = so.insert(intervals, newInterval)
     testObj.assertEqual(actual, expected)
@@ -27,30 +27,26 @@ def test(testObj: unittest.TestCase, intervals: List[List[int]],
 
 class TestClass(unittest.TestCase):
 
-    # overlap with one / left
     def test_1(self):
         test(self,   [[1, 3], [6, 9]],  [2, 5], [[1, 5], [6, 9]])
 
-    # overlap with two
     def test_2(self):
-        test(self,   [[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]],
-             [4, 8], [[1, 2], [3, 10], [12, 16]])
+        test(self,   [[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]],  [4, 8], [[1, 2], [3, 10], [12, 16]])
 
-    # in the middle, no overlap
     def test_3(self):
-        test(self,   [[1, 3], [6, 9]],  [4, 5], [[1, 3], [4, 5], [6, 9]])
+        test(self,   [],  [5, 7], [[5, 7]])
 
-    # overlap with one / right
     def test_4(self):
-        test(self,   [[1, 3], [6, 9]],  [5, 7], [[1, 3], [5, 9]])
+        test(self,   [[1, 5]],  [0, 1], [[0, 5]])
 
 
 if __name__ == '__main__':
     unittest.main()
 
+
 '''
 Runtime
-86 ms
+80 ms
 Beats
-92.18%
+91.29%
 '''
