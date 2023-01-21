@@ -1,11 +1,9 @@
-
 import unittest
 from collections import defaultdict
 from typing import List
 
 
 class SnapshotArray:
-
     def __init__(self, length: int) -> None:
         self.cur_snap_id = 0
         self.snaps: dict = defaultdict(list)
@@ -18,7 +16,7 @@ class SnapshotArray:
 
     def snap(self) -> int:
         self.cur_snap_id += 1
-        return self.cur_snap_id-1
+        return self.cur_snap_id - 1
 
     def get(self, index: int, snap_id: int) -> int:
         if snap_id > self.cur_snap_id:
@@ -42,7 +40,9 @@ class SnapshotArray:
         return self.snaps[index][left][1]
 
 
-def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
+def test(
+    testObj: unittest.TestCase, actions: List, params: List, expected: List
+) -> None:
     n = len(actions)
     obj = SnapshotArray(params[0][0])
     for i in range(1, n):
@@ -60,17 +60,32 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self, ["SnapshotArray", "set", "snap", "set", "get"], [
-             [3], [0, 5], [], [0, 6], [0, 0]], [None, None, 0, None, 5])
+        test(
+            self,
+            ["SnapshotArray", "set", "snap", "set", "get"],
+            [[3], [0, 5], [], [0, 6], [0, 0]],
+            [None, None, 0, None, 5],
+        )
 
     def test_2(self):
-        test(self, ["SnapshotArray", "set", "snap", "snap", "snap", "get", "snap", "snap", "get"],
-             [[1], [0, 15], [], [], [], [0, 2], [], [], [0, 0]],
-             [None, None, 0, 1, 2, 15, 3, 4, 15]
-             )
+        test(
+            self,
+            [
+                "SnapshotArray",
+                "set",
+                "snap",
+                "snap",
+                "snap",
+                "get",
+                "snap",
+                "snap",
+                "get",
+            ],
+            [[1], [0, 15], [], [], [], [0, 2], [], [], [0, 0]],
+            [None, None, 0, 1, 2, 15, 3, 4, 15],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

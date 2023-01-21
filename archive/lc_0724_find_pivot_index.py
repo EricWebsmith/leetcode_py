@@ -24,26 +24,25 @@ def test(testObj: unittest.TestCase, nums: List[int], expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 7, 3, 6, 5, 6], 3)
+        test(self, [1, 7, 3, 6, 5, 6], 3)
 
     def test_2(self):
-        test(self,   [1, 2, 3], -1)
+        test(self, [1, 2, 3], -1)
 
     def test_3(self):
-        test(self,   [2, 1, -1], 0)
+        test(self, [2, 1, -1], 0)
 
     def test_4(self):
-        test(self,   [2], 0)
+        test(self, [2], 0)
 
     def test_5(self):
-        test(self,   [-1, -1, -1, -1, -1, 0], 2)
+        test(self, [-1, -1, -1, -1, -1, 0], 2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 184ms, 82.35%
-'''
+"""

@@ -18,8 +18,9 @@ class Solution:
 
         # this is just for one building to reach to other cells
         def bfs(nr, nc):
-            visited = [[False for c in range(n)]
-                       for r in range(m)]  # just for this node
+            visited = [
+                [False for c in range(n)] for r in range(m)
+            ]  # just for this node
 
             visited[nr][nc] = True
             # accessible buildings from this building (include itself)
@@ -49,11 +50,20 @@ class Solution:
         for x in range(m):
             for y in range(n):
                 if grid[x][y] == 1:
-                    if not bfs(x, y):  # if any build cannot reach the other build, return false
+                    if not bfs(
+                        x, y
+                    ):  # if any build cannot reach the other build, return false
                         return -1
 
-        return min([dist_grid[i][j] for i in range(m) for j in range(n)
-                    if grid[i][j] == 0 and access_grid[i][j] == n_buildings] or [-1])
+        return min(
+            [
+                dist_grid[i][j]
+                for i in range(m)
+                for j in range(n)
+                if grid[i][j] == 0 and access_grid[i][j] == n_buildings
+            ]
+            or [-1]
+        )
 
 
 def test(testObj: unittest.TestCase, grid: List[List[int]], expected: int) -> None:
@@ -66,21 +76,20 @@ def test(testObj: unittest.TestCase, grid: List[List[int]], expected: int) -> No
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[1, 0, 2, 0, 1], [0, 0, 0, 0, 0], [0, 0, 1, 0, 0]], 7)
+        test(self, [[1, 0, 2, 0, 1], [0, 0, 0, 0, 0], [0, 0, 1, 0, 0]], 7)
 
     def test_2(self):
-        test(self,   [[1, 0]], 1)
+        test(self, [[1, 0]], 1)
 
     def test_3(self):
-        test(self,   [[1]], -1)
+        test(self, [[1]], -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 2009 ms, faster than 99.92%
 Memory Usage: 14.2 MB, less than 94.69%
-'''
+"""

@@ -43,7 +43,9 @@ def top_sort(edges: Dict[int, Set[int]]) -> List[int]:
 
 
 class Solution:
-    def sortItems(self, n: int, m: int, group: List[int], beforeItems: List[List[int]]) -> List[int]:
+    def sortItems(
+        self, n: int, m: int, group: List[int], beforeItems: List[List[int]]
+    ) -> List[int]:
         # convert individual items to one-item group
         for i in range(n):
             if group[i] == -1:
@@ -80,8 +82,14 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, n: int, m: int, group: List[int],
-         beforeItems: List[List[int]], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase,
+    n: int,
+    m: int,
+    group: List[int],
+    beforeItems: List[List[int]],
+    expected: int,
+) -> None:
 
     so = Solution()
     actual = so.sortItems(n, m, group, beforeItems)
@@ -89,24 +97,41 @@ def test(testObj: unittest.TestCase, n: int, m: int, group: List[int],
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   8,  2,  [-1, -1, 1, 0, 0, 1, 0, -1],  [[], [6],
-             [5], [6], [3, 6], [], [], []], [7, 0, 5, 2, 6, 3, 4, 1])
+        test(
+            self,
+            8,
+            2,
+            [-1, -1, 1, 0, 0, 1, 0, -1],
+            [[], [6], [5], [6], [3, 6], [], [], []],
+            [7, 0, 5, 2, 6, 3, 4, 1],
+        )
 
     def test_2(self):
-        test(self,   8,  2,  [-1, -1, 1, 0, 0, 1, 0, -1],
-             [[], [6], [5], [6], [3], [], [4], []], [])
+        test(
+            self,
+            8,
+            2,
+            [-1, -1, 1, 0, 0, 1, 0, -1],
+            [[], [6], [5], [6], [3], [], [4], []],
+            [],
+        )
 
     def test_3(self):
-        test(self,   5, 5, [2, 0, -1, 3, 0],
-             [[2, 1, 3], [2, 4], [], [], []], [2, 3, 4, 1, 0])
+        test(
+            self,
+            5,
+            5,
+            [2, 0, -1, 3, 0],
+            [[2, 1, 3], [2, 4], [], [], []],
+            [2, 3, 4, 1, 0],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 538 ms, faster than 77.30%
 Memory Usage: 46.6 MB, less than 16.22%
-'''
+"""

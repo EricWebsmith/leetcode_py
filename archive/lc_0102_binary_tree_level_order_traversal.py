@@ -29,7 +29,9 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], expected: List[List[int]]) -> None:
+def test(
+    testObj: unittest.TestCase, root_arr: List[int], expected: List[List[int]]
+) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
     actual = so.levelOrder(root)
@@ -37,23 +39,22 @@ def test(testObj: unittest.TestCase, root_arr: List[int], expected: List[List[in
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [3, 9, 20, None, None, 15, 7], [[3], [9, 20], [15, 7]])
+        test(self, [3, 9, 20, None, None, 15, 7], [[3], [9, 20], [15, 7]])
 
     def test_2(self):
-        test(self,   [1], [[1]])
+        test(self, [1], [[1]])
 
     def test_3(self):
-        test(self,   [], [])
+        test(self, [], [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 56 ms
 Beats
 73.4%
-'''
+"""

@@ -1,4 +1,3 @@
-
 import unittest
 
 
@@ -34,21 +33,20 @@ def test(testObj: unittest.TestCase, source: str, target: str, expected: int) ->
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "abc",  "abcbc", 2)
+        test(self, "abc", "abcbc", 2)
 
     def test_2(self):
-        test(self,   "abc",  "acdbc", -1)
+        test(self, "abc", "acdbc", -1)
 
     def test_3(self):
-        test(self,   "xyz",  "xzyxz", 3)
+        test(self, "xyz", "xzyxz", 3)
 
     def test_4(self):
-        test(self,   "aaaaa", "aaaaaaaaaaaaa", 3)
+        test(self, "aaaaa", "aaaaaaaaaaaaa", 3)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 

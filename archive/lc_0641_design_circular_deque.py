@@ -9,7 +9,6 @@ class Node:
 
 
 class MyCircularDeque:
-
     def __init__(self, k: int) -> None:
         self.k = k
         self.first: Node | None = None
@@ -104,9 +103,11 @@ class MyCircularDeque:
         return self.size == self.k
 
 
-def test(testObj: unittest.TestCase, actions: list, params: list, expected: list) -> None:
+def test(
+    testObj: unittest.TestCase, actions: list, params: list, expected: list
+) -> None:
     n = len(actions)
-    print(0, '__init__', params[0])
+    print(0, "__init__", params[0])
     obj = MyCircularDeque(*params[0])
     for i in range(1, n):
         print(i, actions[i], params[i], expected[i])
@@ -146,26 +147,51 @@ def test(testObj: unittest.TestCase, actions: list, params: list, expected: list
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,
-             ["MyCircularDeque", "insertLast", "insertLast", "insertFront", "insertFront",
-              "getRear", "isFull", "deleteLast", "insertFront", "getFront"],
-             [[3], [1], [2], [3], [4], [], [], [], [4], []],
-             [None, True, True, True, False, 2, True, True, True, 4])
+        test(
+            self,
+            [
+                "MyCircularDeque",
+                "insertLast",
+                "insertLast",
+                "insertFront",
+                "insertFront",
+                "getRear",
+                "isFull",
+                "deleteLast",
+                "insertFront",
+                "getFront",
+            ],
+            [[3], [1], [2], [3], [4], [], [], [], [4], []],
+            [None, True, True, True, False, 2, True, True, True, 4],
+        )
 
     def test_2(self):
-        test(self,
-             ["MyCircularDeque", "insertFront", "insertLast", "getFront", "insertLast",
-              "getFront", "insertFront", "getRear", "getFront", "getFront", "deleteLast", "getRear"],
-             [[5], [7], [0], [], [3], [], [9], [], [], [], [], []],
-             [None, True, True, 7, True, 7, True, 3, 9, 9, True, 0])
+        test(
+            self,
+            [
+                "MyCircularDeque",
+                "insertFront",
+                "insertLast",
+                "getFront",
+                "insertLast",
+                "getFront",
+                "insertFront",
+                "getRear",
+                "getFront",
+                "getFront",
+                "deleteLast",
+                "getRear",
+            ],
+            [[5], [7], [0], [], [3], [], [9], [], [], [], [], []],
+            [None, True, True, 7, True, 7, True, 3, 9, 9, True, 0],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 67 ms, faster than 98.39%
 Memory Usage: 15.1 MB, less than 12.88%
-'''
+"""

@@ -4,7 +4,6 @@ from typing import List
 
 
 class ExamRoom:
-
     def __init__(self, n: int) -> None:
         self.n = n
         self.occupied: list = []
@@ -50,9 +49,9 @@ class ExamRoom:
             insort_left(occupied, seat)
             return seat
         else:
-            self._insert_gap(occupied[-1], n-1)
-            occupied.append(n-1)
-            return n-1
+            self._insert_gap(occupied[-1], n - 1)
+            occupied.append(n - 1)
+            return n - 1
 
     def leave(self, p: int) -> None:
         occupied = self.occupied
@@ -64,28 +63,30 @@ class ExamRoom:
         p_at = bisect_left(occupied, p)
         gap_removes: list = []
         if p_at < len(occupied) - 1:
-            left_gap_index = self._find_gap(occupied[p_at], occupied[p_at+1])
+            left_gap_index = self._find_gap(occupied[p_at], occupied[p_at + 1])
             gap_removes.append(left_gap_index)
         if p_at > 0:
-            right_gap_index = self._find_gap(occupied[p_at-1], occupied[p_at])
+            right_gap_index = self._find_gap(occupied[p_at - 1], occupied[p_at])
             gap_removes.append(right_gap_index)
         gap_removes.sort()
         while gap_removes:
             del gaps[gap_removes.pop()]
 
-        if 0 < p_at < len(occupied)-1:
-            self._insert_gap(occupied[p_at-1], occupied[p_at+1])
+        if 0 < p_at < len(occupied) - 1:
+            self._insert_gap(occupied[p_at - 1], occupied[p_at + 1])
 
         del self.occupied[p_at]
 
 
-def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
+def test(
+    testObj: unittest.TestCase, actions: List, params: List, expected: List
+) -> None:
     n = len(actions)
     obj = ExamRoom(*params[0])
-    print('------------test case-----------')
+    print("------------test case-----------")
     for i in range(1, n):
         print(i, actions[i], params[i], expected[i])
-    print('-------done-------------')
+    print("-------done-------------")
     for i in range(1, n):
         print(i, actions[i], params[i], expected[i])
         match actions[i]:
@@ -100,58 +101,99 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
 
 
 class TestClass(unittest.TestCase):
-
     def test_10(self):
-        test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[10], [], [], [], [], [4], []], [None, 0, 9, 4, 2, None, 5])
+        test(
+            self,
+            ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
+            [[10], [], [], [], [], [4], []],
+            [None, 0, 9, 4, 2, None, 5],
+        )
 
     def test_100_0(self):
-        test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[100], [], [], [], [], [0], []], [None, 0, 99, 49, 74, None, 0])
+        test(
+            self,
+            ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
+            [[100], [], [], [], [], [0], []],
+            [None, 0, 99, 49, 74, None, 0],
+        )
 
     def test_100_49(self):
-        test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[100], [], [], [], [], [49], []], [None, 0, 99, 49, 74, None, 37])
+        test(
+            self,
+            ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
+            [[100], [], [], [], [], [49], []],
+            [None, 0, 99, 49, 74, None, 37],
+        )
 
     def test_100_74(self):
-        test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[100], [], [], [], [], [74], []], [None, 0, 99, 49, 74, None, 74])
+        test(
+            self,
+            ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
+            [[100], [], [], [], [], [74], []],
+            [None, 0, 99, 49, 74, None, 74],
+        )
 
     def test_100_99(self):
-        test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[100], [], [], [], [], [99], []], [None, 0, 99, 49, 74, None, 99])
+        test(
+            self,
+            ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
+            [[100], [], [], [], [], [99], []],
+            [None, 0, 99, 49, 74, None, 99],
+        )
 
     def test_1000(self):
-        test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[1000], [], [], [], [], [749], []], [None, 0, 999, 499, 749, None, 749])
+        test(
+            self,
+            ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
+            [[1000], [], [], [], [], [749], []],
+            [None, 0, 999, 499, 749, None, 749],
+        )
 
     def test_10000(self):
-        test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[10000], [], [], [], [], [7499], []], [None, 0, 9999, 4999, 7499, None, 7499])
+        test(
+            self,
+            ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
+            [[10000], [], [], [], [], [7499], []],
+            [None, 0, 9999, 4999, 7499, None, 7499],
+        )
 
     def test_50000(self):
-        test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[50000], [], [], [], [], [37499], []],
-             [None, 0, 49999, 24999, 37499, None, 37499])
+        test(
+            self,
+            ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
+            [[50000], [], [], [], [], [37499], []],
+            [None, 0, 49999, 24999, 37499, None, 37499],
+        )
 
     def test_1000000000(self):
-        test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
-             [[1000000000], [], [], [], [], [749999999], []],
-             [None, 0, 999999999, 499999999, 749999999, None, 749999999])
+        test(
+            self,
+            ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "seat"],
+            [[1000000000], [], [], [], [], [749999999], []],
+            [None, 0, 999999999, 499999999, 749999999, None, 749999999],
+        )
 
     def test_4(self):
-        test(self, ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "leave", "seat"],
-             [[4], [], [], [], [], [1], [3], []], [None, 0, 3, 1, 2, None, None, 1])
+        test(
+            self,
+            ["ExamRoom", "seat", "seat", "seat", "seat", "leave", "leave", "seat"],
+            [[4], [], [], [], [], [1], [3], []],
+            [None, 0, 3, 1, 2, None, None, 1],
+        )
 
     def test_2(self):
-        test(self, ["ExamRoom", "seat", "seat", "leave"],
-             [[2], [], [], [0]], [None, 0, 1, None])
+        test(
+            self,
+            ["ExamRoom", "seat", "seat", "leave"],
+            [[2], [], [], [0]],
+            [None, 0, 1, None],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 174 ms, faster than 66.45%
 Memory Usage: 18.1 MB, less than 52.99%
-'''
+"""

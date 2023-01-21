@@ -11,7 +11,7 @@ class Solution:
     def __init__(self) -> None:
         self.visited: dict = dict()
 
-    def cloneGraph(self, node: 'Node') -> 'Node':
+    def cloneGraph(self, node: "Node") -> "Node":
         if node is None:
             return None
 
@@ -21,13 +21,12 @@ class Solution:
         cloned = Node(node.val, [])
         self.visited[node.val] = cloned
 
-        cloned.neighbors = [self.cloneGraph(
-            neighbor) for neighbor in node.neighbors]
+        cloned.neighbors = [self.cloneGraph(neighbor) for neighbor in node.neighbors]
 
         return cloned
 
 
-def test(testObj: unittest.TestCase, node_arr: list[int], expected: 'Node') -> None:
+def test(testObj: unittest.TestCase, node_arr: list[int], expected: "Node") -> None:
     # node = array_to_node(node_arr)
     # so = Solution()
 
@@ -38,24 +37,22 @@ def test(testObj: unittest.TestCase, node_arr: list[int], expected: 'Node') -> N
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[2, 4], [1, 3], [2, 4], [1, 3]],
-             [[2, 4], [1, 3], [2, 4], [1, 3]])
+        test(self, [[2, 4], [1, 3], [2, 4], [1, 3]], [[2, 4], [1, 3], [2, 4], [1, 3]])
 
     def test_2(self):
-        test(self,   [[]], [[]])
+        test(self, [[]], [[]])
 
     def test_3(self):
-        test(self,   [], [])
+        test(self, [], [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 42 ms
 Beats
 90.97%
-'''
+"""

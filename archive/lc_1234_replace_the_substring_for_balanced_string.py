@@ -13,7 +13,7 @@ class Solution:
     def balancedString(self, s: str) -> int:
         n = len(s)
         avg = n // 4
-        d = {'Q': 0, 'W': 0, 'E': 0, 'R': 0}
+        d = {"Q": 0, "W": 0, "E": 0, "R": 0}
         for c in s:
             d[c] += 1
 
@@ -29,7 +29,7 @@ class Solution:
                 ans = min(ans, right - left + 1)
                 d[s[left]] += 1
                 left += 1
-            elif right < n-1:
+            elif right < n - 1:
                 right += 1
                 d[s[right]] -= 1
             else:
@@ -45,23 +45,22 @@ def test(testObj: unittest.TestCase, s: str, expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "QWER", 0)
+        test(self, "QWER", 0)
 
     def test_2(self):
-        test(self,   "QQWE", 1)
+        test(self, "QQWE", 1)
 
     def test_3(self):
-        test(self,   "QQQW", 2)
+        test(self, "QQQW", 2)
 
     def test_4(self):
-        test(self,   "WWEQERQWQWWRWWERQWEQ", 4)
+        test(self, "WWEQERQWQWWRWWERQWEQ", 4)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 409ms, 68.21%
-'''
+"""

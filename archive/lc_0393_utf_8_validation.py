@@ -16,10 +16,10 @@ class Solution:
         # firstly, we convert int to binary
         # so in the following code, we do not need to worry about this any more.
         _10000000 = 128
-        _11000000 = 128+64
-        _11100000 = 128+64+32
-        _11110000 = 128+64+32+16
-        _11111000 = 128+64+32+16+8
+        _11000000 = 128 + 64
+        _11100000 = 128 + 64 + 32
+        _11110000 = 128 + 64 + 32 + 16
+        _11111000 = 128 + 64 + 32 + 16 + 8
         n = len(data)
         i = 0
         while i < n:
@@ -71,62 +71,61 @@ def test(testObj: unittest.TestCase, data: List[int], expected: bool) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [197, 130, 1], True)
+        test(self, [197, 130, 1], True)
 
     def test_2(self):
-        test(self,   [235, 140, 4], False)
+        test(self, [235, 140, 4], False)
 
     # 0xxxxxxx
     def test_3(self):
-        test(self,   [0, 0, 0], True)
+        test(self, [0, 0, 0], True)
 
     # 110xxxxx 10xxxxxx
     def test_4(self):
-        test(self,   [192, 128], True)
+        test(self, [192, 128], True)
 
     # 111xxxxx 10xxxxxx 10xxxxxx
     def test_5(self):
-        test(self,   [224, 128, 128], True)
+        test(self, [224, 128, 128], True)
 
     # 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
     def test_6(self):
-        test(self,   [240, 128, 128, 128], True)
+        test(self, [240, 128, 128, 128], True)
 
     # 0xxxxxxx false
     def test_7(self):
-        test(self,   [0, 0, 192], False)
+        test(self, [0, 0, 192], False)
 
     # 110xxxxx 10xxxxxx false
     def test_8(self):
-        test(self,   [192, 192], False)
+        test(self, [192, 192], False)
 
     # 111xxxxx 10xxxxxx 10xxxxxx false
     def test_9(self):
-        test(self,   [224, 128, 192], False)
+        test(self, [224, 128, 192], False)
 
     # 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx false
     def test_10(self):
-        test(self,   [240, 128, 128, 192], False)
+        test(self, [240, 128, 128, 192], False)
 
     # 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx false
     def test_11(self):
-        test(self,   [240, 192, 128, 128], False)
+        test(self, [240, 192, 128, 128], False)
 
     # 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx false
     def test_12(self):
-        test(self,   [240, 128, 192, 128], False)
+        test(self, [240, 128, 192, 128], False)
 
     # 0xxxxxxx
     def test_13(self):
-        test(self,   [128, 0, 0], False)
+        test(self, [128, 0, 0], False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 142 ms, faster than 78.65%
 Memory Usage: 14.1 MB, less than 96.64%
-'''
+"""

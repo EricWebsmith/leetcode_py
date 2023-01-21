@@ -14,17 +14,19 @@ class Solution:
             if node == end:
                 return steps
 
-            for c in 'ATCG':
+            for c in "ATCG":
                 for i in range(DNA_LENGTH):
-                    neigbor = node[:i] + c + node[i+1:]
+                    neigbor = node[:i] + c + node[i + 1 :]
                     if neigbor not in seen and neigbor in bank:
-                        q.append((neigbor, steps+1))
+                        q.append((neigbor, steps + 1))
                         seen.add(neigbor)
 
         return -1
 
 
-def test(testObj: unittest.TestCase, start: str, end: str, bank: List[str], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, start: str, end: str, bank: List[str], expected: int
+) -> None:
 
     so = Solution()
     actual = so.minMutation(start, end, bank)
@@ -32,28 +34,25 @@ def test(testObj: unittest.TestCase, start: str, end: str, bank: List[str], expe
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "AACCGGTT",  "AACCGGTA",  ["AACCGGTA"], 1)
+        test(self, "AACCGGTT", "AACCGGTA", ["AACCGGTA"], 1)
 
     def test_2(self):
-        test(self,   "AACCGGTT",  "AAACGGTA",  [
-             "AACCGGTA", "AACCGCTA", "AAACGGTA"], 2)
+        test(self, "AACCGGTT", "AAACGGTA", ["AACCGGTA", "AACCGCTA", "AAACGGTA"], 2)
 
     def test_3(self):
-        test(self,   "AAAAACCC",  "AACCCCCC",  [
-             "AAAACCCC", "AAACCCCC", "AACCCCCC"], 3)
+        test(self, "AAAAACCC", "AACCCCCC", ["AAAACCCC", "AAACCCCC", "AACCCCCC"], 3)
 
     def test_4(self):
-        test(self,   "AACCGGTT",  "AACCGGTA",  [], -1)
+        test(self, "AACCGGTT", "AACCGGTA", [], -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 37 ms
 Beats
 85.21%
-'''
+"""

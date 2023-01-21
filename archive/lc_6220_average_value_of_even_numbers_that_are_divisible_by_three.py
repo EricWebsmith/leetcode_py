@@ -24,17 +24,16 @@ def test(testObj: unittest.TestCase, nums: List[int], expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 3, 6, 10, 12, 15], 9)
+        test(self, [1, 3, 6, 10, 12, 15], 9)
 
     def test_2(self):
-        test(self,   [1, 2, 4, 7, 10], 0)
+        test(self, [1, 2, 4, 7, 10], 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

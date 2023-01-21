@@ -10,7 +10,7 @@ class Solution:
         end = -1
         stars = 0
         while index >= 0:
-            if s[index] == '*':
+            if s[index] == "*":
                 start_removing = True
                 if end == -1:
                     end = index
@@ -18,12 +18,16 @@ class Solution:
             elif start_removing:
                 stars -= 1
 
-            if start_removing and stars == 0 and (index > 0 and s[index-1] != '*' or index == 0):
+            if (
+                start_removing
+                and stars == 0
+                and (index > 0 and s[index - 1] != "*" or index == 0)
+            ):
                 t: list = []
                 if index > 0:
                     t += s[:index]
-                if end < n-1:
-                    t += s[end+1:]
+                if end < n - 1:
+                    t += s[end + 1 :]
                 s = t
                 start_removing = False
                 stars = 0
@@ -41,17 +45,16 @@ def test(testObj: unittest.TestCase, s: str, expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "leet**cod*e", "lecoe")
+        test(self, "leet**cod*e", "lecoe")
 
     def test_2(self):
-        test(self,   "erase*****", "")
+        test(self, "erase*****", "")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

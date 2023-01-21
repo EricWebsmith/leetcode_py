@@ -21,7 +21,6 @@ def test(testObj: unittest.TestCase, courses: List[List[int]], expected: int) ->
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
         test(self, [[100, 200], [200, 1300], [1000, 1250], [2000, 3200]], 3)
 
@@ -32,7 +31,7 @@ class TestStringMethods(unittest.TestCase):
         test(self, [[3, 2], [4, 3]], 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 # Runtime: 741 ms, faster than 91.08%

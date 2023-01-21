@@ -18,7 +18,7 @@ class Solution:
             n = n // 10 + 1
             i += 1
 
-        return n * (10 ** i) - start
+        return n * (10**i) - start
 
 
 def test(testObj: unittest.TestCase, n: int, target: int, expected: int) -> None:
@@ -28,23 +28,22 @@ def test(testObj: unittest.TestCase, n: int, target: int, expected: int) -> None
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   16,  6, 4)
+        test(self, 16, 6, 4)
 
     def test_2(self):
-        test(self,   467,  6, 33)
+        test(self, 467, 6, 33)
 
     def test_3(self):
-        test(self,   1,  1, 0)
+        test(self, 1, 1, 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 54 ms
 Beats
 20%
-'''
+"""

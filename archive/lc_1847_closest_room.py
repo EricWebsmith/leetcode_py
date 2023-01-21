@@ -4,11 +4,14 @@ from typing import List
 
 
 class Solution:
-    def closestRoom(self, rooms: List[List[int]], queries: List[List[int]]) -> List[int]:
+    def closestRoom(
+        self, rooms: List[List[int]], queries: List[List[int]]
+    ) -> List[int]:
         k = len(queries)
         rooms.sort(key=lambda x: x[1])
-        queries = [(room_size, room_id, i)
-                   for i, (room_id, room_size) in enumerate(queries)]
+        queries = [
+            (room_size, room_id, i) for i, (room_id, room_size) in enumerate(queries)
+        ]
         queries.sort()
         ans = [-1] * k
 
@@ -22,16 +25,24 @@ class Solution:
                 continue
 
             index = bisect_right(valid_room_ids, pre_id)
-            if (index == len(valid_room_ids)) or index > 0 and \
-                    pre_id - valid_room_ids[index-1] <= valid_room_ids[index] - pre_id:
-                ans[i] = valid_room_ids[index-1]
+            if (
+                (index == len(valid_room_ids))
+                or index > 0
+                and pre_id - valid_room_ids[index - 1] <= valid_room_ids[index] - pre_id
+            ):
+                ans[i] = valid_room_ids[index - 1]
             else:
                 ans[i] = valid_room_ids[index]
 
         return ans
 
 
-def test(testObj: unittest.TestCase, rooms: List[List[int]], queries: List[List[int]], expected: List[int]) -> None:
+def test(
+    testObj: unittest.TestCase,
+    rooms: List[List[int]],
+    queries: List[List[int]],
+    expected: List[int],
+) -> None:
 
     so = Solution()
 
@@ -41,20 +52,22 @@ def test(testObj: unittest.TestCase, rooms: List[List[int]], queries: List[List[
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[2, 2], [1, 2], [3, 2]],  [
-             [3, 1], [3, 3], [5, 2]], [3, -1, 3])
+        test(self, [[2, 2], [1, 2], [3, 2]], [[3, 1], [3, 3], [5, 2]], [3, -1, 3])
 
     def test_2(self):
-        test(self,   [[1, 4], [2, 3], [3, 5], [4, 1], [5, 2]],
-             [[2, 3], [2, 4], [2, 5]], [2, 1, 3])
+        test(
+            self,
+            [[1, 4], [2, 3], [3, 5], [4, 1], [5, 2]],
+            [[2, 3], [2, 4], [2, 5]],
+            [2, 1, 3],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 2056 ms, faster than 100.00%
 Memory Usage: 66 MB, less than 47.62%
-'''
+"""

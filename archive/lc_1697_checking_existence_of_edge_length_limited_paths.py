@@ -26,7 +26,9 @@ class DSU:
 
 
 class Solution:
-    def distanceLimitedPathsExist(self, n: int, edgeList: list[list[int]], queries: list[list[int]]) -> list[bool]:
+    def distanceLimitedPathsExist(
+        self, n: int, edgeList: list[list[int]], queries: list[list[int]]
+    ) -> list[bool]:
         edgeList.sort(key=lambda x: -x[2])
 
         queries = [(s, d, l, i) for i, (s, d, l) in enumerate(queries)]
@@ -44,33 +46,47 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, n: int, edgeList: list[list[int]],
-         queries: list[list[int]], expected: list[bool]) -> None:
+def test(
+    testObj: unittest.TestCase,
+    n: int,
+    edgeList: list[list[int]],
+    queries: list[list[int]],
+    expected: list[bool],
+) -> None:
     so = Solution()
     actual = so.distanceLimitedPathsExist(n, edgeList, queries)
     testObj.assertEqual(actual, expected)
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   3,  [[0, 1, 2], [1, 2, 4], [2, 0, 8], [
-             1, 0, 16]],  [[0, 1, 2], [0, 2, 5]], [False, True])
+        test(
+            self,
+            3,
+            [[0, 1, 2], [1, 2, 4], [2, 0, 8], [1, 0, 16]],
+            [[0, 1, 2], [0, 2, 5]],
+            [False, True],
+        )
 
     def test_2(self):
-        test(self,   5,  [[0, 1, 10], [1, 2, 5], [2, 3, 9], [3, 4, 13]],  [
-             [0, 4, 14], [1, 4, 13]], [True, False])
+        test(
+            self,
+            5,
+            [[0, 1, 10], [1, 2, 5], [2, 3, 9], [3, 4, 13]],
+            [[0, 4, 14], [1, 4, 13]],
+            [True, False],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 # the spelling is mistaken
 # Exaplanation
 
-'''
+"""
 Runtime
 2675 ms
 Beats
 58.61%
-'''
+"""

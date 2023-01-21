@@ -5,7 +5,6 @@ from typing import List
 
 
 class WordDistance:
-
     def __init__(self, wordsDict: List[str]) -> None:
         self.locations = defaultdict(list)
         for i, w in enumerate(wordsDict):
@@ -29,7 +28,9 @@ class WordDistance:
         return best
 
 
-def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
+def test(
+    testObj: unittest.TestCase, actions: List, params: List, expected: List
+) -> None:
     n = len(actions)
     obj = WordDistance(*params[0])
     for i in range(1, n):
@@ -42,16 +43,23 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self, ["WordDistance", "shortest", "shortest"], [[["practice", "makes", "perfect",
-             "coding", "makes"]], ["coding", "practice"], ["makes", "coding"]], [None, 3, 1])
+        test(
+            self,
+            ["WordDistance", "shortest", "shortest"],
+            [
+                [["practice", "makes", "perfect", "coding", "makes"]],
+                ["coding", "practice"],
+                ["makes", "coding"],
+            ],
+            [None, 3, 1],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 106 ms, faster than 90.05%
 Memory Usage: 22 MB, less than 9.35%
-'''
+"""

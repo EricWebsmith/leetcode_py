@@ -27,11 +27,13 @@ class DSU:
 
 
 class Solution:
-    def minCostToSupplyWater(self, n: int, wells: List[int], pipes: List[List[int]]) -> int:
+    def minCostToSupplyWater(
+        self, n: int, wells: List[int], pipes: List[List[int]]
+    ) -> int:
         n = n + 1
         # connect to well
         for i in range(1, n):
-            pipes.append([0, i, wells[i-1]])
+            pipes.append([0, i, wells[i - 1]])
 
         pipes.sort(key=lambda x: x[2])
         dsu = DSU(n)
@@ -47,7 +49,13 @@ class Solution:
         return -1
 
 
-def test(testObj: unittest.TestCase, n: int, wells: List[int], pipes: List[List[int]], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase,
+    n: int,
+    wells: List[int],
+    pipes: List[List[int]],
+    expected: int,
+) -> None:
 
     so = Solution()
 
@@ -57,18 +65,17 @@ def test(testObj: unittest.TestCase, n: int, wells: List[int], pipes: List[List[
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   3,  [1, 2, 2],  [[1, 2, 1], [2, 3, 1]], 3)
+        test(self, 3, [1, 2, 2], [[1, 2, 1], [2, 3, 1]], 3)
 
     def test_2(self):
-        test(self,   2,  [1, 1],  [[1, 2, 1], [1, 2, 2]], 2)
+        test(self, 2, [1, 1], [[1, 2, 1], [1, 2, 2]], 2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 477 ms, faster than 99.48%
 Memory Usage: 21.3 MB, less than 30.18%
-'''
+"""

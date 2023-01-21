@@ -28,9 +28,9 @@ class Solution:
         dp_right.reverse()
 
         best = 0
-        for i in range(1, n-1):
+        for i in range(1, n - 1):
             if dp_left[i] > 1 and dp_right[i] > 1:
-                best = max(best, dp_left[i]+dp_right[i] - 1)
+                best = max(best, dp_left[i] + dp_right[i] - 1)
 
         return n - best
 
@@ -42,24 +42,23 @@ def test(testObj: unittest.TestCase, nums: List[int], expected: List[int]) -> No
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 3, 1], 0)
+        test(self, [1, 3, 1], 0)
 
     def test_2(self):
-        test(self,   [2, 1, 1, 5, 6, 2, 3, 1], 3)
+        test(self, [2, 1, 1, 5, 6, 2, 3, 1], 3)
 
     def test_3(self):
-        test(self,   [4, 3, 2, 1, 1, 2, 3, 1], 4)
+        test(self, [4, 3, 2, 1, 1, 2, 3, 1], 4)
 
     def test_4(self):
-        test(self,   [9, 8, 1, 7, 6, 5, 4, 3, 2, 1], 2)
+        test(self, [9, 8, 1, 7, 6, 5, 4, 3, 2, 1], 2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 107 ms, faster than 98.33%
 Memory Usage: 14.2 MB, less than 57.74%
-'''
+"""

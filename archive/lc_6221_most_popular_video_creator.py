@@ -5,14 +5,16 @@ from typing import List
 
 @dataclass
 class Creator:
-    name: str = ''
+    name: str = ""
     popularity: int = 0
     movies: List[str] = field(default_factory=lambda: [])
     views: List[int] = field(default_factory=lambda: [])
 
 
 class Solution:
-    def mostPopularCreator(self, creators: List[str], ids: List[str], views: List[int]) -> List[List[str]]:
+    def mostPopularCreator(
+        self, creators: List[str], ids: List[str], views: List[int]
+    ) -> List[List[str]]:
         d = dict()
         creatorObjs: List[Creator] = []
         for cname, m, v in zip(creators, ids, views):
@@ -40,7 +42,7 @@ class Solution:
         ans: list = []
         for best_creator in best_creators:
             movie_most = -1
-            movie = ''
+            movie = ""
             obj: Creator = d[best_creator]
             for i, v in zip(obj.movies, obj.views):
                 if v == movie_most:
@@ -52,8 +54,13 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, creators: List[str], ids: List[str],
-         views: List[int], expected: List[List[str]]) -> None:
+def test(
+    testObj: unittest.TestCase,
+    creators: List[str],
+    ids: List[str],
+    views: List[int],
+    expected: List[List[str]],
+) -> None:
 
     so = Solution()
 
@@ -63,23 +70,31 @@ def test(testObj: unittest.TestCase, creators: List[str], ids: List[str],
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   ["alice", "bob", "alice", "chris"],  [
-             "one", "two", "three", "four"],  [5, 10, 5, 4], [["alice", "one"], ["bob", "two"]])
+        test(
+            self,
+            ["alice", "bob", "alice", "chris"],
+            ["one", "two", "three", "four"],
+            [5, 10, 5, 4],
+            [["alice", "one"], ["bob", "two"]],
+        )
 
     def test_2(self):
-        test(self,   ["alice", "alice", "alice"],  [
-             "a", "b", "c"],  [1, 2, 2], [["alice", "b"]])
+        test(
+            self,
+            ["alice", "alice", "alice"],
+            ["a", "b", "c"],
+            [1, 2, 2],
+            [["alice", "b"]],
+        )
 
     def test_3(self):
-        test(self,   ["a"],  [
-             "a"],  [0], [["a", "a"]])
+        test(self, ["a"], ["a"], [0], [["a", "a"]])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

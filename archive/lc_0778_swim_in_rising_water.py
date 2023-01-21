@@ -46,11 +46,11 @@ class Solution:
 
         dsu = DSU(nn)
         top_left = grid[0][0]
-        bottom_right = grid[n-1][n-1]
+        bottom_right = grid[n - 1][n - 1]
         for depth, (r, c) in enumerate(depth_position_dict):
             for dr, dc in dirs:
-                neighbor_r = r+dr
-                neighbor_c = c+dc
+                neighbor_r = r + dr
+                neighbor_c = c + dc
                 if not validate(neighbor_r, neighbor_c):
                     continue
 
@@ -75,22 +75,30 @@ def test(testObj: unittest.TestCase, grid: List[List[int]], expected: int) -> No
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[0, 2], [1, 3]], 3)
+        test(self, [[0, 2], [1, 3]], 3)
 
     def test_2(self):
-        test(self,   [[0, 1, 2, 3, 4], [24, 23, 22, 21, 5], [
-             12, 13, 14, 15, 16], [11, 17, 18, 19, 20], [10, 9, 8, 7, 6]], 16)
+        test(
+            self,
+            [
+                [0, 1, 2, 3, 4],
+                [24, 23, 22, 21, 5],
+                [12, 13, 14, 15, 16],
+                [11, 17, 18, 19, 20],
+                [10, 9, 8, 7, 6],
+            ],
+            16,
+        )
 
     def test_3(self):
-        test(self,   [[0]], 0)
+        test(self, [[0]], 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 122 ms, faster than 88.35%
 Memory Usage: 14.5 MB, less than 90.64%
-'''
+"""

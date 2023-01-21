@@ -9,7 +9,7 @@ class Solution:
         n = len(s)
 
         dp = [-1] * n
-        dp[n-1] = 1
+        dp[n - 1] = 1
 
         def dfs(index: int):
             if dp[index] != -1:
@@ -18,15 +18,15 @@ class Solution:
             half = (n - index) // 2
 
             ans = 1
-            for i in range(1, half+1):
+            for i in range(1, half + 1):
                 same = True
                 for j in range(i):
-                    if s[index+j] != s[index+i+j]:
+                    if s[index + j] != s[index + i + j]:
                         same = False
                         break
 
                 if same:
-                    ans = max(ans, dfs(index+i) + 1)
+                    ans = max(ans, dfs(index + i) + 1)
                 if ans == n - index:
                     break
 
@@ -46,16 +46,15 @@ def test(testObj: unittest.TestCase, s: str, expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "abcabcdabc", 2)
+        test(self, "abcabcdabc", 2)
 
     def test_2(self):
-        test(self,   "aaabaab", 4)
+        test(self, "aaabaab", 4)
 
     def test_3(self):
-        test(self,   "aaaaa", 5)
+        test(self, "aaaaa", 5)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

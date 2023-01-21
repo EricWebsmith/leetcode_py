@@ -11,27 +11,31 @@ class Solution:
         left = 0
         right = n - 1
 
-        minHeap: List[Tuple] = [(arr[0]/arr[n-1], 0, n-1)]
-        visited.add((0, n-1))
+        minHeap: List[Tuple] = [(arr[0] / arr[n - 1], 0, n - 1)]
+        visited.add((0, n - 1))
 
         while k and left < right and minHeap:
             _, left, right = heappop(minHeap)
             result = [arr[left], arr[right]]
-            if (left+1, right) not in visited:
+            if (left + 1, right) not in visited:
                 heappush(
-                    minHeap, (arr[left+1] / arr[right], left+1, right))  # type: ignore
-                visited.add((left+1, right))
-            if (left, right-1) not in visited:
+                    minHeap, (arr[left + 1] / arr[right], left + 1, right)
+                )  # type: ignore
+                visited.add((left + 1, right))
+            if (left, right - 1) not in visited:
                 heappush(
-                    minHeap, (arr[left] / arr[right-1], left, right-1))  # type: ignore
-                visited.add((left, right-1))
+                    minHeap, (arr[left] / arr[right - 1], left, right - 1)
+                )  # type: ignore
+                visited.add((left, right - 1))
 
             k -= 1
 
         return result
 
 
-def test(testObj: unittest.TestCase, arr: List[int], k: int, expected: List[int]) -> None:
+def test(
+    testObj: unittest.TestCase, arr: List[int], k: int, expected: List[int]
+) -> None:
 
     so = Solution()
 
@@ -41,24 +45,23 @@ def test(testObj: unittest.TestCase, arr: List[int], k: int, expected: List[int]
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 2, 3, 5],  3, [2, 5])
+        test(self, [1, 2, 3, 5], 3, [2, 5])
 
     def test_2(self):
-        test(self,   [1, 7],  1, [1, 7])
+        test(self, [1, 7], 1, [1, 7])
 
     def test_3(self):
-        test(self,   [1, 7, 23, 29, 47], 8, [23, 47])
+        test(self, [1, 7, 23, 29, 47], 8, [23, 47])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 3952 ms, faster than 23.22%
 Memory Usage: 89.5 MB, less than 25.00%
-'''
+"""
 
 # # TLE
 # class Fraction:

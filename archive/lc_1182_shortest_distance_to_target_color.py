@@ -1,14 +1,15 @@
-
 import unittest
 from typing import List
 
 
 class Solution:
-    def shortestDistanceColor(self, colors: List[int], queries: List[List[int]]) -> List[int]:
+    def shortestDistanceColor(
+        self, colors: List[int], queries: List[List[int]]
+    ) -> List[int]:
         n = len(colors)
         d = dict()
 
-        for i,  q in enumerate(queries):
+        for i, q in enumerate(queries):
             q.append(i)
         queries.sort(key=lambda x: x[0])
 
@@ -24,12 +25,14 @@ class Solution:
 
         d = dict()
         q_index = len(queries) - 1
-        for i in range(n-1, -1, -1):
+        for i in range(n - 1, -1, -1):
             d[colors[i]] = i
             while q_index >= 0 and queries[q_index][0] == i:
                 previous_index = d.get(queries[q_index][1], -1)
                 if previous_index != -1:
-                    ans[queries[q_index][2]] = min(ans[queries[q_index][2]], previous_index-i)
+                    ans[queries[q_index][2]] = min(
+                        ans[queries[q_index][2]], previous_index - i
+                    )
                 q_index -= 1
 
         for i in range(len(ans)):
@@ -39,7 +42,12 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, colors: List[int], queries: List[List[int]], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase,
+    colors: List[int],
+    queries: List[List[int]],
+    expected: int,
+) -> None:
 
     so = Solution()
     actual = so.shortestDistanceColor(colors, queries)
@@ -47,18 +55,22 @@ def test(testObj: unittest.TestCase, colors: List[int], queries: List[List[int]]
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self, [1, 1, 2, 1, 3, 2, 2, 3, 3],  [[1, 3], [2, 2], [6, 1]], [3, 0, 3])
+        test(self, [1, 1, 2, 1, 3, 2, 2, 3, 3], [[1, 3], [2, 2], [6, 1]], [3, 0, 3])
 
     def test_2(self):
-        test(self, [1, 2],  [[0, 3]], [-1])
+        test(self, [1, 2], [[0, 3]], [-1])
 
     def test_3(self):
-        test(self, [2, 1, 2, 2, 1], [[1, 1], [4, 3], [1, 3], [4, 2], [2, 1]], [0, -1, -1, 1, 1])
+        test(
+            self,
+            [2, 1, 2, 2, 1],
+            [[1, 1], [4, 3], [1, 3], [4, 2], [2, 1]],
+            [0, -1, -1, 1, 1],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 

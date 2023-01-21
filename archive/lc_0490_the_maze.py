@@ -3,7 +3,9 @@ from typing import List
 
 
 class Solution:
-    def hasPath(self, maze: List[List[int]], start: List[int], destination: List[int]) -> bool:
+    def hasPath(
+        self, maze: List[List[int]], start: List[int], destination: List[int]
+    ) -> bool:
         m = len(maze)
         n = len(maze[0])
         visited = set()
@@ -15,7 +17,11 @@ class Solution:
             for dr, dc in [[0, 1], [1, 0], [0, -1], [-1, 0]]:
                 nr = r
                 nc = c
-                while 0 <= nr+dr < m and 0 <= nc+dc < n and maze[nr+dr][nc+dc] == 0:
+                while (
+                    0 <= nr + dr < m
+                    and 0 <= nc + dc < n
+                    and maze[nr + dr][nc + dc] == 0
+                ):
                     nr += dr
                     nc += dc
 
@@ -30,8 +36,13 @@ class Solution:
         return False
 
 
-def test(testObj: unittest.TestCase, maze: List[List[int]], start: List[int],
-         destination: List[int], expected: bool) -> None:
+def test(
+    testObj: unittest.TestCase,
+    maze: List[List[int]],
+    start: List[int],
+    destination: List[int],
+    expected: bool,
+) -> None:
 
     so = Solution()
 
@@ -41,24 +52,56 @@ def test(testObj: unittest.TestCase, maze: List[List[int]], start: List[int],
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[0, 0, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 1, 0], [
-             1, 1, 0, 1, 1], [0, 0, 0, 0, 0]],  [0, 4],  [4, 4], True)
+        test(
+            self,
+            [
+                [0, 0, 1, 0, 0],
+                [0, 0, 0, 0, 0],
+                [0, 0, 0, 1, 0],
+                [1, 1, 0, 1, 1],
+                [0, 0, 0, 0, 0],
+            ],
+            [0, 4],
+            [4, 4],
+            True,
+        )
 
     def test_2(self):
-        test(self,   [[0, 0, 1, 0, 0], [0, 0, 0, 0, 0], [0, 0, 0, 1, 0], [
-             1, 1, 0, 1, 1], [0, 0, 0, 0, 0]],  [0, 4],  [3, 2], False)
+        test(
+            self,
+            [
+                [0, 0, 1, 0, 0],
+                [0, 0, 0, 0, 0],
+                [0, 0, 0, 1, 0],
+                [1, 1, 0, 1, 1],
+                [0, 0, 0, 0, 0],
+            ],
+            [0, 4],
+            [3, 2],
+            False,
+        )
 
     def test_3(self):
-        test(self,   [[0, 0, 0, 0, 0], [1, 1, 0, 0, 1], [0, 0, 0, 0, 0], [
-             0, 1, 0, 0, 1], [0, 1, 0, 0, 0]],  [4, 3],  [0, 1], False)
+        test(
+            self,
+            [
+                [0, 0, 0, 0, 0],
+                [1, 1, 0, 0, 1],
+                [0, 0, 0, 0, 0],
+                [0, 1, 0, 0, 1],
+                [0, 1, 0, 0, 0],
+            ],
+            [4, 3],
+            [0, 1],
+            False,
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 295 ms, faster than 92.32%
 Memory Usage: 14.8 MB, less than 45.07%
-'''
+"""

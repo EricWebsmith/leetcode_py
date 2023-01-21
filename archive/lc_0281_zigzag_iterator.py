@@ -36,7 +36,9 @@ class ZigzagIterator:
         return self.n > 0
 
 
-def test(testObj: unittest.TestCase, v1: List[int], v2: List[int], expected: List[int]) -> None:
+def test(
+    testObj: unittest.TestCase, v1: List[int], v2: List[int], expected: List[int]
+) -> None:
     i = ZigzagIterator(v1, v2)
     actual: list = []
     while i.hasNext():
@@ -45,21 +47,20 @@ def test(testObj: unittest.TestCase, v1: List[int], v2: List[int], expected: Lis
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 2],  [3, 4, 5, 6], [1, 3, 2, 4, 5, 6])
+        test(self, [1, 2], [3, 4, 5, 6], [1, 3, 2, 4, 5, 6])
 
     def test_2(self):
-        test(self,   [1],  [], [1])
+        test(self, [1], [], [1])
 
     def test_3(self):
-        test(self,   [],  [1], [1])
+        test(self, [], [1], [1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 54 ms, faster than 88.03%
 Memory Usage: 14.5 MB, less than 7.28%
-'''
+"""

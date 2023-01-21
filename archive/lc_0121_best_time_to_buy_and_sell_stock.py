@@ -21,20 +21,19 @@ def test(testObj: unittest.TestCase, prices: List[int], expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [7, 1, 5, 3, 6, 4], 5)
+        test(self, [7, 1, 5, 3, 6, 4], 5)
 
     def test_2(self):
-        test(self,   [7, 6, 4, 3, 1], 0)
+        test(self, [7, 6, 4, 3, 1], 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 1170 ms
 Beats
 86.43%
-'''
+"""

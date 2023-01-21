@@ -25,7 +25,9 @@ class Solution:
         return best_val
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], target: float, expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, root_arr: List[int], target: float, expected: int
+) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
 
@@ -35,18 +37,17 @@ def test(testObj: unittest.TestCase, root_arr: List[int], target: float, expecte
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [4, 2, 5, 1, 3],  3.714286, 4)
+        test(self, [4, 2, 5, 1, 3], 3.714286, 4)
 
     def test_2(self):
-        test(self,   [1],  4.428571, 1)
+        test(self, [1], 4.428571, 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 57 ms, faster than 65.16%
 Memory Usage: 16.2 MB, less than 34.57%
-'''
+"""

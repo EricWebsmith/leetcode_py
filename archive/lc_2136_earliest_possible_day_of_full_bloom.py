@@ -16,7 +16,9 @@ class Solution:
         return sum(plantTime) + waste
 
 
-def test(testObj: unittest.TestCase, plantTime: List[int], growTime: List[int], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, plantTime: List[int], growTime: List[int], expected: int
+) -> None:
 
     so = Solution()
     actual = so.earliestFullBloom(plantTime, growTime)
@@ -24,21 +26,20 @@ def test(testObj: unittest.TestCase, plantTime: List[int], growTime: List[int], 
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 4, 3],  [2, 3, 1], 9)
+        test(self, [1, 4, 3], [2, 3, 1], 9)
 
     def test_2(self):
-        test(self,   [1, 2, 3, 2],  [2, 1, 2, 1], 9)
+        test(self, [1, 2, 3, 2], [2, 1, 2, 1], 9)
 
     def test_3(self):
-        test(self,   [1],  [1], 2)
+        test(self, [1], [1], 2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 1841 ms, faster than 88.99%
 Memory Usage: 30.9 MB, less than 88.11%
-'''
+"""

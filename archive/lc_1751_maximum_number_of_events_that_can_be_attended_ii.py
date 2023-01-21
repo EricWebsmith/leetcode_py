@@ -8,7 +8,7 @@ class Solution:
         n = len(events)
         post_max = [0] * n
         moving_max = events[-1][2]
-        for i in range(n-1, -1, -1):
+        for i in range(n - 1, -1, -1):
             moving_max = max(moving_max, events[i][2])
             post_max[i] = moving_max
 
@@ -40,7 +40,7 @@ class Solution:
             select_this = value
             # no more available, return this value
             if next_index < n:
-                select_this = value + dfs(next_index, left_k-1)
+                select_this = value + dfs(next_index, left_k - 1)
 
             not_select_this = dfs(index + 1, left_k)
             ans = max(select_this, not_select_this)
@@ -51,7 +51,9 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, events: List[List[int]], k: int, expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, events: List[List[int]], k: int, expected: int
+) -> None:
 
     so = Solution()
     actual = so.maxValue(events, k)
@@ -59,36 +61,34 @@ def test(testObj: unittest.TestCase, events: List[List[int]], k: int, expected: 
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[1, 2, 4], [3, 4, 3], [2, 3, 1]],  2, 7)
+        test(self, [[1, 2, 4], [3, 4, 3], [2, 3, 1]], 2, 7)
 
     def test_2(self):
-        test(self,   [[1, 2, 4], [3, 4, 3], [2, 3, 10]],  2, 10)
+        test(self, [[1, 2, 4], [3, 4, 3], [2, 3, 10]], 2, 10)
 
     def test_3(self):
-        test(self,   [[1, 1, 1], [2, 2, 2], [3, 3, 3], [4, 4, 4]],  3, 9)
+        test(self, [[1, 1, 1], [2, 2, 2], [3, 3, 3], [4, 4, 4]], 3, 9)
 
     def test_4(self):
-        test(self,   [[1, 1, 1], [2, 2, 2], [3, 3, 3], [4, 4, 4]],  2, 7)
+        test(self, [[1, 1, 1], [2, 2, 2], [3, 3, 3], [4, 4, 4]], 2, 7)
 
     def test_5(self):
-        test(self,   [[1, 1, 1], [2, 2, 2], [3, 3, 3], [4, 4, 4]],  100, 10)
+        test(self, [[1, 1, 1], [2, 2, 2], [3, 3, 3], [4, 4, 4]], 100, 10)
 
     def test_6(self):
-        test(self,  [[1, 3, 4], [2, 4, 1], [
-             1, 1, 4], [3, 5, 1], [2, 5, 5]], 3, 9)
+        test(self, [[1, 3, 4], [2, 4, 1], [1, 1, 4], [3, 5, 1], [2, 5, 5]], 3, 9)
 
     def test_7(self):
-        test(self,  [[2, 4, 1], [1, 1, 4], [2, 5, 5]], 3, 9)
+        test(self, [[2, 4, 1], [1, 1, 4], [2, 5, 5]], 3, 9)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 942 ms
 Beats
 86.14%
-'''
+"""

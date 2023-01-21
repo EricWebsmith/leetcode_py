@@ -32,17 +32,19 @@ class Solution:
         connections.sort(key=lambda x: x[2])
         ans = 0
         for connection in connections:
-            p0 = dsu.find(connection[0]-1)
-            p1 = dsu.find(connection[1]-1)
+            p0 = dsu.find(connection[0] - 1)
+            p1 = dsu.find(connection[1] - 1)
             if p0 != p1:
-                dsu.merge(connection[0]-1, connection[1]-1)
+                dsu.merge(connection[0] - 1, connection[1] - 1)
                 ans += connection[2]
             if dsu.e == n - 1:
                 return ans
         return -1
 
 
-def test(testObj: unittest.TestCase, n: int, connections: List[List[int]], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, n: int, connections: List[List[int]], expected: int
+) -> None:
 
     so = Solution()
 
@@ -52,18 +54,17 @@ def test(testObj: unittest.TestCase, n: int, connections: List[List[int]], expec
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   3,  [[1, 2, 5], [1, 3, 6], [2, 3, 1]], 6)
+        test(self, 3, [[1, 2, 5], [1, 3, 6], [2, 3, 1]], 6)
 
     def test_2(self):
-        test(self,   4,  [[1, 2, 3], [3, 4, 4]], -1)
+        test(self, 4, [[1, 2, 3], [3, 4, 4]], -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 641 ms, faster than 96.67%
 Memory Usage: 19.7 MB, less than 96.16%
-'''
+"""

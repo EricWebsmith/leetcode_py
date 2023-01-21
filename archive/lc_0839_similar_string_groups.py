@@ -42,7 +42,7 @@ class Solution:
 
         dsu = DSU(n)
         for i in range(n):
-            for j in range(i+1, n):
+            for j in range(i + 1, n):
                 if self.simialr(strs[i], strs[j]):
                     dsu.merge(i, j)
 
@@ -62,28 +62,41 @@ def test(testObj: unittest.TestCase, strs: List[str], expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   ["tars", "rats", "arts", "star"], 2)
+        test(self, ["tars", "rats", "arts", "star"], 2)
 
     def test_2(self):
-        test(self,   ["omv", "ovm"], 1)
+        test(self, ["omv", "ovm"], 1)
 
     def test_3(self):
-        test(self,   ["tars", "rats", "arts", "star", 'start'], 2)
+        test(self, ["tars", "rats", "arts", "star", "start"], 2)
 
     def test_4(self):
-        test(self,   ["abc", "acb", "bca", "bac"], 1)
+        test(self, ["abc", "acb", "bca", "bac"], 1)
 
     def test_5(self):
-        test(self,   ["ajdidocuyh", "djdyaohuic", "ddjyhuicoa", "djdhaoyuic", "ddjoiuycha",
-             "ddhoiuycja", "ajdydocuih", "ddjiouycha", "ajdydohuic", "ddjyouicha"], 2)
+        test(
+            self,
+            [
+                "ajdidocuyh",
+                "djdyaohuic",
+                "ddjyhuicoa",
+                "djdhaoyuic",
+                "ddjoiuycha",
+                "ddhoiuycja",
+                "ajdydocuih",
+                "ddjiouycha",
+                "ajdydohuic",
+                "ddjyouicha",
+            ],
+            2,
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 269 ms, faster than 95.82%
 Memory Usage: 14.3 MB, less than 63.11%
-'''
+"""

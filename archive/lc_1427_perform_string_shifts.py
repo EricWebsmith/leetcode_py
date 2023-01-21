@@ -14,10 +14,12 @@ class Solution:
 
         total = total % n
 
-        return s[total:]+s[0:total]
+        return s[total:] + s[0:total]
 
 
-def test(testObj: unittest.TestCase, s: str, shift: List[List[int]], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, s: str, shift: List[List[int]], expected: int
+) -> None:
 
     so = Solution()
     actual = so.stringShift(s, shift)
@@ -25,18 +27,17 @@ def test(testObj: unittest.TestCase, s: str, shift: List[List[int]], expected: i
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "abc",  [[0, 1], [1, 2]], "cab")
+        test(self, "abc", [[0, 1], [1, 2]], "cab")
 
     def test_2(self):
-        test(self,   "abcdefg",  [[1, 1], [1, 1], [0, 2], [1, 3]], "efgabcd")
+        test(self, "abcdefg", [[1, 1], [1, 1], [0, 2], [1, 3]], "efgabcd")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 32 ms, faster than 95.89%
 Memory Usage: 13.9 MB, less than 72.78%
-'''
+"""

@@ -16,7 +16,9 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, intervals: List[List[int]], expected: List[List[int]]) -> None:
+def test(
+    testObj: unittest.TestCase, intervals: List[List[int]], expected: List[List[int]]
+) -> None:
 
     so = Solution()
     actual = so.merge(intervals)
@@ -24,21 +26,19 @@ def test(testObj: unittest.TestCase, intervals: List[List[int]], expected: List[
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[1, 3], [2, 6], [8, 10], [15, 18]],
-             [[1, 6], [8, 10], [15, 18]])
+        test(self, [[1, 3], [2, 6], [8, 10], [15, 18]], [[1, 6], [8, 10], [15, 18]])
 
     def test_2(self):
-        test(self,   [[1, 4], [4, 5]], [[1, 5]])
+        test(self, [[1, 4], [4, 5]], [[1, 5]])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 346 ms
 Beats
 42.38%
-'''
+"""

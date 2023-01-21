@@ -15,7 +15,7 @@ class Solution:
             ci = counts[keys[i]]
             ans += ci * ci
             ans = ans % MOD
-            for j in range(i+1, n):
+            for j in range(i + 1, n):
                 cj = counts[keys[j]]
                 floor = keys[j] // keys[i]
 
@@ -33,17 +33,16 @@ def test(testObj: unittest.TestCase, nums: List[int], expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [2, 5, 9], 10)
+        test(self, [2, 5, 9], 10)
 
     def test_2(self):
-        test(self,   [7, 7, 7, 7, 7, 7, 7], 49)
+        test(self, [7, 7, 7, 7, 7, 7, 7], 49)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

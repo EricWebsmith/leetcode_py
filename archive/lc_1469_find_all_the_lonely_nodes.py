@@ -20,6 +20,7 @@ class Solution:
             elif node.left is not None and node.right is not None:
                 dfs(node.left)
                 dfs(node.right)
+
         dfs(root)
         return ans
 
@@ -32,27 +33,30 @@ def test(testObj: unittest.TestCase, root_arr: List[int], expected: int) -> None
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 2, 3, None, 4], [4])
+        test(self, [1, 2, 3, None, 4], [4])
 
     def test_2(self):
-        test(self,   [7, 1, 4, 6, None, 5, 3, None, None, None, None, None, 2], [6, 2])
+        test(self, [7, 1, 4, 6, None, 5, 3, None, None, None, None, None, 2], [6, 2])
 
     def test_3(self):
-        test(self,   [11, 99, 88, 77, None, None, 66, 55, None, None, 44, 33, None, None, 22], [77, 55, 33, 66, 44, 22])
+        test(
+            self,
+            [11, 99, 88, 77, None, None, 66, 55, None, None, 44, 33, None, None, 22],
+            [77, 55, 33, 66, 44, 22],
+        )
 
     def test_4(self):
-        test(self,   [], [])
+        test(self, [], [])
 
     def test_5(self):
-        test(self,   [1, 2, 3], [])
+        test(self, [1, 2, 3], [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 60 ms, faster than 87.98%
 Memory Usage: 15.2 MB, less than 44.29%
-'''
+"""

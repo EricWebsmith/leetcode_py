@@ -5,13 +5,13 @@ from typing import List
 class Solution:
     def __init__(self) -> None:
         self.stack: List[int] = []
-        self.op = ''
+        self.op = ""
         self.current = 0
 
     def operate(self, new_op):
-        if self.op == '*':
+        if self.op == "*":
             self.current = self.stack.pop() * self.current
-        elif self.op == '/':
+        elif self.op == "/":
             t = self.stack.pop()
             if t >= 0:
                 self.current = t // self.current
@@ -25,14 +25,14 @@ class Solution:
         self.current = 0
 
     def calculate(self, s: str) -> int:
-        for c in s+'+':
-            if '0' <= c <= '9':
+        for c in s + "+":
+            if "0" <= c <= "9":
                 t = int(c)
-                if self.op == '-':
+                if self.op == "-":
                     t = -t
 
                 self.current = self.current * 10 + t
-            elif c in '+-*/':
+            elif c in "+-*/":
                 self.operate(c)
 
         return sum(self.stack)
@@ -48,23 +48,22 @@ def test(testObj: unittest.TestCase, s: str, expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "3+2*2", 7)
+        test(self, "3+2*2", 7)
 
     def test_2(self):
-        test(self,   " 3/2 ", 1)
+        test(self, " 3/2 ", 1)
 
     def test_3(self):
-        test(self,   " 3+5 / 2 ", 5)
+        test(self, " 3+5 / 2 ", 5)
 
     def test_4(self):
-        test(self,   "14-3/2", 13)
+        test(self, "14-3/2", 13)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

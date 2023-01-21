@@ -1,13 +1,11 @@
 import unittest
 from typing import List, Optional
 
-from data_structure.link_list import (ListNode, array_to_listnode,
-                                      listnode_to_array)
+from data_structure.link_list import ListNode, array_to_listnode, listnode_to_array
 
 
 class Solution:
-    def deleteMiddle(self, head: Optional[ListNode])  \
-            -> Optional[ListNode]:
+    def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
         prehead = ListNode(-1)
         prehead.next = head
 
@@ -23,7 +21,9 @@ class Solution:
         return prehead.next
 
 
-def test(testObj: unittest.TestCase, head_arr: List[int], expected: Optional[ListNode]) -> None:
+def test(
+    testObj: unittest.TestCase, head_arr: List[int], expected: Optional[ListNode]
+) -> None:
     head = array_to_listnode(head_arr)
     so = Solution()
 
@@ -34,23 +34,22 @@ def test(testObj: unittest.TestCase, head_arr: List[int], expected: Optional[Lis
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 3, 4, 7, 1, 2, 6], [1, 3, 4, 1, 2, 6])
+        test(self, [1, 3, 4, 7, 1, 2, 6], [1, 3, 4, 1, 2, 6])
 
     def test_2(self):
-        test(self,   [1, 2, 3, 4], [1, 2, 4])
+        test(self, [1, 2, 3, 4], [1, 2, 4])
 
     def test_3(self):
-        test(self,   [2, 1], [2])
+        test(self, [2, 1], [2])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 1909 ms
 Beats
 89.72%
-'''
+"""

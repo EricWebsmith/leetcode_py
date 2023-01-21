@@ -19,14 +19,14 @@ class Solution:
     def __init__(self) -> None:
         self.binaryMatrix = None
 
-    def leftMostColumnWithOne(self, binaryMatrix: 'BinaryMatrix') -> int:
+    def leftMostColumnWithOne(self, binaryMatrix: "BinaryMatrix") -> int:
         self.binaryMatrix = binaryMatrix
         m, n = binaryMatrix.dimensions()
 
         def find_1(row, right=n):
             left = 0
             while left < right:
-                mid = left + (right - left)//2
+                mid = left + (right - left) // 2
                 if binaryMatrix.get(row, mid) == 0:
                     left = mid + 1
                 else:
@@ -51,21 +51,20 @@ def test(testObj: unittest.TestCase, mat: List[List[int]], expected: int) -> Non
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[0, 0], [1, 1]], 0)
+        test(self, [[0, 0], [1, 1]], 0)
 
     def test_2(self):
-        test(self,   [[0, 0], [0, 1]], 1)
+        test(self, [[0, 0], [0, 1]], 1)
 
     def test_3(self):
-        test(self,   [[0, 0], [0, 0]], -1)
+        test(self, [[0, 0], [0, 0]], -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 137 ms, faster than 70.46%
 Memory Usage: 14.2 MB, less than 50.45%
-'''
+"""

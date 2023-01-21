@@ -1,4 +1,3 @@
-
 import unittest
 from typing import List
 
@@ -10,14 +9,18 @@ class Solution:
         while len(arr) > 1:
             min_product = arr[0] * arr[1]
             min_product_at = 0
-            for i in range(1, len(arr)-1):
-                current = arr[i] * arr[i+1]
+            for i in range(1, len(arr) - 1):
+                current = arr[i] * arr[i + 1]
                 if current < min_product:
                     min_product = current
                     min_product_at = i
 
             ans += min_product
-            arr = arr[:min_product_at] + [max(arr[min_product_at], arr[min_product_at+1])] + arr[min_product_at+2:]
+            arr = (
+                arr[:min_product_at]
+                + [max(arr[min_product_at], arr[min_product_at + 1])]
+                + arr[min_product_at + 2 :]
+            )
 
         return ans
 
@@ -30,21 +33,20 @@ def test(testObj: unittest.TestCase, arr: List[int], expected: int) -> None:
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [6, 2, 4], 32)
+        test(self, [6, 2, 4], 32)
 
     def test_2(self):
-        test(self,   [4, 11], 44)
+        test(self, [4, 11], 44)
 
     def test_3(self):
-        test(self,   [1, 2, 3, 4, 5], 40)
+        test(self, [1, 2, 3, 4, 5], 40)
 
     def test_4(self):
-        test(self,   [1, 1, 1], 2)
+        test(self, [1, 1, 1], 2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 

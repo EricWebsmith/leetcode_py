@@ -1,4 +1,3 @@
-
 import unittest
 
 
@@ -10,7 +9,7 @@ class Solution:
         if n == 1:
             return True
 
-        return (n+3) == (n | 3)
+        return (n + 3) == (n | 3)
 
 
 def test(testObj: unittest.TestCase, n: int, expected: int) -> None:
@@ -21,19 +20,18 @@ def test(testObj: unittest.TestCase, n: int, expected: int) -> None:
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self,  16, True)
+        test(self, 16, True)
 
     def test_2(self):
-        test(self,  5, False)
+        test(self, 5, False)
 
     def test_3(self):
-        test(self,  1, True)
+        test(self, 1, True)
 
     def test_4(self):
-        test(self,  32, True)
+        test(self, 32, True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

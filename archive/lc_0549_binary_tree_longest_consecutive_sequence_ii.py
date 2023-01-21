@@ -62,28 +62,61 @@ def test(testObj: unittest.TestCase, root_arr: List[int], expected: int) -> None
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 2, 3], 2)
+        test(self, [1, 2, 3], 2)
 
     def test_2(self):
-        test(self,   [2, 1, 3], 3)
+        test(self, [2, 1, 3], 3)
 
     def test_3(self):
-        test(self,   [], 0)
+        test(self, [], 0)
 
     def test_4(self):
-        test(self,   [1, 2, 3, 4, 2], 2)
+        test(self, [1, 2, 3, 4, 2], 2)
 
     def test_5(self):
-        test(self,   [4, -7, -3, None, None, -9, -3, 9, -7, -4, None, 6, None, -6, -6,
-             None, None, 0, 6, 5, None, 9, None, None, -1, -4, None, None, None, -2], 2)
+        test(
+            self,
+            [
+                4,
+                -7,
+                -3,
+                None,
+                None,
+                -9,
+                -3,
+                9,
+                -7,
+                -4,
+                None,
+                6,
+                None,
+                -6,
+                -6,
+                None,
+                None,
+                0,
+                6,
+                5,
+                None,
+                9,
+                None,
+                None,
+                -1,
+                -4,
+                None,
+                None,
+                None,
+                -2,
+            ],
+            2,
+        )
 
     def test_6(self):
-        test(self,   [2, None, 3, 4, None, 1], 3)
+        test(self, [2, None, 3, 4, None, 1], 3)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 """

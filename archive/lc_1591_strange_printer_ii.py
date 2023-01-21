@@ -60,15 +60,17 @@ class Solution:
 
         depend_dict = {color: set() for color in r_dict}
         for color, rec in r_dict.items():
-            for r in range(rec.top, rec.bottom+1):
-                for c in range(rec.left, rec.right+1):
+            for r in range(rec.top, rec.bottom + 1):
+                for c in range(rec.left, rec.right + 1):
                     if grid[r][c] != color:
                         depend_dict[color].add(grid[r][c])
 
         return not detect_circle(depend_dict)
 
 
-def test(testObj: unittest.TestCase, targetGrid: List[List[int]], expected: bool) -> None:
+def test(
+    testObj: unittest.TestCase, targetGrid: List[List[int]], expected: bool
+) -> None:
 
     so = Solution()
 
@@ -78,23 +80,20 @@ def test(testObj: unittest.TestCase, targetGrid: List[List[int]], expected: bool
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[1, 1, 1, 1], [1, 2, 2, 1],
-             [1, 2, 2, 1], [1, 1, 1, 1]], True)
+        test(self, [[1, 1, 1, 1], [1, 2, 2, 1], [1, 2, 2, 1], [1, 1, 1, 1]], True)
 
     def test_2(self):
-        test(self,   [[1, 1, 1, 1], [1, 1, 3, 3],
-             [1, 1, 3, 4], [5, 5, 1, 4]], True)
+        test(self, [[1, 1, 1, 1], [1, 1, 3, 3], [1, 1, 3, 4], [5, 5, 1, 4]], True)
 
     def test_3(self):
-        test(self,   [[1, 2, 1], [2, 1, 2], [1, 2, 1]], False)
+        test(self, [[1, 2, 1], [2, 1, 2], [1, 2, 1]], False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 569 ms, faster than 70.63%
 Memory Usage: 16.4 MB, less than 11.90%
-'''
+"""

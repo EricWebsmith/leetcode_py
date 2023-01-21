@@ -42,7 +42,9 @@ class Solution:
         return max_score
 
 
-def test(testObj: unittest.TestCase, tokens: List[int], power: int, expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, tokens: List[int], power: int, expected: int
+) -> None:
 
     so = Solution()
 
@@ -52,24 +54,23 @@ def test(testObj: unittest.TestCase, tokens: List[int], power: int, expected: in
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [100],  50, 0)
+        test(self, [100], 50, 0)
 
     def test_2(self):
-        test(self,   [100, 200],  150, 1)
+        test(self, [100, 200], 150, 1)
 
     def test_3(self):
-        test(self,   [100, 200, 300, 400],  200, 2)
+        test(self, [100, 200, 300, 400], 200, 2)
 
     def test_4(self):
-        test(self,   [],  200, 0)
+        test(self, [], 200, 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 51 ms, faster than 98.58%
 Memory Usage: 14 MB, less than 77.36%
-'''
+"""

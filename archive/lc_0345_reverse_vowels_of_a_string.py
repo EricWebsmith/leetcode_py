@@ -3,7 +3,7 @@ import unittest
 
 class Solution:
     def reverseVowels(self, s: str) -> str:
-        vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+        vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"]
         chars = list(s)
         n = len(chars)
         left = 0
@@ -33,23 +33,22 @@ def test(testObj: unittest.TestCase, s: str, expected: str) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "hello", "holle")
+        test(self, "hello", "holle")
 
     def test_2(self):
-        test(self,   "leetcode", "leotcede")
+        test(self, "leetcode", "leotcede")
 
     def test_3(self):
-        test(self,   "aA", "Aa")
+        test(self, "aA", "Aa")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 79 ms
 Beats
 81%
-'''
+"""

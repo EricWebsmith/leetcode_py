@@ -1,4 +1,3 @@
-
 import unittest
 from typing import List
 
@@ -11,7 +10,7 @@ class Solution:
         count = sum(data[:window_size])
         max_count = count
         for i in range(window_size, n):
-            if data[i-window_size] == 1:
+            if data[i - window_size] == 1:
                 count -= 1
             if data[i] == 1:
                 count += 1
@@ -28,18 +27,17 @@ def test(testObj: unittest.TestCase, data: List[int], expected: int) -> None:
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 0, 1, 0, 1], 1)
+        test(self, [1, 0, 1, 0, 1], 1)
 
     def test_2(self):
-        test(self,   [0, 0, 0, 1, 0], 0)
+        test(self, [0, 0, 0, 1, 0], 0)
 
     def test_3(self):
-        test(self,   [1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1], 3)
+        test(self, [1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1], 3)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 

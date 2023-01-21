@@ -36,29 +36,28 @@ def test(testObj: unittest.TestCase, nums: List[int], k: int, expected: int) -> 
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 3, 1],  1, 0)
+        test(self, [1, 3, 1], 1, 0)
 
     def test_2(self):
-        test(self,   [1, 1, 1],  2, 0)
+        test(self, [1, 1, 1], 2, 0)
 
     def test_3(self):
-        test(self,   [1, 6, 1],  3, 5)
+        test(self, [1, 6, 1], 3, 5)
 
     def test_4(self):
-        test(self,   [1, 6],  1, 5)
+        test(self, [1, 6], 1, 5)
 
     def test_5(self):
-        test(self,   [62, 100, 4], 2, 58)
+        test(self, [62, 100, 4], 2, 58)
 
     def test_6(self):
-        test(self,   [0, 0, 0, 1, 1], 2, 0)
+        test(self, [0, 0, 0, 1, 1], 2, 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

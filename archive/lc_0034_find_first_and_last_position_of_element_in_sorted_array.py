@@ -17,14 +17,15 @@ class Solution:
         return [left, right]
 
 
-def test(testObj: unittest.TestCase, cardPoints: List[int], k: int, expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, cardPoints: List[int], k: int, expected: int
+) -> None:
     s = Solution()
     actual = s.searchRange(cardPoints, k)
     testObj.assertEqual(actual, expected)
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
         test(self, [5, 7, 7, 8, 8, 10], 8, [3, 4])
 
@@ -35,7 +36,7 @@ class TestStringMethods(unittest.TestCase):
         test(self, [], 0, [-1, -1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 

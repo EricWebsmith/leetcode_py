@@ -3,7 +3,7 @@ from collections import defaultdict
 
 
 class Solution:
-    def lengthOfLongestSubstringTwoDistinct(self, s: 'str') -> 'int':
+    def lengthOfLongestSubstringTwoDistinct(self, s: "str") -> "int":
         n = len(s)
         if n < 3:
             return n
@@ -42,18 +42,17 @@ def test(testObj: unittest.TestCase, s: str, expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "eceba", 3)
+        test(self, "eceba", 3)
 
     def test_2(self):
-        test(self,   "ccaabbb", 5)
+        test(self, "ccaabbb", 5)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 298 ms, faster than 97.97%
 Memory Usage: 14.8 MB, less than 38.02%
-'''
+"""

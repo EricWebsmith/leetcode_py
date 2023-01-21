@@ -22,7 +22,7 @@ class Solution:
                     q.append(node.left)
                 if node.right:
                     q.append(node.right)
-            ans.append(layer_sum/q_size)
+            ans.append(layer_sum / q_size)
             q_size = len(q)
 
         return ans
@@ -36,22 +36,20 @@ def test(testObj: unittest.TestCase, root_arr: List[int], expected: int) -> None
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [3, 9, 20, None, None, 15, 7],
-             [3.00000, 14.50000, 11.00000])
+        test(self, [3, 9, 20, None, None, 15, 7], [3.00000, 14.50000, 11.00000])
 
     def test_2(self):
-        test(self,   [3, 9, 20, 15, 7], [3.00000, 14.50000, 11.00000])
+        test(self, [3, 9, 20, 15, 7], [3.00000, 14.50000, 11.00000])
 
     def test_3(self):
-        test(self,   [1], [1])
+        test(self, [1], [1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 47 ms, faster than 98.17%
 Memory Usage: 16.5 MB, less than 87.46%
-'''
+"""

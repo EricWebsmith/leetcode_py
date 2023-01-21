@@ -9,7 +9,6 @@ class TrieNode:
 
 
 class Trie:
-
     def __init__(self) -> None:
         self.root = TrieNode()
 
@@ -38,13 +37,15 @@ class Trie:
         return True
 
 
-def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
+def test(
+    testObj: unittest.TestCase, actions: List, params: List, expected: List
+) -> None:
     n = len(actions)
     obj = Trie(*params[0])
-    print('------------test case-----------')
+    print("------------test case-----------")
     for i in range(1, n):
         print(i, actions[i], params[i], expected[i])
-    print('-------done-------------')
+    print("-------done-------------")
     for i in range(1, n):
         print(i, actions[i], params[i], expected[i])
         match actions[i]:
@@ -62,18 +63,21 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self, ["Trie", "insert", "search", "search", "startsWith", "insert", "search"], [[], ["apple"], [
-             "apple"], ["app"], ["app"], ["app"], ["app"]], [None, None, True, False, True, None, True])
+        test(
+            self,
+            ["Trie", "insert", "search", "search", "startsWith", "insert", "search"],
+            [[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]],
+            [None, None, True, False, True, None, True],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 345 ms
 Beats
 61.8%
-'''
+"""

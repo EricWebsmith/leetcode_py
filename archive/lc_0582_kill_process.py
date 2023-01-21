@@ -40,7 +40,13 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, pid: List[int], ppid: List[int], kill: int, expected: List[int]) -> None:
+def test(
+    testObj: unittest.TestCase,
+    pid: List[int],
+    ppid: List[int],
+    kill: int,
+    expected: List[int],
+) -> None:
 
     so = Solution()
 
@@ -50,18 +56,17 @@ def test(testObj: unittest.TestCase, pid: List[int], ppid: List[int], kill: int,
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 3, 10, 5],  [3, 0, 5, 3],  5, [5, 10])
+        test(self, [1, 3, 10, 5], [3, 0, 5, 3], 5, [5, 10])
 
     def test_2(self):
-        test(self,   [1],  [0],  1, [1])
+        test(self, [1], [0], 1, [1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 545 ms, faster than 75.99%
 Memory Usage: 31 MB, less than 7.92%
-'''
+"""

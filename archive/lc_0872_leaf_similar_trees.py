@@ -25,7 +25,12 @@ class Solution:
         return True
 
 
-def test(testObj: unittest.TestCase, root1_arr: List[int], root2_arr: List[int], expected: bool) -> None:
+def test(
+    testObj: unittest.TestCase,
+    root1_arr: List[int],
+    root2_arr: List[int],
+    expected: bool,
+) -> None:
     root1 = array_to_treenode(root1_arr)
     root2 = array_to_treenode(root2_arr)
     so = Solution()
@@ -34,21 +39,24 @@ def test(testObj: unittest.TestCase, root1_arr: List[int], root2_arr: List[int],
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [3, 5, 1, 6, 2, 9, 8, None, None, 7, 4],  [
-             3, 5, 1, 6, 7, 4, 2, None, None, None, None, None, None, 9, 8], True)
+        test(
+            self,
+            [3, 5, 1, 6, 2, 9, 8, None, None, 7, 4],
+            [3, 5, 1, 6, 7, 4, 2, None, None, None, None, None, None, 9, 8],
+            True,
+        )
 
     def test_2(self):
-        test(self,   [1, 2, 3],  [1, 3, 2], False)
+        test(self, [1, 2, 3], [1, 3, 2], False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 49 ms
 Beats
 73.77%
-'''
+"""

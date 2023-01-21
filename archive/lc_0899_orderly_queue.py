@@ -11,7 +11,7 @@ class Solution:
         else:
             chars = list(s)
             chars.sort()
-            ans = ''.join(chars)
+            ans = "".join(chars)
         return ans
 
 
@@ -22,20 +22,19 @@ def test(testObj: unittest.TestCase, s: str, k: int, expected: str) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "cba",  1, "acb")
+        test(self, "cba", 1, "acb")
 
     def test_2(self):
-        test(self,   "baaca",  3, "aaabc")
+        test(self, "baaca", 3, "aaabc")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 31 ms
 Beats
 97.62%
-'''
+"""

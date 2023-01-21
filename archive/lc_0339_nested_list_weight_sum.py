@@ -1,4 +1,3 @@
-
 import os
 import sys
 import unittest
@@ -56,12 +55,14 @@ class Solution:
             if i.isInteger():
                 ans += depth * i.getInteger()
             else:
-                ans += self.depthSum(i.getList(), depth+1)
+                ans += self.depthSum(i.getList(), depth + 1)
 
         return ans
 
 
-def test(testObj: unittest.TestCase, nestedList: List[NestedInteger], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, nestedList: List[NestedInteger], expected: int
+) -> None:
 
     s = Solution()
     actual = s.depthSum(nestedList)
@@ -69,18 +70,17 @@ def test(testObj: unittest.TestCase, nestedList: List[NestedInteger], expected: 
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self,  [[1, 1], 2, [1, 1]], 10)
+        test(self, [[1, 1], 2, [1, 1]], 10)
 
     def test_2(self):
-        test(self,  [1, [4, [6]]], 27)
+        test(self, [1, [4, [6]]], 27)
 
     def test_3(self):
-        test(self,  [0], 0)
+        test(self, [0], 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 """

@@ -15,13 +15,13 @@ class Solution:
                     ret = 1
                 else:
                     if s[left] == s[right]:
-                        ret = dp(left+1, right-1) + 2
+                        ret = dp(left + 1, right - 1) + 2
                     else:
-                        ret = max(dp(left+1, right), dp(left, right-1))
+                        ret = max(dp(left + 1, right), dp(left, right - 1))
                 memo[left][right] = ret
                 return ret
 
-        return dp(0, len(s)-1)
+        return dp(0, len(s) - 1)
 
 
 def test(testObj: unittest.TestCase, s: str, expected: int) -> None:
@@ -31,24 +31,23 @@ def test(testObj: unittest.TestCase, s: str, expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "bbbab", 4)
+        test(self, "bbbab", 4)
 
     def test_2(self):
-        test(self,   "cbbd", 2)
+        test(self, "cbbd", 2)
 
     def test_3(self):
-        test(self,   "abcd", 1)
+        test(self, "abcd", 1)
 
     def test_4(self):
-        test(self,   "abcdcba", 7)
+        test(self, "abcdcba", 7)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 3418 ms, faster than 42.26%
 Memory Usage: 79.1 MB, less than 24.08%
-'''
+"""

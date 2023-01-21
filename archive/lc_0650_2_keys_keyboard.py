@@ -1,4 +1,3 @@
-
 import unittest
 from math import sqrt
 
@@ -25,9 +24,9 @@ class Solution:
         if n <= 5:
             return n
 
-        for i in range(2, int(sqrt(n))+1):
+        for i in range(2, int(sqrt(n)) + 1):
             if n % i == 0:
-                return self.minSteps(n//i) + i
+                return self.minSteps(n // i) + i
 
         return n
 
@@ -40,24 +39,23 @@ def test(testObj: unittest.TestCase, n: int, expected: int) -> None:
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self,   3, 3)
+        test(self, 3, 3)
 
     def test_2(self):
-        test(self,   1, 0)
+        test(self, 1, 0)
 
     def test_3(self):
-        test(self,   11, 11)
+        test(self, 11, 11)
 
     def test_4(self):
-        test(self,   100, 14)
+        test(self, 100, 14)
 
     def test_5(self):
-        test(self,   1000, 21)
+        test(self, 1000, 21)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 """

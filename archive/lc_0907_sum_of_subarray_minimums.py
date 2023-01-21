@@ -8,12 +8,12 @@ class Solution:
         s = 0
         stack: list[int] = []
 
-        for i in range(n+1):
+        for i in range(n + 1):
             while stack and (i == n or arr[stack[-1]] >= arr[i]):
                 mid = stack.pop()
                 left = -1 if not stack else stack[-1]
                 right = i
-                count = (mid-left) * (right-mid)
+                count = (mid - left) * (right - mid)
                 s += count * arr[mid]
 
             stack.append(i)
@@ -28,20 +28,19 @@ def test(testObj: unittest.TestCase, arr: list[int], expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [3, 1, 2, 4], 17)
+        test(self, [3, 1, 2, 4], 17)
 
     def test_2(self):
-        test(self,   [11, 81, 94, 43, 3], 444)
+        test(self, [11, 81, 94, 43, 3], 444)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 480 ms
 Beats
 93.14%
-'''
+"""

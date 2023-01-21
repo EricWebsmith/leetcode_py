@@ -1,4 +1,3 @@
-
 import unittest
 from typing import List, Optional
 
@@ -9,7 +8,6 @@ UP = -1
 
 
 class Solution:
-
     def __init__(self) -> None:
         self.distance = 0
         self.start = 0
@@ -36,9 +34,11 @@ class Solution:
 
     def get_depth(self, node, depth=0):
         if node is None:
-            return max(depth-1, 0)
+            return max(depth - 1, 0)
 
-        return max(self.get_depth(node.left, depth+1), self.get_depth(node.right, depth+1))
+        return max(
+            self.get_depth(node.left, depth + 1), self.get_depth(node.right, depth + 1)
+        )
 
     def amountOfTime(self, root: Optional[TreeNode], start: int) -> int:
         self.start = start
@@ -52,9 +52,9 @@ class Solution:
         target_depth = self.get_depth(path[-1])
         ans = max(target_depth, 0)
 
-        for i in range(path_len-1):
+        for i in range(path_len - 1):
             start_node = None
-            if path[i].left == path[i+1]:
+            if path[i].left == path[i + 1]:
                 start_node = path[i].right
             else:
                 start_node = path[i].left
@@ -66,7 +66,9 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], start: int, expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, root_arr: List[int], start: int, expected: int
+) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
     actual = so.amountOfTime(root, start)
@@ -74,19 +76,18 @@ def test(testObj: unittest.TestCase, root_arr: List[int], start: int, expected: 
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self,  [1, 5, 3, None, 4, 10, 6, 9, 2],  3, 4)
+        test(self, [1, 5, 3, None, 4, 10, 6, 9, 2], 3, 4)
 
     def test_2(self):
-        test(self,  [1],  1, 0)
+        test(self, [1], 1, 0)
 
     def test_3(self):
-        test(self,  [1, 2, None, 3, None, 4, None, 5],  1, 4)
+        test(self, [1, 2, None, 3, None, 4, None, 5], 1, 4)
 
     def test_4(self):
-        test(self,  [1, 2, None, 3, None, 4, None, 5],  3, 2)
+        test(self, [1, 2, None, 3, None, 4, None, 5], 3, 2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -18,9 +18,9 @@ class Solution:
                     j -= 1
                 return total_distance
 
-            return min(dp(i, m, k-1) + dp(m+1, j, 1) for m in range(i+k-2, j))
+            return min(dp(i, m, k - 1) + dp(m + 1, j, 1) for m in range(i + k - 2, j))
 
-        return dp(0, n-1, k)
+        return dp(0, n - 1, k)
 
 
 def test(testObj: unittest.TestCase, houses: List[int], k: int, expected: int) -> None:
@@ -30,27 +30,26 @@ def test(testObj: unittest.TestCase, houses: List[int], k: int, expected: int) -
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 4, 8, 10, 20],  3, 5)
+        test(self, [1, 4, 8, 10, 20], 3, 5)
 
     def test_2(self):
-        test(self,   [2, 3, 5, 12, 18],  2, 9)
+        test(self, [2, 3, 5, 12, 18], 2, 9)
 
     def test_3(self):
-        test(self,   [3, 6, 14, 10], 4,  0)
+        test(self, [3, 6, 14, 10], 4, 0)
 
     def test_4(self):
-        test(self,  [1, 3, 13, 7, 6], 2, 9)
+        test(self, [1, 3, 13, 7, 6], 2, 9)
 
     def test_5(self):
-        test(self,  [2, 5, 7, 10, 14], 2, 9)
+        test(self, [2, 5, 7, 10, 14], 2, 9)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 293 ms, faster than 96.34%
 Memory Usage: 16.3 MB, less than 39.94%
-'''
+"""

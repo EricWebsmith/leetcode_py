@@ -31,7 +31,12 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, robot: List[int], factory: List[List[int]], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase,
+    robot: List[int],
+    factory: List[List[int]],
+    expected: int,
+) -> None:
 
     so = Solution()
 
@@ -41,21 +46,24 @@ def test(testObj: unittest.TestCase, robot: List[int], factory: List[List[int]],
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [0, 4, 6],  [[2, 2], [6, 2]], 4)
+        test(self, [0, 4, 6], [[2, 2], [6, 2]], 4)
 
     def test_2(self):
-        test(self,   [1, -1],  [[-2, 1], [2, 1]], 2)
+        test(self, [1, -1], [[-2, 1], [2, 1]], 2)
 
     def test_3(self):
-        test(self,   [9, 11, 99, 101],
-             [[10, 1], [7, 1], [14, 1], [100, 1], [96, 1], [103, 1]], 6)
+        test(
+            self,
+            [9, 11, 99, 101],
+            [[10, 1], [7, 1], [14, 1], [100, 1], [96, 1], [103, 1]],
+            6,
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

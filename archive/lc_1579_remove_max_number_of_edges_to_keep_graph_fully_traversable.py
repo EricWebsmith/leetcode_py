@@ -25,8 +25,8 @@ class DSU:
 
 class Solution:
     def maxNumEdgesToRemove(self, n: int, edges: List[List[int]]) -> int:
-        A = DSU(n+1)
-        B = DSU(n+1)
+        A = DSU(n + 1)
+        B = DSU(n + 1)
         ans = 0
         for t, x, y in edges:
             if t != 3:
@@ -40,10 +40,12 @@ class Solution:
             d = A if t == 1 else B
             ans += d.merge(x, y)
 
-        return ans if A.e == B.e == n-1 else -1
+        return ans if A.e == B.e == n - 1 else -1
 
 
-def test(testObj: unittest.TestCase, n: int, edges: List[List[int]], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, n: int, edges: List[List[int]], expected: int
+) -> None:
 
     so = Solution()
     actual = so.maxNumEdgesToRemove(n, edges)
@@ -51,21 +53,24 @@ def test(testObj: unittest.TestCase, n: int, edges: List[List[int]], expected: i
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   4,  [[3, 1, 2], [3, 2, 3], [1, 1, 3],
-             [1, 2, 4], [1, 1, 2], [2, 3, 4]], 2)
+        test(
+            self,
+            4,
+            [[3, 1, 2], [3, 2, 3], [1, 1, 3], [1, 2, 4], [1, 1, 2], [2, 3, 4]],
+            2,
+        )
 
     def test_2(self):
-        test(self,   4,  [[3, 1, 2], [3, 2, 3], [1, 1, 4], [2, 1, 4]], 0)
+        test(self, 4, [[3, 1, 2], [3, 2, 3], [1, 1, 4], [2, 1, 4]], 0)
 
     def test_3(self):
-        test(self,   4,  [[3, 2, 3], [1, 1, 2], [2, 3, 4]], -1)
+        test(self, 4, [[3, 2, 3], [1, 1, 2], [2, 3, 4]], -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

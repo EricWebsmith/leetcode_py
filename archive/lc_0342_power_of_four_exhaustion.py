@@ -11,10 +11,25 @@ import unittest
 
 
 class Solution:
-
     def isPowerOfFour(self, n: int) -> bool:
-        return n in [1, 4, 16, 64, 256, 1024, 4096, 16384, 65536, 262144, 1048576, 4194304,
-                     16777216, 67108864, 268435456, 1073741824]
+        return n in [
+            1,
+            4,
+            16,
+            64,
+            256,
+            1024,
+            4096,
+            16384,
+            65536,
+            262144,
+            1048576,
+            4194304,
+            16777216,
+            67108864,
+            268435456,
+            1073741824,
+        ]
 
 
 def test(testObj: unittest.TestCase, n: int, expected: int) -> None:
@@ -25,18 +40,17 @@ def test(testObj: unittest.TestCase, n: int, expected: int) -> None:
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self,  16, True)
+        test(self, 16, True)
 
     def test_2(self):
-        test(self,  5, False)
+        test(self, 5, False)
 
     def test_3(self):
-        test(self,  1, True)
+        test(self, 1, True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 

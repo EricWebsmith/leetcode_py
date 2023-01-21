@@ -22,26 +22,25 @@ def test(testObj: unittest.TestCase, arr: List[int], expected: bool) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 2, 2, 1, 1, 3], True)
+        test(self, [1, 2, 2, 1, 1, 3], True)
 
     def test_2(self):
-        test(self,   [1, 2], False)
+        test(self, [1, 2], False)
 
     def test_3(self):
-        test(self,   [-3, 0, 1, -3, 1, 1, 1, -3, 10, 0], True)
+        test(self, [-3, 0, 1, -3, 1, 1, 1, -3, 10, 0], True)
 
     def test_4(self):
-        test(self,   [1, 2, 1, 2], False)
+        test(self, [1, 2, 1, 2], False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 66 ms
 Beats
 59.77%
-'''
+"""

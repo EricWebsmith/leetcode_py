@@ -10,7 +10,7 @@ class Solution:
 
         n = len(s)
         left = 0
-        best = ''
+        best = ""
         best_length = 1000000000
 
         for right in range(n):
@@ -26,7 +26,7 @@ class Solution:
                     length = right - left + 1
                     if length < best_length:
                         best_length = length
-                        best = s[left: right+1]
+                        best = s[left : right + 1]
                 left += 1
 
         return best
@@ -40,26 +40,25 @@ def test(testObj: unittest.TestCase, s: str, t: str, expected: str) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "ADOBECODEBANC",  "ABC", "BANC")
+        test(self, "ADOBECODEBANC", "ABC", "BANC")
 
     def test_2(self):
-        test(self,   "a",  "a", "a")
+        test(self, "a", "a", "a")
 
     def test_3(self):
-        test(self,   "a",  "aa", "")
+        test(self, "a", "aa", "")
 
     def test_4(self):
-        test(self,   "ab",  "A", "")
+        test(self, "ab", "A", "")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 230 ms
 Beats
 51.67%
-'''
+"""

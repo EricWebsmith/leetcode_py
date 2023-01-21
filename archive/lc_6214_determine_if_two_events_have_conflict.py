@@ -3,7 +3,7 @@ from typing import List
 
 
 def to_minute(s: str):
-    h, m = s.split(':')
+    h, m = s.split(":")
     minute = int(h) * 60 + int(m)
     return minute
 
@@ -18,7 +18,9 @@ class Solution:
         return time_all <= time1 + time2
 
 
-def test(testObj: unittest.TestCase, event1: List[str], event2: List[str], expected: bool) -> None:
+def test(
+    testObj: unittest.TestCase, event1: List[str], event2: List[str], expected: bool
+) -> None:
 
     so = Solution()
 
@@ -28,20 +30,19 @@ def test(testObj: unittest.TestCase, event1: List[str], event2: List[str], expec
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   ["01:15", "02:00"],  ["02:00", "03:00"], True)
+        test(self, ["01:15", "02:00"], ["02:00", "03:00"], True)
 
     def test_2(self):
-        test(self,   ["01:00", "02:00"],  ["01:20", "03:00"], True)
+        test(self, ["01:00", "02:00"], ["01:20", "03:00"], True)
 
     def test_3(self):
-        test(self,   ["10:00", "11:00"],  ["14:00", "15:00"], False)
+        test(self, ["10:00", "11:00"], ["14:00", "15:00"], False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

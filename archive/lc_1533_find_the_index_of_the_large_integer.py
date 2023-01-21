@@ -12,8 +12,8 @@ class ArrayReader(object):
         self.arr = arr
 
     def compareSub(self, left: int, right: int, x: int, y: int) -> int:
-        left = sum(self.arr[left: right+1])
-        right = sum(self.arr[x: y+1])
+        left = sum(self.arr[left : right + 1])
+        right = sum(self.arr[x : y + 1])
         if left > right:
             return 1
         if left == right:
@@ -22,12 +22,13 @@ class ArrayReader(object):
         return -1
 
         # Returns the length of the array
+
     def length(self) -> int:
         return len(self.arr)
 
 
 class Solution:
-    def getIndex(self, reader: 'ArrayReader') -> int:
+    def getIndex(self, reader: "ArrayReader") -> int:
         n = reader.length()
         left = 0
         right = n - 1
@@ -56,21 +57,20 @@ def test(testObj: unittest.TestCase, arr: List[int], expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [7, 7, 7, 7, 10, 7, 7, 7], 4)
+        test(self, [7, 7, 7, 7, 10, 7, 7, 7], 4)
 
     def test_2(self):
-        test(self,   [6, 6, 12], 2)
+        test(self, [6, 6, 12], 2)
 
     def test_3(self):
-        test(self,   [1, 1, 1, 1, 1, 1, 2, 1, 1], 6)
+        test(self, [1, 1, 1, 1, 1, 1, 2, 1, 1], 6)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 300 ms, faster than 85.50%
 Memory Usage: 54 MB, less than 51.14%
-'''
+"""

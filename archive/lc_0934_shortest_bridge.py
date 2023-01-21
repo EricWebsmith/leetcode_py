@@ -23,6 +23,7 @@ class Solution:
                 for c in range(n):
                     if grid[r][c]:
                         return dfs(r, c)
+
         findIsland1()
 
         bridge = 0
@@ -30,7 +31,7 @@ class Solution:
             for _ in range(len(island1)):
                 r, c = island1.popleft()
                 for dr, dc in dirs:
-                    nr, nc = r+dr, c+dc
+                    nr, nc = r + dr, c + dc
                     if 0 <= nr < n and 0 <= nc < n and grid[nr][nc] != 2:
                         if grid[nr][nc] == 0:
                             grid[nr][nc] = 2
@@ -48,28 +49,45 @@ def test(testObj: unittest.TestCase, grid: List[List[int]], expected: int) -> No
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[0, 1], [1, 0]], 1)
+        test(self, [[0, 1], [1, 0]], 1)
 
     def test_2(self):
-        test(self,   [[0, 1, 0], [0, 0, 0], [0, 0, 1]], 2)
+        test(self, [[0, 1, 0], [0, 0, 0], [0, 0, 1]], 2)
 
     def test_3(self):
-        test(self,   [[1, 1, 1, 1, 1], [1, 0, 0, 0, 1], [
-             1, 0, 1, 0, 1], [1, 0, 0, 0, 1], [1, 1, 1, 1, 1]], 1)
+        test(
+            self,
+            [
+                [1, 1, 1, 1, 1],
+                [1, 0, 0, 0, 1],
+                [1, 0, 1, 0, 1],
+                [1, 0, 0, 0, 1],
+                [1, 1, 1, 1, 1],
+            ],
+            1,
+        )
 
     def test_4(self):
-        test(self,   [[0, 0, 0, 1, 1], [0, 0, 0, 1, 0], [
-             0, 0, 0, 1, 1], [0, 0, 1, 0, 1], [0, 0, 1, 1, 0]], 1)
+        test(
+            self,
+            [
+                [0, 0, 0, 1, 1],
+                [0, 0, 0, 1, 0],
+                [0, 0, 0, 1, 1],
+                [0, 0, 1, 0, 1],
+                [0, 0, 1, 1, 0],
+            ],
+            1,
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 536 ms
 Beats
 79.41%
-'''
+"""

@@ -1,4 +1,3 @@
-
 import unittest
 from typing import List
 
@@ -15,7 +14,9 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, nums: List[int], removeQueries: List[int], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, nums: List[int], removeQueries: List[int], expected: int
+) -> None:
 
     s = Solution()
     actual = s.maximumSegmentSum(nums, removeQueries)
@@ -23,13 +24,12 @@ def test(testObj: unittest.TestCase, nums: List[int], removeQueries: List[int], 
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self,  [1, 2, 5, 6, 1],  [0, 3, 2, 4, 1], [14, 7, 2, 2, 0])
+        test(self, [1, 2, 5, 6, 1], [0, 3, 2, 4, 1], [14, 7, 2, 2, 0])
 
     def test_2(self):
-        test(self,  [3, 2, 11, 1],  [3, 2, 1, 0], [16, 5, 3, 0])
+        test(self, [3, 2, 11, 1], [3, 2, 1, 0], [16, 5, 3, 0])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

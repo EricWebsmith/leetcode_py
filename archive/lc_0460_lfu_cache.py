@@ -1,9 +1,7 @@
-
 import unittest
 
 
 class LFUCache:
-
     def __init__(self, capacity: int) -> None:
         self.capacity = capacity
         self.key_fre_dict: dict[int, int] = dict()
@@ -20,9 +18,9 @@ class LFUCache:
         if len(fre_list) == 0:
             del self.fre_key_dict[fre]
 
-        if not (fre+1) in self.fre_key_dict:
-            self.fre_key_dict[fre+1] = []
-        self.fre_key_dict[fre+1].append(key)
+        if not (fre + 1) in self.fre_key_dict:
+            self.fre_key_dict[fre + 1] = []
+        self.fre_key_dict[fre + 1].append(key)
 
     def free(self) -> None:
         min_fre = min(self.fre_key_dict.keys())
@@ -61,7 +59,9 @@ class LFUCache:
             self.update_fre(key)
 
 
-def test(testObj: unittest.TestCase, actions: list, params: list, expected: list) -> None:
+def test(
+    testObj: unittest.TestCase, actions: list, params: list, expected: list
+) -> None:
     n = len(actions)
     obj = LFUCache(*params[0])
     for i in range(1, n):
@@ -77,13 +77,28 @@ def test(testObj: unittest.TestCase, actions: list, params: list, expected: list
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self, ["LFUCache", "put", "put", "get", "put", "get", "get", "put", "get", "get", "get"], [[2], [1, 1], [
-             2, 2], [1], [3, 3], [2], [3], [4, 4], [1], [3], [4]], [None, None, None, 1, None, -1, 3, None, -1, 3, 4])
+        test(
+            self,
+            [
+                "LFUCache",
+                "put",
+                "put",
+                "get",
+                "put",
+                "get",
+                "get",
+                "put",
+                "get",
+                "get",
+                "get",
+            ],
+            [[2], [1, 1], [2, 2], [1], [3, 3], [2], [3], [4, 4], [1], [3], [4]],
+            [None, None, None, 1, None, -1, 3, None, -1, 3, 4],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 

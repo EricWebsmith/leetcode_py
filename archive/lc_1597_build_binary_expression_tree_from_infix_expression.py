@@ -20,7 +20,12 @@ class Solution:
 
     def deal_mul_div(self):
         stack = self.stack
-        if len(stack) >= 3 and type(stack[-3]) is Node and type(stack[-1]) is Node and stack[-2] in ['*', '/']:
+        if (
+            len(stack) >= 3
+            and type(stack[-3]) is Node
+            and type(stack[-1]) is Node
+            and stack[-2] in ["*", "/"]
+        ):
             t = Node(stack[-2])
             t.left = stack[-3]
             t.right = stack[-1]
@@ -29,25 +34,29 @@ class Solution:
             stack.pop()
             stack.append(t)
 
-    def expTree(self, s: str) -> 'Node':
+    def expTree(self, s: str) -> "Node":
         stack = self.stack
-        current = ''
-        op = ''
-        for c in s+'+':
-            if c in '0123456789':
+        current = ""
+        op = ""
+        for c in s + "+":
+            if c in "0123456789":
                 current += c
             else:
                 op = c
-                if current != '':
+                if current != "":
                     stack.append(Node(current))
-                current = ''
+                current = ""
                 self.deal_mul_div()
 
-                if op in '+-)':
+                if op in "+-)":
                     head_node: Optional[Node] = None
                     current_node: Optional[Node] = None
 
-                    while len(self.stack) >= 2 and type(stack[-1]) is Node and stack[-2] in ['+', '-']:
+                    while (
+                        len(self.stack) >= 2
+                        and type(stack[-1]) is Node
+                        and stack[-2] in ["+", "-"]
+                    ):
 
                         t = Node(stack[-2])
                         t.right = stack[-1]
@@ -66,7 +75,7 @@ class Solution:
                         current_node.left = first
                         stack.append(head_node)
 
-                if op == ')':
+                if op == ")":
                     t = stack.pop()
                     # pop '('
                     stack.pop()
@@ -91,23 +100,44 @@ def test(testObj: unittest.TestCase, s: str, expected: List[str]) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "3*4-2*5", ['-', '*', '*', '3', '4', '2', '5'])
+        test(self, "3*4-2*5", ["-", "*", "*", "3", "4", "2", "5"])
 
     def test_2(self):
-        test(self,   "2-3/(5*2)+1", ['+', '-', '1', '2', '/',
-             None, None, None, None, '3', '*', None, None, '5', '2'])
+        test(
+            self,
+            "2-3/(5*2)+1",
+            [
+                "+",
+                "-",
+                "1",
+                "2",
+                "/",
+                None,
+                None,
+                None,
+                None,
+                "3",
+                "*",
+                None,
+                None,
+                "5",
+                "2",
+            ],
+        )
 
     def test_3(self):
-        test(self,   "1+2+3+4+5", ['+', '+', '5', '+',
-             '4', None, None, '+', '3', None, None, '1', '2'])
+        test(
+            self,
+            "1+2+3+4+5",
+            ["+", "+", "5", "+", "4", None, None, "+", "3", None, None, "1", "2"],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 42 ms, faster than 72.01%,
 Memory Usage: 14.2 MB, less than 30.63%
-'''
+"""

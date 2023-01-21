@@ -4,7 +4,6 @@ from typing import List
 
 
 class RangeModule:
-
     def __init__(self) -> None:
         self.arr: list = []
 
@@ -21,7 +20,7 @@ class RangeModule:
         #   left need to proceed all interval closing at left, so use Bisect_left
         #   right need to go after all interval openning at right, so use Bisect_right
         i, j = bisect_left(self.arr, left), bisect_right(self.arr, right)
-        self.arr[i: j] = [left] * (i % 2 == 0) + [right] * (j % 2 == 0)
+        self.arr[i:j] = [left] * (i % 2 == 0) + [right] * (j % 2 == 0)
 
     def queryRange(self, left: int, right: int) -> bool:
         # Main logic
@@ -42,16 +41,18 @@ class RangeModule:
         # Bisect_left vs. Bisect_right
         #   Same as addRange
         i, j = bisect_left(self.arr, left), bisect_right(self.arr, right)
-        self.arr[i: j] = [left] * (i % 2 == 1) + [right] * (j % 2 == 1)
+        self.arr[i:j] = [left] * (i % 2 == 1) + [right] * (j % 2 == 1)
 
 
-def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
+def test(
+    testObj: unittest.TestCase, actions: List, params: List, expected: List
+) -> None:
     n = len(actions)
     obj = RangeModule(*params[0])
-    print('------------test case-----------')
+    print("------------test case-----------")
     for i in range(1, n):
         print(i, actions[i], params[i], expected[i])
-    print('-------done-------------')
+    print("-------done-------------")
     for i in range(1, n):
         print(i, actions[i], params[i], expected[i])
         match actions[i]:
@@ -68,27 +69,72 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self, ["RangeModule", "addRange", "removeRange", "queryRange", "queryRange", "queryRange"], [
-             [], [10, 20], [14, 16], [10, 14], [13, 15], [16, 17]], [None, None, None, True, False, True])
+        test(
+            self,
+            [
+                "RangeModule",
+                "addRange",
+                "removeRange",
+                "queryRange",
+                "queryRange",
+                "queryRange",
+            ],
+            [[], [10, 20], [14, 16], [10, 14], [13, 15], [16, 17]],
+            [None, None, None, True, False, True],
+        )
 
     def test_2(self):
-        test(self, ["RangeModule", "addRange", "addRange", "removeRange", "queryRange", "queryRange", "queryRange"], [
-             [], [10, 20], [30, 40], [15, 35], [10, 14], [13, 15], [16, 17]],
-             [None, None, None, None, True, True, False])
+        test(
+            self,
+            [
+                "RangeModule",
+                "addRange",
+                "addRange",
+                "removeRange",
+                "queryRange",
+                "queryRange",
+                "queryRange",
+            ],
+            [[], [10, 20], [30, 40], [15, 35], [10, 14], [13, 15], [16, 17]],
+            [None, None, None, None, True, True, False],
+        )
 
     def test_3(self):
-        test(self, ["RangeModule", "addRange", "removeRange", "removeRange",
-                    "addRange", "removeRange", "addRange", "queryRange", "queryRange", "queryRange"],
-             [[], [6, 8], [7, 8], [8, 9], [8, 9], [1, 3], [1, 8], [2, 4], [2, 9], [4, 6]],
-             [None, None, None, None, None, None, None, True, True, True])
+        test(
+            self,
+            [
+                "RangeModule",
+                "addRange",
+                "removeRange",
+                "removeRange",
+                "addRange",
+                "removeRange",
+                "addRange",
+                "queryRange",
+                "queryRange",
+                "queryRange",
+            ],
+            [
+                [],
+                [6, 8],
+                [7, 8],
+                [8, 9],
+                [8, 9],
+                [1, 3],
+                [1, 8],
+                [2, 4],
+                [2, 9],
+                [4, 6],
+            ],
+            [None, None, None, None, None, None, None, True, True, True],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 384 ms, faster than 95.08%
 Memory Usage: 18.6 MB, less than 61.51%
-'''
+"""

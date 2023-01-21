@@ -1,7 +1,7 @@
 class ListNode:
     def __init__(self, val=0, next=None) -> None:
         self.val: int = val
-        self.next: 'ListNode' | None = next
+        self.next: "ListNode" | None = next
 
 
 def array_to_listnode(arr: list[int]) -> ListNode | None:

@@ -16,10 +16,10 @@ class Solution:
             if nums[i] ^ current == 0:
                 ans += 1
                 current ^= 1
-                if i+k > n:
+                if i + k > n:
                     return -1
-                if i+k < n:
-                    flips[i+k] = True
+                if i + k < n:
+                    flips[i + k] = True
 
         return ans
 
@@ -34,21 +34,20 @@ def test(testObj: unittest.TestCase, nums: List[int], k: int, expected: int) -> 
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [0, 1, 0],  1, 2)
+        test(self, [0, 1, 0], 1, 2)
 
     def test_2(self):
-        test(self,   [1, 1, 0],  2, -1)
+        test(self, [1, 1, 0], 2, -1)
 
     def test_3(self):
-        test(self,   [0, 0, 0, 1, 0, 1, 1, 0],  3, 3)
+        test(self, [0, 0, 0, 1, 0, 1, 1, 0], 3, 3)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 1171 ms, faster than 90.00%
 Memory Usage: 17.1 MB, less than 92.50%
-'''
+"""

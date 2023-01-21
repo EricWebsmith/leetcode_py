@@ -24,23 +24,22 @@ def test(testObj: unittest.TestCase, intervals: List[List[int]], expected: int) 
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[1, 2], [2, 3], [3, 4], [1, 3]], 1)
+        test(self, [[1, 2], [2, 3], [3, 4], [1, 3]], 1)
 
     def test_2(self):
-        test(self,   [[1, 2], [1, 2], [1, 2]], 2)
+        test(self, [[1, 2], [1, 2], [1, 2]], 2)
 
     def test_3(self):
-        test(self,   [[1, 2], [2, 3]], 0)
+        test(self, [[1, 2], [2, 3]], 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 2244 ms
 Beats
 73.71%
-'''
+"""

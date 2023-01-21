@@ -4,7 +4,6 @@ from sortedcontainers import SortedList  # type: ignore
 
 
 class MaxStack:
-
     def __init__(self) -> None:
         self.value_index = SortedList()
         self.index_value = SortedList()
@@ -32,13 +31,15 @@ class MaxStack:
         return value
 
 
-def test(testObj: unittest.TestCase, actions: list, params: list, expected: list) -> None:
+def test(
+    testObj: unittest.TestCase, actions: list, params: list, expected: list
+) -> None:
     n = len(actions)
     obj = MaxStack(*params[0])
-    print('------------test case-----------')
+    print("------------test case-----------")
     for i in range(1, n):
         print(i, actions[i], params[i], expected[i])
-    print('-------done-------------')
+    print("-------done-------------")
     for i in range(1, n):
         print(i, actions[i], params[i], expected[i])
         match actions[i]:
@@ -65,19 +66,37 @@ def test(testObj: unittest.TestCase, actions: list, params: list, expected: list
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self, ["MaxStack", "push", "push", "push", "top", "popMax", "top", "peekMax", "pop", "top"], [
-             [], [5], [1], [5], [], [], [], [], [], []], [None, None, None, None, 5, 5, 1, 5, 1, 5])
+        test(
+            self,
+            [
+                "MaxStack",
+                "push",
+                "push",
+                "push",
+                "top",
+                "popMax",
+                "top",
+                "peekMax",
+                "pop",
+                "top",
+            ],
+            [[], [5], [1], [5], [], [], [], [], [], []],
+            [None, None, None, None, 5, 5, 1, 5, 1, 5],
+        )
 
     def test_2(self):
-        test(self, ["MaxStack", "push", "peekMax", "pop"],
-             [[], [5], [], []], [None, None, 5, 5])
+        test(
+            self,
+            ["MaxStack", "push", "peekMax", "pop"],
+            [[], [5], [], []],
+            [None, None, 5, 5],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 896ms, 73.91%
-'''
+"""

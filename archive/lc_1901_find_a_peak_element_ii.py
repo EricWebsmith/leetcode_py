@@ -1,4 +1,3 @@
-
 import unittest
 from typing import List
 
@@ -14,9 +13,9 @@ class Solution:
                 if mat[r][c] > row_max:
                     row_max = mat[r][c]
                     row_max_index = c
-            if r == m-1:
+            if r == m - 1:
                 return [r, row_max_index]
-            if mat[r][row_max_index] > mat[r+1][row_max_index]:
+            if mat[r][row_max_index] > mat[r + 1][row_max_index]:
                 return [r, row_max_index]
 
         return [-1, -1]
@@ -30,13 +29,12 @@ def test(testObj: unittest.TestCase, mat: List[List[int]], expected: int) -> Non
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[1, 4], [3, 2]], [0, 1])
+        test(self, [[1, 4], [3, 2]], [0, 1])
 
     def test_2(self):
-        test(self,   [[10, 20, 15], [21, 30, 14], [7, 16, 32]], [1, 1])
+        test(self, [[10, 20, 15], [21, 30, 14], [7, 16, 32]], [1, 1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

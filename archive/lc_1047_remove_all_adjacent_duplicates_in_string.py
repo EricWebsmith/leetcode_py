@@ -10,7 +10,7 @@ class Solution:
             else:
                 result.append(c)
 
-        return ''.join(result)
+        return "".join(result)
 
 
 def test(testObj: unittest.TestCase, s: str, expected: str) -> None:
@@ -20,23 +20,22 @@ def test(testObj: unittest.TestCase, s: str, expected: str) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "abbaca", "ca")
+        test(self, "abbaca", "ca")
 
     def test_2(self):
-        test(self,   "azxxzy", "ay")
+        test(self, "azxxzy", "ay")
 
     def test_3(self):
-        test(self,   "aaaaaaaa", "")
+        test(self, "aaaaaaaa", "")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 75 ms
 Beats
 94.8%
-'''
+"""

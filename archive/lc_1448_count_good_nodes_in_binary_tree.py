@@ -9,7 +9,7 @@ class Solution:
         self.ans = 0
 
     def goodNodes(self, root: TreeNode) -> int:
-        MIN_INT = - 1000000
+        MIN_INT = -1000000
 
         def dfs(node, max_value):
             if node is None:
@@ -33,21 +33,20 @@ def test(testObj: unittest.TestCase, root_arr: List[int], expected: int) -> None
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [3, 1, 4, 3, None, 1, 5], 4)
+        test(self, [3, 1, 4, 3, None, 1, 5], 4)
 
     def test_2(self):
-        test(self,   [3, 3, None, 4, 2], 3)
+        test(self, [3, 3, None, 4, 2], 3)
 
     def test_3(self):
-        test(self,   [1], 1)
+        test(self, [1], 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 251 ms, faster than 96.75%
 Memory Usage: 33 MB, less than 7.60%
-'''
+"""

@@ -4,7 +4,7 @@ from typing import List
 
 def get_pattern(s: str) -> int:
     ans = 0
-    pre = ''
+    pre = ""
     for i, c in enumerate(s):
         if i == 0:
             pre = c
@@ -46,23 +46,22 @@ def test(testObj: unittest.TestCase, words: List[str], expected: str) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   ["adc", "wzy", "abc"], "abc")
+        test(self, ["adc", "wzy", "abc"], "abc")
 
     def test_2(self):
-        test(self,   ["aaa", "bob", "ccc", "ddd"], "bob")
+        test(self, ["aaa", "bob", "ccc", "ddd"], "bob")
 
     def test_3(self):
-        test(self,   ["abc", "wzy", "adc"], "abc")
+        test(self, ["abc", "wzy", "adc"], "abc")
 
     def test_4(self):
-        test(self,   ["abc", "bcd", "def", "abb"], "abb")
+        test(self, ["abc", "bcd", "def", "abb"], "abb")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

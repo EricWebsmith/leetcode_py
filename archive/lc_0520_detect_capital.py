@@ -25,26 +25,25 @@ def test(testObj: unittest.TestCase, word: str, expected: bool) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "USA", True)
+        test(self, "USA", True)
 
     def test_2(self):
-        test(self,   "FlaG", False)
+        test(self, "FlaG", False)
 
     def test_3(self):
-        test(self,   "leetcode", True)
+        test(self, "leetcode", True)
 
     def test_4(self):
-        test(self,   "Google", True)
+        test(self, "Google", True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 34 ms
 Beats
 84.76%
-'''
+"""

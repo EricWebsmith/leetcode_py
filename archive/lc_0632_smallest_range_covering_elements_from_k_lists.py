@@ -19,8 +19,8 @@ class Solution:
             lo, arr_index, index = heappop(hq)
             if index == len(nums[arr_index]) - 1:
                 break
-            high = max(high, nums[arr_index][index+1])
-            heappush(hq, (nums[arr_index][index+1], arr_index, index+1))  # type: ignore
+            high = max(high, nums[arr_index][index + 1])
+            heappush(hq, (nums[arr_index][index + 1], arr_index, index + 1))  # type: ignore
 
             if result[1] - result[0] > high - hq[0][0]:
                 result = [hq[0][0], high]
@@ -36,19 +36,17 @@ def test(testObj: unittest.TestCase, nums: List[List[int]], expected: int) -> No
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[4, 10, 15, 24, 26], [
-             0, 9, 12, 20], [5, 18, 22, 30]], [20, 24])
+        test(self, [[4, 10, 15, 24, 26], [0, 9, 12, 20], [5, 18, 22, 30]], [20, 24])
 
     def test_2(self):
-        test(self,   [[1, 2, 3], [1, 2, 3], [1, 2, 3]], [1, 1])
+        test(self, [[1, 2, 3], [1, 2, 3], [1, 2, 3]], [1, 1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 229 ms, faster than 97.97%
 Memory Usage: 20.4 MB, less than 49.45%
-'''
+"""

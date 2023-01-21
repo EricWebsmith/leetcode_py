@@ -14,16 +14,18 @@ class Solution:
 
         for i in range(1, n):
             next = [0] * (2 * total + 1)
-            for s in range(-total, total+1):
-                if dp[s+total] > 0:
-                    next[total+s+nums[i]] += dp[s+total]
-                    next[total+s-nums[i]] += dp[s+total]
+            for s in range(-total, total + 1):
+                if dp[s + total] > 0:
+                    next[total + s + nums[i]] += dp[s + total]
+                    next[total + s - nums[i]] += dp[s + total]
             dp = next
 
         return dp[total + target]
 
 
-def test(testObj: unittest.TestCase, nums: List[int], target: int, expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, nums: List[int], target: int, expected: int
+) -> None:
 
     so = Solution()
     actual = so.findTargetSumWays(nums, target)
@@ -31,18 +33,17 @@ def test(testObj: unittest.TestCase, nums: List[int], target: int, expected: int
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 1, 1, 1, 1],  3, 5)
+        test(self, [1, 1, 1, 1, 1], 3, 5)
 
     def test_2(self):
-        test(self,   [1],  1, 1)
+        test(self, [1], 1, 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 294 ms, faster than 81.18%
 Memory Usage: 14 MB, less than 92.69%
-'''
+"""

@@ -8,7 +8,7 @@ class Solution:
         print(n)
         ans = 0
         while n > 0:
-            n = n & (n-1)
+            n = n & (n - 1)
             ans += 1
 
         return ans
@@ -21,23 +21,22 @@ def test(testObj: unittest.TestCase, n: int, expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   11, 3)
+        test(self, 11, 3)
 
     def test_2(self):
-        test(self,   128, 1)
+        test(self, 128, 1)
 
     def test_3(self):
-        test(self,   2 ** 32-1-2, 31)
+        test(self, 2**32 - 1 - 2, 31)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 40 ms
 Beats
 81.51%
-'''
+"""

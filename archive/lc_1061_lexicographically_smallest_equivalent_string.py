@@ -15,7 +15,7 @@ class DSU:
             self.union_find[index_a] = index_b
 
     def find(self, c: str) -> int:
-        i = ord(c) - ord('a')
+        i = ord(c) - ord("a")
         p = i
         while self.union_find[p] != p:
             p = self.union_find[p]
@@ -24,7 +24,7 @@ class DSU:
 
     def find_str(self, c: str) -> str:
         i = self.find(c)
-        return chr(ord('a')+i)
+        return chr(ord("a") + i)
 
 
 class Solution:
@@ -37,10 +37,12 @@ class Solution:
         for c in baseStr:
             ans.append(dsu.find_str(c))
 
-        return ''.join(ans)
+        return "".join(ans)
 
 
-def test(testObj: unittest.TestCase, s1: str, s2: str, baseStr: str, expected: str) -> None:
+def test(
+    testObj: unittest.TestCase, s1: str, s2: str, baseStr: str, expected: str
+) -> None:
 
     so = Solution()
     actual = so.smallestEquivalentString(s1, s2, baseStr)
@@ -48,23 +50,22 @@ def test(testObj: unittest.TestCase, s1: str, s2: str, baseStr: str, expected: s
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "parker",  "morris",  "parser", "makkek")
+        test(self, "parker", "morris", "parser", "makkek")
 
     def test_2(self):
-        test(self,   "hello",  "world",  "hold", "hdld")
+        test(self, "hello", "world", "hold", "hdld")
 
     def test_3(self):
-        test(self,   "leetcode",  "programs",  "sourcecode", "aauaaaaada")
+        test(self, "leetcode", "programs", "sourcecode", "aauaaaaada")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 37 ms
 Beats
 96.55%
-'''
+"""

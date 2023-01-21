@@ -9,7 +9,7 @@ class Solution:
         n = len(nums)
         acc = [nums[0]]
         for i in range(1, n):
-            acc.append(acc[i-1]+nums[i])
+            acc.append(acc[i - 1] + nums[i])
 
         ans: list = []
         for q in queries:
@@ -22,7 +22,9 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, nums: List[int], queries: List[int], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, nums: List[int], queries: List[int], expected: int
+) -> None:
 
     so = Solution()
     actual = so.answerQueries(nums, queries)
@@ -30,20 +32,24 @@ def test(testObj: unittest.TestCase, nums: List[int], queries: List[int], expect
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [4, 5, 2, 1],  [3, 10, 21], [2, 3, 4])
+        test(self, [4, 5, 2, 1], [3, 10, 21], [2, 3, 4])
 
     def test_2(self):
-        test(self,   [2, 3, 4, 5],  [1], [0])
+        test(self, [2, 3, 4, 5], [1], [0])
 
     def test_3(self):
-        test(self, [469781, 45635, 628818, 324948, 343772, 713803, 452081], [816646, 929491],  [3, 3])
+        test(
+            self,
+            [469781, 45635, 628818, 324948, 343772, 713803, 452081],
+            [816646, 929491],
+            [3, 3],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

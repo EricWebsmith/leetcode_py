@@ -20,7 +20,12 @@ class Solution:
 
         while q:
             r, c = q.popleft()
-            for dr, dc, dir in [[0, 1, right], [1, 0, down], [0, -1, left], [-1, 0, up]]:
+            for dr, dc, dir in [
+                [0, 1, right],
+                [1, 0, down],
+                [0, -1, left],
+                [-1, 0, up],
+            ]:
                 nr = r + dr
                 nc = c + dc
                 if nr < 0 or nr == m:
@@ -28,12 +33,12 @@ class Solution:
                 if nc < 0 or nc == n:
                     continue
                 to = int(grid[r][c] == dir)
-                if dp[nr][nc] <= dp[r][c]+1-to:
+                if dp[nr][nc] <= dp[r][c] + 1 - to:
                     continue
-                dp[nr][nc] = dp[r][c]+1-to
+                dp[nr][nc] = dp[r][c] + 1 - to
                 q.append((nr, nc))
 
-        return dp[m-1][n-1]
+        return dp[m - 1][n - 1]
 
 
 def test(testObj: unittest.TestCase, grid: List[List[int]], expected: int) -> None:
@@ -46,22 +51,20 @@ def test(testObj: unittest.TestCase, grid: List[List[int]], expected: int) -> No
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[1, 1, 1, 1], [2, 2, 2, 2],
-             [1, 1, 1, 1], [2, 2, 2, 2]], 3)
+        test(self, [[1, 1, 1, 1], [2, 2, 2, 2], [1, 1, 1, 1], [2, 2, 2, 2]], 3)
 
     def test_2(self):
-        test(self,   [[1, 1, 3], [3, 2, 2], [1, 1, 4]], 0)
+        test(self, [[1, 1, 3], [3, 2, 2], [1, 1, 4]], 0)
 
     def test_3(self):
-        test(self,   [[1, 2], [4, 3]], 1)
+        test(self, [[1, 2], [4, 3]], 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 3758 ms, faster than 5.22%
 Memory Usage: 14.5 MB, less than 98.26%
-'''
+"""

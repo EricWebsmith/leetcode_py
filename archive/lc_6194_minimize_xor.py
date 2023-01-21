@@ -53,26 +53,25 @@ def test(testObj: unittest.TestCase, num1: int, num2: int, expected: int) -> Non
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   3,  5, 3)
+        test(self, 3, 5, 3)
 
     def test_2(self):
-        test(self,   1,  12, 3)
+        test(self, 1, 12, 3)
 
     def test_3(self):
-        test(self,   12,  1, 8)
+        test(self, 12, 1, 8)
 
     def test_4(self):
-        test(self,   5,  3, 5)
+        test(self, 5, 3, 5)
 
     def test_5(self):
-        test(self,   13,  1024, 8)
+        test(self, 13, 1024, 8)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

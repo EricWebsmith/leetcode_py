@@ -11,14 +11,14 @@ class Solution:
         cols = [0] * n
         for r in range(m):
             for c in range(n):
-                if picture[r][c] == 'B':
+                if picture[r][c] == "B":
                     rows[r] += 1
                     cols[c] += 1
 
         ans = 0
         for r in range(m):
             for c in range(n):
-                if picture[r][c] == 'B' and rows[r] == 1 and cols[c] == 1:
+                if picture[r][c] == "B" and rows[r] == 1 and cols[c] == 1:
                     ans += 1
 
         return ans
@@ -34,17 +34,16 @@ def test(testObj: unittest.TestCase, picture: List[List[str]], expected: int) ->
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [["W", "W", "B"], ["W", "B", "W"], ["B", "W", "W"]], 3)
+        test(self, [["W", "W", "B"], ["W", "B", "W"], ["B", "W", "W"]], 3)
 
     def test_2(self):
-        test(self,   [["B", "B", "B"], ["B", "B", "W"], ["B", "B", "B"]], 0)
+        test(self, [["B", "B", "B"], ["B", "B", "W"], ["B", "B", "B"]], 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 452ms, 98.8%
-'''
+"""

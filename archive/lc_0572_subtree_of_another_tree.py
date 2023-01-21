@@ -11,7 +11,9 @@ class Solution:
         if node1 is None or node2 is None or node1.val != node2.val:
             return False
 
-        return self.isSameTree(node1.left, node2.left) and self.isSameTree(node1.right, node2.right)
+        return self.isSameTree(node1.left, node2.left) and self.isSameTree(
+            node1.right, node2.right
+        )
 
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         if not subRoot:
@@ -25,7 +27,12 @@ class Solution:
         return self.isSubtree(root.left, subRoot) or self.isSubtree(root.right, subRoot)
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], subRoot_arr: List[int], expected: bool) -> None:
+def test(
+    testObj: unittest.TestCase,
+    root_arr: List[int],
+    subRoot_arr: List[int],
+    expected: bool,
+) -> None:
     root = array_to_treenode(root_arr)
     subRoot = array_to_treenode(subRoot_arr)
     so = Solution()
@@ -34,21 +41,19 @@ def test(testObj: unittest.TestCase, root_arr: List[int], subRoot_arr: List[int]
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [3, 4, 5, 1, 2],  [4, 1, 2], True)
+        test(self, [3, 4, 5, 1, 2], [4, 1, 2], True)
 
     def test_2(self):
-        test(self,   [3, 4, 5, 1, 2, None, None,
-             None, None, 0],  [4, 1, 2], False)
+        test(self, [3, 4, 5, 1, 2, None, None, None, None, 0], [4, 1, 2], False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 243 ms
 Beats
 62.95%
-'''
+"""

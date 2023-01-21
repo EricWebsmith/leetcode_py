@@ -14,14 +14,19 @@ class Solution:
         root_val = preorder[0]
         root = TreeNode(preorder[0])
         left_length = inorder.index(root_val)
-        root.left = self.buildTree(
-            preorder[1:left_length+1], inorder[:left_length])
+        root.left = self.buildTree(preorder[1 : left_length + 1], inorder[:left_length])
         root.right = self.buildTree(
-            preorder[left_length+1:], inorder[left_length+1:])
+            preorder[left_length + 1 :], inorder[left_length + 1 :]
+        )
         return root
 
 
-def test(testObj: unittest.TestCase, preorder: List[int], inorder: List[int], expected: Optional[TreeNode]) -> None:
+def test(
+    testObj: unittest.TestCase,
+    preorder: List[int],
+    inorder: List[int],
+    expected: Optional[TreeNode],
+) -> None:
     so = Solution()
     actual_root = so.buildTree(preorder, inorder)
     actual = treenode_to_array(actual_root)
@@ -29,21 +34,19 @@ def test(testObj: unittest.TestCase, preorder: List[int], inorder: List[int], ex
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [3, 9, 20, 15, 7],  [9, 3, 15, 20, 7],
-             [3, 9, 20, None, None, 15, 7])
+        test(self, [3, 9, 20, 15, 7], [9, 3, 15, 20, 7], [3, 9, 20, None, None, 15, 7])
 
     def test_2(self):
-        test(self,   [-1],  [-1], [-1])
+        test(self, [-1], [-1], [-1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 208 ms
 Beats
 65.62%
-'''
+"""

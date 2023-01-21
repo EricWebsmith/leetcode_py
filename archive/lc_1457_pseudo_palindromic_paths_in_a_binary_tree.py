@@ -44,21 +44,20 @@ def test(testObj: unittest.TestCase, root_arr: list[int], expected: int) -> None
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [2, 3, 1, 3, 1, None, 1], 2)
+        test(self, [2, 3, 1, 3, 1, None, 1], 2)
 
     def test_2(self):
-        test(self,   [2, 1, 1, 1, 3, None, None, None, None, None, 1], 1)
+        test(self, [2, 1, 1, 1, 3, None, None, None, None, None, 1], 1)
 
     def test_3(self):
-        test(self,   [9], 1)
+        test(self, [9], 1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 885 ms, faster than 94.08%
 Memory Usage: 85.3 MB, less than 65.11%
-'''
+"""

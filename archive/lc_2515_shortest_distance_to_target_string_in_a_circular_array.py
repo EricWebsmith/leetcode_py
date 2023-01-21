@@ -18,30 +18,35 @@ class Solution:
         return distance
 
 
-def test(testObj: unittest.TestCase, words: list[str], target: str, startIndex: int, expected: int) -> None:
+def test(
+    testObj: unittest.TestCase,
+    words: list[str],
+    target: str,
+    startIndex: int,
+    expected: int,
+) -> None:
     so = Solution()
     actual = so.closetTarget(words, target, startIndex)
     testObj.assertEqual(actual, expected)
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   ["hello", "i", "am", "leetcode", "hello"],  "hello",  1, 1)
+        test(self, ["hello", "i", "am", "leetcode", "hello"], "hello", 1, 1)
 
     def test_2(self):
-        test(self,   ["a", "b", "leetcode"],  "leetcode",  0, 1)
+        test(self, ["a", "b", "leetcode"], "leetcode", 0, 1)
 
     def test_3(self):
-        test(self,   ["i", "eat", "leetcode"],  "ate",  0, -1)
+        test(self, ["i", "eat", "leetcode"], "ate", 0, -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 51 ms
 Beats
 80.92%
-'''
+"""

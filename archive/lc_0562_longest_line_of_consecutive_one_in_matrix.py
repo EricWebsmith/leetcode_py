@@ -1,4 +1,3 @@
-
 import unittest
 from typing import List
 
@@ -21,14 +20,20 @@ class Solution:
                 if mat[r][c] == 0:
                     continue
 
-                dp[HORIZONTAL][r][c] = dp[HORIZONTAL][r][c-1] + 1 if c > 0 else 1
-                dp[VERTICAL][r][c] = dp[VERTICAL][r-1][c] + 1 if r > 0 else 1
-                dp[DIAGONAL][r][c] = dp[DIAGONAL][r-1][c-1] + 1 if r > 0 and c > 0 else 1
+                dp[HORIZONTAL][r][c] = dp[HORIZONTAL][r][c - 1] + 1 if c > 0 else 1
+                dp[VERTICAL][r][c] = dp[VERTICAL][r - 1][c] + 1 if r > 0 else 1
+                dp[DIAGONAL][r][c] = (
+                    dp[DIAGONAL][r - 1][c - 1] + 1 if r > 0 and c > 0 else 1
+                )
 
-            for c in range(n-1, -1, -1):
+            for c in range(n - 1, -1, -1):
                 if mat[r][c] == 0:
                     continue
-                dp[ANTI_DIAGONAL][r][c] = (dp[ANTI_DIAGONAL][r-1][c+1] + 1) if (c < n-1 and r > 0) else 1
+                dp[ANTI_DIAGONAL][r][c] = (
+                    (dp[ANTI_DIAGONAL][r - 1][c + 1] + 1)
+                    if (c < n - 1 and r > 0)
+                    else 1
+                )
 
         return np.max(dp)
 
@@ -41,13 +46,12 @@ def test(testObj: unittest.TestCase, mat: List[List[int]], expected: int) -> Non
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[0, 1, 1, 0], [0, 1, 1, 0], [0, 0, 0, 1]], 3)
+        test(self, [[0, 1, 1, 0], [0, 1, 1, 0], [0, 0, 0, 1]], 3)
 
     def test_2(self):
-        test(self,   [[1, 1, 1, 1], [0, 1, 1, 0], [0, 0, 0, 1]], 4)
+        test(self, [[1, 1, 1, 1], [0, 1, 1, 0], [0, 0, 0, 1]], 4)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

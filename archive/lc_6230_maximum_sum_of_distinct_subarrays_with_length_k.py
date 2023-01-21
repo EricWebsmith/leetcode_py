@@ -48,22 +48,21 @@ def test(testObj: unittest.TestCase, nums: List[int], k: int, expected: int) -> 
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 5, 4, 2, 9, 9, 9],  3, 15)
+        test(self, [1, 5, 4, 2, 9, 9, 9], 3, 15)
 
     def test_2(self):
-        test(self,   [4, 4, 4],  3, 0)
+        test(self, [4, 4, 4], 3, 0)
 
     def test_3(self):
         nums = [i for i in range(1, 100000)]
         k = 50000
-        test(self,   nums,  k, 3749975000)
+        test(self, nums, k, 3749975000)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

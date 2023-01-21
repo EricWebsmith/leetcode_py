@@ -11,7 +11,6 @@ def inorder(node) -> List[int]:
 
 
 class Solution:
-
     def findTarget(self, root: Optional[TreeNode], k: int) -> bool:
         arr = inorder(root)
         n = len(arr)
@@ -29,7 +28,9 @@ class Solution:
         return False
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], k: int, expected: bool) -> None:
+def test(
+    testObj: unittest.TestCase, root_arr: List[int], k: int, expected: bool
+) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
     actual = so.findTarget(root, k)
@@ -37,20 +38,19 @@ def test(testObj: unittest.TestCase, root_arr: List[int], k: int, expected: bool
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [5, 3, 6, 2, 4, None, 7],  9, True)
+        test(self, [5, 3, 6, 2, 4, None, 7], 9, True)
 
     def test_2(self):
-        test(self,   [5, 3, 6, 2, 4, None, 7],  28, False)
+        test(self, [5, 3, 6, 2, 4, None, 7], 28, False)
 
     def test_3(self):
-        test(self,   [2, 1, 3],  3, True)
+        test(self, [2, 1, 3], 3, True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 124ms, 72.43%
-'''
+"""

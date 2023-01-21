@@ -32,7 +32,7 @@ class Solution:
             remain -= 1
 
             for dr, dc in [(0, 1), (0, -1), (1, 0), (-1, 0)]:
-                nr, nc = r+dr, c+dc
+                nr, nc = r + dr, c + dc
 
                 if not (0 <= nr < m and 0 <= nc < n):
                     continue
@@ -55,23 +55,22 @@ def test(testObj: unittest.TestCase, grid: List[List[int]], expected: int) -> No
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 2, -1]], 2)
+        test(self, [[1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 2, -1]], 2)
 
     def test_2(self):
-        test(self,   [[1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 2]], 4)
+        test(self, [[1, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 2]], 4)
 
     def test_3(self):
-        test(self,   [[0, 1], [2, 0]], 0)
+        test(self, [[0, 1], [2, 0]], 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 69 ms
 Beats
 81.47%
-'''
+"""

@@ -1,4 +1,3 @@
-
 import unittest
 from math import sqrt
 from typing import List
@@ -12,10 +11,10 @@ class Solution:
         def backtrack(start, x):
             if cur:
                 res.append(cur + [x])
-            for factor in range(start, int(sqrt(x))+1):
+            for factor in range(start, int(sqrt(x)) + 1):
                 if x % factor == 0:
                     cur.append(factor)
-                    backtrack(factor, x//factor)
+                    backtrack(factor, x // factor)
                     cur.pop()
 
         backtrack(2, n)
@@ -32,18 +31,17 @@ def test(testObj: unittest.TestCase, n: int, expected: list[list[int]]) -> None:
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self,   1, [])
+        test(self, 1, [])
 
     def test_2(self):
-        test(self,   12, [[2, 6], [3, 4], [2, 2, 3]])
+        test(self, 12, [[2, 6], [3, 4], [2, 2, 3]])
 
     def test_3(self):
-        test(self,   37, [])
+        test(self, 37, [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 """

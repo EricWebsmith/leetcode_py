@@ -29,7 +29,9 @@ class Solution:
         return left
 
 
-def test(testObj: unittest.TestCase, sweetness: List[int], k: int, expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, sweetness: List[int], k: int, expected: int
+) -> None:
 
     so = Solution()
     actual = so.maximizeSweetness(sweetness, k)
@@ -37,21 +39,20 @@ def test(testObj: unittest.TestCase, sweetness: List[int], k: int, expected: int
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 2, 3, 4, 5, 6, 7, 8, 9],  5, 6)
+        test(self, [1, 2, 3, 4, 5, 6, 7, 8, 9], 5, 6)
 
     def test_2(self):
-        test(self,   [5, 6, 7, 8, 9, 1, 2, 3, 4],  8, 1)
+        test(self, [5, 6, 7, 8, 9, 1, 2, 3, 4], 8, 1)
 
     def test_3(self):
-        test(self,   [1, 2, 2, 1, 2, 2, 1, 2, 2],  2, 5)
+        test(self, [1, 2, 2, 1, 2, 2, 1, 2, 2], 2, 5)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 286 ms, faster than 74.81%
 Memory Usage: 15.3 MB, less than 60.19%
-'''
+"""

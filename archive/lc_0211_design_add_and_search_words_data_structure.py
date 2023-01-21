@@ -18,7 +18,7 @@ class WordDictionary:
             if c not in node:
                 node[c] = dict()
             node = node[c]
-        node['$'] = dict()
+        node["$"] = dict()
 
         # postfix
         node = self.postfix
@@ -26,7 +26,7 @@ class WordDictionary:
             if c not in node:
                 node[c] = dict[str, dict]()
             node = node[c]
-        node['$'] = dict()
+        node["$"] = dict()
 
     def search(self, word: str) -> bool:
         chars = list(word)
@@ -36,9 +36,9 @@ class WordDictionary:
                 if ch not in node:
                     # if the current character is '.'
                     # check all possible nodes at this level
-                    if ch == '.':
+                    if ch == ".":
                         for x in node:
-                            if x != '$' and search_in_node(chars[i + 1:], node[x]):
+                            if x != "$" and search_in_node(chars[i + 1 :], node[x]):
                                 return True
                     # if no nodes lead to answer
                     # or the current character != '.'
@@ -47,16 +47,16 @@ class WordDictionary:
                 # go down to the next level in trie
                 else:
                     node = node[ch]
-            return '$' in node
+            return "$" in node
 
         n = len(chars)
         i = 0
         use_prefix = True
         while i < n // 2:
-            if chars[i] == '.' and chars[n-1-i] != '.':
+            if chars[i] == "." and chars[n - 1 - i] != ".":
                 use_prefix = False
                 break
-            if chars[i] != '.' and chars[n-1-i] == '.':
+            if chars[i] != "." and chars[n - 1 - i] == ".":
                 use_prefix = True
                 break
             i += 1
@@ -70,13 +70,15 @@ class WordDictionary:
             return search_in_node(chars, self.postfix)
 
 
-def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
+def test(
+    testObj: unittest.TestCase, actions: List, params: List, expected: List
+) -> None:
     n = len(actions)
     obj = WordDictionary(*params[0])
-    print('------------test case-----------')
+    print("------------test case-----------")
     for i in range(1, n):
         print(i, actions[i], params[i], expected[i])
-    print('-------done-------------')
+    print("-------done-------------")
     for i in range(1, n):
         print(i, actions[i], params[i], expected[i])
         match actions[i]:
@@ -103,35 +105,46 @@ def test2(testObj: unittest.TestCase, actions: List, params: List) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self, ["WordDictionary", "addWord", "addWord", "addWord", "search", "search", "search", "search"],
-             [[], ["bad"], ["dad"], ["mad"], ["pad"], ["bad"], [".ad"], ["b.."]],
-             [None, None, None, None, False, True, True, True])
+        test(
+            self,
+            [
+                "WordDictionary",
+                "addWord",
+                "addWord",
+                "addWord",
+                "search",
+                "search",
+                "search",
+                "search",
+            ],
+            [[], ["bad"], ["dad"], ["mad"], ["pad"], ["bad"], [".ad"], ["b.."]],
+            [None, None, None, None, False, True, True, True],
+        )
 
     def test_2(self):
-        operations = ['WordDictionary']
+        operations = ["WordDictionary"]
         args = [[]]
-        chars = 'abcdefghijklmnopqrstuvwxy'
+        chars = "abcdefghijklmnopqrstuvwxy"
         for a in chars:
             for b in chars:
                 for c in chars:
-                    word = a+b+c
-                    operations.append('addWord')
+                    word = a + b + c
+                    operations.append("addWord")
                     args.append([word])
 
         for i in range(10000):
-            operations.append('search')
-            args.append(['..z'])
+            operations.append("search")
+            args.append(["..z"])
         test2(self, operations, args)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 1781 ms
 Beats
 99.32%
-'''
+"""

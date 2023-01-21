@@ -7,8 +7,8 @@ from lxml import etree  # type: ignore
 from scraper_result import ScraperResult
 
 env = dotenv_values()
-leetcode_session = env['LEETCODE_SESSION']
-csrf_token = env['CSRF_TOKEN']
+leetcode_session = env["LEETCODE_SESSION"]
+csrf_token = env["CSRF_TOKEN"]
 
 
 class ProblemScraper:
@@ -39,8 +39,7 @@ class ProblemScraper:
                 }
                 }
             """,
-            variables=leetcode.GraphqlQueryGetQuestionDetailVariables(
-                title_slug),
+            variables=leetcode.GraphqlQueryGetQuestionDetailVariables(title_slug),
             operation_name="getQuestionDetail",
         )
 
@@ -55,17 +54,18 @@ class ProblemScraper:
         result.title = question.title
         code_definitions = json.loads(question.code_definition)
         result.code_definition = [
-            d for d in code_definitions if d['value'] == 'python3'][0]['defaultCode']
+            d for d in code_definitions if d["value"] == "python3"
+        ][0]["defaultCode"]
         content = etree.HTML(question.content)
         test_cases = content.xpath("//pre")
         for tc in test_cases:
-            tc_string = tc.xpath('string()')
+            tc_string = tc.xpath("string()")
             result.test_cases.append(tc_string)
 
         return result
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     s = ProblemScraper()
-    result = s('two-sum')
+    result = s("two-sum")
     print(result)

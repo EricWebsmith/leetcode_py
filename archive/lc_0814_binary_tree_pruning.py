@@ -1,7 +1,6 @@
 import unittest
 
-from data_structure.binary_tree import (TreeNode, array_to_treenode,
-                                        treenode_to_array)
+from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 
 
 class Solution:
@@ -39,24 +38,23 @@ def test(testObj: unittest.TestCase, root_arr: list[int], expected: list[int]) -
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, None, 0, 0, 1], [1, None, 0, None, 1])
+        test(self, [1, None, 0, 0, 1], [1, None, 0, None, 1])
 
     def test_2(self):
-        test(self,   [1, 0, 1, 0, 0, 0, 1], [1, None, 1, None, 1])
+        test(self, [1, 0, 1, 0, 0, 0, 1], [1, None, 1, None, 1])
 
     def test_3(self):
-        test(self,   [1, 1, 0, 1, 1, 0, 1, 0], [1, 1, 0, 1, 1, None, 1])
+        test(self, [1, 1, 0, 1, 1, 0, 1, 0], [1, 1, 0, 1, 1, None, 1])
 
     def test_4(self):
-        test(self,   [], [])
+        test(self, [], [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 35 ms, faster than 88.94%
 Memory Usage: 13.9 MB, less than 23.50%
-'''
+"""

@@ -9,8 +9,8 @@ class Solution:
             c = 0
             first = matrix[r][c]
             i = 1
-            while r+i < m and c+i < n:
-                if matrix[r+i][c+i] != first:
+            while r + i < m and c + i < n:
+                if matrix[r + i][c + i] != first:
                     return False
                 i += 1
 
@@ -18,8 +18,8 @@ class Solution:
             r = 0
             first = matrix[r][c]
             i = 1
-            while r+i < m and c+i < n:
-                if matrix[r+i][c+i] != first:
+            while r + i < m and c + i < n:
+                if matrix[r + i][c + i] != first:
                     return False
                 i += 1
 
@@ -36,20 +36,19 @@ def test(testObj: unittest.TestCase, matrix: List[List[int]], expected: bool) ->
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[1, 2, 3, 4], [5, 1, 2, 3], [9, 5, 1, 2]], True)
+        test(self, [[1, 2, 3, 4], [5, 1, 2, 3], [9, 5, 1, 2]], True)
 
     def test_2(self):
-        test(self,   [[1, 2], [2, 2]], False)
+        test(self, [[1, 2], [2, 2]], False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 88 ms
 Beats
 95.34%
-'''
+"""

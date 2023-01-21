@@ -7,15 +7,15 @@ class Solution:
         2D DP, Simple but slow.
         """
         n = len(s)
-        dp = [[0] * (n+1) for i in range(n+1)]
+        dp = [[0] * (n + 1) for i in range(n + 1)]
         t = list(s)
         t.reverse()
         for r in range(n):
             for c in range(n):
                 if s[c] == t[r]:
-                    dp[r+1][c+1] = dp[r][c] + 1
+                    dp[r + 1][c + 1] = dp[r][c] + 1
                 else:
-                    dp[r+1][c+1] = max(dp[r][c+1], dp[r+1][c])
+                    dp[r + 1][c + 1] = max(dp[r][c + 1], dp[r + 1][c])
 
         return dp[-1][-1]
 
@@ -30,24 +30,23 @@ def test(testObj: unittest.TestCase, s: str, expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "bbbab", 4)
+        test(self, "bbbab", 4)
 
     def test_2(self):
-        test(self,   "cbbd", 2)
+        test(self, "cbbd", 2)
 
     def test_3(self):
-        test(self,   "abcd", 1)
+        test(self, "abcd", 1)
 
     def test_4(self):
-        test(self,   "abcdcba", 7)
+        test(self, "abcdcba", 7)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 7791 ms, faster than 5.03%
 Memory Usage: 39.2 MB, less than 44.75%
-'''
+"""

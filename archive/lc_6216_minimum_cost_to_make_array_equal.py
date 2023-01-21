@@ -30,27 +30,28 @@ class Solution:
         return best
 
 
-def test(testObj: unittest.TestCase, nums: List[int], cost: List[int], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, nums: List[int], cost: List[int], expected: int
+) -> None:
     so = Solution()
     actual = so.minCost(nums, cost)
     testObj.assertEqual(actual, expected)
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 3, 5, 2],  [2, 3, 1, 14], 8)
+        test(self, [1, 3, 5, 2], [2, 3, 1, 14], 8)
 
     def test_2(self):
-        test(self,   [2, 2, 2, 2, 2],  [4, 2, 8, 1, 3], 0)
+        test(self, [2, 2, 2, 2, 2], [4, 2, 8, 1, 3], 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 2688 ms
 Beats
 46.15%
-'''
+"""

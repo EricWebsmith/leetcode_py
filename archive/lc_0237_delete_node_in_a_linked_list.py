@@ -1,7 +1,6 @@
 import unittest
 
-from data_structure.link_list import (ListNode, array_to_listnode,
-                                      listnode_to_array)
+from data_structure.link_list import ListNode, array_to_listnode, listnode_to_array
 
 
 class Solution:
@@ -11,7 +10,9 @@ class Solution:
             node.next = node.next.next
 
 
-def test(testObj: unittest.TestCase, head_arr: list[int], node_val: int, expected: ListNode) -> None:
+def test(
+    testObj: unittest.TestCase, head_arr: list[int], node_val: int, expected: ListNode
+) -> None:
     head = array_to_listnode(head_arr)
     assert head is not None
     node: ListNode = head
@@ -24,20 +25,19 @@ def test(testObj: unittest.TestCase, head_arr: list[int], node_val: int, expecte
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [4, 5, 1, 9],  5, [4, 1, 9])
+        test(self, [4, 5, 1, 9], 5, [4, 1, 9])
 
     def test_2(self):
-        test(self,   [4, 5, 1, 9],  1, [4, 5, 9])
+        test(self, [4, 5, 1, 9], 1, [4, 5, 9])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 41 ms
 Beats
 93.61%
-'''
+"""

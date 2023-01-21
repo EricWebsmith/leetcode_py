@@ -18,7 +18,7 @@ class Solution:
             if (row, col) in visiting:
                 return False
 
-            if i == len(word)-1:
+            if i == len(word) - 1:
                 return True
 
             visiting.add((row, col))
@@ -28,7 +28,7 @@ class Solution:
 
             # dr, dc = delta row, delta col
             for dr, dc in [(1, 0), (0, 1), (-1, 0), (0, -1)]:
-                if dfs(row+dr, col+dc, i+1):
+                if dfs(row + dr, col + dc, i + 1):
                     return True
 
             visiting.remove((row, col))
@@ -42,37 +42,49 @@ class Solution:
         return False
 
 
-def test(testObj: unittest.TestCase, board: List[List[str]], word: str, expected: bool) -> None:
+def test(
+    testObj: unittest.TestCase, board: List[List[str]], word: str, expected: bool
+) -> None:
     so = Solution()
     actual = so.exist(board, word)
     testObj.assertEqual(actual, expected)
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [["A", "B", "C", "E"], ["S", "F", "C", "S"],
-             ["A", "D", "E", "E"]],  "ABCCED", True)
+        test(
+            self,
+            [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]],
+            "ABCCED",
+            True,
+        )
 
     def test_2(self):
-        test(self,   [["A", "B", "C", "E"], ["S", "F", "C", "S"],
-             ["A", "D", "E", "E"]],  "SEE", True)
+        test(
+            self,
+            [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]],
+            "SEE",
+            True,
+        )
 
     def test_3(self):
-        test(self,   [["A", "B", "C", "E"], ["S", "F", "C", "S"],
-             ["A", "D", "E", "E"]],  "ABCB", False)
+        test(
+            self,
+            [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]],
+            "ABCB",
+            False,
+        )
 
     def test_4(self):
-        test(self,  [["C", "A", "A"], ["A", "A", "A"],
-             ["B", "C", "D"]],  "AAB", True)
+        test(self, [["C", "A", "A"], ["A", "A", "A"], ["B", "C", "D"]], "AAB", True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 5562 ms
 Beats
 52.29%
-'''
+"""

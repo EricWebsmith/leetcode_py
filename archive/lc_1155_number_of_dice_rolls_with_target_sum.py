@@ -5,7 +5,6 @@ from functools import cache
 class Solution:
     @cache
     def numRollsToTarget(self, n: int, k: int, target: int) -> int:
-
         def dfs(n, target):
             MOD = 1_000_000_007
             if target <= 0:
@@ -18,8 +17,8 @@ class Solution:
                 return 1
 
             ans = 0
-            for dice in range(1, k+1):
-                ans += self.numRollsToTarget(n-1, k, target-dice)
+            for dice in range(1, k + 1):
+                ans += self.numRollsToTarget(n - 1, k, target - dice)
 
             ans %= MOD
 
@@ -28,34 +27,35 @@ class Solution:
         return dfs(n, target)
 
 
-def test(testObj: unittest.TestCase, n: int, k: int, target: int, expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, n: int, k: int, target: int, expected: int
+) -> None:
     so = Solution()
     actual = so.numRollsToTarget(n, k, target)
     testObj.assertEqual(actual, expected)
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   1,  6,  3, 1)
+        test(self, 1, 6, 3, 1)
 
     def test_2(self):
-        test(self,   2,  6,  7, 6)
+        test(self, 2, 6, 7, 6)
 
     def test_3(self):
-        test(self,   30,  30,  500, 222616187)
+        test(self, 30, 30, 500, 222616187)
 
     def test_4(self):
-        test(self,   3,  6,  9, 25)
+        test(self, 3, 6, 9, 25)
 
     def test_5(self):
-        test(self,   2,  6,  5, 4)
+        test(self, 2, 6, 5, 4)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 258 ms, faster than 89.74%
 Memory Usage: 18.3 MB, less than 42.91%
-'''
+"""

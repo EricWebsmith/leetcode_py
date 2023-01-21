@@ -14,7 +14,7 @@ class Solution:
             ties += 1
 
         if min_length > len(s):
-            return ''
+            return ""
 
         head = most_common[0][0]
         for i in range(1, ties):
@@ -27,7 +27,7 @@ class Solution:
 
         g = generate_chars()
 
-        subs = [head] * (first_count-1)
+        subs = [head] * (first_count - 1)
         while subs:
             try:
                 for i in range(len(subs)):
@@ -36,7 +36,7 @@ class Solution:
                 break
 
         subs.append(head)
-        return ''.join(subs)
+        return "".join(subs)
 
 
 def test(testObj: unittest.TestCase, s: str, k: int, expected: str) -> None:
@@ -49,24 +49,23 @@ def test(testObj: unittest.TestCase, s: str, k: int, expected: str) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "aabbcc",  3, ["abcabc"])
+        test(self, "aabbcc", 3, ["abcabc"])
 
     def test_2(self):
-        test(self,   "aaabc",  3, [""])
+        test(self, "aaabc", 3, [""])
 
     def test_3(self):
-        test(self,   "aaadbbcc",  2, ["abcdabca", "abacabcd", "abacdabc"])
+        test(self, "aaadbbcc", 2, ["abcdabca", "abacabcd", "abacdabc"])
 
     def test_4(self):
-        test(self,   "a",  0, ["a"])
+        test(self, "a", 0, ["a"])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 90 ms, faster than 88.54%
 Memory Usage: 15 MB, less than 86.76%
-'''
+"""

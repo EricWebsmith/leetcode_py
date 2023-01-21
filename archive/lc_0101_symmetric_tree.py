@@ -16,7 +16,6 @@ def dfs(a: Optional[TreeNode], b: Optional[TreeNode]) -> bool:
 
 
 class Solution:
-
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
         if root is None:
             return True
@@ -32,20 +31,19 @@ def test(testObj: unittest.TestCase, root_arr: List[int], expected: bool) -> Non
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 2, 2, 3, 4, 4, 3], True)
+        test(self, [1, 2, 2, 3, 4, 4, 3], True)
 
     def test_2(self):
-        test(self,   [1, 2, 2, None, 3, None, 3], False)
+        test(self, [1, 2, 2, None, 3, None, 3], False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 64 ms
 Beats
 55.17%
-'''
+"""

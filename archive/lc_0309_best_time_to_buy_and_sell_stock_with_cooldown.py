@@ -15,12 +15,12 @@ class Solution:
                 return cache[(i, buying)]
 
             if buying:
-                buy = dfs(i+1, not buying) - prices[i]
-                cooldown = dfs(i+1, buying)
+                buy = dfs(i + 1, not buying) - prices[i]
+                cooldown = dfs(i + 1, buying)
                 cache[(i, buying)] = max(buy, cooldown)
             else:
-                sell = dfs(i+2, not buying) + prices[i]
-                cooldown = dfs(i+1, buying)
+                sell = dfs(i + 2, not buying) + prices[i]
+                cooldown = dfs(i + 1, buying)
                 cache[(i, buying)] = max(sell, cooldown)
             return cache[(i, buying)]
 
@@ -35,18 +35,17 @@ def test(testObj: unittest.TestCase, prices: List[int], expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 2, 3, 0, 2], 3)
+        test(self, [1, 2, 3, 0, 2], 3)
 
     def test_2(self):
-        test(self,   [1], 0)
+        test(self, [1], 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 43 ms, faster than 95.53%
 Memory Usage: 17.8 MB, less than 40.11%
-'''
+"""

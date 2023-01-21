@@ -25,18 +25,17 @@ def test(testObj: unittest.TestCase, tasks: List[int], expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [2, 2, 3, 3, 2, 4, 4, 4, 4, 4], 4)
+        test(self, [2, 2, 3, 3, 2, 4, 4, 4, 4, 4], 4)
 
     def test_2(self):
-        test(self,   [2, 3, 3], -1)
+        test(self, [2, 3, 3], -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 932 ms, faster than 99.47%
 Memory Usage: 28.5 MB, less than 38.92%
-'''
+"""

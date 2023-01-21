@@ -1,4 +1,3 @@
-
 import unittest
 from bisect import bisect_right
 
@@ -35,25 +34,24 @@ def test(testObj: unittest.TestCase, rains: list[int], expected: int) -> None:
 
 
 class TestStringMethods(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 2, 3, 4], [-1, -1, -1, -1])
+        test(self, [1, 2, 3, 4], [-1, -1, -1, -1])
 
     def test_2(self):
-        test(self,   [1, 2, 0, 0, 2, 1], [-1, -1, 2, 1, -1, -1])
+        test(self, [1, 2, 0, 0, 2, 1], [-1, -1, 2, 1, -1, -1])
 
     def test_3(self):
-        test(self,   [1, 2, 0, 1, 2], [])
+        test(self, [1, 2, 0, 1, 2], [])
 
     def test_4(self):
-        test(self,   [69, 0, 0, 0, 69], [-1, 69, 1, 1, -1])
+        test(self, [69, 0, 0, 0, 69], [-1, 69, 1, 1, -1])
 
     def test_5(self):
-        test(self,   [0, 1, 1], [])
+        test(self, [0, 1, 1], [])
 
     def test_6(self):
-        test(self,   [1, 0, 2, 0, 2, 1], [-1, 1, -1, 2, -1, -1])
+        test(self, [1, 0, 2, 0, 2, 1], [-1, 1, -1, 2, -1, -1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

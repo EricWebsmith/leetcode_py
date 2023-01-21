@@ -27,7 +27,9 @@ class DSU:
 
 
 class Solution:
-    def findCriticalAndPseudoCriticalEdges(self, n: int, edges: List[List[int]]) -> List[List[int]]:
+    def findCriticalAndPseudoCriticalEdges(
+        self, n: int, edges: List[List[int]]
+    ) -> List[List[int]]:
         sorted_edges = [(a, b, w, i) for i, (a, b, w) in enumerate(edges)]
         sorted_edges.sort(key=lambda x: x[2])
         dsu = DSU(n)
@@ -70,7 +72,7 @@ class Solution:
                 if new_dsu.e == n - 1:
                     break
 
-            if new_dsu.e == n-1 and new_mst == mst:
+            if new_dsu.e == n - 1 and new_mst == mst:
                 pseudo_critical.add(pseudo_critical_index)
 
         critical: list = []
@@ -89,7 +91,7 @@ class Solution:
                 if new_dsu.e == n - 1:
                     break
 
-            if new_dsu.e < n-1 or new_mst > mst:
+            if new_dsu.e < n - 1 or new_mst > mst:
                 critical.append(critical_index)
 
         for critical_index in critical:
@@ -98,7 +100,12 @@ class Solution:
         return [critical, list(pseudo_critical)]
 
 
-def test(testObj: unittest.TestCase, n: int, edges: List[List[int]], expected: List[List[int]]) -> None:
+def test(
+    testObj: unittest.TestCase,
+    n: int,
+    edges: List[List[int]],
+    expected: List[List[int]],
+) -> None:
 
     so = Solution()
 
@@ -108,25 +115,35 @@ def test(testObj: unittest.TestCase, n: int, edges: List[List[int]], expected: L
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   5,  [[0, 1, 1], [1, 2, 1], [2, 3, 2], [0, 3, 2], [
-             0, 4, 3], [3, 4, 3], [1, 4, 6]], [[0, 1], [2, 3, 4, 5]])
+        test(
+            self,
+            5,
+            [
+                [0, 1, 1],
+                [1, 2, 1],
+                [2, 3, 2],
+                [0, 3, 2],
+                [0, 4, 3],
+                [3, 4, 3],
+                [1, 4, 6],
+            ],
+            [[0, 1], [2, 3, 4, 5]],
+        )
 
     def test_2(self):
-        test(self,   4,  [[0, 1, 1], [1, 2, 1], [
-             2, 3, 1], [0, 3, 1]], [[], [0, 1, 2, 3]])
+        test(self, 4, [[0, 1, 1], [1, 2, 1], [2, 3, 1], [0, 3, 1]], [[], [0, 1, 2, 3]])
 
     def test_3(self):
-        test(self,   2,  [[0, 1, 1]], [[0], []])
+        test(self, 2, [[0, 1, 1]], [[0], []])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 # adding max weight has significant impact
 # from 2000ms to 1000ms
-'''
+"""
 Runtime: 782 ms, faster than 83.65%
 Memory Usage: 14.1 MB, less than 60.58%
-'''
+"""

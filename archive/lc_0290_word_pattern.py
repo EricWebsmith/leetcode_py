@@ -4,7 +4,7 @@ import unittest
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
 
-        words = s.split(' ')
+        words = s.split(" ")
         if len(words) != len(pattern):
             return False
 
@@ -31,26 +31,25 @@ def test(testObj: unittest.TestCase, pattern: str, s: str, expected: bool) -> No
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "abba",  "dog cat cat dog", True)
+        test(self, "abba", "dog cat cat dog", True)
 
     def test_2(self):
-        test(self,   "abba",  "dog cat cat fish", False)
+        test(self, "abba", "dog cat cat fish", False)
 
     def test_3(self):
-        test(self,   "aaaa",  "dog cat cat dog", False)
+        test(self, "aaaa", "dog cat cat dog", False)
 
     def test_4(self):
-        test(self,   "e",  "eukera", True)
+        test(self, "e", "eukera", True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 27 ms
 Beats
 95.33%
-'''
+"""

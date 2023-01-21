@@ -40,10 +40,10 @@ class Solution:
             res = 0
             if mask_all & nums[i] == 0:
                 mask_all = mask_all | nums[i]
-                res = dfs(i+1, mask_all)
+                res = dfs(i + 1, mask_all)
                 mask_all = mask_all - nums[i]
 
-            return max(res, dfs(i+1, mask_all))
+            return max(res, dfs(i + 1, mask_all))
 
         return dfs(0, 0)
 
@@ -55,23 +55,22 @@ def test(testObj: unittest.TestCase, arr: List[str], expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   ["un", "iq", "ue"], 4)
+        test(self, ["un", "iq", "ue"], 4)
 
     def test_2(self):
-        test(self,   ["cha", "r", "act", "ers"], 6)
+        test(self, ["cha", "r", "act", "ers"], 6)
 
     def test_3(self):
-        test(self,   ["abcdefghijklmnopqrstuvwxyz"], 26)
+        test(self, ["abcdefghijklmnopqrstuvwxyz"], 26)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 327 ms
 Beats
 30.27%
-'''
+"""

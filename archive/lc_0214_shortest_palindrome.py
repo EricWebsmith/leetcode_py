@@ -5,18 +5,18 @@ class Solution:
     def shortestPalindrome(self, s: str) -> str:
         n = len(s)
         rev_s = s[::-1]
-        new_s = s + '*' + rev_s
+        new_s = s + "*" + rev_s
 
         dp = [0] * len(new_s)
 
         for i in range(1, len(new_s)):
-            j = dp[i-1]
+            j = dp[i - 1]
             while j > 0 and new_s[j] != new_s[i]:
-                j = dp[j-1]
+                j = dp[j - 1]
             if new_s[i] == new_s[j]:
-                dp[i] = j+1
+                dp[i] = j + 1
 
-        return rev_s[:n-dp[-1]] + s
+        return rev_s[: n - dp[-1]] + s
 
 
 def test(testObj: unittest.TestCase, s: str, expected: int) -> None:
@@ -27,17 +27,16 @@ def test(testObj: unittest.TestCase, s: str, expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "aacecaaa", "aaacecaaa")
+        test(self, "aacecaaa", "aaacecaaa")
 
     def test_2(self):
-        test(self,   "abcd", "dcbabcd")
+        test(self, "abcd", "dcbabcd")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

@@ -10,7 +10,9 @@ class Solution:
         return keys[:k]
 
 
-def test(testObj: unittest.TestCase, words: List[str], k: int, expected: List[str]) -> None:
+def test(
+    testObj: unittest.TestCase, words: List[str], k: int, expected: List[str]
+) -> None:
 
     so = Solution()
 
@@ -20,19 +22,21 @@ def test(testObj: unittest.TestCase, words: List[str], k: int, expected: List[st
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   ["i", "love", "leetcode", "i",
-             "love", "coding"],  2, ["i", "love"])
+        test(self, ["i", "love", "leetcode", "i", "love", "coding"], 2, ["i", "love"])
 
     def test_2(self):
-        test(self,   ["the", "day", "is", "sunny", "the", "the", "the",
-             "sunny", "is", "is"],  4, ["the", "is", "sunny", "day"])
+        test(
+            self,
+            ["the", "day", "is", "sunny", "the", "the", "the", "sunny", "is", "is"],
+            4,
+            ["the", "is", "sunny", "day"],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

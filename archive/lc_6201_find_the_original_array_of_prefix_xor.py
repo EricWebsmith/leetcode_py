@@ -7,7 +7,7 @@ class Solution:
         n = len(pref)
         ans = [pref[0]]
         for i in range(1, n):
-            ans.append(pref[i-1] ^ 0 ^ pref[i])
+            ans.append(pref[i - 1] ^ 0 ^ pref[i])
 
         return ans
 
@@ -19,17 +19,16 @@ def test(testObj: unittest.TestCase, pref: List[int], expected: List[int]) -> No
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [5, 2, 0, 3, 1], [5, 7, 2, 3, 2])
+        test(self, [5, 2, 0, 3, 1], [5, 7, 2, 3, 2])
 
     def test_2(self):
-        test(self,   [13], [13])
+        test(self, [13], [13])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

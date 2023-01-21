@@ -1,8 +1,7 @@
 import unittest
 from typing import List, Optional
 
-from data_structure.binary_tree import (TreeNode, array_to_treenode,
-                                        treenode_to_array)
+from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
 
 
 class Solution:
@@ -16,7 +15,9 @@ class Solution:
         return root
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], expected: Optional[TreeNode]) -> None:
+def test(
+    testObj: unittest.TestCase, root_arr: List[int], expected: Optional[TreeNode]
+) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
 
@@ -27,23 +28,22 @@ def test(testObj: unittest.TestCase, root_arr: List[int], expected: Optional[Tre
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [4, 2, 7, 1, 3, 6, 9], [4, 7, 2, 9, 6, 3, 1])
+        test(self, [4, 2, 7, 1, 3, 6, 9], [4, 7, 2, 9, 6, 3, 1])
 
     def test_2(self):
-        test(self,   [2, 1, 3], [2, 3, 1])
+        test(self, [2, 1, 3], [2, 3, 1])
 
     def test_3(self):
-        test(self,   [], [])
+        test(self, [], [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 54 ms
 Beats
 63.31%
-'''
+"""

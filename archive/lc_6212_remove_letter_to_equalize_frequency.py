@@ -36,23 +36,22 @@ def test(testObj: unittest.TestCase, word: str, expected: bool) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "abcc", True)
+        test(self, "abcc", True)
 
     def test_2(self):
-        test(self,   "aazz", False)
+        test(self, "aazz", False)
 
     def test_3(self):
-        test(self,   "bac", True)
+        test(self, "bac", True)
 
     def test_4(self):
-        test(self,   "abbcc", True)
+        test(self, "abbcc", True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

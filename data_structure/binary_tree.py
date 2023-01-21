@@ -21,8 +21,8 @@ def array_to_treenode(arr: list[int]) -> TreeNode | None:
         if arr[i] is not None:
             node.left = TreeNode(arr[i])
             q.append(node.left)
-        if i+1 < len(arr) and arr[i+1] is not None:
-            node.right = TreeNode(arr[i+1])
+        if i + 1 < len(arr) and arr[i + 1] is not None:
+            node.right = TreeNode(arr[i + 1])
             q.append(node.right)
 
     return root
@@ -60,6 +60,7 @@ def get_treenode_by_val(root: TreeNode, val: int):
 
         dfs(node.left)
         dfs(node.right)
+
     dfs(root)
     return ans
 
@@ -76,5 +77,6 @@ def get_treenodes_by_vals(root: TreeNode, vals: list[int]):
 
         dfs(node.left)
         dfs(node.right)
+
     dfs(root)
     return ans

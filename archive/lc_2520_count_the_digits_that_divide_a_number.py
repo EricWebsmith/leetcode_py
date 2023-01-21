@@ -21,23 +21,22 @@ def test(testObj: unittest.TestCase, num: int, expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   7, 1)
+        test(self, 7, 1)
 
     def test_2(self):
-        test(self,   121, 2)
+        test(self, 121, 2)
 
     def test_3(self):
-        test(self,   1248, 4)
+        test(self, 1248, 4)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 32 ms
 Beats
 100%
-'''
+"""

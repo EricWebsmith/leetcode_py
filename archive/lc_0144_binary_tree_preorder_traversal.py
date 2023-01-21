@@ -8,7 +8,11 @@ class Solution:
         if root is None:
             return []
 
-        return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
+        return (
+            [root.val]
+            + self.preorderTraversal(root.left)
+            + self.preorderTraversal(root.right)
+        )
 
 
 def test(testObj: unittest.TestCase, root_arr: list[int], expected: list[int]) -> None:
@@ -19,23 +23,22 @@ def test(testObj: unittest.TestCase, root_arr: list[int], expected: list[int]) -
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, None, 2, 3], [1, 2, 3])
+        test(self, [1, None, 2, 3], [1, 2, 3])
 
     def test_2(self):
-        test(self,   [], [])
+        test(self, [], [])
 
     def test_3(self):
-        test(self,   [1], [1])
+        test(self, [1], [1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 35 ms
 Beats
 74.39%
-'''
+"""

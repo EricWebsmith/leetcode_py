@@ -1,4 +1,3 @@
-
 import unittest
 from typing import List
 
@@ -23,18 +22,17 @@ def test(testObj: unittest.TestCase, points: List[List[int]], expected: int) -> 
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[8, 7], [9, 9], [7, 4], [9, 7]], 1)
+        test(self, [[8, 7], [9, 9], [7, 4], [9, 7]], 1)
 
     def test_2(self):
-        test(self,   [[3, 1], [9, 0], [1, 0], [1, 4], [5, 3], [8, 8]], 3)
+        test(self, [[3, 1], [9, 0], [1, 0], [1, 4], [5, 3], [8, 8]], 3)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 1001 ms, faster than 82.76%
 Memory Usage: 54.9 MB, less than 18.94%
-'''
+"""

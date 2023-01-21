@@ -1,7 +1,7 @@
 import unittest
 from typing import List
 
-MAX_INT = 2 ** 31 - 1
+MAX_INT = 2**31 - 1
 
 
 class ArrayReader:
@@ -15,7 +15,7 @@ class ArrayReader:
 
 
 class Solution:
-    def search(self, reader: 'ArrayReader', target: int) -> int:
+    def search(self, reader: "ArrayReader", target: int) -> int:
 
         left = 0
         right = 10000
@@ -32,7 +32,9 @@ class Solution:
         return -1
 
 
-def test(testObj: unittest.TestCase, arr: List[int], target: int, expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, arr: List[int], target: int, expected: int
+) -> None:
 
     reader = ArrayReader(arr)
     so = Solution()
@@ -41,18 +43,17 @@ def test(testObj: unittest.TestCase, arr: List[int], target: int, expected: int)
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [-1, 0, 3, 5, 9, 12],  9, 4)
+        test(self, [-1, 0, 3, 5, 9, 12], 9, 4)
 
     def test_2(self):
-        test(self,   [-1, 0, 3, 5, 9, 12],  2, -1)
+        test(self, [-1, 0, 3, 5, 9, 12], 2, -1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 47 ms, faster than 80.53%
 Memory Usage: 15.1 MB, less than 55.25%
-'''
+"""

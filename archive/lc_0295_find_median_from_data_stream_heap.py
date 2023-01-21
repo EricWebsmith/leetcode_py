@@ -1,11 +1,9 @@
-
 import unittest
 from heapq import heappop, heappush
 from typing import List
 
 
 class MedianFinder:
-
     def __init__(self) -> None:
         self.lo: list = []
         self.hi: list = []
@@ -21,12 +19,14 @@ class MedianFinder:
 
     def findMedian(self) -> float:
         if len(self.lo) == len(self.hi):
-            return (-self.lo[0] + self.hi[0])/2.0
+            return (-self.lo[0] + self.hi[0]) / 2.0
         else:
             return -self.lo[0]
 
 
-def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
+def test(
+    testObj: unittest.TestCase, actions: List, params: List, expected: List
+) -> None:
     n = len(actions)
     obj = MedianFinder(*params[0])
     for i in range(1, n):
@@ -41,16 +41,19 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self, ["MedianFinder", "addNum", "addNum", "findMedian", "addNum", "findMedian"], [
-             [], [1], [2], [], [3], []], [None, None, None, 1.5, None, 2.0])
+        test(
+            self,
+            ["MedianFinder", "addNum", "addNum", "findMedian", "addNum", "findMedian"],
+            [[], [1], [2], [], [3], []],
+            [None, None, None, 1.5, None, 2.0],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 568 ms, faster than 93.03%
 Memory Usage: 36.4 MB, less than 21.94%
-'''
+"""

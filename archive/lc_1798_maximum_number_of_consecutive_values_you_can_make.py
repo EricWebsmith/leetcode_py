@@ -24,23 +24,22 @@ def test(testObj: unittest.TestCase, coins: list[int], expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 3], 2)
+        test(self, [1, 3], 2)
 
     def test_2(self):
-        test(self,   [1, 1, 1, 4], 8)
+        test(self, [1, 1, 1, 4], 8)
 
     def test_3(self):
-        test(self,   [1, 4, 10, 3, 1], 20)
+        test(self, [1, 4, 10, 3, 1], 20)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 788 ms
 Beats
 81.51%
-'''
+"""

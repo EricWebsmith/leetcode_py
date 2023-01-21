@@ -16,15 +16,15 @@ class TreeNode(Node):
         self.val = 0
         self.left: TreeNode = None
         self.right: TreeNode = None
-        self.opertion: str = ''
+        self.opertion: str = ""
 
     def evaluate(self) -> int:
         return self.val
 
 
 class TreeBuilder(object):
-    def buildTree(self, postfix: List[str]) -> 'Node':
-        operations = ['+', '-', '*', '/']
+    def buildTree(self, postfix: List[str]) -> "Node":
+        operations = ["+", "-", "*", "/"]
         stack: list = []
         for p in postfix:
             if p not in operations:
@@ -38,13 +38,13 @@ class TreeBuilder(object):
                 node.left = stack.pop()
 
                 match p:
-                    case '+':
+                    case "+":
                         node.val = node.left.val + node.right.val
-                    case '-':
+                    case "-":
                         node.val = node.left.val - node.right.val
-                    case '*':
+                    case "*":
                         node.val = node.left.val * node.right.val
-                    case '/':
+                    case "/":
                         node.val = node.left.val // node.right.val
                 stack.append(node)
 
@@ -59,18 +59,17 @@ def test(testObj: unittest.TestCase, postfix: List[str], expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   ["3", "4", "+", "2", "*", "7", "/"], 2)
+        test(self, ["3", "4", "+", "2", "*", "7", "/"], 2)
 
     def test_2(self):
-        test(self,   ["4", "5", "2", "7", "+", "-", "*"], -16)
+        test(self, ["4", "5", "2", "7", "+", "-", "*"], -16)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 40 ms, faster than 87.00%,
 Memory Usage: 14 MB, less than 16.63%
-'''
+"""

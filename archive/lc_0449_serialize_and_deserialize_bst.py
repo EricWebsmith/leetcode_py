@@ -64,16 +64,13 @@ def treenode_to_array(root: Optional[TreeNode]) -> List[int | None]:
 
 
 class Codec:
-
     def serialize(self, root: Optional[TreeNode]) -> str:
-        """Encodes a tree to a single string.
-        """
+        """Encodes a tree to a single string."""
         arr = treenode_to_array(root)
         return str(arr)
 
     def deserialize(self, data: str) -> Optional[TreeNode]:
-        """Decodes your encoded data to tree.
-        """
+        """Decodes your encoded data to tree."""
         arr = eval(data)
         root = array_to_treenode(arr)
         return root
@@ -90,17 +87,16 @@ def test(testObj: unittest.TestCase, root_arr: List[int], expected: int) -> None
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [2, 1, 3], [2, 1, 3])
+        test(self, [2, 1, 3], [2, 1, 3])
 
     def test_2(self):
-        test(self,   [], [])
+        test(self, [], [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

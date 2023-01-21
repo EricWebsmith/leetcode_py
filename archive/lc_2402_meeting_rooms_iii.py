@@ -33,31 +33,32 @@ class Solution:
         return room_counts.index(max(room_counts))
 
 
-def test(testObj: unittest.TestCase, n: int, meetings: List[List[int]], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, n: int, meetings: List[List[int]], expected: int
+) -> None:
     so = Solution()
     actual = so.mostBooked(n, meetings)
     testObj.assertEqual(actual, expected)
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   2,  [[0, 10], [1, 5], [2, 7], [3, 4]], 0)
+        test(self, 2, [[0, 10], [1, 5], [2, 7], [3, 4]], 0)
 
     def test_2(self):
-        test(self,   3,  [[1, 20], [2, 10], [3, 5], [4, 9], [6, 8]], 1)
+        test(self, 3, [[1, 20], [2, 10], [3, 5], [4, 9], [6, 8]], 1)
 
     # test case 75
     def test_3(self):
-        test(self,   4,  [[10, 11], [13, 15], [9, 19], [0, 12], [12, 20]], 0)
+        test(self, 4, [[10, 11], [13, 15], [9, 19], [0, 12], [12, 20]], 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 2139 ms
 Beats
 82.17%
-'''
+"""

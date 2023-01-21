@@ -41,20 +41,21 @@ def test(testObj: unittest.TestCase, matrix: List[List[int]], expected: int) -> 
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[1, 1, 1], [1, 0, 1], [1, 1, 1]],
-             [[1, 0, 1], [0, 0, 0], [1, 0, 1]])
+        test(self, [[1, 1, 1], [1, 0, 1], [1, 1, 1]], [[1, 0, 1], [0, 0, 0], [1, 0, 1]])
 
     def test_2(self):
-        test(self,   [[0, 1, 2, 0], [3, 4, 5, 2], [1, 3, 1, 5]],
-             [[0, 0, 0, 0], [0, 4, 5, 0], [0, 3, 1, 0]])
+        test(
+            self,
+            [[0, 1, 2, 0], [3, 4, 5, 2], [1, 3, 1, 5]],
+            [[0, 0, 0, 0], [0, 4, 5, 0], [0, 3, 1, 0]],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 165 ms, faster than 74.40%
 Memory Usage: 14.9 MB, less than 16.28%
-'''
+"""

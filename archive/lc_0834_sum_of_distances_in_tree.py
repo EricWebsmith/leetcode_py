@@ -34,7 +34,9 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, n: int, edges: List[List[int]], expected: List[int]) -> None:
+def test(
+    testObj: unittest.TestCase, n: int, edges: List[List[int]], expected: List[int]
+) -> None:
 
     so = Solution()
 
@@ -44,22 +46,20 @@ def test(testObj: unittest.TestCase, n: int, edges: List[List[int]], expected: L
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   6,  [[0, 1], [0, 2], [2, 3], [
-             2, 4], [2, 5]], [8, 12, 6, 10, 10, 10])
+        test(self, 6, [[0, 1], [0, 2], [2, 3], [2, 4], [2, 5]], [8, 12, 6, 10, 10, 10])
 
     def test_2(self):
-        test(self,   1,  [], [0])
+        test(self, 1, [], [0])
 
     def test_3(self):
-        test(self,   2,  [[1, 0]], [1, 1])
+        test(self, 2, [[1, 0]], [1, 1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 1112 ms, faster than 90.00%
 Memory Usage: 65.9 MB, less than 38.81%
-'''
+"""

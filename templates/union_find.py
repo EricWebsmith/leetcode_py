@@ -1,5 +1,6 @@
 # Disjoint Set Union-find algorithm
 
+
 class DSU:
     def __init__(self, n: int) -> None:
         self.p = list(range(n))

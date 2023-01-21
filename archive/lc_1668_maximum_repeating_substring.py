@@ -8,12 +8,12 @@ class Solution:
 
         while i > -1:
             arr.append(i)
-            i = sequence.find(word, i+1)
+            i = sequence.find(word, i + 1)
 
         s = dict()
         for i in arr:
-            if i-len(word) in s:
-                s[i] = s[i-len(word)] + 1
+            if i - len(word) in s:
+                s[i] = s[i - len(word)] + 1
             else:
                 s[i] = 1
 
@@ -31,23 +31,22 @@ def test(testObj: unittest.TestCase, sequence: str, word: str, expected: int) ->
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "ababc",  "ab", 2)
+        test(self, "ababc", "ab", 2)
 
     def test_2(self):
-        test(self,   "ababc",  "ba", 1)
+        test(self, "ababc", "ba", 1)
 
     def test_3(self):
-        test(self,   "ababc",  "ac", 0)
+        test(self, "ababc", "ac", 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 36 ms
 Beats
 88.99%
-'''
+"""

@@ -7,7 +7,7 @@ class Solution:
         n = len(nums)
         pres = [nums[0] % k]
         for i in range(1, n):
-            pres.append((pres[i-1] + nums[i]) % k)
+            pres.append((pres[i - 1] + nums[i]) % k)
 
         s = set()
         previous = pres[0]
@@ -29,23 +29,22 @@ def test(testObj: unittest.TestCase, nums: List[int], k: int, expected: bool) ->
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [23, 2, 4, 6, 7],  6, True)
+        test(self, [23, 2, 4, 6, 7], 6, True)
 
     def test_2(self):
-        test(self,   [23, 2, 6, 4, 7],  6, True)
+        test(self, [23, 2, 6, 4, 7], 6, True)
 
     def test_3(self):
-        test(self,   [23, 2, 6, 4, 7],  13, False)
+        test(self, [23, 2, 6, 4, 7], 13, False)
 
     def test_4(self):
-        test(self,   [1, 0],  2, False)
+        test(self, [1, 0], 2, False)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

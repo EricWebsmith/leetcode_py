@@ -1,4 +1,3 @@
-
 import unittest
 
 from data_structure.binary_tree import TreeNode, array_to_treenode
@@ -44,16 +43,14 @@ def test(testObj: unittest.TestCase, root_arr: list[int], expected: int) -> None
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [6, 7, 8, 2, 7, 1, 3, 9,
-             None, 1, 4, None, None, None, 5], 18)
+        test(self, [6, 7, 8, 2, 7, 1, 3, 9, None, 1, 4, None, None, None, 5], 18)
 
     def test_2(self):
-        test(self,   [1], 0)
+        test(self, [1], 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
 

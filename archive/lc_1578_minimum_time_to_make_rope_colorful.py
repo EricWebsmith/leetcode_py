@@ -20,7 +20,9 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, colors: str, neededTime: List[int], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, colors: str, neededTime: List[int], expected: int
+) -> None:
 
     so = Solution()
     actual = so.minCost(colors, neededTime)
@@ -28,23 +30,22 @@ def test(testObj: unittest.TestCase, colors: str, neededTime: List[int], expecte
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   "abaac",  [1, 2, 3, 4, 5], 3)
+        test(self, "abaac", [1, 2, 3, 4, 5], 3)
 
     def test_2(self):
-        test(self,   "abc",  [1, 2, 3], 0)
+        test(self, "abc", [1, 2, 3], 0)
 
     def test_3(self):
-        test(self,   "aabaa",  [1, 2, 3, 4, 1], 2)
+        test(self, "aabaa", [1, 2, 3, 4, 1], 2)
 
     def test_4(self):
-        test(self,   "bbbaaa",  [4, 9, 3, 8, 8, 9], 23)
+        test(self, "bbbaaa", [4, 9, 3, 8, 8, 9], 23)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 1246ms, 88.18%
-'''
+"""

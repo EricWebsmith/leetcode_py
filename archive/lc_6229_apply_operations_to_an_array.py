@@ -5,10 +5,10 @@ from typing import List
 class Solution:
     def applyOperations(self, nums: List[int]) -> List[int]:
         n = len(nums)
-        for i in range(n-1):
-            if nums[i] == nums[i+1]:
+        for i in range(n - 1):
+            if nums[i] == nums[i + 1]:
                 nums[i] *= 2
-                nums[i+1] = 0
+                nums[i + 1] = 0
 
         ans = [0] * n
         ans_index = 0
@@ -30,17 +30,16 @@ def test(testObj: unittest.TestCase, nums: List[int], expected: List[int]) -> No
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 2, 2, 1, 1, 0], [1, 4, 2, 0, 0, 0])
+        test(self, [1, 2, 2, 1, 1, 0], [1, 4, 2, 0, 0, 0])
 
     def test_2(self):
-        test(self,   [0, 1], [1, 0])
+        test(self, [0, 1], [1, 0])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

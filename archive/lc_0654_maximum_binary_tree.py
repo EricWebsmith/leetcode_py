@@ -18,7 +18,7 @@ class Solution:
 
         node = TreeNode(max_value)
         node.left = self.constructMaximumBinaryTree(nums[:index])
-        node.right = self.constructMaximumBinaryTree(nums[index+1:])
+        node.right = self.constructMaximumBinaryTree(nums[index + 1 :])
         return node
 
 
@@ -31,18 +31,17 @@ def test(testObj: unittest.TestCase, nums: List[int], expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [3, 2, 1, 6, 0, 5], [6, 3, 5, None, 2, 0, None, None, 1])
+        test(self, [3, 2, 1, 6, 0, 5], [6, 3, 5, None, 2, 0, None, None, 1])
 
     def test_2(self):
-        test(self,   [3, 2, 1], [3, None, 2, None, 1])
+        test(self, [3, 2, 1], [3, None, 2, None, 1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 226 ms, faster than 85.61%
 Memory Usage: 14.7 MB, less than 21.38%
-'''
+"""

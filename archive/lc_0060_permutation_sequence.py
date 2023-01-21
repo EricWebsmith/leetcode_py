@@ -3,7 +3,7 @@ import unittest
 
 class Solution:
     def getPermutation(self, n: int, k: int) -> str:
-        factorials, nums = [1], ['1']
+        factorials, nums = [1], ["1"]
         for i in range(1, n):
             # generate factorial system bases 0!, 1!, ..., (n - 1)!
             factorials.append(factorials[i - 1] * i)
@@ -22,7 +22,7 @@ class Solution:
             output.append(nums[idx])
             del nums[idx]
 
-        return ''.join(output)
+        return "".join(output)
 
 
 def test(testObj: unittest.TestCase, n: int, k: int, expected: str) -> None:
@@ -33,21 +33,20 @@ def test(testObj: unittest.TestCase, n: int, k: int, expected: str) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   3,  3, "213")
+        test(self, 3, 3, "213")
 
     def test_2(self):
-        test(self,   4,  9, "2314")
+        test(self, 4, 9, "2314")
 
     def test_3(self):
-        test(self,   3,  1, "123")
+        test(self, 3, 1, "123")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 47 ms, faster than 68.92%
 Memory Usage: 13.9 MB, less than 77.91%
-'''
+"""

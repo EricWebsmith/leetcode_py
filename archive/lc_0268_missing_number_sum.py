@@ -5,7 +5,7 @@ from typing import List
 class Solution:
     def missingNumber(self, nums: List[int]) -> int:
         n = len(nums)
-        s = (0 + n) * (n+1) // 2
+        s = (0 + n) * (n + 1) // 2
         for num in nums:
             s -= num
 
@@ -22,20 +22,19 @@ def test(testObj: unittest.TestCase, nums: List[int], expected: int) -> None:
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [3, 0, 1], 2)
+        test(self, [3, 0, 1], 2)
 
     def test_2(self):
-        test(self,   [0, 1], 2)
+        test(self, [0, 1], 2)
 
     def test_3(self):
-        test(self,   [9, 6, 4, 2, 3, 5, 7, 0, 1], 8)
+        test(self, [9, 6, 4, 2, 3, 5, 7, 0, 1], 8)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

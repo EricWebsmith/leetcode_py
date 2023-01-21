@@ -3,7 +3,9 @@ from typing import List
 
 
 class Solution:
-    def sumEvenAfterQueries(self, nums: List[int], queries: List[List[int]]) -> List[int]:
+    def sumEvenAfterQueries(
+        self, nums: List[int], queries: List[List[int]]
+    ) -> List[int]:
         n = len(nums)
         s = sum(num for num in nums if num % 2 == 0)
         ans: list = []
@@ -17,7 +19,12 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, nums: List[int], queries: List[List[int]], expected: List[int]) -> None:
+def test(
+    testObj: unittest.TestCase,
+    nums: List[int],
+    queries: List[List[int]],
+    expected: List[int],
+) -> None:
 
     so = Solution()
 
@@ -27,18 +34,17 @@ def test(testObj: unittest.TestCase, nums: List[int], queries: List[List[int]], 
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 2, 3, 4],  [[1, 0], [-3, 1], [-4, 0], [2, 3]], [8, 6, 2, 4])
+        test(self, [1, 2, 3, 4], [[1, 0], [-3, 1], [-4, 0], [2, 3]], [8, 6, 2, 4])
 
     def test_2(self):
-        test(self,   [1],  [[4, 0]], [0])
+        test(self, [1], [[4, 0]], [0])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 538 ms, faster than 91.84%
 Memory Usage: 20.6 MB, less than 20.41%
-'''
+"""

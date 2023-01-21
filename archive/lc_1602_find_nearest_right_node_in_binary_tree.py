@@ -18,7 +18,7 @@ class Solution:
                 node = q.popleft()
 
                 if node.val == u.val:
-                    if i < q_size-1:
+                    if i < q_size - 1:
                         return q.popleft()
                     else:
                         return None
@@ -31,7 +31,9 @@ class Solution:
         return None
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], u_arr: List[int], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase, root_arr: List[int], u_arr: List[int], expected: int
+) -> None:
     root = array_to_treenode(root_arr)
     u = array_to_treenode([u_arr])
     so = Solution()
@@ -43,31 +45,55 @@ def test(testObj: unittest.TestCase, root_arr: List[int], u_arr: List[int], expe
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [1, 2, 3, None, 4, 5, 6],  4, 5)
+        test(self, [1, 2, 3, None, 4, 5, 6], 4, 5)
 
     def test_2(self):
-        test(self,   [3, None, 4, 2],  2, None)
+        test(self, [3, None, 4, 2], 2, None)
 
     def test_3(self):
-        test(self,   [2],  2, None)
+        test(self, [2], 2, None)
 
     def test_4(self):
-        test(self,   [1, 2, 3],  2, 3)
+        test(self, [1, 2, 3], 2, 3)
 
     def test_5(self):
-        test(self,   [1, 2, 3],  3, None)
+        test(self, [1, 2, 3], 3, None)
 
     def test_6(self):
-        test(self,   [3, 10, 1, 7, 8, 9, 4, null, null, 2, null,
-             null, 11, null, null, null, null, 5, null, 6], 4, None)
+        test(
+            self,
+            [
+                3,
+                10,
+                1,
+                7,
+                8,
+                9,
+                4,
+                null,
+                null,
+                2,
+                null,
+                null,
+                11,
+                null,
+                null,
+                null,
+                null,
+                5,
+                null,
+                6,
+            ],
+            4,
+            None,
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 347 ms, faster than 91.98%
 Memory Usage: 51.8 MB, less than 74.26%
-'''
+"""

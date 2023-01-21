@@ -28,10 +28,10 @@ class Solution:
                         continue
                     if rooms[nr][nc] == -1:
                         continue
-                    if rooms[nr][nc] <= cv+1:
+                    if rooms[nr][nc] <= cv + 1:
                         continue
 
-                    rooms[nr][nc] = cv+1
+                    rooms[nr][nc] = cv + 1
                     q.append((nr, nc))
 
         for r in range(m):
@@ -50,20 +50,26 @@ def test(testObj: unittest.TestCase, rooms: List[List[int]], expected: None) -> 
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[2147483647, -1, 0, 2147483647], [2147483647, 2147483647, 2147483647, -1], [2147483647, -1,
-             2147483647, -1], [0, -1, 2147483647, 2147483647]],
-             [[3, -1, 0, 1], [2, 2, 1, -1], [1, -1, 2, -1], [0, -1, 3, 4]])
+        test(
+            self,
+            [
+                [2147483647, -1, 0, 2147483647],
+                [2147483647, 2147483647, 2147483647, -1],
+                [2147483647, -1, 2147483647, -1],
+                [0, -1, 2147483647, 2147483647],
+            ],
+            [[3, -1, 0, 1], [2, 2, 1, -1], [1, -1, 2, -1], [0, -1, 3, 4]],
+        )
 
     def test_2(self):
-        test(self,   [[-1]], [[-1]])
+        test(self, [[-1]], [[-1]])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 292 ms, faster than 88.00%
 Memory Usage: 16.5 MB, less than 97.61%
-'''
+"""

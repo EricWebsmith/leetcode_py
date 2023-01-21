@@ -25,7 +25,12 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, queries: List[str], dictionary: List[str], expected: List[str]) -> None:
+def test(
+    testObj: unittest.TestCase,
+    queries: List[str],
+    dictionary: List[str],
+    expected: List[str],
+) -> None:
 
     so = Solution()
 
@@ -35,18 +40,21 @@ def test(testObj: unittest.TestCase, queries: List[str], dictionary: List[str], 
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   ["word", "note", "ants", "wood"],  [
-             "wood", "joke", "moat"], ["word", "note", "wood"])
+        test(
+            self,
+            ["word", "note", "ants", "wood"],
+            ["wood", "joke", "moat"],
+            ["word", "note", "wood"],
+        )
 
     def test_2(self):
-        test(self,   ["yes"],  ["not"], [])
+        test(self, ["yes"], ["not"], [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

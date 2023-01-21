@@ -58,7 +58,12 @@ class Solution:
         return order
 
 
-def test(testObj: unittest.TestCase, numCourses: int, prerequisites: List[List[int]], expected: int) -> None:
+def test(
+    testObj: unittest.TestCase,
+    numCourses: int,
+    prerequisites: List[List[int]],
+    expected: int,
+) -> None:
 
     so = Solution()
     actual = so.findOrder(numCourses, prerequisites)
@@ -66,21 +71,20 @@ def test(testObj: unittest.TestCase, numCourses: int, prerequisites: List[List[i
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   2,  [[1, 0]], [0, 1])
+        test(self, 2, [[1, 0]], [0, 1])
 
     def test_2(self):
-        test(self,   4,  [[1, 0], [2, 0], [3, 1], [3, 2]], [0, 1, 2, 3])
+        test(self, 4, [[1, 0], [2, 0], [3, 1], [3, 2]], [0, 1, 2, 3])
 
     def test_3(self):
-        test(self,   1,  [], [0])
+        test(self, 1, [], [0])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 109 ms, faster than 89.96%
 Memory Usage: 18.1 MB, less than 5.09%
-'''
+"""

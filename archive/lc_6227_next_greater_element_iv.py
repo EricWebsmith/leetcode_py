@@ -13,7 +13,7 @@ class Solution:
         numk = nums[-2]
         numj = nums[-1]
         ans = [-1] * n
-        for i in range(n-3, -1, -1):
+        for i in range(n - 3, -1, -1):
             if nums[i] < numk and nums[i] < numj:
                 ans[i] = numj
                 while stack and stack[-1] <= nums[i]:
@@ -53,37 +53,35 @@ def test(testObj: unittest.TestCase, nums: List[int], expected: List[int]) -> No
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [2, 4, 0, 9, 6], [9, 6, 6, -1, -1])
+        test(self, [2, 4, 0, 9, 6], [9, 6, 6, -1, -1])
 
     def test_2(self):
-        test(self,   [3, 3], [-1, -1])
+        test(self, [3, 3], [-1, -1])
 
     def test_3(self):
-        test(self,   [1, 17, 18, 0, 18, 10, 20, 0],
-             [18, 18, -1, 10, -1, -1, -1, -1])
+        test(self, [1, 17, 18, 0, 18, 10, 20, 0], [18, 18, -1, 10, -1, -1, -1, -1])
 
     def test_4(self):
-        test(self,  [11, 13, 15, 12, 0, 15, 12, 11, 9],
-             [15, 15, -1, -1, 12, -1, -1, -1, -1])
+        test(
+            self,
+            [11, 13, 15, 12, 0, 15, 12, 11, 9],
+            [15, 15, -1, -1, 12, -1, -1, -1, -1],
+        )
 
     def test_5(self):
-        test(self,  [1],
-             [-1])
+        test(self, [1], [-1])
 
     def test_6(self):
-        test(self,  [1, 2],
-             [-1, -1])
+        test(self, [1, 2], [-1, -1])
 
     def test_7(self):
-        test(self,  [1, 2, 3],
-             [3, -1, -1])
+        test(self, [1, 2, 3], [3, -1, -1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

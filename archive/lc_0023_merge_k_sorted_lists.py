@@ -1,8 +1,7 @@
 import unittest
 from heapq import heappop, heappush
 
-from data_structure.link_list import (ListNode, array_to_listnode,
-                                      listnode_to_array)
+from data_structure.link_list import ListNode, array_to_listnode, listnode_to_array
 
 
 class Solution:
@@ -27,7 +26,9 @@ class Solution:
         return prehead.next
 
 
-def test(testObj: unittest.TestCase, arrs: list[list[int]], expected: ListNode | None) -> None:
+def test(
+    testObj: unittest.TestCase, arrs: list[list[int]], expected: ListNode | None
+) -> None:
     heads = [array_to_listnode(arr) for arr in arrs]
     so = Solution()
     actual_root = so.mergeKLists(heads)
@@ -36,23 +37,22 @@ def test(testObj: unittest.TestCase, arrs: list[list[int]], expected: ListNode |
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   [[1, 4, 5], [1, 3, 4], [2, 6]], [1, 1, 2, 3, 4, 4, 5, 6])
+        test(self, [[1, 4, 5], [1, 3, 4], [2, 6]], [1, 1, 2, 3, 4, 4, 5, 6])
 
     def test_2(self):
-        test(self,   [], [])
+        test(self, [], [])
 
     def test_3(self):
-        test(self,   [[]], [])
+        test(self, [[]], [])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime
 108 ms
 Beats
 93.50%
-'''
+"""

@@ -29,19 +29,24 @@ class Solution:
             handler_dict[handler] += 1
             del idle_servers[handler_index]
             end_time = start_time + span
-            insort_left(busy_servers, x=(
-                end_time, handler), key=lambda x: -x[0])
+            insort_left(busy_servers, x=(end_time, handler), key=lambda x: -x[0])
 
         max_serves = max(handler_dict.values())
         ans: list = []
-        for server,  serves in handler_dict.items():
+        for server, serves in handler_dict.items():
             if max_serves == serves:
                 ans.append(server)
 
         return ans
 
 
-def test(testObj: unittest.TestCase, k: int, arrival: List[int], load: List[int], expected: List[int]) -> None:
+def test(
+    testObj: unittest.TestCase,
+    k: int,
+    arrival: List[int],
+    load: List[int],
+    expected: List[int],
+) -> None:
 
     so = Solution()
 
@@ -51,38 +56,37 @@ def test(testObj: unittest.TestCase, k: int, arrival: List[int], load: List[int]
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self,   3,  [1, 2, 3, 4, 5],  [5, 2, 3, 3, 3], [1])
+        test(self, 3, [1, 2, 3, 4, 5], [5, 2, 3, 3, 3], [1])
 
     def test_2(self):
-        test(self,   3,  [1, 2, 3, 4],  [1, 2, 1, 2], [0])
+        test(self, 3, [1, 2, 3, 4], [1, 2, 1, 2], [0])
 
     def test_3(self):
-        test(self,   3,  [1, 2, 3],  [10, 12, 11], [0, 1, 2])
+        test(self, 3, [1, 2, 3], [10, 12, 11], [0, 1, 2])
 
     def test_4(self):
-        test(self,   3,  [1],  [10], [0])
+        test(self, 3, [1], [10], [0])
 
     def test_5(self):
-        test(self,   3,  [1, 2, 3, 4, 5],  [10, 12, 11, 1, 2], [0, 1, 2])
+        test(self, 3, [1, 2, 3, 4, 5], [10, 12, 11, 1, 2], [0, 1, 2])
 
     def test_6(self):
-        test(self,   1,  [1, 2, 3, 4, 5],  [5, 2, 3, 3, 3], [0])
+        test(self, 1, [1, 2, 3, 4, 5], [5, 2, 3, 3, 3], [0])
 
     def test_7(self):
-        test(self,   1,  [1],  [5], [0])
+        test(self, 1, [1], [5], [0])
 
     def test_8(self):
-        test(self,   3,  [1, 2, 3, 4, 5],  [5000, 2000, 1, 1, 1], [2])
+        test(self, 3, [1, 2, 3, 4, 5], [5000, 2000, 1, 1, 1], [2])
 
     def test_9(self):
-        test(self,   3, [1, 2, 3, 4, 8, 9, 10], [5, 2, 10, 3, 1, 2, 2], [1])
+        test(self, 3, [1, 2, 3, 4, 8, 9, 10], [5, 2, 10, 3, 1, 2, 2], [1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 
-'''
+"""

@@ -12,5 +12,5 @@ class CodeGeneratorProtocol(Protocol):
     untyped_param_str: str
     functoin_code: str
     function_params: list[Parameter]
-    function_return_type: str = 'None'
+    function_return_type: str = "None"
     test_function_code: str

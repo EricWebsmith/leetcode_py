@@ -5,7 +5,6 @@ from typing import List
 
 
 class RandomizedCollection:
-
     def __init__(self) -> None:
         self.arr: list = []
 
@@ -28,13 +27,15 @@ class RandomizedCollection:
         return random.choice(self.arr)
 
 
-def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
+def test(
+    testObj: unittest.TestCase, actions: List, params: List, expected: List
+) -> None:
     n = len(actions)
     obj = RandomizedCollection(*params[0])
-    print('------------test case-----------')
+    print("------------test case-----------")
     for i in range(1, n):
         print(i, actions[i], params[i], expected[i])
-    print('-------done-------------')
+    print("-------done-------------")
     for i in range(1, n):
         print(i, actions[i], params[i], expected[i])
         match actions[i]:
@@ -53,21 +54,44 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
 
 
 class TestClass(unittest.TestCase):
-
     def test_1(self):
-        test(self, ["RandomizedCollection", "insert", "insert", "insert", "getRandom", "remove", "getRandom"], [
-             [], [1], [1], [2], [], [1], []], [None, True, False, True, 2, True, 1])
+        test(
+            self,
+            [
+                "RandomizedCollection",
+                "insert",
+                "insert",
+                "insert",
+                "getRandom",
+                "remove",
+                "getRandom",
+            ],
+            [[], [1], [1], [2], [], [1], []],
+            [None, True, False, True, 2, True, 1],
+        )
 
     def test_2(self):
-        test(self, ["RandomizedCollection", "insert", "remove", "insert", "getRandom", "remove", "insert", "getRandom"],
-             [[], [1], [2], [2], [], [1], [2], []],
-             [None, True, False, True, 2, True, False, 2])
+        test(
+            self,
+            [
+                "RandomizedCollection",
+                "insert",
+                "remove",
+                "insert",
+                "getRandom",
+                "remove",
+                "insert",
+                "getRandom",
+            ],
+            [[], [1], [2], [2], [], [1], [2], []],
+            [None, True, False, True, 2, True, False, 2],
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
 
-'''
+"""
 Runtime: 457 ms, faster than 94.39%
 Memory Usage: 64.6 MB, less than 95.77%
-'''
+"""
