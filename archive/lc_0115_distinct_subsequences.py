@@ -19,11 +19,8 @@ class Solution:
 
 
 def test(testObj: unittest.TestCase, s: str, t: str, expected: int) -> None:
-
     so = Solution()
-
     actual = so.numDistinct(s, t)
-
     testObj.assertEqual(actual, expected)
 
 

@@ -88,7 +88,7 @@ class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
                 "",
                 (
                     f"def test(testObj: unittest.TestCase, {test_function_parameters}, "
-                    "expected:{scraper.function_return_type}) -> None:"
+                    f"expected:{scraper.function_return_type}) -> None:"
                 ),
                 f"    {type_changing_code}so = Solution()",
                 f"    {actual_code}",
