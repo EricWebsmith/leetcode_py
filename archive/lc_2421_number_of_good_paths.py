@@ -58,9 +58,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, vals: list[int], edges: list[list[int]], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, vals: list[int], edges: list[list[int]], expected: int) -> None:
     so = Solution()
     actual = so.numberOfGoodPaths(vals, edges)
     testObj.assertEqual(actual, expected)

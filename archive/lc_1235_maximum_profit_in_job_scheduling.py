@@ -3,9 +3,7 @@ from typing import List
 
 
 class Solution:
-    def jobScheduling(
-        self, startTime: List[int], endTime: List[int], profit: List[int]
-    ) -> int:
+    def jobScheduling(self, startTime: List[int], endTime: List[int], profit: List[int]) -> int:
         n = len(startTime)
         events = [(startTime[i], endTime[i], profit[i]) for i in range(n)]
         events.sort()

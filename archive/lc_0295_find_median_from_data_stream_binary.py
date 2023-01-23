@@ -18,9 +18,7 @@ class MedianFinder:
             return (self.arr[length // 2] + self.arr[length // 2 - 1]) / 2
 
 
-def test(
-    testObj: unittest.TestCase, actions: List, params: List, expected: List
-) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = MedianFinder(*params[0])
     print("------------test case-----------")

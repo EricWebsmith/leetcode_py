@@ -28,9 +28,7 @@ class Solution:
         return False
 
 
-def test(
-    testObj: unittest.TestCase, root_arr: List[int], k: int, expected: bool
-) -> None:
+def test(testObj: unittest.TestCase, root_arr: List[int], k: int, expected: bool) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
     actual = so.findTarget(root, k)

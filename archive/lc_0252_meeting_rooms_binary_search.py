@@ -18,9 +18,7 @@ class Solution:
         return True
 
 
-def test(
-    testObj: unittest.TestCase, intervals: List[List[int]], expected: bool
-) -> None:
+def test(testObj: unittest.TestCase, intervals: List[List[int]], expected: bool) -> None:
 
     so = Solution()
     actual = so.canAttendMeetings(intervals)

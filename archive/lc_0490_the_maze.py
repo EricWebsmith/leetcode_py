@@ -3,9 +3,7 @@ from typing import List
 
 
 class Solution:
-    def hasPath(
-        self, maze: List[List[int]], start: List[int], destination: List[int]
-    ) -> bool:
+    def hasPath(self, maze: List[List[int]], start: List[int], destination: List[int]) -> bool:
         m = len(maze)
         n = len(maze[0])
         visited = set()
@@ -17,11 +15,7 @@ class Solution:
             for dr, dc in [[0, 1], [1, 0], [0, -1], [-1, 0]]:
                 nr = r
                 nc = c
-                while (
-                    0 <= nr + dr < m
-                    and 0 <= nc + dc < n
-                    and maze[nr + dr][nc + dc] == 0
-                ):
+                while 0 <= nr + dr < m and 0 <= nc + dc < n and maze[nr + dr][nc + dc] == 0:
                     nr += dr
                     nc += dc
 

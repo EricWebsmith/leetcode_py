@@ -20,12 +20,7 @@ class Solution:
 
     def deal_mul_div(self):
         stack = self.stack
-        if (
-            len(stack) >= 3
-            and type(stack[-3]) is Node
-            and type(stack[-1]) is Node
-            and stack[-2] in ["*", "/"]
-        ):
+        if len(stack) >= 3 and type(stack[-3]) is Node and type(stack[-1]) is Node and stack[-2] in ["*", "/"]:
             t = Node(stack[-2])
             t.left = stack[-3]
             t.right = stack[-1]
@@ -52,11 +47,7 @@ class Solution:
                     head_node: Optional[Node] = None
                     current_node: Optional[Node] = None
 
-                    while (
-                        len(self.stack) >= 2
-                        and type(stack[-1]) is Node
-                        and stack[-2] in ["+", "-"]
-                    ):
+                    while len(self.stack) >= 2 and type(stack[-1]) is Node and stack[-2] in ["+", "-"]:
 
                         t = Node(stack[-2])
                         t.right = stack[-1]

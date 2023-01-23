@@ -10,9 +10,7 @@ class Solution:
         return [k for k, _ in first_k]
 
 
-def test(
-    testObj: unittest.TestCase, nums: List[int], k: int, expected: List[int]
-) -> None:
+def test(testObj: unittest.TestCase, nums: List[int], k: int, expected: List[int]) -> None:
     so = Solution()
     actual = so.topKFrequent(nums, k)
     testObj.assertEqual(actual, expected)

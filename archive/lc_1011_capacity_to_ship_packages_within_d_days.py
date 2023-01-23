@@ -32,9 +32,7 @@ class Solution:
         return left
 
 
-def test(
-    testObj: unittest.TestCase, weights: List[int], days: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, weights: List[int], days: int, expected: int) -> None:
 
     so = Solution()
     actual = so.shipWithinDays(weights, days)

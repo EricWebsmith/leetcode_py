@@ -3,9 +3,7 @@ from typing import List
 
 
 class Solution:
-    def minAvailableDuration(
-        self, slots1: List[List[int]], slots2: List[List[int]], duration: int
-    ) -> List[int]:
+    def minAvailableDuration(self, slots1: List[List[int]], slots2: List[List[int]], duration: int) -> List[int]:
         slots1.sort()
         slots2.sort()
         s1 = s2 = 0

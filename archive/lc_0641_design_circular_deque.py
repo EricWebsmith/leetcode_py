@@ -103,9 +103,7 @@ class MyCircularDeque:
         return self.size == self.k
 
 
-def test(
-    testObj: unittest.TestCase, actions: list, params: list, expected: list
-) -> None:
+def test(testObj: unittest.TestCase, actions: list, params: list, expected: list) -> None:
     n = len(actions)
     print(0, "__init__", params[0])
     obj = MyCircularDeque(*params[0])

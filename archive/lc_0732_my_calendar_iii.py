@@ -55,9 +55,7 @@ class MyCalendarThree:
             self.add(start, end, node.right)
 
 
-def test(
-    testObj: unittest.TestCase, actions: List, params: List, expected: List
-) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = MyCalendarThree(*params[0])
     print("------------test case-----------")

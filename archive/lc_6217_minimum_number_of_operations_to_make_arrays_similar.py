@@ -16,9 +16,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, nums: List[int], target: List[int], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, nums: List[int], target: List[int], expected: int) -> None:
 
     so = Solution()
 

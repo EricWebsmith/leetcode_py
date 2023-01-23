@@ -27,9 +27,7 @@ class DSU:
 
 
 class Solution:
-    def findCriticalAndPseudoCriticalEdges(
-        self, n: int, edges: List[List[int]]
-    ) -> List[List[int]]:
+    def findCriticalAndPseudoCriticalEdges(self, n: int, edges: List[List[int]]) -> List[List[int]]:
         sorted_edges = [(a, b, w, i) for i, (a, b, w) in enumerate(edges)]
         sorted_edges.sort(key=lambda x: x[2])
         dsu = DSU(n)

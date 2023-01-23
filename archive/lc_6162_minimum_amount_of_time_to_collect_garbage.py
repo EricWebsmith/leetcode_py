@@ -33,9 +33,7 @@ class Solution:
         return picks + drive
 
 
-def test(
-    testObj: unittest.TestCase, garbage: List[str], travel: List[int], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, garbage: List[str], travel: List[int], expected: int) -> None:
 
     so = Solution()
     actual = so.garbageCollection(garbage, travel)

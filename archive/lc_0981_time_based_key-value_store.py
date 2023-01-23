@@ -32,9 +32,7 @@ class TimeMap:
         return tv.values[index - 1]
 
 
-def test(
-    testObj: unittest.TestCase, actions: List, params: List, expected: List
-) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = TimeMap()
     for i in range(1, n):

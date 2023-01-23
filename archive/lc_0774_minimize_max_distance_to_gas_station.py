@@ -5,13 +5,7 @@ from typing import List
 class Solution:
     def minmaxGasDist(self, stations: List[int], k: int) -> float:
         def possible(D):
-            return (
-                sum(
-                    int((stations[i + 1] - stations[i]) / D)
-                    for i in range(len(stations) - 1)
-                )
-                <= k
-            )
+            return sum(int((stations[i + 1] - stations[i]) / D) for i in range(len(stations) - 1)) <= k
 
         lo, hi = 0.0, 10**8 + 0.0
         while hi - lo > 1e-6:
@@ -23,9 +17,7 @@ class Solution:
         return lo
 
 
-def test(
-    testObj: unittest.TestCase, stations: List[int], k: int, expected: float
-) -> None:
+def test(testObj: unittest.TestCase, stations: List[int], k: int, expected: float) -> None:
 
     so = Solution()
 

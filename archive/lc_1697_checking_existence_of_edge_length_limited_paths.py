@@ -26,9 +26,7 @@ class DSU:
 
 
 class Solution:
-    def distanceLimitedPathsExist(
-        self, n: int, edgeList: list[list[int]], queries: list[list[int]]
-    ) -> list[bool]:
+    def distanceLimitedPathsExist(self, n: int, edgeList: list[list[int]], queries: list[list[int]]) -> list[bool]:
         edgeList.sort(key=lambda x: -x[2])
 
         queries = [(s, d, l, i) for i, (s, d, l) in enumerate(queries)]

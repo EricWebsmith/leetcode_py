@@ -36,29 +36,18 @@ class SummaryRanges:
                 ]
                 + self.intervals[insert_pos:]
             )
-        elif (
-            insert_pos < len(self.intervals)
-            and self.intervals[insert_pos][0] - val <= 1
-        ):
+        elif insert_pos < len(self.intervals) and self.intervals[insert_pos][0] - val <= 1:
             self.intervals = (
-                self.intervals[0:insert_pos]
-                + [[val, self.intervals[insert_pos][1]]]
-                + self.intervals[insert_pos + 1 :]
+                self.intervals[0:insert_pos] + [[val, self.intervals[insert_pos][1]]] + self.intervals[insert_pos + 1 :]
             )
         else:
-            self.intervals = (
-                self.intervals[0:insert_pos]
-                + [[val, val]]
-                + self.intervals[insert_pos:]
-            )
+            self.intervals = self.intervals[0:insert_pos] + [[val, val]] + self.intervals[insert_pos:]
 
     def getIntervals(self) -> List[List[int]]:
         return self.intervals
 
 
-def test(
-    testObj: unittest.TestCase, actions: List, params: List, expected: List
-) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = SummaryRanges(*params[0])
     for i in range(1, n):

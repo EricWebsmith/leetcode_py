@@ -10,12 +10,7 @@ class Solution:
 
     def calc_multiply_divide(self):
         stack = self.stack
-        if (
-            len(stack) >= 3
-            and type(stack[-1]) is int
-            and type(stack[-3]) is int
-            and stack[-2] in ["*", "/"]
-        ):
+        if len(stack) >= 3 and type(stack[-1]) is int and type(stack[-3]) is int and stack[-2] in ["*", "/"]:
             if stack[-2] == "*":
                 t = stack[-3] * stack[-1]
             elif stack[-2] == "/":
@@ -54,11 +49,7 @@ class Solution:
 
                 if new_op in "+-)":
                     t = 0
-                    while (
-                        len(self.stack) >= 2
-                        and type(stack[-1]) is int
-                        and stack[-2] in ["+", "-"]
-                    ):
+                    while len(self.stack) >= 2 and type(stack[-1]) is int and stack[-2] in ["+", "-"]:
                         if stack[-2] == "+":
                             t += stack[-1]
                         else:

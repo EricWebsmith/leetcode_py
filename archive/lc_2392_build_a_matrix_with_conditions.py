@@ -51,9 +51,7 @@ def top_sort(edges: Dict[int, Set[int]]) -> List[int]:
 
 
 class Solution:
-    def buildMatrix(
-        self, k: int, rowConditions: List[List[int]], colConditions: List[List[int]]
-    ) -> List[List[int]]:
+    def buildMatrix(self, k: int, rowConditions: List[List[int]], colConditions: List[List[int]]) -> List[List[int]]:
         rowEdges = get_edges(k, rowConditions)
         rows = top_sort(rowEdges)
         rowDict = {v: i for i, v in enumerate(rows)}

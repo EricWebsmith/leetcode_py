@@ -25,9 +25,7 @@ class Solution:
             pre_index = 0
             for box_size in box_arr:
                 index = bisect_right(packages, box_size)
-                waste += box_size * (index - pre_index) - (
-                    pre_sum[index] - pre_sum[pre_index]
-                )
+                waste += box_size * (index - pre_index) - (pre_sum[index] - pre_sum[pre_index])
                 pre_index = index
 
             best_waste = min(best_waste, waste)

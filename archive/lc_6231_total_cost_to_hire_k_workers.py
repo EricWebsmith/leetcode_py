@@ -32,9 +32,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, costs: List[int], k: int, candidates: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, costs: List[int], k: int, candidates: int, expected: int) -> None:
 
     so = Solution()
 

@@ -60,9 +60,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, nestedList: List[NestedInteger], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, nestedList: List[NestedInteger], expected: int) -> None:
 
     s = Solution()
     actual = s.depthSum(nestedList)

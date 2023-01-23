@@ -17,9 +17,7 @@ class Solution:
         return [left, right]
 
 
-def test(
-    testObj: unittest.TestCase, cardPoints: List[int], k: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, cardPoints: List[int], k: int, expected: int) -> None:
     s = Solution()
     actual = s.searchRange(cardPoints, k)
     testObj.assertEqual(actual, expected)

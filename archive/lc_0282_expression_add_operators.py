@@ -28,9 +28,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, num: str, target: int, expected: list[str]
-) -> None:
+def test(testObj: unittest.TestCase, num: str, target: int, expected: list[str]) -> None:
 
     so = Solution()
     actual = so.addOperators(num, target)

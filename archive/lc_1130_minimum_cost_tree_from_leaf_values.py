@@ -16,11 +16,7 @@ class Solution:
                     min_product_at = i
 
             ans += min_product
-            arr = (
-                arr[:min_product_at]
-                + [max(arr[min_product_at], arr[min_product_at + 1])]
-                + arr[min_product_at + 2 :]
-            )
+            arr = arr[:min_product_at] + [max(arr[min_product_at], arr[min_product_at + 1])] + arr[min_product_at + 2 :]
 
         return ans
 

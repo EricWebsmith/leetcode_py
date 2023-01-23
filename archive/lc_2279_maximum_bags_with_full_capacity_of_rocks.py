@@ -2,9 +2,7 @@ import unittest
 
 
 class Solution:
-    def maximumBags(
-        self, capacity: list[int], rocks: list[int], additionalRocks: int
-    ) -> int:
+    def maximumBags(self, capacity: list[int], rocks: list[int], additionalRocks: int) -> int:
         spaces: list[int] = [c - r for c, r in zip(capacity, rocks)]
         spaces.sort()
         ans = 0

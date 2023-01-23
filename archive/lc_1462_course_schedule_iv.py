@@ -2,9 +2,7 @@ import unittest
 
 
 class Solution:
-    def checkIfPrerequisite(
-        self, n: int, prerequisites: list[list[int]], queries: list[list[int]]
-    ) -> list[bool]:
+    def checkIfPrerequisite(self, n: int, prerequisites: list[list[int]], queries: list[list[int]]) -> list[bool]:
         edge_dict: dict[int, set] = {v: set() for v in range(n)}
         for pre, post in prerequisites:
             edge_dict[post].add(pre)

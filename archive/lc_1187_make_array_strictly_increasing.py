@@ -35,9 +35,7 @@ class Solution:
         return -1 if ans == MAX_INT else ans
 
 
-def test(
-    testObj: unittest.TestCase, arr1: List[int], arr2: List[int], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, arr1: List[int], arr2: List[int], expected: int) -> None:
 
     so = Solution()
 

@@ -70,9 +70,7 @@ class WordDictionary:
             return search_in_node(chars, self.postfix)
 
 
-def test(
-    testObj: unittest.TestCase, actions: List, params: List, expected: List
-) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = WordDictionary(*params[0])
     print("------------test case-----------")

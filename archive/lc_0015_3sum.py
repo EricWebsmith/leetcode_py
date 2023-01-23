@@ -32,9 +32,7 @@ class Solution:
         return result
 
 
-def test(
-    testObj: unittest.TestCase, nums: List[int], expected: List[List[int]]
-) -> None:
+def test(testObj: unittest.TestCase, nums: List[int], expected: List[List[int]]) -> None:
     so = Solution()
     actual = so.threeSum(nums)
     actual.sort()

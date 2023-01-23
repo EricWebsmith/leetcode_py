@@ -9,9 +9,7 @@ from data_structure.binary_tree import (
 
 
 class Solution:
-    def lowestCommonAncestor(
-        self, root: "TreeNode", nodes: "List[TreeNode]"
-    ) -> "TreeNode":
+    def lowestCommonAncestor(self, root: "TreeNode", nodes: "List[TreeNode]") -> "TreeNode":
         nodes = set(nodes)
         self.lca = None
 

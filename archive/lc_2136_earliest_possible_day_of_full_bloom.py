@@ -16,9 +16,7 @@ class Solution:
         return sum(plantTime) + waste
 
 
-def test(
-    testObj: unittest.TestCase, plantTime: List[int], growTime: List[int], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, plantTime: List[int], growTime: List[int], expected: int) -> None:
 
     so = Solution()
     actual = so.earliestFullBloom(plantTime, growTime)

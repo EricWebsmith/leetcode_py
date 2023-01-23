@@ -18,11 +18,7 @@ class Solution:
             elif start_removing:
                 stars -= 1
 
-            if (
-                start_removing
-                and stars == 0
-                and (index > 0 and s[index - 1] != "*" or index == 0)
-            ):
+            if start_removing and stars == 0 and (index > 0 and s[index - 1] != "*" or index == 0):
                 t: list = []
                 if index > 0:
                     t += s[:index]

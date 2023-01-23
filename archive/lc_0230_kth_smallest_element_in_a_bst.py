@@ -28,9 +28,7 @@ class Solution:
         return self.ans
 
 
-def test(
-    testObj: unittest.TestCase, root_arr: List[int], k: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, root_arr: List[int], k: int, expected: int) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
     actual = so.kthSmallest(root, k)

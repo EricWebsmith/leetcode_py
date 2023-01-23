@@ -31,4 +31,4 @@ class Parameter:
             return Parameter(parameter_code, "any")
         else:
             name, ptype = parameter_code.split(":")
-            return Parameter(name, ptype)
+            return Parameter(name.strip(), ptype.strip())

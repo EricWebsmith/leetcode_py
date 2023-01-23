@@ -22,9 +22,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, nums: List[int], queries: List[int], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, nums: List[int], queries: List[int], expected: int) -> None:
 
     so = Solution()
     actual = so.answerQueries(nums, queries)

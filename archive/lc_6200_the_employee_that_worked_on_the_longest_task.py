@@ -19,9 +19,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, n: int, logs: List[List[int]], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, n: int, logs: List[List[int]], expected: int) -> None:
 
     so = Solution()
 

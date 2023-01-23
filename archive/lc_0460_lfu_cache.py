@@ -59,9 +59,7 @@ class LFUCache:
             self.update_fre(key)
 
 
-def test(
-    testObj: unittest.TestCase, actions: list, params: list, expected: list
-) -> None:
+def test(testObj: unittest.TestCase, actions: list, params: list, expected: list) -> None:
     n = len(actions)
     obj = LFUCache(*params[0])
     for i in range(1, n):

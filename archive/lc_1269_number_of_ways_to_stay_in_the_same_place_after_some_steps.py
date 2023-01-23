@@ -18,11 +18,7 @@ class Solution:
             if num_steps < start:
                 return 0
 
-            return (
-                dfs(start + 1, num_steps - 1)
-                + dfs(start - 1, num_steps - 1)
-                + dfs(start, num_steps - 1)
-            )
+            return dfs(start + 1, num_steps - 1) + dfs(start - 1, num_steps - 1) + dfs(start, num_steps - 1)
 
         return dfs(0, steps) % 1_000_000_007
 

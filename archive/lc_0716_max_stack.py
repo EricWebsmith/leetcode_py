@@ -31,9 +31,7 @@ class MaxStack:
         return value
 
 
-def test(
-    testObj: unittest.TestCase, actions: list, params: list, expected: list
-) -> None:
+def test(testObj: unittest.TestCase, actions: list, params: list, expected: list) -> None:
     n = len(actions)
     obj = MaxStack(*params[0])
     print("------------test case-----------")

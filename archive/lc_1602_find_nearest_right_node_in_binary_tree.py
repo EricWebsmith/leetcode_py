@@ -31,9 +31,7 @@ class Solution:
         return None
 
 
-def test(
-    testObj: unittest.TestCase, root_arr: List[int], u_arr: List[int], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, root_arr: List[int], u_arr: List[int], expected: int) -> None:
     root = array_to_treenode(root_arr)
     u = array_to_treenode([u_arr])
     so = Solution()

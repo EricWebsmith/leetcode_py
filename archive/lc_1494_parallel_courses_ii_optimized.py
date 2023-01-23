@@ -40,22 +40,16 @@ class Solution:
         while q:
             taken, semester = q.popleft()
             available = [
-                course_bitmasks[i]
-                for i in range(n)
-                if (taken & g[i] == g[i]) and (taken & course_bitmasks[i] == 0)
+                course_bitmasks[i] for i in range(n) if (taken & g[i] == g[i]) and (taken & course_bitmasks[i] == 0)
             ]
             available_pres = [a for a in available if (a & prerequisites_bitmask) > 0]
-            available_not_pres = [
-                a for a in available if (a & prerequisites_bitmask) == 0
-            ]
+            available_not_pres = [a for a in available if (a & prerequisites_bitmask) == 0]
             if len(available_pres) <= k:
                 # it is not correct to use sum here.
                 # if you take course 2 two times,
                 # taken is still 2, not 4
                 # we can use sum only because we rule out taken courses previously
-                taken |= bit_or(available_pres) | bit_or(
-                    available_not_pres[: k - len(available_pres)]
-                )
+                taken |= bit_or(available_pres) | bit_or(available_not_pres[: k - len(available_pres)])
                 if taken == all_courses_bitmask:
                     return semester + 1
                 if not seen[taken]:

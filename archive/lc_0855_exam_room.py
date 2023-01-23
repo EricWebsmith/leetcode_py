@@ -78,9 +78,7 @@ class ExamRoom:
         del self.occupied[p_at]
 
 
-def test(
-    testObj: unittest.TestCase, actions: List, params: List, expected: List
-) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = ExamRoom(*params[0])
     print("------------test case-----------")

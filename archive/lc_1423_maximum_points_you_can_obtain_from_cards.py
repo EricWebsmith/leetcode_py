@@ -18,9 +18,7 @@ class Solution:
         return maxAns
 
 
-def test(
-    testObj: unittest.TestCase, cardPoints: List[int], k: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, cardPoints: List[int], k: int, expected: int) -> None:
     s = Solution()
     actual = s.maxScore(cardPoints, k)
     testObj.assertEqual(actual, expected)

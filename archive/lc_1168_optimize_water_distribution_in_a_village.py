@@ -27,9 +27,7 @@ class DSU:
 
 
 class Solution:
-    def minCostToSupplyWater(
-        self, n: int, wells: List[int], pipes: List[List[int]]
-    ) -> int:
+    def minCostToSupplyWater(self, n: int, wells: List[int], pipes: List[List[int]]) -> int:
         n = n + 1
         # connect to well
         for i in range(1, n):

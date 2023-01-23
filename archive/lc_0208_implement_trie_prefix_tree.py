@@ -37,9 +37,7 @@ class Trie:
         return True
 
 
-def test(
-    testObj: unittest.TestCase, actions: List, params: List, expected: List
-) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = Trie(*params[0])
     print("------------test case-----------")

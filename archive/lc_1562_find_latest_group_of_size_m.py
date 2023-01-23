@@ -13,11 +13,7 @@ class Solution:
             index = bisect_left(keys, arr[i])
             keys.insert(index, arr[i])
             left = keys[index] - 1 if index == 0 else keys[index] - keys[index - 1] - 1
-            right = (
-                n - keys[index]
-                if index == len(keys) - 1
-                else keys[index + 1] - keys[index] - 1
-            )
+            right = n - keys[index] if index == len(keys) - 1 else keys[index + 1] - keys[index] - 1
             if left == m or right == m:
                 return i
 

@@ -1,9 +1,11 @@
+import logging
 import re
 
 from code_generator_strategy import CodeGeneratorStrategy
 from code_generator_strategy_common import CodeGeneratorCommonStrategy
 from code_generator_strategy_design import CodeGeneratorDesignStrategy
-from parameter import Parameter, fix_type
+from parameter import fix_type
+from py_function import PyFunction
 from scraper_result import ScraperResult
 
 DESIGN = "DESIGN"
@@ -20,15 +22,7 @@ class CodeGenerator:
         self.code_definition = result.code_definition
         self.content = ""
         self.classname = ""
-        self.functoin_code = result.code_definition
-        # common
-        self.function_name = ""
-        # design
-        self.function_names: list[str] = []
-        self.typed_param_str = ""
-        self.untyped_param_str = ""
-        self.function_params: list[Parameter] = []
-        self.function_return_type = ""
+        self.functions: list[PyFunction] = []
         self.definition_for = ""
         self.test_function_code = ""
         self.code = ""
@@ -36,6 +30,17 @@ class CodeGenerator:
         self.test_case_code = ""
         self.html = None
         self.code_generation_strategy: CodeGeneratorStrategy | None = None
+
+    def parse_function_code(self):
+        lines = [line.strip() for line in self.code_definition.split("\n")]
+        for line in lines:
+            if not line.startswith("def"):
+                continue
+            print(line)
+            py_func = PyFunction.from_code(line)
+            self.functions.append(py_func)
+            print(py_func.name)
+            print(py_func)
 
     def parse_test_cases(self, tc_string):
         # get input
@@ -85,7 +90,7 @@ class CodeGenerator:
         if self.problem_type.upper() == DESIGN or DESIGN in self.title.upper():
             self.problem_type = DESIGN
             self.code_generation_strategy = CodeGeneratorDesignStrategy()
-            print("It is a design question.")
+            logging.info("It is a design question.")
         else:
             self.problem_type = COMMON
             self.code_generation_strategy = CodeGeneratorCommonStrategy()
@@ -95,7 +100,7 @@ class CodeGenerator:
 
         self.remove_comments()
         self.get_classname()
-        self.code_generation_strategy.parse_function_code(self)
+        self.parse_function_code()
         self.generate_test_case_code()
         self.code_generation_strategy.generate_test_function_code(self)
         self.generate_code()
@@ -111,11 +116,7 @@ class CodeGenerator:
             if line.startswith('"""'):
                 is_comment = not is_comment
 
-            if (
-                not is_comment
-                and not line.startswith('"""')
-                and not line.startswith("#")
-            ):
+            if not is_comment and not line.startswith('"""') and not line.startswith("#"):
                 code_definition += line + "\n"
 
         self.code_definition = fix_type(code_definition)
@@ -163,9 +164,7 @@ if __name__ == "__main__":
     result.id = "2413"
     result.title = "Smallest Even Multiple"
     result.title_slug = "smallest-even-multiple"
-    result.code_definition = "\r\n".join(
-        ["class Solution:", "    def smallestEvenMultiple(self, n: int) -> int:"]
-    )
+    result.code_definition = "\r\n".join(["class Solution:", "    def smallestEvenMultiple(self, n: int) -> int:"])
 
     result.test_cases = [
         "\r\n".join(
@@ -185,4 +184,3 @@ if __name__ == "__main__":
     ]
     cg = CodeGenerator(result, "COMMON")
     cg()
-    print(cg.code)

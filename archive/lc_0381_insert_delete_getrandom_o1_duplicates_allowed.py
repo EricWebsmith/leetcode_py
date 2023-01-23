@@ -27,9 +27,7 @@ class RandomizedCollection:
         return random.choice(self.arr)
 
 
-def test(
-    testObj: unittest.TestCase, actions: List, params: List, expected: List
-) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = RandomizedCollection(*params[0])
     print("------------test case-----------")

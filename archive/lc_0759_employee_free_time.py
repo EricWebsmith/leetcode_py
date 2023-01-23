@@ -29,17 +29,13 @@ class Solution:
         return ans[1:]
 
 
-def test(
-    testObj: unittest.TestCase, schedule_arr: list[list[list[int]]], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, schedule_arr: list[list[list[int]]], expected: int) -> None:
 
     schedule: list = []
     for i in range(len(schedule_arr)):
         person: list = []
         for j in range(len(schedule_arr[i])):
-            person.append(
-                Interval(start=schedule_arr[i][j][0], end=schedule_arr[i][j][1])
-            )
+            person.append(Interval(start=schedule_arr[i][j][0], end=schedule_arr[i][j][1]))
         schedule.append(person)
     so = Solution()
     actual_arr = so.employeeFreeTime(schedule)

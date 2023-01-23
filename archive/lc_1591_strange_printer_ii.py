@@ -68,9 +68,7 @@ class Solution:
         return not detect_circle(depend_dict)
 
 
-def test(
-    testObj: unittest.TestCase, targetGrid: List[List[int]], expected: bool
-) -> None:
+def test(testObj: unittest.TestCase, targetGrid: List[List[int]], expected: bool) -> None:
 
     so = Solution()
 

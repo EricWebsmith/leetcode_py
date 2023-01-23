@@ -21,9 +21,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, nums: List[int], space: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, nums: List[int], space: int, expected: int) -> None:
     so = Solution()
     actual = so.destroyTargets(nums, space)
     testObj.assertEqual(actual, expected)

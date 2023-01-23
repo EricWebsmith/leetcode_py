@@ -36,7 +36,6 @@ def test(
 
     actual_root = so.removeNthFromEnd(head, n)
     actual = listnode_to_array(actual_root)
-
     testObj.assertEqual(actual, expected)
 
 

@@ -15,9 +15,7 @@ class Solution:
         root = TreeNode(preorder[0])
         left_length = inorder.index(root_val)
         root.left = self.buildTree(preorder[1 : left_length + 1], inorder[:left_length])
-        root.right = self.buildTree(
-            preorder[left_length + 1 :], inorder[left_length + 1 :]
-        )
+        root.right = self.buildTree(preorder[left_length + 1 :], inorder[left_length + 1 :])
         return root
 
 

@@ -20,9 +20,7 @@ class Solution:
         return dp[0][0]
 
 
-def test(
-    testObj: unittest.TestCase, nums: list[int], multipliers: list[int], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, nums: list[int], multipliers: list[int], expected: int) -> None:
     so = Solution()
     actual = so.maximumScore(nums, multipliers)
     testObj.assertEqual(actual, expected)

@@ -10,9 +10,7 @@ class Solution:
         return keys[:k]
 
 
-def test(
-    testObj: unittest.TestCase, words: List[str], k: int, expected: List[str]
-) -> None:
+def test(testObj: unittest.TestCase, words: List[str], k: int, expected: List[str]) -> None:
 
     so = Solution()
 

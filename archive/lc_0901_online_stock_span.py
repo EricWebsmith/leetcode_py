@@ -18,9 +18,7 @@ class StockSpanner:
         return n - 1 - prev
 
 
-def test(
-    testObj: unittest.TestCase, actions: List, params: List, expected: List
-) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = StockSpanner(*params[0])
     for i in range(1, n):

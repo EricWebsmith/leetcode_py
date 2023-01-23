@@ -28,9 +28,7 @@ class Solution:
         return dfs(0, 0) % 1_000_000_007
 
 
-def test(
-    testObj: unittest.TestCase, words: List[str], target: str, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, words: List[str], target: str, expected: int) -> None:
 
     so = Solution()
     actual = so.numWays(words, target)

@@ -18,9 +18,7 @@ class Solution:
         return time_all <= time1 + time2
 
 
-def test(
-    testObj: unittest.TestCase, event1: List[str], event2: List[str], expected: bool
-) -> None:
+def test(testObj: unittest.TestCase, event1: List[str], event2: List[str], expected: bool) -> None:
 
     so = Solution()
 

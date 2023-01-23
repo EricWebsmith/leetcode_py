@@ -16,9 +16,7 @@ class Solution:
         for k in range(1, M + 1):
             dp[1][1][k] = 1
 
-        for i, j, k in itertools.product(
-            range(1, N + 1), range(1, K + 1), range(M + 1)
-        ):
+        for i, j, k in itertools.product(range(1, N + 1), range(1, K + 1), range(M + 1)):
             dp[i][j][k] += dp[i - 1][j][k] * k
             dp[i][j][k] += sum(dp[i - 1][j - 1][1:k])
 

@@ -1,16 +1,11 @@
 from typing import Protocol
 
 from parameter import Parameter
+from py_function import PyFunction
 
 
 class CodeGeneratorProtocol(Protocol):
     code_definition: str
     classname: str
-    function_name: str
-    function_names: list[str]
-    typed_param_str: str
-    untyped_param_str: str
-    functoin_code: str
-    function_params: list[Parameter]
-    function_return_type: str = "None"
+    functions: list[PyFunction]
     test_function_code: str

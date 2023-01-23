@@ -21,9 +21,7 @@ class Solution:
         return prehead.next
 
 
-def test(
-    testObj: unittest.TestCase, head_arr: List[int], expected: Optional[ListNode]
-) -> None:
+def test(testObj: unittest.TestCase, head_arr: List[int], expected: Optional[ListNode]) -> None:
     head = array_to_listnode(head_arr)
     so = Solution()
 

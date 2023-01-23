@@ -4,9 +4,7 @@ from typing import Dict, List, Set
 
 
 class Solution:
-    def findTheCity(
-        self, n: int, edges: List[List[int]], distanceThreshold: int
-    ) -> int:
+    def findTheCity(self, n: int, edges: List[List[int]], distanceThreshold: int) -> int:
         neighbor_dict: Dict[int, Set] = {v: set() for v in range(n)}
         for a, b, w in edges:
             neighbor_dict[a].add((b, w))

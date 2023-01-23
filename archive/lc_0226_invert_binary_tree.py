@@ -15,9 +15,7 @@ class Solution:
         return root
 
 
-def test(
-    testObj: unittest.TestCase, root_arr: List[int], expected: Optional[TreeNode]
-) -> None:
+def test(testObj: unittest.TestCase, root_arr: List[int], expected: Optional[TreeNode]) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
 

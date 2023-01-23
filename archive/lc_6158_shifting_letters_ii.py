@@ -26,9 +26,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, s: str, shifts: List[List[int]], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, s: str, shifts: List[List[int]], expected: int) -> None:
 
     so = Solution()
     actual = so.shiftingLetters(s, shifts)

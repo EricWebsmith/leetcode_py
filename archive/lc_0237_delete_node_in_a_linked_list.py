@@ -10,9 +10,7 @@ class Solution:
             node.next = node.next.next
 
 
-def test(
-    testObj: unittest.TestCase, head_arr: list[int], node_val: int, expected: ListNode
-) -> None:
+def test(testObj: unittest.TestCase, head_arr: list[int], node_val: int, expected: ListNode) -> None:
     head = array_to_listnode(head_arr)
     assert head is not None
     node: ListNode = head

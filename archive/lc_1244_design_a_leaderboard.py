@@ -12,11 +12,7 @@ class Leaderboard:
 
     def find_player_by_score(self, score: int, playerId: int):
         index = bisect_left(self.score_player, x=score, key=lambda x: x[0])
-        while (
-            index + 1 < self.n
-            and self.score_player[index][0] == score
-            and self.score_player[index][1] != playerId
-        ):
+        while index + 1 < self.n and self.score_player[index][0] == score and self.score_player[index][1] != playerId:
             index += 1
         return index
 
@@ -30,9 +26,7 @@ class Leaderboard:
             old_score = self.player_score_dict[playerId]
             new_score = old_score + score
             index = self.find_player_by_score(old_score, playerId)
-            self.score_player = (
-                self.score_player[:index] + self.score_player[index + 1 :]
-            )
+            self.score_player = self.score_player[:index] + self.score_player[index + 1 :]
             new_index = bisect_left(self.score_player, x=new_score, key=lambda x: x[0])
             self.score_player.insert(new_index, [new_score, playerId])
             self.player_score_dict[playerId] = new_score
@@ -48,17 +42,13 @@ class Leaderboard:
         index = self.find_player_by_score(old_score, playerId)
 
         if index < len(self.score_player) and self.score_player[index][1] == playerId:
-            self.score_player = (
-                self.score_player[:index] + self.score_player[index + 1 :]
-            )
+            self.score_player = self.score_player[:index] + self.score_player[index + 1 :]
 
         del self.player_score_dict[playerId]
         self.n -= 1
 
 
-def test(
-    testObj: unittest.TestCase, actions: List, params: List, expected: List
-) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = Leaderboard(*params[0])
     for i in range(1, n):

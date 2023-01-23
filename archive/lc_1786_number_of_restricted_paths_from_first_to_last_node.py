@@ -45,9 +45,7 @@ class Solution:
         return dfs(0)
 
 
-def test(
-    testObj: unittest.TestCase, n: int, edges: list[list[int]], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, n: int, edges: list[list[int]], expected: int) -> None:
     so = Solution()
     actual = so.countRestrictedPaths(n, edges)
     testObj.assertEqual(actual, expected)

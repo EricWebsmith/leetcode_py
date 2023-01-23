@@ -26,9 +26,7 @@ class Solution:
         return prehead.next
 
 
-def test(
-    testObj: unittest.TestCase, arrs: list[list[int]], expected: ListNode | None
-) -> None:
+def test(testObj: unittest.TestCase, arrs: list[list[int]], expected: ListNode | None) -> None:
     heads = [array_to_listnode(arr) for arr in arrs]
     so = Solution()
     actual_root = so.mergeKLists(heads)

@@ -26,9 +26,7 @@ class DSU:
 
 
 class Solution:
-    def areConnected(
-        self, n: int, threshold: int, queries: list[list[int]]
-    ) -> list[bool]:
+    def areConnected(self, n: int, threshold: int, queries: list[list[int]]) -> list[bool]:
 
         if threshold == 0:
             return [True] * len(queries)

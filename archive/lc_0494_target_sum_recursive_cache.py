@@ -18,9 +18,7 @@ class Solution:
                 count += 1
             return count
 
-        return self.dfs(i + 1, target - self.nums[i]) + self.dfs(
-            i + 1, target + self.nums[i]
-        )
+        return self.dfs(i + 1, target - self.nums[i]) + self.dfs(i + 1, target + self.nums[i])
 
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
         self.nums = nums
@@ -28,9 +26,7 @@ class Solution:
         return self.dfs(0, target)
 
 
-def test(
-    testObj: unittest.TestCase, nums: List[int], target: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, nums: List[int], target: int, expected: int) -> None:
 
     so = Solution()
     actual = so.findTargetSumWays(nums, target)

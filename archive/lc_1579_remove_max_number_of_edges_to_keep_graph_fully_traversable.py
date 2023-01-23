@@ -43,9 +43,7 @@ class Solution:
         return ans if A.e == B.e == n - 1 else -1
 
 
-def test(
-    testObj: unittest.TestCase, n: int, edges: List[List[int]], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, n: int, edges: List[List[int]], expected: int) -> None:
 
     so = Solution()
     actual = so.maxNumEdgesToRemove(n, edges)

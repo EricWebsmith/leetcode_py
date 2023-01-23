@@ -4,10 +4,7 @@ import unittest
 
 class Solution:
     def isNumber(self, s: str) -> bool:
-        return (
-            re.match("^[-+]?(\\d+|\\.\\d+|\\d+\\.\\d+|\\d+\\.)([eE][-+]?\\d+)?$", s)
-            is not None
-        )
+        return re.match("^[-+]?(\\d+|\\.\\d+|\\d+\\.\\d+|\\d+\\.)([eE][-+]?\\d+)?$", s) is not None
 
 
 def test(testObj: unittest.TestCase, s: str, expected: bool) -> None:

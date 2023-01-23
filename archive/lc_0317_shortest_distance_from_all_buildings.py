@@ -18,9 +18,7 @@ class Solution:
 
         # this is just for one building to reach to other cells
         def bfs(nr, nc):
-            visited = [
-                [False for c in range(n)] for r in range(m)
-            ]  # just for this node
+            visited = [[False for c in range(n)] for r in range(m)]  # just for this node
 
             visited[nr][nc] = True
             # accessible buildings from this building (include itself)
@@ -50,9 +48,7 @@ class Solution:
         for x in range(m):
             for y in range(n):
                 if grid[x][y] == 1:
-                    if not bfs(
-                        x, y
-                    ):  # if any build cannot reach the other build, return false
+                    if not bfs(x, y):  # if any build cannot reach the other build, return false
                         return -1
 
         return min(

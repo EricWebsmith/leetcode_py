@@ -14,11 +14,7 @@ class Solution:
         original_index = 0
         double: list = []
         for v in changed:
-            if (
-                original
-                and original_index < len(original)
-                and original[original_index] * 2 == v
-            ):
+            if original and original_index < len(original) and original[original_index] * 2 == v:
                 double.append(v)
                 original_index += 1
             else:

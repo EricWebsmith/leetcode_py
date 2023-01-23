@@ -4,9 +4,7 @@ from typing import List
 
 
 class Solution:
-    def insert(
-        self, intervals: List[List[int]], newInterval: List[int]
-    ) -> List[List[int]]:
+    def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
         n = len(intervals)
         # firstly, find the first/left overlap
         # x=2, 1 [2] 3, F [T] T

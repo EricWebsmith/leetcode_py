@@ -24,9 +24,7 @@ class Solution:
         return [[x, y] for (x, y) in set(upper + lower)]
 
 
-def test(
-    testObj: unittest.TestCase, trees: list[list[int]], expected: list[list[int]]
-) -> None:
+def test(testObj: unittest.TestCase, trees: list[list[int]], expected: list[list[int]]) -> None:
     so = Solution()
     actual = so.outerTrees(trees)
     actual.sort()

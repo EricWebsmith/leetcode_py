@@ -4,9 +4,7 @@ from typing import List
 
 
 class Solution:
-    def removeInterval(
-        self, intervals: List[List[int]], toBeRemoved: List[int]
-    ) -> List[List[int]]:
+    def removeInterval(self, intervals: List[List[int]], toBeRemoved: List[int]) -> List[List[int]]:
         if toBeRemoved[0] >= intervals[-1][1]:
             return []
         if toBeRemoved[1] <= intervals[0][0]:

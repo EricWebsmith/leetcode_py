@@ -20,9 +20,7 @@ class Solution:
         return True
 
 
-def test(
-    testObj: unittest.TestCase, word1: List[str], word2: List[str], expected: bool
-) -> None:
+def test(testObj: unittest.TestCase, word1: List[str], word2: List[str], expected: bool) -> None:
     so = Solution()
     actual = so.arrayStringsAreEqual(word1, word2)
     testObj.assertEqual(actual, expected)

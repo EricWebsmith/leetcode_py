@@ -14,9 +14,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, nums: List[int], removeQueries: List[int], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, nums: List[int], removeQueries: List[int], expected: int) -> None:
 
     s = Solution()
     actual = s.maximumSegmentSum(nums, removeQueries)

@@ -30,9 +30,7 @@ class Solution:
         return -1
 
 
-def test(
-    testObj: unittest.TestCase, grid: List[List[int]], k: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, grid: List[List[int]], k: int, expected: int) -> None:
     so = Solution()
     actual = so.shortestPath(grid, k)
     testObj.assertEqual(actual, expected)

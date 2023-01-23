@@ -4,14 +4,10 @@ from typing import List
 
 
 class Solution:
-    def closestRoom(
-        self, rooms: List[List[int]], queries: List[List[int]]
-    ) -> List[int]:
+    def closestRoom(self, rooms: List[List[int]], queries: List[List[int]]) -> List[int]:
         k = len(queries)
         rooms.sort(key=lambda x: x[1])
-        queries = [
-            (room_size, room_id, i) for i, (room_id, room_size) in enumerate(queries)
-        ]
+        queries = [(room_size, room_id, i) for i, (room_id, room_size) in enumerate(queries)]
         queries.sort()
         ans = [-1] * k
 

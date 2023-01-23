@@ -10,9 +10,7 @@ class Solution:
         )
 
 
-def test(
-    testObj: unittest.TestCase, nums: list[int], pivot: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, nums: list[int], pivot: int, expected: int) -> None:
 
     so = Solution()
     actual = so.pivotArray(nums, pivot)

@@ -24,9 +24,7 @@ class MedianFinder:
             return -self.lo[0]
 
 
-def test(
-    testObj: unittest.TestCase, actions: List, params: List, expected: List
-) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = MedianFinder(*params[0])
     for i in range(1, n):

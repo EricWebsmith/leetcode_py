@@ -43,9 +43,7 @@ def top_sort(edges: Dict[int, Set[int]]) -> List[int]:
 
 
 class Solution:
-    def sortItems(
-        self, n: int, m: int, group: List[int], beforeItems: List[List[int]]
-    ) -> List[int]:
+    def sortItems(self, n: int, m: int, group: List[int], beforeItems: List[List[int]]) -> List[int]:
         # convert individual items to one-item group
         for i in range(n):
             if group[i] == -1:

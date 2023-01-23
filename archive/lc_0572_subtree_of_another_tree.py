@@ -11,9 +11,7 @@ class Solution:
         if node1 is None or node2 is None or node1.val != node2.val:
             return False
 
-        return self.isSameTree(node1.left, node2.left) and self.isSameTree(
-            node1.right, node2.right
-        )
+        return self.isSameTree(node1.left, node2.left) and self.isSameTree(node1.right, node2.right)
 
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         if not subRoot:

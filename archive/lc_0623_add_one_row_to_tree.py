@@ -7,9 +7,7 @@ null = None
 
 
 class Solution:
-    def addOneRow(
-        self, root: Optional[TreeNode], val: int, depth: int
-    ) -> Optional[TreeNode]:
+    def addOneRow(self, root: Optional[TreeNode], val: int, depth: int) -> Optional[TreeNode]:
         if depth == 1:
             new_root = TreeNode(val)
             new_root.left = root

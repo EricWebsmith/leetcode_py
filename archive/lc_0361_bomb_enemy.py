@@ -44,9 +44,7 @@ class Solution:
         for r in range(m):
             for c in range(n):
                 if grid[r][c] == "0":
-                    max_kill = max(
-                        max_kill, vertical_kills[r][c] + horizontal_kills[r][c]
-                    )
+                    max_kill = max(max_kill, vertical_kills[r][c] + horizontal_kills[r][c])
 
         return max_kill
 
@@ -60,9 +58,7 @@ def test(testObj: unittest.TestCase, grid: List[List[str]], expected: int) -> No
 
 class TestStringMethods(unittest.TestCase):
     def test_1(self):
-        test(
-            self, [["0", "E", "0", "0"], ["E", "0", "W", "E"], ["0", "E", "0", "0"]], 3
-        )
+        test(self, [["0", "E", "0", "0"], ["E", "0", "W", "E"], ["0", "E", "0", "0"]], 3)
 
     def test_2(self):
         test(self, [["W", "W", "W"], ["0", "0", "0"], ["E", "E", "E"]], 1)

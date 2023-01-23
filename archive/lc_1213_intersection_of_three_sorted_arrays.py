@@ -3,9 +3,7 @@ from typing import List
 
 
 class Solution:
-    def arraysIntersection(
-        self, arr1: List[int], arr2: List[int], arr3: List[int]
-    ) -> List[int]:
+    def arraysIntersection(self, arr1: List[int], arr2: List[int], arr3: List[int]) -> List[int]:
         j = 0
         k = 0
 

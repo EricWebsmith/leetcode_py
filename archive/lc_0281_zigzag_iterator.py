@@ -36,9 +36,7 @@ class ZigzagIterator:
         return self.n > 0
 
 
-def test(
-    testObj: unittest.TestCase, v1: List[int], v2: List[int], expected: List[int]
-) -> None:
+def test(testObj: unittest.TestCase, v1: List[int], v2: List[int], expected: List[int]) -> None:
     i = ZigzagIterator(v1, v2)
     actual: list = []
     while i.hasNext():

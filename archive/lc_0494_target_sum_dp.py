@@ -23,9 +23,7 @@ class Solution:
         return dp[total + target]
 
 
-def test(
-    testObj: unittest.TestCase, nums: List[int], target: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, nums: List[int], target: int, expected: int) -> None:
 
     so = Solution()
     actual = so.findTargetSumWays(nums, target)

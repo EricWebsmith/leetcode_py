@@ -24,9 +24,7 @@ class Solution:
         return v + right
 
 
-def test(
-    testObj: unittest.TestCase, actions: List, params: List, expected: List
-) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = Solution(*params[0])
     print("------------test case-----------")

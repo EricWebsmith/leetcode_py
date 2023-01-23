@@ -14,9 +14,7 @@ class Solution:
         return []
 
 
-def test(
-    testObj: unittest.TestCase, nums: list[int], target: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, nums: list[int], target: int, expected: int) -> None:
     so = Solution()
     actual = so.twoSum(nums, target)
     testObj.assertEqual(actual, expected)

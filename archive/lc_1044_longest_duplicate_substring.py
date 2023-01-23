@@ -28,9 +28,7 @@ class Solution:
             h = (h * BASE + nums[i + w - 1]) % MOD
             if h in seen:
                 current_substring = nums[i : i + w]
-                if any(
-                    current_substring == nums[index : index + w] for index in seen[h]
-                ):
+                if any(current_substring == nums[index : index + w] for index in seen[h]):
                     return i
             seen[h].append(i)
         return -1

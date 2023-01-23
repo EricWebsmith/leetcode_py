@@ -4,9 +4,7 @@ from typing import List
 
 
 class Solution:
-    def countRoutes(
-        self, locations: List[int], start: int, finish: int, fuel: int
-    ) -> int:
+    def countRoutes(self, locations: List[int], start: int, finish: int, fuel: int) -> int:
         n = len(locations)
 
         def cost(i, j):
@@ -17,10 +15,7 @@ class Solution:
             if f < abs(cost(i, finish)):
                 return 0
 
-            return (
-                sum([dfs(j, f - cost(i, j)) for j in range(n) if i != j])
-                + (i == finish)
-            ) % 1_000_000_007
+            return (sum([dfs(j, f - cost(i, j)) for j in range(n) if i != j]) + (i == finish)) % 1_000_000_007
 
         return dfs(start, fuel) % 1_000_000_007
 

@@ -36,9 +36,7 @@ class Solution:
         return income
 
 
-def test(
-    testObj: unittest.TestCase, inventory: list[int], orders: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, inventory: list[int], orders: int, expected: int) -> None:
 
     so = Solution()
     actual = so.maxProfit(inventory, orders)

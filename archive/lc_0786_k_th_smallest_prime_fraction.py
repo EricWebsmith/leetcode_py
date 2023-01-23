@@ -18,14 +18,10 @@ class Solution:
             _, left, right = heappop(minHeap)
             result = [arr[left], arr[right]]
             if (left + 1, right) not in visited:
-                heappush(
-                    minHeap, (arr[left + 1] / arr[right], left + 1, right)
-                )  # type: ignore
+                heappush(minHeap, (arr[left + 1] / arr[right], left + 1, right))  # type: ignore
                 visited.add((left + 1, right))
             if (left, right - 1) not in visited:
-                heappush(
-                    minHeap, (arr[left] / arr[right - 1], left, right - 1)
-                )  # type: ignore
+                heappush(minHeap, (arr[left] / arr[right - 1], left, right - 1))  # type: ignore
                 visited.add((left, right - 1))
 
             k -= 1
@@ -33,9 +29,7 @@ class Solution:
         return result
 
 
-def test(
-    testObj: unittest.TestCase, arr: List[int], k: int, expected: List[int]
-) -> None:
+def test(testObj: unittest.TestCase, arr: List[int], k: int, expected: List[int]) -> None:
 
     so = Solution()
 

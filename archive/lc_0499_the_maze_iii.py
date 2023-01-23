@@ -4,9 +4,7 @@ from typing import List
 
 
 class Solution:
-    def findShortestWay(
-        self, maze: List[List[int]], ball: List[int], hole: List[int]
-    ) -> str:
+    def findShortestWay(self, maze: List[List[int]], ball: List[int], hole: List[int]) -> str:
         m, n = len(maze), len(maze[0])
         q = [(0, ball[0], ball[1], "")]
         heapify(q)
@@ -22,11 +20,7 @@ class Solution:
                 nc = c
                 d = 0
                 # keep moving
-                while (
-                    0 <= nr + dr < m
-                    and 0 <= nc + dc < n
-                    and maze[nr + dr][nc + dc] != 1
-                ):
+                while 0 <= nr + dr < m and 0 <= nc + dc < n and maze[nr + dr][nc + dc] != 1:
                     nr += dr
                     nc += dc
                     d += 1

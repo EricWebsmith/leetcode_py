@@ -67,9 +67,7 @@ class Solution:
         return -1
 
 
-def test(
-    testObj: unittest.TestCase, arr: List[int], target: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, arr: List[int], target: int, expected: int) -> None:
     mountain = MountainArray(arr)
     so = Solution()
     actual = so.findInMountainArray(target, mountain)

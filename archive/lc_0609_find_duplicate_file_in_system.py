@@ -20,9 +20,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, paths: List[str], expected: List[List[str]]
-) -> None:
+def test(testObj: unittest.TestCase, paths: List[str], expected: List[List[str]]) -> None:
 
     so = Solution()
 

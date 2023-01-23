@@ -24,9 +24,7 @@ class Solution:
         return -1
 
 
-def test(
-    testObj: unittest.TestCase, start: str, end: str, bank: List[str], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, start: str, end: str, bank: List[str], expected: int) -> None:
 
     so = Solution()
     actual = so.minMutation(start, end, bank)

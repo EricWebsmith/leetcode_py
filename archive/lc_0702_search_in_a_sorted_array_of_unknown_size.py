@@ -32,9 +32,7 @@ class Solution:
         return -1
 
 
-def test(
-    testObj: unittest.TestCase, arr: List[int], target: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, arr: List[int], target: int, expected: int) -> None:
 
     reader = ArrayReader(arr)
     so = Solution()

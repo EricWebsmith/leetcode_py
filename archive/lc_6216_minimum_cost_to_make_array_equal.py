@@ -30,9 +30,7 @@ class Solution:
         return best
 
 
-def test(
-    testObj: unittest.TestCase, nums: List[int], cost: List[int], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, nums: List[int], cost: List[int], expected: int) -> None:
     so = Solution()
     actual = so.minCost(nums, cost)
     testObj.assertEqual(actual, expected)

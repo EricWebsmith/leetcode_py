@@ -8,11 +8,7 @@ class Solution:
         if root is None:
             return []
 
-        return (
-            [root.val]
-            + self.preorderTraversal(root.left)
-            + self.preorderTraversal(root.right)
-        )
+        return [root.val] + self.preorderTraversal(root.left) + self.preorderTraversal(root.right)
 
 
 def test(testObj: unittest.TestCase, root_arr: list[int], expected: list[int]) -> None:

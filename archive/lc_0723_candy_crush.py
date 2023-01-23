@@ -11,24 +11,14 @@ class Solution:
         found = False
         for r in range(self.m):
             for c in range(self.n - 2):
-                if (
-                    abs(board[r][c])
-                    == abs(board[r][c + 1])
-                    == abs(board[r][c + 2])
-                    != 0
-                ):
+                if abs(board[r][c]) == abs(board[r][c + 1]) == abs(board[r][c + 2]) != 0:
                     board[r][c] = board[r][c + 1] = board[r][c + 2] = -abs(board[r][c])
                     found = True
 
         for c in range(self.n):
             for r in range(self.m - 2):
 
-                if (
-                    abs(board[r][c])
-                    == abs(board[r + 1][c])
-                    == abs(board[r + 2][c])
-                    != 0
-                ):
+                if abs(board[r][c]) == abs(board[r + 1][c]) == abs(board[r + 2][c]) != 0:
                     board[r][c] = board[r + 1][c] = board[r + 2][c] = -abs(board[r][c])
                     found = True
 

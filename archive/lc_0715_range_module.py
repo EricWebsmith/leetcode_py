@@ -44,9 +44,7 @@ class RangeModule:
         self.arr[i:j] = [left] * (i % 2 == 1) + [right] * (j % 2 == 1)
 
 
-def test(
-    testObj: unittest.TestCase, actions: List, params: List, expected: List
-) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = RangeModule(*params[0])
     print("------------test case-----------")

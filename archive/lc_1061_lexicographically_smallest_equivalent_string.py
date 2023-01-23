@@ -40,9 +40,7 @@ class Solution:
         return "".join(ans)
 
 
-def test(
-    testObj: unittest.TestCase, s1: str, s2: str, baseStr: str, expected: str
-) -> None:
+def test(testObj: unittest.TestCase, s1: str, s2: str, baseStr: str, expected: str) -> None:
 
     so = Solution()
     actual = so.smallestEquivalentString(s1, s2, baseStr)

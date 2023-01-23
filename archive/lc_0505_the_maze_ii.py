@@ -7,9 +7,7 @@ class Solution:
     def __init__(self) -> None:
         self.found = False
 
-    def shortestDistance(
-        self, maze: List[List[int]], start: List[int], destination: List[int]
-    ) -> int:
+    def shortestDistance(self, maze: List[List[int]], start: List[int], destination: List[int]) -> int:
         MAX_PATH = 1000000
         m = len(maze)
         n = len(maze[0])

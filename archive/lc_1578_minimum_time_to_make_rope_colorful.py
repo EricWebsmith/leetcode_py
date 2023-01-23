@@ -20,9 +20,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, colors: str, neededTime: List[int], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, colors: str, neededTime: List[int], expected: int) -> None:
 
     so = Solution()
     actual = so.minCost(colors, neededTime)

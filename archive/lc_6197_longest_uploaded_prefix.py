@@ -22,9 +22,7 @@ class LUPrefix:
         return self.last + 1
 
 
-def test(
-    testObj: unittest.TestCase, actions: List, params: List, expected: List
-) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = LUPrefix(*params[0])
     print("------------test case-----------")

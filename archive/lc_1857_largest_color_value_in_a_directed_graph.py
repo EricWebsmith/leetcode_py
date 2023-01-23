@@ -66,9 +66,7 @@ class Solution:
         return self.best_count
 
 
-def test(
-    testObj: unittest.TestCase, colors: str, edges: List[List[int]], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, colors: str, edges: List[List[int]], expected: int) -> None:
 
     so = Solution()
 

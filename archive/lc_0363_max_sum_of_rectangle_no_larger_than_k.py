@@ -37,9 +37,7 @@ class Solution:
         return self.result
 
 
-def test(
-    testObj: unittest.TestCase, matrix: List[List[int]], k: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, matrix: List[List[int]], k: int, expected: int) -> None:
 
     so = Solution()
     actual = so.maxSumSubmatrix(matrix, k)

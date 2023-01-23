@@ -42,9 +42,7 @@ class Solution:
         return -1
 
 
-def test(
-    testObj: unittest.TestCase, n: int, connections: List[List[int]], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, n: int, connections: List[List[int]], expected: int) -> None:
 
     so = Solution()
 

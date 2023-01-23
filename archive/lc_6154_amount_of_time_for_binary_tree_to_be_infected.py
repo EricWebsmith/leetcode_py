@@ -36,9 +36,7 @@ class Solution:
         if node is None:
             return max(depth - 1, 0)
 
-        return max(
-            self.get_depth(node.left, depth + 1), self.get_depth(node.right, depth + 1)
-        )
+        return max(self.get_depth(node.left, depth + 1), self.get_depth(node.right, depth + 1))
 
     def amountOfTime(self, root: Optional[TreeNode], start: int) -> int:
         self.start = start
@@ -66,9 +64,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, root_arr: List[int], start: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, root_arr: List[int], start: int, expected: int) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
     actual = so.amountOfTime(root, start)

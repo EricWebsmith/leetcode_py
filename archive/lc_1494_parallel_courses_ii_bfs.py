@@ -26,9 +26,7 @@ class Solution:
         while q:
             taken, semester = q.popleft()
             available = [
-                course_bitmasks[i]
-                for i in range(n)
-                if (taken & g[i] == g[i]) and (taken & course_bitmasks[i] == 0)
+                course_bitmasks[i] for i in range(n) if (taken & g[i] == g[i]) and (taken & course_bitmasks[i] == 0)
             ]
             if len(available) <= k:
                 taken += sum(available)

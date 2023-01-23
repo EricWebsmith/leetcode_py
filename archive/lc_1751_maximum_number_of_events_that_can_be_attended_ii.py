@@ -51,9 +51,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, events: List[List[int]], k: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, events: List[List[int]], k: int, expected: int) -> None:
 
     so = Solution()
     actual = so.maxValue(events, k)

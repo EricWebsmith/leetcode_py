@@ -13,9 +13,7 @@ def get_bidirectional_edges(vetices: List, from_to_times: List[List]) -> Dict[An
 
 
 class Solution:
-    def minCost(
-        self, maxTime: int, edges: List[List[int]], passingFees: List[int]
-    ) -> int:
+    def minCost(self, maxTime: int, edges: List[List[int]], passingFees: List[int]) -> int:
         MAX_TIME = 1_000_000_000
         MAX_FEE = 1_000_000_000
         n = len(passingFees)

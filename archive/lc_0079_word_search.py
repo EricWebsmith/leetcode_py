@@ -42,9 +42,7 @@ class Solution:
         return False
 
 
-def test(
-    testObj: unittest.TestCase, board: List[List[str]], word: str, expected: bool
-) -> None:
+def test(testObj: unittest.TestCase, board: List[List[str]], word: str, expected: bool) -> None:
     so = Solution()
     actual = so.exist(board, word)
     testObj.assertEqual(actual, expected)

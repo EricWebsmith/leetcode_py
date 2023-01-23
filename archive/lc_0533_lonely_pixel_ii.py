@@ -33,9 +33,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, picture: List[List[str]], target: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, picture: List[List[str]], target: int, expected: int) -> None:
 
     so = Solution()
 

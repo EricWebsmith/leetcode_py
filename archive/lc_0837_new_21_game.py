@@ -19,9 +19,7 @@ class Solution:
         return dp[0]
 
 
-def test(
-    testObj: unittest.TestCase, n: int, k: int, maxPts: int, expected: float
-) -> None:
+def test(testObj: unittest.TestCase, n: int, k: int, maxPts: int, expected: float) -> None:
     so = Solution()
     actual = so.new21Game(n, k, maxPts)
     testObj.assertAlmostEqual(actual, expected, delta=0.0001)

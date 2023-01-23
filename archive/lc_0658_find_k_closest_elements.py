@@ -19,9 +19,7 @@ class Solution:
         return arr[left + 1 : right]
 
 
-def test(
-    testObj: unittest.TestCase, arr: List[int], k: int, x: int, expected: List[int]
-) -> None:
+def test(testObj: unittest.TestCase, arr: List[int], k: int, x: int, expected: List[int]) -> None:
     so = Solution()
     actual = so.findClosestElements(arr, k, x)
     testObj.assertEqual(actual, expected)

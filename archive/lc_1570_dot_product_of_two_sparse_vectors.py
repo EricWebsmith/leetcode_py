@@ -23,9 +23,7 @@ class SparseVector:
 # ans = v1.dotProduct(v2)
 
 
-def test(
-    testObj: unittest.TestCase, nums1: List[int], nums2: List[int], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, nums1: List[int], nums2: List[int], expected: int) -> None:
     s1 = SparseVector(nums1)
     s2 = SparseVector(nums2)
     actual = s1.dotProduct(s2)

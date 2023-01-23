@@ -29,9 +29,7 @@ class Solution:
         return left
 
 
-def test(
-    testObj: unittest.TestCase, sweetness: List[int], k: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, sweetness: List[int], k: int, expected: int) -> None:
 
     so = Solution()
     actual = so.maximizeSweetness(sweetness, k)

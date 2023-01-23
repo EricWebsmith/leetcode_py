@@ -31,9 +31,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, properties: List[List[int]], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, properties: List[List[int]], expected: int) -> None:
 
     so = Solution()
 

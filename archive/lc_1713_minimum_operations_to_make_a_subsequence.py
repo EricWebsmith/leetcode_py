@@ -25,9 +25,7 @@ class Solution:
         return len(target) - len(increase_arr)
 
 
-def test(
-    testObj: unittest.TestCase, target: List[int], arr: List[int], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, target: List[int], arr: List[int], expected: int) -> None:
 
     so = Solution()
 

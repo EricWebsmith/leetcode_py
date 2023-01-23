@@ -36,9 +36,7 @@ class Solution:
         return len(set(g))
 
 
-def test(
-    testObj: unittest.TestCase, n: int, edges: List[List[int]], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, n: int, edges: List[List[int]], expected: int) -> None:
 
     so = Solution()
 

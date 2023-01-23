@@ -42,9 +42,7 @@ class Solution:
         return max_score
 
 
-def test(
-    testObj: unittest.TestCase, tokens: List[int], power: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, tokens: List[int], power: int, expected: int) -> None:
 
     so = Solution()
 

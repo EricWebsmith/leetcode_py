@@ -29,9 +29,7 @@ class Solution:
         return ans
 
 
-def test(
-    testObj: unittest.TestCase, root_arr: List[int], expected: List[List[int]]
-) -> None:
+def test(testObj: unittest.TestCase, root_arr: List[int], expected: List[List[int]]) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
     actual = so.levelOrder(root)

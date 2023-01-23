@@ -20,9 +20,7 @@ class FontInfo(object):
 
 
 class Solution:
-    def maxFont(
-        self, text: str, w: int, h: int, fonts: List[int], fontInfo: "FontInfo"
-    ) -> int:
+    def maxFont(self, text: str, w: int, h: int, fonts: List[int], fontInfo: "FontInfo") -> int:
         def fit(m: int):
             moving_width = 0
             c_h = fontInfo.getHeight(m)

@@ -4,9 +4,7 @@ import unittest
 
 
 class Solution:
-    def minRefuelStops(
-        self, target: int, startFuel: int, stations: list[list[int]]
-    ) -> int:
+    def minRefuelStops(self, target: int, startFuel: int, stations: list[list[int]]) -> int:
         pq: list[int] = []
         stations.append([target, 1_000_000_000])
         tank = startFuel

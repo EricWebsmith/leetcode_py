@@ -46,9 +46,7 @@ class SnakeGame:
         return self.food_index
 
 
-def test(
-    testObj: unittest.TestCase, actions: List, params: List, expected: List
-) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = SnakeGame(*params[0])
     for i in range(1, n):

@@ -3,9 +3,7 @@ from bisect import bisect_left, bisect_right
 
 
 class Solution:
-    def insert(
-        self, intervals: list[list[int]], newInterval: list[int]
-    ) -> list[list[int]]:
+    def insert(self, intervals: list[list[int]], newInterval: list[int]) -> list[list[int]]:
         n = len(intervals)
         newStart, newEnd = newInterval
         left = bisect_left(intervals, x=newStart, key=lambda interval: interval[1])

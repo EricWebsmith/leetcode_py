@@ -36,9 +36,7 @@ class Solution:
         return dp[-1][0]
 
 
-def test(
-    testObj: unittest.TestCase, grid: List[List[int]], k: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, grid: List[List[int]], k: int, expected: int) -> None:
     so = Solution()
     actual = so.numberOfPaths(grid, k)
     testObj.assertEqual(actual, expected)

@@ -33,9 +33,7 @@ class Solution:
         return room_counts.index(max(room_counts))
 
 
-def test(
-    testObj: unittest.TestCase, n: int, meetings: List[List[int]], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, n: int, meetings: List[List[int]], expected: int) -> None:
     so = Solution()
     actual = so.mostBooked(n, meetings)
     testObj.assertEqual(actual, expected)

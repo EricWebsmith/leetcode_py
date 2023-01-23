@@ -5,9 +5,7 @@ from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_
 
 
 class Solution:
-    def removeLeafNodes(
-        self, root: Optional[TreeNode], target: int
-    ) -> Optional[TreeNode]:
+    def removeLeafNodes(self, root: Optional[TreeNode], target: int) -> Optional[TreeNode]:
         pre_root = TreeNode(target + 1)
         pre_root.left = root
 

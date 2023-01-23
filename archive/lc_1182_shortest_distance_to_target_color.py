@@ -3,9 +3,7 @@ from typing import List
 
 
 class Solution:
-    def shortestDistanceColor(
-        self, colors: List[int], queries: List[List[int]]
-    ) -> List[int]:
+    def shortestDistanceColor(self, colors: List[int], queries: List[List[int]]) -> List[int]:
         n = len(colors)
         d = dict()
 
@@ -30,9 +28,7 @@ class Solution:
             while q_index >= 0 and queries[q_index][0] == i:
                 previous_index = d.get(queries[q_index][1], -1)
                 if previous_index != -1:
-                    ans[queries[q_index][2]] = min(
-                        ans[queries[q_index][2]], previous_index - i
-                    )
+                    ans[queries[q_index][2]] = min(ans[queries[q_index][2]], previous_index - i)
                 q_index -= 1
 
         for i in range(len(ans)):

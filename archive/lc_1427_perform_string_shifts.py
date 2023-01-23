@@ -17,9 +17,7 @@ class Solution:
         return s[total:] + s[0:total]
 
 
-def test(
-    testObj: unittest.TestCase, s: str, shift: List[List[int]], expected: int
-) -> None:
+def test(testObj: unittest.TestCase, s: str, shift: List[List[int]], expected: int) -> None:
 
     so = Solution()
     actual = so.stringShift(s, shift)

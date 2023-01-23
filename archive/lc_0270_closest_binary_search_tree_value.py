@@ -25,9 +25,7 @@ class Solution:
         return best_val
 
 
-def test(
-    testObj: unittest.TestCase, root_arr: List[int], target: float, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, root_arr: List[int], target: float, expected: int) -> None:
     root = array_to_treenode(root_arr)
     so = Solution()
 

@@ -27,9 +27,7 @@ class Solution:
         return dfs(n, target)
 
 
-def test(
-    testObj: unittest.TestCase, n: int, k: int, target: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, n: int, k: int, target: int, expected: int) -> None:
     so = Solution()
     actual = so.numRollsToTarget(n, k, target)
     testObj.assertEqual(actual, expected)

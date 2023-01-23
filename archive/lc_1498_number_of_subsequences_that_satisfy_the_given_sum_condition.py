@@ -26,9 +26,7 @@ class Solution:
         return ans % mod
 
 
-def test(
-    testObj: unittest.TestCase, nums: List[int], target: int, expected: int
-) -> None:
+def test(testObj: unittest.TestCase, nums: List[int], target: int, expected: int) -> None:
 
     s = Solution()
     actual = s.numSubseq(nums, target)

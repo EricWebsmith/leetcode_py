@@ -40,9 +40,7 @@ class SnapshotArray:
         return self.snaps[index][left][1]
 
 
-def test(
-    testObj: unittest.TestCase, actions: List, params: List, expected: List
-) -> None:
+def test(testObj: unittest.TestCase, actions: List, params: List, expected: List) -> None:
     n = len(actions)
     obj = SnapshotArray(params[0][0])
     for i in range(1, n):
