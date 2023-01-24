@@ -1,7 +1,5 @@
-from code_generator_protocol import CodeGeneratorProtocol
-from code_generator_strategy import CodeGeneratorStrategy
-from constants import (LISTNODE_OR_NONE_TYPES, NODE_OR_NONE_TYPES,
-                       TREENODE_OR_NONE_TYPES)
+from scraping.code_generator_protocol import CodeGeneratorProtocol
+from scraping.code_generator_strategy import CodeGeneratorStrategy
 
 
 class CodeGeneratorDesignStrategy(CodeGeneratorStrategy):

@@ -1,7 +1,10 @@
+import logging
+
 import requests  # type: ignore
 from dotenv import dotenv_values
 from lxml import etree  # type: ignore
-from scraper_result import ScraperResult
+
+from scraping.scraper_result import ScraperResult
 
 env = dotenv_values()
 Cookie = env["Cookie"]
@@ -28,15 +31,9 @@ class ContestScraper:
 
         codeDefinition_at = text.find("codeDefinition:")
         newline_at = text.find("\n", codeDefinition_at)
-        codeDefinition_str = text[
-            codeDefinition_at + len("codeDefinition:") : newline_at - 1
-        ]
-
-        print(codeDefinition_str)
+        codeDefinition_str = text[codeDefinition_at + len("codeDefinition:") : newline_at - 1]
         code_definitions = eval(codeDefinition_str)
-        result.code_definition = [
-            d for d in code_definitions if d["value"] == "python3"
-        ][0]["defaultCode"]
+        result.code_definition = [d for d in code_definitions if d["value"] == "python3"][0]["defaultCode"]
 
         html = etree.HTML(text)
 
@@ -53,7 +50,5 @@ class ContestScraper:
 
 if __name__ == "__main__":
     s = ContestScraper()
-    result = s(
-        "https://leetcode.com/contest/weekly-contest-311/problems/smallest-even-multiple/"
-    )
-    print(result)
+    result = s("https://leetcode.com/contest/weekly-contest-311/problems/smallest-even-multiple/")
+    logging.info(result)

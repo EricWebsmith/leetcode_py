@@ -1,10 +1,12 @@
 import json
+import logging
 
 import leetcode  # type: ignore
 import leetcode.auth  # type: ignore
 from dotenv import dotenv_values
 from lxml import etree  # type: ignore
-from scraper_result import ScraperResult
+
+from scraping.scraper_result import ScraperResult
 
 env = dotenv_values()
 leetcode_session = env["LEETCODE_SESSION"]
@@ -53,9 +55,7 @@ class ProblemScraper:
         result.id = question.question_frontend_id
         result.title = question.title
         code_definitions = json.loads(question.code_definition)
-        result.code_definition = [
-            d for d in code_definitions if d["value"] == "python3"
-        ][0]["defaultCode"]
+        result.code_definition = [d for d in code_definitions if d["value"] == "python3"][0]["defaultCode"]
         content = etree.HTML(question.content)
         test_cases = content.xpath("//pre")
         for tc in test_cases:
@@ -68,4 +68,4 @@ class ProblemScraper:
 if __name__ == "__main__":
     s = ProblemScraper()
     result = s("two-sum")
-    print(result)
+    logging.info(result)

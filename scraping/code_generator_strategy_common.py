@@ -1,16 +1,14 @@
-from code_generator_protocol import CodeGeneratorProtocol
-from code_generator_strategy import CodeGeneratorStrategy
-from constants import (LISTNODE_OR_NONE_TYPES, NODE_OR_NONE_TYPES,
-                       TREENODE_OR_NONE_TYPES)
+from scraping.code_generator_protocol import CodeGeneratorProtocol
+from scraping.code_generator_strategy import CodeGeneratorStrategy
+from scraping.constants import LISTNODE_OR_NONE_TYPES, NODE_OR_NONE_TYPES, TREENODE_OR_NONE_TYPES
 
 
 class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
-
     def generate_test_function_code(self, scraper: CodeGeneratorProtocol):
         test_function_parameters = ""
         type_changing_code = ""
         for param in scraper.functions[0].parameters:
-            if param.name == 'self':
+            if param.name == "self":
                 continue
             if param.type in TREENODE_OR_NONE_TYPES:
                 test_function_parameters += f"{param.name}_arr: list[int], "

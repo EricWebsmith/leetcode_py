@@ -1,7 +1,6 @@
 from typing import Protocol
 
-from parameter import Parameter
-from py_function import PyFunction
+from scraping.py_function import PyFunction
 
 
 class CodeGeneratorProtocol(Protocol):

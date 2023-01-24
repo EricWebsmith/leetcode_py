@@ -1,15 +1,13 @@
 import logging
 import re
 
-from code_generator_strategy import CodeGeneratorStrategy
-from code_generator_strategy_common import CodeGeneratorCommonStrategy
-from code_generator_strategy_design import CodeGeneratorDesignStrategy
-from parameter import fix_type
-from py_function import PyFunction
-from scraper_result import ScraperResult
-
-DESIGN = "DESIGN"
-COMMON = "COMMON"
+from scraping.code_generator_strategy import CodeGeneratorStrategy
+from scraping.code_generator_strategy_common import CodeGeneratorCommonStrategy
+from scraping.code_generator_strategy_design import CodeGeneratorDesignStrategy
+from scraping.constants import COMMON, DESIGN
+from scraping.parameter import fix_type
+from scraping.py_function import PyFunction
+from scraping.scraper_result import ScraperResult
 
 
 class CodeGenerator:
@@ -36,11 +34,8 @@ class CodeGenerator:
         for line in lines:
             if not line.startswith("def"):
                 continue
-            print(line)
             py_func = PyFunction.from_code(line)
             self.functions.append(py_func)
-            print(py_func.name)
-            print(py_func)
 
     def parse_test_cases(self, tc_string):
         # get input
@@ -122,7 +117,6 @@ class CodeGenerator:
         self.code_definition = fix_type(code_definition)
 
     def get_classname(self):
-        print(self.code_definition)
         class_at = self.code_definition.index("class")
         colon_at = self.code_definition.index(":", class_at)
         self.classname = self.code_definition[class_at + 6 : colon_at]

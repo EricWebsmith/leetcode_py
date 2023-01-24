@@ -1,4 +1,4 @@
-from parameter import Parameter
+from scraping.parameter import Parameter
 
 
 class PyFunction:
@@ -8,8 +8,7 @@ class PyFunction:
         self.returnType: str = return_type
 
     def get_argument_list_code(self) -> str:
-        print([p.name for p in self.parameters[1:]])
-        return ', '.join([p.name for p in self.parameters[1:]])
+        return ", ".join([p.name for p in self.parameters[1:]])
 
     def get_parameter_list_code(self, with_self=True):
         parameter_code = ""
@@ -29,10 +28,9 @@ class PyFunction:
 
     def __repr__(self) -> str:
         return self.code()
-    
+
     def __str__(self) -> str:
         return self.code()
-
 
     @classmethod
     def from_code(cls, line: str):
@@ -53,11 +51,10 @@ class PyFunction:
 
         # parameters
         parameters_code = line[open_parenthesis + 1 : close_parenthesis]
-        print(parameters_code)
         previous_splitor = 0
         parentheses = 0
         parameters = list[Parameter]()
-        for i, c in enumerate(parameters_code):
+        for i, c in enumerate(parameters_code + ","):
             if c == "[":
                 parentheses += 1
             elif c == "]":
@@ -65,7 +62,6 @@ class PyFunction:
 
             if c == "," and parentheses == 0:
                 parameter_code = parameters_code[previous_splitor:i]
-                print('parameter_code', parameter_code)
                 parameters.append(Parameter.from_code(parameter_code))
                 previous_splitor = i + 1
 

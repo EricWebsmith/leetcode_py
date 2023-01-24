@@ -1,22 +1,20 @@
+import logging
 import os
 import re
 import subprocess
 import sys
 
-from code_generator import CodeGenerator
-from scraper_contest import ContestScraper
-from scraper_problem import ProblemScraper
-from scraper_result import ScraperResult
+from scraping.code_generator import CodeGenerator
+from scraping.scraper_contest import ContestScraper
+from scraping.scraper_problem import ProblemScraper
+from scraping.scraper_result import ScraperResult
 
-DESIGN = "DESIGN"
-COMMON = "COMMON"
-
+logging.basicConfig(format="%(asctime)s %(message)s", level=logging.DEBUG)
 
 title_slug = sys.argv[1] if len(sys.argv) >= 2 else "time-based-key-value-store"
 
 scraper_result: ScraperResult
 if title_slug.find("contest") > 0:
-    print("----------------------contest----------------------")
     scraper_result = ContestScraper()(title_slug)
 else:
     title_slug = re.sub("https://leetcode[.]c(n|om)/problems/", "", title_slug)
@@ -53,6 +51,7 @@ path = f"test/lc_{padded_number}_{title_slug_fixed}.py"
 with open(path, mode="w") as f:
     f.write(cg.code)
 
-print(f"{cg.id}. {cg.title} done")
+
+logging.info(f"{cg.id}. {cg.title} done")
 
 subprocess.call(["code", path])
