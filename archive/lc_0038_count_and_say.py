@@ -3,27 +3,25 @@ import unittest
 
 class Solution:
     def countAndSay(self, n: int) -> str:
-        num = 1
-        for i in range(n - 1):
+        if n == 1:
+            return "1"
+        elif n == 2:
+            return "11"
+        dp = [""] * (n)
+        dp[0] = "1"
+        dp[1] = "11"
+        for i in range(2, n):
             count = 1
-            pre = num % 10
-            num //= 10
-            next_num = 0
-            base = 1
-            while num:
-                cur = num % 10
-                num //= 10
-                if cur == pre:
+            previous = dp[i - 1][0]
+            for c in dp[i - 1][1:]:
+                if c == previous:
                     count += 1
                 else:
-                    next_num += (count * 10 + pre) * base
-                    base *= 100
-                    pre = cur
+                    dp[i] += str(count) + previous
                     count = 1
-            next_num += (count * 10 + pre) * base
-            num = next_num
-
-        return str(num)
+                    previous = c
+            dp[i] = dp[i] + str(count) + previous
+        return dp[-1]
 
 
 def test(testObj: unittest.TestCase, n: int, expected: str) -> None:
@@ -61,5 +59,8 @@ if __name__ == "__main__":
     unittest.main()
 
 """
-
+Runtime
+27 ms
+Beats
+99.98%
 """
