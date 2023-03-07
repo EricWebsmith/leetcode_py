@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
 
-from data_structure.binary_tree import TreeNode, treenode_to_array
+from leetcode_data_structure import TreeNode
 
 
 class Solution:
@@ -23,10 +23,9 @@ class Solution:
 
 
 def test(testObj: unittest.TestCase, nums: List[int], expected: int) -> None:
-
     so = Solution()
     actual_root = so.constructMaximumBinaryTree(nums)
-    actual = treenode_to_array(actual_root)
+    actual = TreeNode.to_array(actual_root)
     testObj.assertEqual(actual, expected)
 
 

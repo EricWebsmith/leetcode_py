@@ -17,10 +17,10 @@ class Solution:
 
         for start, end, direction in shifts:
             if direction == 0:
-                indices[start : end + 1] = indices[start : end + 1] - 1
+                indices[start: end + 1] = indices[start: end + 1] - 1
 
             else:
-                indices[start : end + 1] = indices[start : end + 1] + 1
+                indices[start: end + 1] = indices[start: end + 1] + 1
 
         ans = "".join([letters[i % 26] for i in indices])
         return ans

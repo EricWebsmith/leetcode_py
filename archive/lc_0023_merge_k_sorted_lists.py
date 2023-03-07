@@ -1,7 +1,7 @@
 import unittest
 from heapq import heappop, heappush
 
-from data_structure.link_list import ListNode, array_to_listnode, listnode_to_array
+from leetcode_data_structure.link_list import ListNode
 
 
 class Solution:
@@ -27,10 +27,10 @@ class Solution:
 
 
 def test(testObj: unittest.TestCase, arrs: list[list[int]], expected: ListNode | None) -> None:
-    heads = [array_to_listnode(arr) for arr in arrs]
+    heads = [ListNode.from_array(arr) for arr in arrs]
     so = Solution()
     actual_root = so.mergeKLists(heads)
-    actual = listnode_to_array(actual_root)
+    actual = ListNode.to_array(actual_root)
     testObj.assertEqual(actual, expected)
 
 

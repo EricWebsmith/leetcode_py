@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
 
-from data_structure.binary_tree import TreeNode, array_to_treenode
+from leetcode_data_structure import TreeNode
 
 
 def inorder(node) -> List[int]:
@@ -28,8 +28,8 @@ class Solution:
         return False
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], k: int, expected: bool) -> None:
-    root = array_to_treenode(root_arr)
+def test(testObj: unittest.TestCase, root_arr: List[int | None], k: int, expected: bool) -> None:
+    root = TreeNode.from_array(root_arr)
     so = Solution()
     actual = so.findTarget(root, k)
     testObj.assertEqual(actual, expected)

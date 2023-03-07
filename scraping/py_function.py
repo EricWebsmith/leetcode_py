@@ -38,19 +38,19 @@ class PyFunction:
             return None
         def_at = line.find("def")
         open_parenthesis = line.find("(")
-        name = line[def_at + 4 : open_parenthesis]
+        name = line[def_at + 4: open_parenthesis]
         close_parenthesis = line.rfind(")")
 
         # return type
         return_type = "None"
         arrow = line.find("->")
         if arrow > 0:
-            return_type = line[arrow + 2 :]
+            return_type = line[arrow + 2:]
             return_type = return_type.replace(":", "")
             return_type = return_type.strip()
 
         # parameters
-        parameters_code = line[open_parenthesis + 1 : close_parenthesis]
+        parameters_code = line[open_parenthesis + 1: close_parenthesis]
         previous_splitor = 0
         parentheses = 0
         parameters = list[Parameter]()

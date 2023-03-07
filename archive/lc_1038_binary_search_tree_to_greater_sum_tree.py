@@ -1,7 +1,7 @@
 import unittest
 from typing import List
 
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
+from leetcode_data_structure import TreeNode
 
 
 class Solution:
@@ -26,12 +26,12 @@ class Solution:
         return root
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], expected: int) -> None:
-    root = array_to_treenode(root_arr)
+def test(testObj: unittest.TestCase, root_arr: List[int | None], expected: int) -> None:
+    root = TreeNode.from_array(root_arr)
     so = Solution()
     assert root is not None
     actual_root = so.bstToGst(root)
-    actual = treenode_to_array(actual_root)
+    actual = TreeNode.to_array(actual_root)
     testObj.assertEqual(actual, expected)
 
 

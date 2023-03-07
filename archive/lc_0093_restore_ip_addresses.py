@@ -9,8 +9,8 @@ def _valid_part(part: str) -> bool:
 class Solution:
     def __init__(self) -> None:
         self._s = ""
-        self._path = []
-        self._ans = []
+        self._path: list[str] = []
+        self._ans: list[str] = []
 
     def _dfs(self, i: int):
         if len(self._path) == 3:

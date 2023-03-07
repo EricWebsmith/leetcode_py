@@ -1,6 +1,6 @@
 import unittest
 
-from data_structure.nary_tree import Node, array_to_node, node_to_array
+from leetcode_data_structure.nary_tree import Node, array_to_node, node_to_array
 
 
 class Solution:

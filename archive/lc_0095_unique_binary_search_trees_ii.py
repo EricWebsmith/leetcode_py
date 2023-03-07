@@ -1,6 +1,6 @@
 import unittest
 
-from data_structure.binary_tree import TreeNode, treenode_to_array
+from leetcode_data_structure.binary_tree import TreeNode
 
 
 class Solution:
@@ -30,7 +30,7 @@ class Solution:
 def test(testObj: unittest.TestCase, n: int, expected: list[TreeNode | None]) -> None:
     so = Solution()
     trees = so.generateTrees(n)
-    actual = [treenode_to_array(t) for t in trees]
+    actual = [TreeNode.to_array(t) for t in trees]
     actual.sort()
     expected.sort()
     testObj.assertEqual(actual, expected)

@@ -7,7 +7,7 @@ class Solution:
         self._n = 0
         self._ans: list[list[str]] = []
         self._mat: list[list[bool]] = []
-        self._path = []
+        self._path: list[str] = []
 
     def is_palindrome(self, start: int, _end: int) -> bool:
         left = start

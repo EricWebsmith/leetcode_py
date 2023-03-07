@@ -1,6 +1,6 @@
 import unittest
 
-from data_structure.binary_tree import TreeNode, array_to_treenode
+from leetcode_data_structure.binary_tree import TreeNode
 
 
 class Solution:
@@ -17,8 +17,8 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, root_arr: list[int], expected: int) -> None:
-    root = array_to_treenode(root_arr)
+def test(testObj: unittest.TestCase, root_arr: list[int|None], expected: int) -> None:
+    root = TreeNode.from_array(root_arr)
     so = Solution()
     actual = so.maxDepth(root)
     testObj.assertEqual(actual, expected)

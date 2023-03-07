@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
 
-from data_structure.binary_tree import TreeNode, array_to_treenode
+from leetcode_data_structure.binary_tree import TreeNode
 
 
 class Solution:
@@ -27,12 +27,12 @@ class Solution:
 
 def test(
     testObj: unittest.TestCase,
-    root_arr: List[int],
-    subRoot_arr: List[int],
+    root_arr: List[int | None],
+    subRoot_arr: List[int | None],
     expected: bool,
 ) -> None:
-    root = array_to_treenode(root_arr)
-    subRoot = array_to_treenode(subRoot_arr)
+    root = TreeNode.from_array(root_arr)
+    subRoot = TreeNode.from_array(subRoot_arr)
     so = Solution()
     actual = so.isSubtree(root, subRoot)
     testObj.assertEqual(actual, expected)

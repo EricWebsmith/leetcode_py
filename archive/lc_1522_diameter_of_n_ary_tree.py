@@ -1,7 +1,7 @@
 import unittest
 from typing import List
 
-from data_structure.nary_tree import Node, array_to_node
+from leetcode_data_structure.nary_tree import Node, array_to_node
 
 
 class Solution:

@@ -22,16 +22,16 @@ class ContestScraper:
         text = res.text
         title_slug_at = text.find("questionTitleSlug:")
         newline_at = text.find("',", title_slug_at)
-        title_slug = text[title_slug_at + len("questionTitleSlug:") + 2 : newline_at]
+        title_slug = text[title_slug_at + len("questionTitleSlug:") + 2: newline_at]
         result.title_slug = title_slug.strip()
 
         title_at = text.find("questionTitle:")
         newline_at = text.find("',", title_at)
-        result.title = text[title_at + len("questionTitle:") + 2 : newline_at]
+        result.title = text[title_at + len("questionTitle:") + 2: newline_at]
 
         codeDefinition_at = text.find("codeDefinition:")
         newline_at = text.find("\n", codeDefinition_at)
-        codeDefinition_str = text[codeDefinition_at + len("codeDefinition:") : newline_at - 1]
+        codeDefinition_str = text[codeDefinition_at + len("codeDefinition:"): newline_at - 1]
         code_definitions = eval(codeDefinition_str)
         result.code_definition = [d for d in code_definitions if d["value"] == "python3"][0]["defaultCode"]
 

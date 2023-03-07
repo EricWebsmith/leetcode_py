@@ -1,13 +1,12 @@
 import unittest
-from typing import Optional
 
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
+from leetcode_data_structure import TreeNode
 
 null = None
 
 
 class Solution:
-    def addOneRow(self, root: Optional[TreeNode], val: int, depth: int) -> Optional[TreeNode]:
+    def addOneRow(self, root: TreeNode | None, val: int, depth: int) -> TreeNode | None:
         if depth == 1:
             new_root = TreeNode(val)
             new_root.left = root
@@ -39,16 +38,16 @@ class Solution:
 
 def test(
     testObj: unittest.TestCase,
-    root_arr: list[int],
+    root_arr: list[int | None],
     val: int,
     depth: int,
-    expected: Optional[TreeNode],
+    expected: TreeNode | None,
 ) -> None:
-    root = array_to_treenode(root_arr)
+    root = TreeNode.from_array(root_arr)
     so = Solution()
 
     actual_root = so.addOneRow(root, val, depth)
-    actual = treenode_to_array(actual_root)
+    actual = TreeNode.to_array(actual_root)
 
     testObj.assertEqual(actual, expected)
 

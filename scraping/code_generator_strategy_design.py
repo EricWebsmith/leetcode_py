@@ -15,7 +15,6 @@ class CodeGeneratorDesignStrategy(CodeGeneratorStrategy):
             if py_func.name == "__init__":
                 continue
 
-            #fmt: on
             case = ""
             if py_func.returnType == "None":
                 case = "\r\n".join([
@@ -29,7 +28,6 @@ class CodeGeneratorDesignStrategy(CodeGeneratorStrategy):
                     f"                testObj.assertEqual({py_func.name}_actual, expected[i])",
                     ""])
             cases += case
-            #fmt: off
 
         scraper.test_function_code = "\r\n".join(
             [

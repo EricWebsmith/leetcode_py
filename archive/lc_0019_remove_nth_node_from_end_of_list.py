@@ -1,7 +1,7 @@
 import unittest
 from typing import Optional
 
-from data_structure.link_list import ListNode, array_to_listnode, listnode_to_array
+from leetcode_data_structure.link_list import ListNode
 
 
 class Solution:
@@ -31,11 +31,11 @@ def test(
     n: int,
     expected: list[int],
 ) -> None:
-    head = array_to_listnode(head_arr)
+    head = ListNode.from_array(head_arr)
     so = Solution()
 
     actual_root = so.removeNthFromEnd(head, n)
-    actual = listnode_to_array(actual_root)
+    actual = ListNode.to_array(actual_root)
     testObj.assertEqual(actual, expected)
 
 

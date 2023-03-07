@@ -23,7 +23,7 @@ class Solution:
                 if index > 0:
                     t += s[:index]
                 if end < n - 1:
-                    t += s[end + 1 :]
+                    t += s[end + 1:]
                 s = t
                 start_removing = False
                 stars = 0

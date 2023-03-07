@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
 
-from data_structure.binary_tree import treenode_to_array
+from leetcode_data_structure.binary_tree import treenode_to_array
 
 
 class Node:

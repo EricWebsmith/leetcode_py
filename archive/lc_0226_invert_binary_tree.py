@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
 
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
+from leetcode_data_structure.binary_tree import TreeNode
 
 
 class Solution:
@@ -15,12 +15,12 @@ class Solution:
         return root
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], expected: Optional[TreeNode]) -> None:
-    root = array_to_treenode(root_arr)
+def test(testObj: unittest.TestCase, root_arr: List[int|None], expected: Optional[TreeNode]) -> None:
+    root = TreeNode.from_array(root_arr)
     so = Solution()
 
     actual_root = so.invertTree(root)
-    actual = treenode_to_array(actual_root)
+    actual = TreeNode.to_array(actual_root)
 
     testObj.assertEqual(actual, expected)
 
@@ -41,7 +41,7 @@ if __name__ == "__main__":
 
 """
 Runtime
-54 ms
+26 ms
 Beats
-63.31%
+94.89%
 """

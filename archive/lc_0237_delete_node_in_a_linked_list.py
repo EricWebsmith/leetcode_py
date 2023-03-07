@@ -1,6 +1,6 @@
 import unittest
 
-from data_structure.link_list import ListNode, array_to_listnode, listnode_to_array
+from leetcode_data_structure.link_list import ListNode
 
 
 class Solution:
@@ -11,14 +11,14 @@ class Solution:
 
 
 def test(testObj: unittest.TestCase, head_arr: list[int], node_val: int, expected: ListNode) -> None:
-    head = array_to_listnode(head_arr)
+    head = ListNode.from_array(head_arr)
     assert head is not None
     node: ListNode = head
     while node.val != node_val:
         node = node.next  # type: ignore
     so = Solution()
     so.deleteNode(node)
-    actual = listnode_to_array(head)
+    actual = ListNode.to_array(head)
     testObj.assertEqual(actual, expected)
 
 

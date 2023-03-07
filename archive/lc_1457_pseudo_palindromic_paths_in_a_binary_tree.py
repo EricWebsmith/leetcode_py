@@ -1,6 +1,6 @@
 import unittest
 
-from data_structure.binary_tree import TreeNode, array_to_treenode
+from leetcode_data_structure.binary_tree import TreeNode, array_to_treenode
 
 
 class Solution:

@@ -43,7 +43,7 @@ class CodeGenerator:
         if input_at == -1:
             return None
         output_at = tc_string.find("Output")
-        input_string = tc_string[input_at + 5 : output_at]
+        input_string = tc_string[input_at + 5: output_at]
         input_string = input_string.strip(":")
         input_string = input_string.strip()
         input_string = input_string.replace("\n", ", ")
@@ -57,10 +57,10 @@ class CodeGenerator:
                 if input_string[commaAt] == ",":
                     break
                 commaAt -= 1
-            input_string = input_string[:commaAt] + ", " + input_string[equalAt + 1 :]
+            input_string = input_string[:commaAt] + ", " + input_string[equalAt + 1:]
         # get output
         explanation_t = tc_string.find("Explanation")
-        output_string = tc_string[output_at + 6 : explanation_t]
+        output_string = tc_string[output_at + 6: explanation_t]
         output_string = output_string.strip(":")
         output_string = output_string.strip()
         output_string = re.sub("\\bnull\\b", "None", output_string)
@@ -119,7 +119,7 @@ class CodeGenerator:
     def get_classname(self):
         class_at = self.code_definition.index("class")
         colon_at = self.code_definition.index(":", class_at)
-        self.classname = self.code_definition[class_at + 6 : colon_at]
+        self.classname = self.code_definition[class_at + 6: colon_at]
 
     def generate_code(self):
         self.code = "\r\n".join(
@@ -128,9 +128,7 @@ class CodeGenerator:
                 "import unittest",
                 "from functools import cache",
                 "from collections import deque, defaultdict",
-                "from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array",
-                "from data_structure.nary_tree import Node, array_to_node, node_to_array",
-                "from data_structure.link_list import ListNode, listnode_to_array, array_to_listnode",
+                "from leetcode_data_structure import TreeNode, Node, ListNode",
                 "",
                 "",
                 f"{self.code_definition}",

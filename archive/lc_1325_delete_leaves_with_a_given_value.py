@@ -1,11 +1,10 @@
 import unittest
-from typing import List, Optional
 
-from data_structure.binary_tree import TreeNode, array_to_treenode, treenode_to_array
+from leetcode_data_structure import TreeNode
 
 
 class Solution:
-    def removeLeafNodes(self, root: Optional[TreeNode], target: int) -> Optional[TreeNode]:
+    def removeLeafNodes(self, root: TreeNode | None , target: int) -> TreeNode | None:
         pre_root = TreeNode(target + 1)
         pre_root.left = root
 
@@ -30,15 +29,15 @@ class Solution:
 
 def test(
     testObj: unittest.TestCase,
-    root_arr: List[int],
+    root_arr: list[int | None],
     target: int,
-    expected: Optional[TreeNode],
+    expected: list[int | None],
 ) -> None:
-    root = array_to_treenode(root_arr)
+    root = TreeNode.from_array(root_arr)
     so = Solution()
 
     actual_root = so.removeLeafNodes(root, target)
-    actual = treenode_to_array(actual_root)
+    actual = TreeNode.to_array(actual_root)
 
     testObj.assertEqual(actual, expected)
 

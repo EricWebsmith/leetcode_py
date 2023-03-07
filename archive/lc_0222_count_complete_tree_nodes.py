@@ -1,7 +1,7 @@
 import unittest
 from typing import List
 
-from data_structure.binary_tree import TreeNode, array_to_treenode
+from leetcode_data_structure.binary_tree import TreeNode
 
 
 def get_left_depth(node: TreeNode | None) -> int:
@@ -31,8 +31,8 @@ class Solution:
         return dfs(root)
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], expected: int) -> None:
-    root = array_to_treenode(root_arr)
+def test(testObj: unittest.TestCase, root_arr: List[int|None], expected: int) -> None:
+    root = TreeNode.from_array(root_arr)
     so = Solution()
     actual = so.countNodes(root)
     testObj.assertEqual(actual, expected)

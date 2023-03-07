@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
 
-from data_structure.binary_tree import TreeNode, array_to_treenode
+from leetcode_data_structure.binary_tree import TreeNode
 
 
 class Solution:
@@ -25,8 +25,8 @@ class Solution:
         return best_val
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], target: float, expected: int) -> None:
-    root = array_to_treenode(root_arr)
+def test(testObj: unittest.TestCase, root_arr: List[int|None], target: float, expected: int) -> None:
+    root = TreeNode.from_array(root_arr)
     so = Solution()
 
     actual = so.closestValue(root, target)

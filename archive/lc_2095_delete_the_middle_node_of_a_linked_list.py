@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
 
-from data_structure.link_list import ListNode, array_to_listnode, listnode_to_array
+from leetcode_data_structure.link_list import ListNode, array_to_listnode, listnode_to_array
 
 
 class Solution:

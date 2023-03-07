@@ -36,9 +36,9 @@ class Solution:
         middle = ""
         right = s
         if open_errs and close_errs:
-            middle = s[close_errs[-1] + 1 : open_errs[-1]]
+            middle = s[close_errs[-1] + 1: open_errs[-1]]
         elif close_errs:
-            middle = s[close_errs[-1] + 1 :]
+            middle = s[close_errs[-1] + 1:]
         elif open_errs:
             middle = s[: open_errs[-1]]
 
