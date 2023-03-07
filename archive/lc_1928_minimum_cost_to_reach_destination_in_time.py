@@ -4,7 +4,7 @@ from typing import Any, Dict, List, Set
 
 
 def get_bidirectional_edges(vetices: List, from_to_times: List[List]) -> Dict[Any, Set]:
-    edges = {v: set() for v in vetices}
+    edges = {v: set() for v in vetices}  # type: ignore
     for from_, to_, time in from_to_times:
         edges[from_].add((to_, time))
         edges[to_].add((from_, time))

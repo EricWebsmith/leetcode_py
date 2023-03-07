@@ -1,7 +1,7 @@
 import unittest
 from typing import List
 
-from leetcode_data_structure.nary_tree import Node, array_to_node
+from leetcode_data_structure import Node
 
 
 class Solution:
@@ -38,7 +38,7 @@ class Solution:
 
 
 def test(testObj: unittest.TestCase, root_arr: List[int], expected: int) -> None:
-    root = array_to_node(root_arr)
+    root = Node.from_array(root_arr)
     so = Solution()
 
     actual = so.diameter(root)

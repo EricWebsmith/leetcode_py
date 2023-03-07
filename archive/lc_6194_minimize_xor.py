@@ -44,6 +44,8 @@ class Solution:
                 mask <<= 1
 
             return ans
+    
+        return ans
 
 
 def test(testObj: unittest.TestCase, num1: int, num2: int, expected: int) -> None:

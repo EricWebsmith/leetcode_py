@@ -1,7 +1,7 @@
 import unittest
 from typing import List
 
-from sortedcontainers import SortedList
+from sortedcontainers import SortedList  # type: ignore
 
 
 class Solution:

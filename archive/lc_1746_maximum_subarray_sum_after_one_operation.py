@@ -12,12 +12,12 @@ class Solution:
             unoperated = max(num, unoperated + num)
             maxS = max(operated, maxS)
 
-        return maxS
+        return maxS  # type: ignore
 
 
 def test(testObj: unittest.TestCase, courses: List[List[int]], expected: int) -> None:
     s = Solution()
-    actual = s.maxSumAfterOperation(courses)
+    actual = s.maxSumAfterOperation(courses)  # type: ignore
     testObj.assertEqual(actual, expected)
 
 

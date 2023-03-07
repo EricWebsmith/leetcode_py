@@ -1,6 +1,6 @@
 import unittest
 
-from leetcode_data_structure.nary_tree import Node, array_to_node, node_to_array
+from leetcode_data_structure import Node
 
 
 class Solution:
@@ -16,10 +16,10 @@ class Solution:
 
 
 def test(testObj: unittest.TestCase, rootArr: list[int], expected: int) -> None:
-    root = array_to_node(rootArr)
+    root = Node.from_array(rootArr)
     s = Solution()
     actualRoot = s.cloneTree(root)
-    actual = node_to_array(actualRoot)
+    actual = Node.to_array(actualRoot)
     testObj.assertEqual(actual, expected)
 
 

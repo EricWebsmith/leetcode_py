@@ -2,26 +2,26 @@ import unittest
 from collections import defaultdict
 from typing import List, Optional
 
-from leetcode_data_structure.binary_tree import TreeNode, array_to_treenode
+from leetcode_data_structure import TreeNode
 
 null = None
 
 
 class Solution:
     def treeQueries(self, root: Optional[TreeNode], queries: List[int]) -> List[int]:
-        depths = defaultdict(list)
+        depths: dict[str, list] = defaultdict(list)
         heights = defaultdict(int)
 
         def dfs(node: TreeNode, d: int) -> int:
             if node is None:
                 return -1
 
-            depths[node.val] = d
-            h = max(dfs(node.left, d + 1), dfs(node.right, d + 1)) + 1
+            depths[node.val] = d  # type: ignore
+            h = max(dfs(node.left, d + 1), dfs(node.right, d + 1)) + 1  # type: ignore
             heights[node.val] = h
             return h
 
-        dfs(root, 0)
+        dfs(root, 0)  # type: ignore
 
         levels = defaultdict(list)
         for val, d in depths.items():
@@ -33,24 +33,24 @@ class Solution:
 
         ans: list = []
         for q in queries:
-            d = depths[q]
+            d = depths[q]  # type: ignore
             if len(levels[d]) == 1:
-                ans.append(d - 1)
+                ans.append(d - 1)  # type: ignore
             elif levels[d][0][1] == q:
-                ans.append(-levels[d][1][0] + d)
+                ans.append(-levels[d][1][0] + d)  # type: ignore
             else:
-                ans.append(-levels[d][0][0] + d)
+                ans.append(-levels[d][0][0] + d)  # type: ignore
 
         return ans
 
 
 def test(
     testObj: unittest.TestCase,
-    root_arr: List[int],
+    root_arr: List[int | None],
     queries: List[int],
     expected: List[int],
 ) -> None:
-    root = array_to_treenode(root_arr)
+    root = TreeNode.from_array(root_arr)
     so = Solution()
     actual = so.treeQueries(root, queries)
     testObj.assertEqual(actual, expected)

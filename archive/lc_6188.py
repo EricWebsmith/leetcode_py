@@ -16,7 +16,7 @@ class Solution:
 
 def test(testObj: unittest.TestCase, courses: List[List[int]], expected: int) -> None:
     s = Solution()
-    actual = s.scheduleCourse(courses)
+    actual = s.scheduleCourse(courses)  # type: ignore
     testObj.assertEqual(actual, expected)
 
 

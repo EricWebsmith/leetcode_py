@@ -15,7 +15,7 @@ class Solution:
 
         idle_servers = list(range(k))
         busy_servers: list = []
-        handler_dict = defaultdict(int)
+        handler_dict = defaultdict(int)  # type: ignore
         for i, start_time, span in zip(range(n), arrival, load):
             while busy_servers and busy_servers[-1][0] <= start_time:
                 _, old_busy_server = busy_servers.pop()

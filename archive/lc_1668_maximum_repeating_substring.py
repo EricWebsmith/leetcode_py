@@ -10,7 +10,7 @@ class Solution:
             arr.append(i)
             i = sequence.find(word, i + 1)
 
-        s = dict()
+        s = dict()  # type: ignore
         for i in arr:
             if i - len(word) in s:
                 s[i] = s[i - len(word)] + 1

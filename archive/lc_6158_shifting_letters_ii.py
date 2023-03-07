@@ -7,7 +7,7 @@ class Solution:
     def shiftingLetters(self, s: str, shifts: List[List[int]]) -> str:
         n = len(s)
 
-        d = defaultdict(int)
+        d = defaultdict(int)  # type: ignore
 
         for start, end, direction in shifts:
             if direction == 0:

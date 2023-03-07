@@ -15,7 +15,7 @@ class Solution:
         n = len(grid[0])
         dp = [[max_distance] * n for r in range(m)]
         dp[0][0] = 0
-        q = deque()
+        q = deque[tuple[int, int]]()
         q.append((0, 0))
 
         while q:

@@ -14,8 +14,8 @@ class TreeNode(Node):
     def __init__(self) -> None:
         super().__init__()
         self.val = 0
-        self.left: TreeNode = None
-        self.right: TreeNode = None
+        self.left: TreeNode = None  # type: ignore
+        self.right: TreeNode = None  # type: ignore
         self.opertion: str = ""
 
     def evaluate(self) -> int:

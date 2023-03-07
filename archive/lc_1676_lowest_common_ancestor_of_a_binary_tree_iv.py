@@ -1,16 +1,11 @@
 import unittest
 from typing import List
 
-from leetcode_data_structure.binary_tree import (
-    TreeNode,
-    array_to_treenode,
-    get_treenodes_by_vals,
-)
-
+from leetcode_data_structure import TreeNode
 
 class Solution:
-    def lowestCommonAncestor(self, root: "TreeNode", nodes: "List[TreeNode]") -> "TreeNode":
-        nodes = set(nodes)
+    def lowestCommonAncestor(self, root: TreeNode, nodes: List[TreeNode]) -> TreeNode | None:
+        nodes = set(nodes)  # type: ignore
         self.lca = None
 
         def dfs(node):
@@ -40,11 +35,11 @@ def test(
     nodes_arr: List[TreeNode],
     expected: int,
 ) -> None:
-    root = array_to_treenode(root_arr)
-    nodes = get_treenodes_by_vals(root, nodes_arr)
+    root = TreeNode.from_array(root_arr)  # type: ignore
+    nodes = TreeNode.get_by_vals(root, nodes_arr)  # type: ignore
     so = Solution()
-    actual = so.lowestCommonAncestor(root, nodes)
-    testObj.assertEqual(actual.val, expected)
+    actual = so.lowestCommonAncestor(root, nodes)  # type: ignore
+    testObj.assertEqual(actual.val, expected)  # type: ignore
 
 
 class TestClass(unittest.TestCase):

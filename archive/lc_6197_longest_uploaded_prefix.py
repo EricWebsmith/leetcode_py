@@ -34,7 +34,7 @@ def test(testObj: unittest.TestCase, actions: List, params: List, expected: List
         match actions[i]:
 
             case "upload":
-                actual = obj.upload(*params[i])
+                actual = obj.upload(*params[i])  # type: ignore
                 testObj.assertEqual(actual, expected[i])
 
             case "longest":

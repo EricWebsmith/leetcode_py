@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
 
-from leetcode_data_structure.binary_tree import TreeNode, array_to_treenode
+from leetcode_data_structure import TreeNode
 
 DOWN = 1
 UP = -1
@@ -64,8 +64,8 @@ class Solution:
         return ans
 
 
-def test(testObj: unittest.TestCase, root_arr: List[int], start: int, expected: int) -> None:
-    root = array_to_treenode(root_arr)
+def test(testObj: unittest.TestCase, root_arr: List[int | None], start: int, expected: int) -> None:
+    root = TreeNode.from_array(root_arr)
     so = Solution()
     actual = so.amountOfTime(root, start)
     testObj.assertEqual(actual, expected)

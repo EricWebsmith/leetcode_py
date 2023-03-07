@@ -32,7 +32,7 @@ def detect_circle(edges: Dict[int, Set[int]]) -> List[int]:
     for v in edges:
         dfs(v)
 
-    return cyclic
+    return cyclic  # type: ignore
 
 
 @dataclass
@@ -58,7 +58,7 @@ class Solution:
                 rec.left = min(rec.left, c)
                 rec.right = max(rec.right, c)
 
-        depend_dict = {color: set() for color in r_dict}
+        depend_dict = {color: set() for color in r_dict}  # type: ignore
         for color, rec in r_dict.items():
             for r in range(rec.top, rec.bottom + 1):
                 for c in range(rec.left, rec.right + 1):

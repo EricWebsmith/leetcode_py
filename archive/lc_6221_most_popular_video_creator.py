@@ -13,7 +13,7 @@ class Creator:
 
 class Solution:
     def mostPopularCreator(self, creators: List[str], ids: List[str], views: List[int]) -> List[List[str]]:
-        d = dict()
+        d = dict()  # type: ignore
         creatorObjs: List[Creator] = []
         for cname, m, v in zip(creators, ids, views):
             c = Creator()

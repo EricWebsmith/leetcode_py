@@ -1,6 +1,6 @@
 import unittest
 
-from leetcode_data_structure.link_list import ListNode
+from leetcode_data_structure import ListNode
 
 
 class Solution:

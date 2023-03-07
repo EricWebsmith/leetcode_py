@@ -57,7 +57,7 @@ class Solution:
                     seen[taken] = True
             else:
                 for batch in itertools.combinations(available, k):
-                    t = taken | bit_or(batch)
+                    t = taken | bit_or(batch)  # type: ignore
                     if t == all_courses_bitmask:
                         return semester + 1
                     if not seen[t]:

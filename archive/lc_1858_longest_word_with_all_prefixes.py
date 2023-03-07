@@ -10,7 +10,7 @@ class TrieNode:
     """
 
     def __init__(self) -> None:
-        self.children: List[TrieNode] = [None] * 26
+        self.children: List[TrieNode] = [None] * 26  # type: ignore
         self.is_word = False
 
     @classmethod

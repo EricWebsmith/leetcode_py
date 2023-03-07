@@ -1,6 +1,6 @@
 import unittest
 
-from leetcode_data_structure.binary_tree import TreeNode, array_to_treenode
+from leetcode_data_structure import TreeNode
 
 
 class Solution:
@@ -37,9 +37,9 @@ class Solution:
 
 
 def test(testObj: unittest.TestCase, root_arr: list[int], expected: int) -> None:
-    root = array_to_treenode(root_arr)
+    root = TreeNode.from_array(root_arr)  # type: ignore
     so = Solution()
-    actual = so.pseudoPalindromicPaths(root)
+    actual = so.pseudoPalindromicPaths(root)  # type: ignore
     testObj.assertEqual(actual, expected)
 
 

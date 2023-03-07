@@ -12,7 +12,7 @@ class Solution:
             moving_max = max(moving_max, events[i][2])
             post_max[i] = moving_max
 
-        cache = dict()
+        cache = dict()  # type: ignore
 
         def dfs(index, left_k):
             if (index, left_k) in cache:

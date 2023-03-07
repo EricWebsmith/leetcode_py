@@ -6,7 +6,7 @@ from typing import List
 class Solution:
     def maximumSubarraySum(self, nums: List[int], k: int) -> int:
         n = len(nums)
-        d = defaultdict(int)
+        d = defaultdict(int)  # type: ignore
         for i in range(k):
             d[nums[i]] += 1
 

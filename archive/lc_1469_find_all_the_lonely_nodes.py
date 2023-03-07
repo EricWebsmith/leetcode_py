@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
 
-from leetcode_data_structure.binary_tree import TreeNode, array_to_treenode
+from leetcode_data_structure import TreeNode
 
 
 class Solution:
@@ -26,7 +26,7 @@ class Solution:
 
 
 def test(testObj: unittest.TestCase, root_arr: List[int], expected: int) -> None:
-    root = array_to_treenode(root_arr)
+    root = TreeNode.from_array(root_arr)  # type: ignore
     so = Solution()
     actual = so.getLonelyNodes(root)
     testObj.assertEqual(actual, expected)

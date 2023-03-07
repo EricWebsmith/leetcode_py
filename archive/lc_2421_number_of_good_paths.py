@@ -46,7 +46,7 @@ class Solution:
                     if vals[j] <= v:
                         uf.union(i, j)
 
-            c = Counter()
+            c = Counter()  # type: ignore
             for i in value_indices[v]:
                 p = uf.find(i)
                 c[p] += 1

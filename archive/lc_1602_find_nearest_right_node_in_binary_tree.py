@@ -2,15 +2,15 @@ import unittest
 from collections import deque
 from typing import List, Optional
 
-from leetcode_data_structure.binary_tree import TreeNode, array_to_treenode
+from leetcode_data_structure import TreeNode
 
 null = None
 
 
 class Solution:
-    def findNearestRightNode(self, root: TreeNode, u: TreeNode) -> Optional[TreeNode]:
-        q = deque()
-        q.append(root)
+    def findNearestRightNode(self, root: TreeNode | None, u: TreeNode) -> Optional[TreeNode]:
+        q = deque[TreeNode]()
+        q.append(root)  # type: ignore
         q_size = len(q)
         while q_size > 0:
 
@@ -32,10 +32,10 @@ class Solution:
 
 
 def test(testObj: unittest.TestCase, root_arr: List[int], u_arr: List[int], expected: int) -> None:
-    root = array_to_treenode(root_arr)
-    u = array_to_treenode([u_arr])
+    root = TreeNode.from_array(root_arr)  # type: ignore
+    u = TreeNode.from_array([u_arr])  # type: ignore
     so = Solution()
-    actual = so.findNearestRightNode(root, u)
+    actual = so.findNearestRightNode(root, u)  # type: ignore
     if actual:
         testObj.assertEqual(actual.val, expected)
     else:

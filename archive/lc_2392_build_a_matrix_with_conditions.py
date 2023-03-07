@@ -3,7 +3,7 @@ from typing import Dict, List, Set
 
 
 def get_edges(k: int, from_tos: List[List[int]]) -> Dict[int, Set[int]]:
-    edges = {i + 1: set() for i in range(k)}
+    edges = {i + 1: set() for i in range(k)}  # type: ignore
     for from_, to_ in from_tos:
         edges[from_].add(to_)
 

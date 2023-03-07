@@ -1,7 +1,7 @@
 import unittest
 from typing import List
 
-from leetcode_data_structure.binary_tree import TreeNode
+from leetcode_data_structure import TreeNode
 
 
 def get_left_depth(node: TreeNode | None) -> int:

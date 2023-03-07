@@ -4,7 +4,7 @@ import unittest
 class Solution:
     def removeStars(self, s: str) -> str:
         n = len(s)
-        s = list(s)
+        s = list(s)  # type: ignore
         index = n - 1
         start_removing = False
         end = -1
@@ -24,7 +24,7 @@ class Solution:
                     t += s[:index]
                 if end < n - 1:
                     t += s[end + 1:]
-                s = t
+                s = t  # type: ignore
                 start_removing = False
                 stars = 0
                 end = -1

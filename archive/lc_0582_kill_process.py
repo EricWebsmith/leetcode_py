@@ -5,7 +5,7 @@ from typing import List
 class Node:
     def __init__(self, val=None, children=None):
         self.val = val
-        self.children: list[Node] = children if children is not None else []
+        self.children: list[Node] = children if children is not None else []  # type: ignore
 
     def __repr__(self) -> str:
         return str(self.val)

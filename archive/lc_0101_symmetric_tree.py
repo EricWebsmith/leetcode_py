@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
 
-from leetcode_data_structure.binary_tree import TreeNode
+from leetcode_data_structure import TreeNode
 
 
 def dfs(a: Optional[TreeNode], b: Optional[TreeNode]) -> bool:

@@ -9,7 +9,7 @@ class Solution:
         m = len(words[0])
         word_counters: list = []
         for j in range(m):
-            counter = defaultdict(int)
+            counter = defaultdict(int)  # type: ignore
             for word in words:
                 counter[word[j]] += 1
             word_counters.append(counter)

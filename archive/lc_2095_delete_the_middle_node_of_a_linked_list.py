@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
 
-from leetcode_data_structure.link_list import ListNode, array_to_listnode, listnode_to_array
+from leetcode_data_structure import ListNode
 
 
 class Solution:
@@ -13,20 +13,20 @@ class Solution:
         fast = prehead
 
         while fast and fast.next:
-            fast = fast.next.next
+            fast = fast.next.next  # type: ignore
             if fast:
-                slow = slow.next
+                slow = slow.next  # type: ignore
 
-        slow.next = slow.next.next
+        slow.next = slow.next.next  # type: ignore
         return prehead.next
 
 
 def test(testObj: unittest.TestCase, head_arr: List[int], expected: Optional[ListNode]) -> None:
-    head = array_to_listnode(head_arr)
+    head = ListNode.from_array(head_arr)
     so = Solution()
 
     actual_root = so.deleteMiddle(head)
-    actual = listnode_to_array(actual_root)
+    actual = ListNode.to_array(actual_root)
 
     testObj.assertEqual(actual, expected)
 

@@ -1,17 +1,8 @@
 import unittest
 from typing import List, Optional
 
-from leetcode_data_structure.binary_tree import treenode_to_array
+from leetcode_data_structure import TreeNode
 
-
-class Node:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
-
-    def __repr__(self) -> str:
-        return str(self.val)
 
 
 class Solution:
@@ -20,8 +11,8 @@ class Solution:
 
     def deal_mul_div(self):
         stack = self.stack
-        if len(stack) >= 3 and type(stack[-3]) is Node and type(stack[-1]) is Node and stack[-2] in ["*", "/"]:
-            t = Node(stack[-2])
+        if len(stack) >= 3 and type(stack[-3]) is TreeNode and type(stack[-1]) is TreeNode and stack[-2] in ["*", "/"]:
+            t = TreeNode(stack[-2])
             t.left = stack[-3]
             t.right = stack[-1]
             stack.pop()
@@ -29,7 +20,7 @@ class Solution:
             stack.pop()
             stack.append(t)
 
-    def expTree(self, s: str) -> "Node":
+    def expTree(self, s: str) -> TreeNode:
         stack = self.stack
         current = ""
         op = ""
@@ -39,31 +30,31 @@ class Solution:
             else:
                 op = c
                 if current != "":
-                    stack.append(Node(current))
+                    stack.append(TreeNode(current))
                 current = ""
                 self.deal_mul_div()
 
                 if op in "+-)":
-                    head_node: Optional[Node] = None
-                    current_node: Optional[Node] = None
+                    head_node: Optional[TreeNode] = None
+                    current_node: Optional[TreeNode] = None
 
-                    while len(self.stack) >= 2 and type(stack[-1]) is Node and stack[-2] in ["+", "-"]:
+                    while len(self.stack) >= 2 and type(stack[-1]) is TreeNode and stack[-2] in ["+", "-"]:
 
-                        t = Node(stack[-2])
+                        t = TreeNode(stack[-2])
                         t.right = stack[-1]
 
                         if head_node is None:
                             head_node = t
                             current_node = t
                         else:
-                            current_node.left = t
+                            current_node.left = t  # type: ignore
                             current_node = t
                         stack.pop()
                         stack.pop()
 
                     if head_node:
                         first = stack.pop()
-                        current_node.left = first
+                        current_node.left = first  # type: ignore
                         stack.append(head_node)
 
                 if op == ")":
@@ -84,7 +75,7 @@ def test(testObj: unittest.TestCase, s: str, expected: List[str]) -> None:
     so = Solution()
 
     actual_root = so.expTree(s)
-    actual = treenode_to_array(actual_root)
+    actual = TreeNode.to_array(actual_root)
     print(actual)
     print(expected)
     testObj.assertEqual(actual, expected)

@@ -13,7 +13,7 @@ class LFUCache:
         fre = self.key_fre_dict[key]
         self.key_fre_dict[key] = fre + 1
 
-        fre_list: list[int] = self.fre_key_dict[fre]
+        fre_list: list[int] = self.fre_key_dict[fre]  # type: ignore
         fre_list.remove(key)
         if len(fre_list) == 0:
             del self.fre_key_dict[fre]

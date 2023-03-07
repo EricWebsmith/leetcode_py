@@ -2,7 +2,7 @@ import unittest
 from collections import deque
 from typing import List, Optional
 
-from leetcode_data_structure.binary_tree import TreeNode
+from leetcode_data_structure import TreeNode
 
 
 class Solution:

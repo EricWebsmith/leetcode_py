@@ -7,7 +7,7 @@ class Solution:
     def countRestrictedPaths(self, n: int, edges: list[list[int]]) -> int:
         MOD = 1_000_000_007
         distances_to_last_node = [sys.maxsize] * n
-        edge_dict = {v: set() for v in range(n)}
+        edge_dict = {v: set() for v in range(n)}  # type: ignore
         for a, b, d in edges:
             edge_dict[a - 1].add((b - 1, d))
             edge_dict[b - 1].add((a - 1, d))
@@ -24,7 +24,7 @@ class Solution:
 
         print(distances_to_last_node)
 
-        cache = dict()
+        cache = dict()  # type: ignore
 
         def dfs(v):
             if v == n - 1:
