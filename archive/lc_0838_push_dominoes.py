@@ -16,7 +16,7 @@ class Solution:
                     break
 
                 if dominoes[i] == dominoes[j]:
-                    dominoes[i : j + 1] = [dominoes[i]] * (j - i + 1)
+                    dominoes[i: j + 1] = [dominoes[i]] * (j - i + 1)
 
                 if dominoes[i] == "R" and dominoes[j] == "L":
                     left = i + 1

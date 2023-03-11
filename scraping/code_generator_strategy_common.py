@@ -12,13 +12,13 @@ class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
                 continue
             if param.type in TREENODE_OR_NONE_TYPES:
                 test_function_parameters += f"{param.name}_arr: list[int], "
-                type_changing_code += f"    {param.name} = array_to_treenode({param.name}_arr)\r\n"
+                type_changing_code += f"    {param.name} = TreeNode.from_array({param.name}_arr)\r\n"
             elif param.type in NODE_OR_NONE_TYPES:
                 test_function_parameters += f"{param.name}_arr: list[int], "
-                type_changing_code += f"    {param.name} = array_to_node({param.name}_arr)\r\n"
+                type_changing_code += f"    {param.name} = Node.from_array({param.name}_arr)\r\n"
             elif param.type in LISTNODE_OR_NONE_TYPES:
                 test_function_parameters += f"{param.name}_arr: list[int], "
-                type_changing_code += f"    {param.name} = array_to_listnode({param.name}_arr)\r\n"
+                type_changing_code += f"    {param.name} = ListNode.from_array({param.name}_arr)\r\n"
             else:
                 test_function_parameters += f"{param.name}: {param.type}, "
         test_function_parameters = test_function_parameters.strip().strip(",")
@@ -28,18 +28,18 @@ class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
 
         return_type_changing_code = ""
         if scraper.functions[0].returnType in TREENODE_OR_NONE_TYPES:
-            return_type_changing_code = "actual = treenode_to_array(actual_root)"
+            return_type_changing_code = "actual = TreeNode.to_array(actual_root)"
         elif scraper.functions[0].returnType in NODE_OR_NONE_TYPES:
-            return_type_changing_code = "actual = node_to_array(actual_root)"
+            return_type_changing_code = "actual = Node.to_array(actual_root)"
         elif scraper.functions[0].returnType in LISTNODE_OR_NONE_TYPES:
-            return_type_changing_code = "actual = listnode_to_array(actual_root)"
+            return_type_changing_code = "actual = ListNode.to_array(actual_root)"
 
         actual_code = f"actual = so.{scraper.functions[0].name}({scraper.functions[0].get_argument_list_code()})"
         if return_type_changing_code:
             actual_code = "\r\n".join(
                 [
                     f"actual_root = so.{scraper.functions[0].name}({scraper.functions[0].get_argument_list_code()})",
-                    "    {return_type_changing_code}",
+                    f"    {return_type_changing_code}",
                 ]
             )
 

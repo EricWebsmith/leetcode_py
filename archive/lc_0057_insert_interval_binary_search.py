@@ -24,7 +24,7 @@ class Solution:
         if left <= right:
             newInterval[0] = min(newInterval[0], intervals[left][0])
             newInterval[1] = max(newInterval[1], intervals[right][1])
-        return intervals[:left] + [newInterval] + intervals[right + 1 :]
+        return intervals[:left] + [newInterval] + intervals[right + 1:]
 
 
 def test(

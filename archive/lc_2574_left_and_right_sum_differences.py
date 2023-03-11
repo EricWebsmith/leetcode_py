@@ -29,7 +29,7 @@ def test(testObj: unittest.TestCase, nums: list[int], expected:list[int]) -> Non
 class TestClass(unittest.TestCase):
     
     def test_1(self):
-        test(self,   [10,4,8,3], [15,1,11,22])
+        test(self,   [10, 4, 8, 3], [15, 1, 11, 22])
 
     def test_2(self):
         test(self,   [1], [0])

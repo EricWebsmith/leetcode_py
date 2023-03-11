@@ -1,6 +1,6 @@
 import unittest
 
-from templates.graph import get_edges, top_sort
+from .graph import get_edges, top_sort  # type: ignore
 
 
 class GraphTests(unittest.TestCase):

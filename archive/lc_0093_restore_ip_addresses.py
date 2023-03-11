@@ -20,7 +20,7 @@ class Solution:
             return
 
         for length in range(1, max(3, len(self._s) - i) + 1):
-            part = self._s[i : i + length]
+            part = self._s[i: i + length]
             if _valid_part(part):
                 self._path.append(part)
                 self._dfs(i + length)

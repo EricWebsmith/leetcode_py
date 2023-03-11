@@ -2,7 +2,7 @@ from typing import Any, Dict, List, Set
 
 
 def get_edges(k: int, from_tos: List[List[int]]) -> Dict[int, Set[int]]:
-    edges = {i + 1: set() for i in range(k)}
+    edges: dict[int, set[int]] = {i + 1: set() for i in range(k)}
     for from_, to_ in from_tos:
         edges[from_].add(to_)
 
@@ -10,7 +10,7 @@ def get_edges(k: int, from_tos: List[List[int]]) -> Dict[int, Set[int]]:
 
 
 def get_bidirectional_edges(vetices: List, from_tos: List[List]) -> Dict[Any, Set]:
-    edges = {v: set() for v in vetices}
+    edges: dict[int, set[int]] = {v: set() for v in vetices}
     for from_, to_ in from_tos:
         edges[from_].add(to_)
         edges[to_].add(from_)

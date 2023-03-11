@@ -17,28 +17,28 @@ class Solution:
             kill = 0
             for c in range(n):
                 if grid[r][c] == "W":
-                    horizontal_kills[r][previous_block + 1 : c + 1] = kill
+                    horizontal_kills[r][previous_block + 1: c + 1] = kill
                     previous_block = c
                     kill = 0
                 elif grid[r][c] == "E":
                     kill += 1
 
                 if c == n - 1:
-                    horizontal_kills[r][previous_block + 1 : c + 1] = kill
+                    horizontal_kills[r][previous_block + 1: c + 1] = kill
 
         for c in range(n):
             previous_block = -1
             kill = 0
             for r in range(m):
                 if grid[r][c] == "W":
-                    vertical_kills[previous_block + 1 : r + 1, c] = kill
+                    vertical_kills[previous_block + 1: r + 1, c] = kill
                     previous_block = r
                     kill = 0
                 elif grid[r][c] == "E":
                     kill += 1
 
                 if r == m - 1:
-                    vertical_kills[previous_block + 1 : r + 1, c] = kill
+                    vertical_kills[previous_block + 1: r + 1, c] = kill
 
         max_kill = 0
         for r in range(m):

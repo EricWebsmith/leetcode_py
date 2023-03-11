@@ -16,7 +16,7 @@ class Solution:
             newStart = min(intervals[right][0], newStart)
             newEnd = max(intervals[right][1], newEnd)
 
-        return intervals[:left] + [[newStart, newEnd]] + intervals[right + 1 :]
+        return intervals[:left] + [[newStart, newEnd]] + intervals[right + 1:]
 
 
 def test(

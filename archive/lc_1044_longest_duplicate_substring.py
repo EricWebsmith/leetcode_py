@@ -27,8 +27,8 @@ class Solution:
             # push i+window-1
             h = (h * BASE + nums[i + w - 1]) % MOD
             if h in seen:
-                current_substring = nums[i : i + w]
-                if any(current_substring == nums[index : index + w] for index in seen[h]):
+                current_substring = nums[i: i + w]
+                if any(current_substring == nums[index: index + w] for index in seen[h]):
                     return i
             seen[h].append(i)
         return -1
@@ -50,7 +50,7 @@ class Solution:
             else:
                 right = m - 1
 
-        return s[start : start + left]
+        return s[start: start + left]
 
 
 def test(testObj: unittest.TestCase, s: str, expected: str) -> None:

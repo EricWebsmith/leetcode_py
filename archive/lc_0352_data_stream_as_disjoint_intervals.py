@@ -21,13 +21,13 @@ class SummaryRanges:
             and self.intervals[insert_pos][0] - val <= 1
         ):
             self.intervals = (
-                self.intervals[0 : insert_pos - 1]
+                self.intervals[0: insert_pos - 1]
                 + [[self.intervals[insert_pos - 1][0], self.intervals[insert_pos][1]]]
                 + self.intervals[insert_pos + 1 :]
             )
         elif insert_pos > 0 and self.intervals[insert_pos - 1][1] - val >= -1:
             self.intervals = (
-                self.intervals[0 : insert_pos - 1]
+                self.intervals[0: insert_pos - 1]
                 + [
                     [
                         self.intervals[insert_pos - 1][0],

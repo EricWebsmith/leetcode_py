@@ -14,7 +14,7 @@ class Solution:
         return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
 
 
-def test(testObj: unittest.TestCase, p_arr: list[int|None], q_arr: list[int|None], expected: bool) -> None:
+def test(testObj: unittest.TestCase, p_arr: list[int | None], q_arr: list[int | None], expected: bool) -> None:
     p = TreeNode.from_array(p_arr)
     q = TreeNode.from_array(q_arr)
     so = Solution()

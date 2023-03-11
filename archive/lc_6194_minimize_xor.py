@@ -44,7 +44,7 @@ class Solution:
                 mask <<= 1
 
             return ans
-    
+
         return ans
 
 

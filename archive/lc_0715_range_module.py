@@ -11,7 +11,7 @@ class RangeModule:
         # Main Logic
         #   If idx(left) or idx(right) is odd, it's in a interval. So don't add it.
         #   If idx(left) or idx(right) is even, it's not in any interval. So add it as new interval
-        #   Slice array[idx(left) : idx(right)]
+        #   Slice array[idx(left): idx(right)]
         #       1) both odd: Nothing is added. Merge all middle intervals.
         #       2) both even: Add new intervals. Merge all middle intervals
         #       3) idx(left) is even: update start point of next interval with left

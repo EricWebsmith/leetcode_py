@@ -9,7 +9,7 @@ class Solution:
         return 1 + n * (n - 1) * 2
 
 
-def test(testObj: unittest.TestCase, n: int, expected:int) -> None:
+def test(testObj: unittest.TestCase, n: int, expected: int) -> None:
     so = Solution()
     actual = so.coloredCells(n)
     testObj.assertEqual(actual, expected)

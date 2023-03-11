@@ -28,7 +28,7 @@ class Solution:
         # we need to split it into two
         # in python we can simply use intervals[i-1:i] = [[a,b],[c,b]]
         if left == right + 1:
-            intervals[left - 1 : left] = [
+            intervals[left - 1: left] = [
                 [intervals[left - 1][0], toBeRemoved[0]],
                 [toBeRemoved[1], intervals[left - 1][1]],
             ]

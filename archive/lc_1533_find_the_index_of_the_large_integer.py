@@ -12,8 +12,8 @@ class ArrayReader(object):
         self.arr = arr
 
     def compareSub(self, left: int, right: int, x: int, y: int) -> int:
-        left = sum(self.arr[left : right + 1])
-        right = sum(self.arr[x : y + 1])
+        left = sum(self.arr[left: right + 1])
+        right = sum(self.arr[x: y + 1])
         if left > right:
             return 1
         if left == right:

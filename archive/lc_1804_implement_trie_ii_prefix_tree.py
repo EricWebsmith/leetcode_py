@@ -106,7 +106,7 @@ if __name__ == "__main__":
     unittest.main()
 
 # non-existant word will not be removed
-# leetcode will say : 'erase' arguments are invalid: expected 'erase existing word' to have value from 1 to 100000 only
+# leetcode will say: 'erase' arguments are invalid: expected 'erase existing word' to have value from 1 to 100000 only
 
 """
 Runtime: 355 ms, faster than 91.22%

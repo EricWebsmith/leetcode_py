@@ -25,7 +25,7 @@ class Solution:
 
         for _end in range(start, self._n):
             if self._mat[start][_end]:
-                self._path.append(self._s[start : _end + 1])
+                self._path.append(self._s[start: _end + 1])
                 self.dfs(_end + 1)
                 self._path.pop()
 

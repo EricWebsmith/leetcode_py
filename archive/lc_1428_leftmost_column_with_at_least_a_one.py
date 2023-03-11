@@ -17,7 +17,7 @@ class BinaryMatrix(object):
 
 class Solution:
     def __init__(self) -> None:
-        self.binaryMatrix : BinaryMatrix
+        self.binaryMatrix: BinaryMatrix
 
     def leftMostColumnWithOne(self, binaryMatrix: BinaryMatrix) -> int:
         self.binaryMatrix = binaryMatrix

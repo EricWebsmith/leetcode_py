@@ -16,7 +16,7 @@ class Solution:
                 right += 1
             condidate += 1
 
-        return arr[left + 1 : right]
+        return arr[left + 1: right]
 
 
 def test(testObj: unittest.TestCase, arr: List[int], k: int, x: int, expected: List[int]) -> None:

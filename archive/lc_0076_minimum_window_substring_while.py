@@ -26,7 +26,7 @@ class Solution:
                     length = right - left + 1
                     if length < best_length:
                         best_length = length
-                        best = s[left : right + 1]
+                        best = s[left: right + 1]
                 left += 1
         return best
 

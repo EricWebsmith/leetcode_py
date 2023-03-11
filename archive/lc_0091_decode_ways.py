@@ -25,7 +25,7 @@ class Solution:
         c = a + b
 
         for i in range(1, n):
-            c = a * self.two_steps(s[i - 1 : i + 1]) + b * self.one_step(s[i])
+            c = a * self.two_steps(s[i - 1: i + 1]) + b * self.one_step(s[i])
             a = b
             b = c
 
