@@ -1,7 +1,4 @@
-from typing import Any, Dict, List, Set
-
-
-def get_edges(k: int, from_tos: List[List[int]]) -> Dict[int, Set[int]]:
+def get_edges(k: int, from_tos: list[list[int]]) -> dict[int, set[int]]:
     edges: dict[int, set[int]] = {i + 1: set() for i in range(k)}
     for from_, to_ in from_tos:
         edges[from_].add(to_)
@@ -9,7 +6,7 @@ def get_edges(k: int, from_tos: List[List[int]]) -> Dict[int, Set[int]]:
     return edges
 
 
-def get_bidirectional_edges(vetices: List, from_tos: List[List]) -> Dict[Any, Set]:
+def get_bidirectional_edges(vetices: list, from_tos: list[list]) -> dict[int, set]:
     edges: dict[int, set[int]] = {v: set() for v in vetices}
     for from_, to_ in from_tos:
         edges[from_].add(to_)
@@ -18,7 +15,7 @@ def get_bidirectional_edges(vetices: List, from_tos: List[List]) -> Dict[Any, Se
     return edges
 
 
-def top_sort(edges: Dict[int, Set[int]]) -> List[int]:
+def top_sort(edges: dict[int, set[int]]) -> list[int]:
     stack: list = []
     visiting = set()
     visited = set()

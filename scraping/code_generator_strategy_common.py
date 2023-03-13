@@ -26,6 +26,7 @@ class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
         if type_changing_code:
             type_changing_code += "\r\n    "
 
+        # actual
         return_type_changing_code = ""
         if scraper.functions[0].returnType in TREENODE_OR_NONE_TYPES:
             return_type_changing_code = "actual = TreeNode.to_array(actual_root)"
@@ -43,12 +44,22 @@ class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
                 ]
             )
 
+        # expected
+        expected_type = scraper.functions[0].returnType
+        if scraper.functions[0].returnType in TREENODE_OR_NONE_TYPES:
+            expected_type = 'list[int | None]'
+        elif scraper.functions[0].returnType in NODE_OR_NONE_TYPES:
+            expected_type = 'list[int | None]'
+        elif scraper.functions[0].returnType in LISTNODE_OR_NONE_TYPES:
+            expected_type = 'list[int]'
+        
+
         scraper.test_function_code = "\r\n".join(
             [
                 "",
                 (
                     f"def test(testObj: unittest.TestCase, {test_function_parameters}, "
-                    f"expected:{scraper.functions[0].returnType}) -> None:"
+                    f"expected: {expected_type}) -> None:"
                 ),
                 f"    {type_changing_code}so = Solution()",
                 f"    {actual_code}",
