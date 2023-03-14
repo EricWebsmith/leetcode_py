@@ -11,10 +11,10 @@ class CodeGeneratorCommonStrategy(CodeGeneratorStrategy):
             if param.name == "self":
                 continue
             if param.type in TREENODE_OR_NONE_TYPES:
-                test_function_parameters += f"{param.name}_arr: list[int], "
+                test_function_parameters += f"{param.name}_arr: list[int | None], "
                 type_changing_code += f"    {param.name} = TreeNode.from_array({param.name}_arr)\r\n"
             elif param.type in NODE_OR_NONE_TYPES:
-                test_function_parameters += f"{param.name}_arr: list[int], "
+                test_function_parameters += f"{param.name}_arr: list[int | None], "
                 type_changing_code += f"    {param.name} = Node.from_array({param.name}_arr)\r\n"
             elif param.type in LISTNODE_OR_NONE_TYPES:
                 test_function_parameters += f"{param.name}_arr: list[int], "
